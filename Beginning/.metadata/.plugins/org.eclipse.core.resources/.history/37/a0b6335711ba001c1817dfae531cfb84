@@ -1,0 +1,37 @@
+package prblm;
+
+import java.util.Scanner;
+
+public class Reverse {
+	public static int reverse(int num)
+	{
+		int rev = 0;
+		int rem;
+		while(num>0)
+		{
+			//modulus return last digit of a number
+			rem = num%10; //rem = 4 rem = 5 rem = 6 rem = 7
+			rev = (rev*10)+rem; // rev = 0*10+4 = 4 rev = 45 rev = 456 rev = 4567
+			//Any number divided by ten will give the number excluding the last dig
+			num = num/10; //765 76 7 0 
+		}
+		return rev; //4567
+	}
+
+	public static void main(String[] args)
+	{
+		System.out.println("Enter a number: ");
+		Scanner sc = new Scanner(System.in);
+		int num =sc.nextInt();
+		sc.close();
+		//String valueReversed = new StringBuilder(num).reverse().toString();
+		//int a = reverse(numInt);
+		String strnum = Integer.toString(reverse(num));
+		int len = strnum.length();
+		//String s=String.valueOf(reverse(num));
+		String s1 = String.format("%4d",reverse(num));
+		System.out.println("Reversed number is: " + s1);
+	}
+
+
+}

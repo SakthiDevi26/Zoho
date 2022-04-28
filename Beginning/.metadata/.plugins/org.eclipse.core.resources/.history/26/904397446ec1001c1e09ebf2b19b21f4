@@ -1,0 +1,16 @@
+package just;
+
+import java.io.File;
+import java.io.ObjectOutputStream;
+
+public class filr {
+
+	public static void main(String[] args)
+	{
+		File file = new File("new.txt");
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+		
+		String str ="Sakthi";
+		oos.writeObject(str);
+	}
+}
