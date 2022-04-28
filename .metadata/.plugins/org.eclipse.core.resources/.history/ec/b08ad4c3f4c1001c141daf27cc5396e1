@@ -1,0 +1,10 @@
+package Admin;
+
+public class checkAdminLogin {
+
+	public boolean canAdminLogin(String adminUserName, String adminPassWord) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+}

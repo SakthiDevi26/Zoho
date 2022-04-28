@@ -1,0 +1,19 @@
+package FileHandling;
+
+import java.io.*;
+public class bankOperation {
+	File userfile = new File("userDetails.txt");
+	public static void getBalanceFromFile(String userName,String passWord)
+	{
+		
+	
+	}
+	public static void doDeposit(String userName,String passWord,int amount)
+	{
+		getBalanceFromFile(userName,passWord);
+	}
+	public static void doWithdraw(String userName,String passWord,int amount)
+	{
+		
+	}
+}

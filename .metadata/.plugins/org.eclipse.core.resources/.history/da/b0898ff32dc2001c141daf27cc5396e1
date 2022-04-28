@@ -1,0 +1,12 @@
+package basics;
+
+public interface GetDetailsInterface {
+
+
+	void getAdminLoginDetails();
+
+	void getUserLoginDetails();
+
+	boolean getUserCreateAccountDetails();
+	
+}

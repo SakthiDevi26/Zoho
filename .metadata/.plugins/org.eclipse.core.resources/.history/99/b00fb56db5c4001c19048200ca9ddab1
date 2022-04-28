@@ -1,0 +1,36 @@
+import java.util.Iterator;
+
+import org.json.simple.JSONObject;
+
+public class FoodMenu {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		JSONObject foodMenu = new JSONObject();
+		foodMenu.put("Idly", 10);
+		foodMenu.put("Dosa",70);
+		System.out.println(foodMenu);
+		//printJsonObject(foodMenu);
+		Iterator<Map.Entry> itr = foodMenu.entrySet().iterator();
+		while (itr.hasNext()) {
+		Map.Entry pair1 = itr1.next();
+		System.out.println(pair1.getKey() + " : " + pair1.getValue());
+		}
+
+
+	}
+	public static void printJsonObject(JSONObject foodMenu) {
+		//String foodMenu1=foodMenu.toString();
+		for (String keyStr : foodMenu.keySet()) {
+		       // Object keyvalue = foodMenu.get(keyStr);
+
+		        //Print key and value
+		        System.out.println("key: "+ keyStr + " value: " + foodMenu.get(keyStr));
+
+	        //for nested objects iteration if required
+	        //if (keyvalue instanceof JSONObject)
+	        //    printJsonObject((JSONObject)keyvalue);
+	    }
+	}
+
+}

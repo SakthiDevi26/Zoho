@@ -1,0 +1,38 @@
+package BankConstants;
+
+public class BankConstants {
+
+	//PrintMenu 
+	public static String savingsAccount = "Savings Account";
+	public static String checkingAccount = "Checking Account";
+	public static String user ="User";
+	public static String admin = "Admin";
+	public static String enterChoice ="Enter your choice:";
+	public static String one ="1)";
+	public static String two ="2)";
+	public static String three ="3)";
+	public static String four ="4)";
+	public static String five ="5)";
+	public static String six ="6)";
+	public static String hello ="Hello";
+	public static String whatWantToDo ="What do you want to do?";
+	public static String logout = "Logout";
+	public static String account ="Account";
+	public static String hyphen ="----";
+	public static String depositMoney ="Deposit Money";
+	public static String withdrawMoney="Withdraw Money";
+	public static String swipeCardTransfer ="Transfer Money Using SwipeCard";
+	public static String viewBalance ="View Balance";
+	
+	//GetDetails
+	public static String enter ="Enter";
+	public static String userName ="User Name";
+	public static String password ="Password";
+	public static String startingBalance ="Starting Balance";
+	
+	//message
+	public static String invalidChoice = "Invalid. Enter Valid Choice";
+	
+	public static String invalidDetails ="Account Number or Amount is invalid";
+
+}

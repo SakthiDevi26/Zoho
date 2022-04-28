@@ -1,0 +1,54 @@
+package user;
+
+import basics.*;
+import java.util.*;
+import accounts.classes.*;
+import bankconstants.BankConstants;
+
+public class UserLogin implements UserLoginInterface{
+	public void userLoginAccount()
+	{
+	PrintMenu printmenu = new PrintMenu();
+	GetDetails get = new GetDetails();
+	Scanner scanner = new Scanner(System.in);
+	
+	UserRegisterationDriver user = new UserRegisterationDriver();
+	CheckSavingsUserLogin checkSavingAccountLogin = new CheckSavingsUserLogin();
+	CheckCheckingUserLogin checkCheckingAccountLogin = new CheckCheckingUserLogin();
+	SavingsAccountDriver saveAccountDriver = new SavingsAccountDriver();
+	CheckingAccountDriver checkAccountDriver = new CheckingAccountDriver();
+	
+	printmenu.printAccountTypeMenu();
+	int choice = scanner.nextInt();
+	switch(choice)
+	{
+	case 1:
+		get.getUserLoginDetails();
+		if(checkSavingAccountLogin.canSavingsUserLogin(get.userName,get.pinNumber))
+		{
+			System.out.println(BankConstants.successfulLogin);
+			saveAccountDriver.SavingsAccount(get.userName,get.pinNumber);
+		} 
+		else
+		{
+			System.out.println(BankConstants.failedLogin);
+			user.userRegister();
+		}
+		break;
+	case 2:
+		get.getUserLoginDetails();
+		if(checkCheckingAccountLogin.canCheckingUserLogin(get.userName,get.pinNumber))
+		{
+			System.out.println(BankConstants.successfulLogin);
+			checkAccountDriver.checkingAccount(get.userName,get.pinNumber);
+		}
+		else
+		{
+			System.out.println(BankConstants.failedLogin);
+			user.userRegister();
+		}
+		break;
+		
+	}
+	}
+}

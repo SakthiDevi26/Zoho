@@ -1,0 +1,7 @@
+package accounts.interfaces;
+
+public interface SavingsAccountDriverInterface {
+
+	void SavingsAccount(String userName, String pinNumber);
+
+}

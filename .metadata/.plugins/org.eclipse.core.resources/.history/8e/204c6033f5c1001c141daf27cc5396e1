@@ -1,0 +1,41 @@
+package basics;
+import java.util.*;
+public class GetDetails {
+	public String adminUserName;
+	public String adminPassWord;
+	public String userName;
+	public String passWord;
+	public int accountBalance;
+	public void getAdminLoginDetails()
+	{
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter admin User Name:");
+		adminUserName = scanner.nextLine();
+		System.out.println("Enter admin PassWord:");
+		adminPassWord = scanner.nextLine();
+		//checkAdminLogin(adminUserName,adminPassWord);
+	}
+	public void getUserCreateAccountDetails()
+	{
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter your unique user Name:");
+		userName = scanner.nextLine();
+		System.out.println("Enter new password:");
+		passWord = scanner.nextLine();
+		System.out.println("Enter your starting balance:");
+		accountBalance = scanner.nextInt();
+		if(accountBalance<100)
+		{
+			System.out.println("Starting balance should be more than 100");
+		}
+		
+	}
+	public void getUserLoginDetails()
+	{
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter your unique user Name:");
+		userName = scanner.nextLine();
+		System.out.println("Enter new password:");
+		passWord = scanner.nextLine();
+	}
+}

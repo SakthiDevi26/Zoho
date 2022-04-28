@@ -1,0 +1,37 @@
+package user;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import basics.GetDetails;
+import sql.connection;
+
+public class checkSavingsUserLogin {
+	String sql="";
+	private static final int NULL = 0;
+	Connection con = connection.getConnection();
+	public boolean canSavingsUserLogin(String userName, int passWord)
+	{
+		if (userName == "" || passWord == NULL) {
+			System.out.println("All Field Required!");
+			return false;
+		}
+		sql = "select * from savings_customer where name='"
+				+ userName + "' and pass_code=" + passWord;
+			try {
+				PreparedStatement statement = con.prepareStatement(sql);
+				ResultSet resultset = statement.executeQuery();
+				if(resultset.next())
+				{
+					return true;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		return false;
+	}
+}

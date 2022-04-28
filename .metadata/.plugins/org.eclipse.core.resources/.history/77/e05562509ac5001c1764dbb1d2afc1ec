@@ -1,0 +1,63 @@
+package BankConstants;
+
+public class BankConstants {
+
+	//PrintMenu 
+	public static String savingsAccount = "Savings Account";
+	public static String checkingAccount = "Checking Account";
+	public static String user ="User";
+	public static String admin = "Admin";
+	public static String enterChoice ="Enter your choice:";
+	public static String one ="1)";
+	public static String two ="2)";
+	public static String three ="3)";
+	public static String four ="4)";
+	public static String five ="5)";
+	public static String six ="6)";
+	public static String hello ="Hello";
+	public static String whatWantToDo ="What do you want to do?";
+	public static String logout = "Logout";
+	public static String account ="Account";
+	public static String hyphen ="----";
+	public static String depositMoney ="Deposit Money";
+	public static String withdrawMoney="Withdraw Money";
+	public static String swipeCardTransfer ="Transfer Money Using SwipeCard";
+	public static String viewBalance ="View Balance";
+	
+	//GetDetails
+	public static String enter ="Enter";
+	public static String userName ="User Name";
+	public static String password ="Password";
+	public static String startingBalance ="Starting Balance";
+	
+	//message
+	public static String invalidChoice = "Invalid. Enter Valid Choice";
+	
+	public static String invalidDetails ="Account Number or Amount is invalid";
+	public static String successfulLogin ="LoggedIn Successfully!!";
+	public static String failedLogin ="Login Failed :(";
+	public static String invalidLoginCredentials ="User Name or Password is wrong.Please enter correct credentials";
+	public static String incompleteFields ="Sorry all fields are required.";
+	
+	//sql'
+	public static String adminTable = "admin";
+	public static String savingsCustomerTable = "savings_customer";
+	public static String checkingCustomerTable = "checking_customer";
+	
+	public static String accountNumberColumn ="ac_no";
+	public static String userNameColumn ="name";
+	public static String balanceColumn ="balance";
+	public static String pinNumberColumn ="pass_code";
+	
+	public static String body = " \t\t\t^__^\n" +
+			" \t\t\t(oo)\\_______\n" +
+			" \t\t\t(__)\\        )\\/\\\n" +
+			" \t\t\t     ||----w |\n" +
+			" \t\t\t     ||     ||\n";
+
+			public static String quoteLine = "------------------------\nWhat Do You want to do?\n------------------------\n"
+		  + "\t\t \\\n" +
+			"\t\t  \\\n" +
+			"\t\t    \\";
+	
+}

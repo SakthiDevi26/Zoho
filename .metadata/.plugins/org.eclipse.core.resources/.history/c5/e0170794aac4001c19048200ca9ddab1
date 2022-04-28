@@ -1,0 +1,27 @@
+import org.json.simple.JSONObject;
+
+public class FoodMenu {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		JSONObject foodMenu = new JSONObject();
+		foodMenu.put("Idly", 10);
+		foodMenu.put("Dosa",70);
+		System.out.println(foodMenu);
+		printJsonObject(foodMenu);
+		
+	}
+	public static void printJsonObject(JSONObject foodMenu) {
+	    for (String keyStr : (String)foodMenu.keySet()) {
+	        Object keyvalue = foodMenu.get(keyStr);
+
+	        //Print key and value
+	        System.out.println("key: "+ keyStr + " value: " + keyvalue);
+
+	        //for nested objects iteration if required
+	        //if (keyvalue instanceof JSONObject)
+	        //    printJsonObject((JSONObject)keyvalue);
+	    }
+	}
+
+}

@@ -1,0 +1,110 @@
+package Account;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class SavingsAccountMethods extends AccountMethods{
+
+	@Override
+	public boolean depositMoney(int accountNumber, int amount) throws SQLException {
+		// TODO Auto-generated method stub
+		if (accountNumber==NULL || amount == NULL) {
+			System.out.println("No amount Added. Account Number or amount is null");
+			return false;
+		}
+		try {
+			con.setAutoCommit(false);
+			sql = "select * from savings_customer where ac_no="
+				+ accountNumber;
+			PreparedStatement preparedstatement
+				= con.prepareStatement(sql);
+			preparedstatement.executeQuery();
+
+
+			Statement statement = con.createStatement();
+
+
+			sql = "update savings_customer set balance=balance+"
+				+ amount + " where ac_no=" + accountNumber;
+			if (statement.executeUpdate(sql) == 1) {
+				con.commit();
+				return true;
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			con.rollback();
+		}
+		// return
+		return false;
+	}
+
+	@Override
+	public boolean withdrawMoney(int accountNumber, int amount, int accountBalance) throws SQLException {
+		// TODO Auto-generated method stub
+		int charges=0;
+		if(amount%5!=0) {
+			System.out.println("Please enter in multiples of 5");
+			return false;
+		}
+		if(amount>100)
+		{
+			charges = (int)(0.04*amount);
+			amount = amount + charges;
+			System.out.println("Charges: "+charges);
+		}
+		else
+		{
+			charges = (int)(0.02*amount);
+			amount = amount + charges;
+			System.out.println("Charges: "+charges);
+		}
+		if(amount<accountBalance)
+		{
+		try {
+			con.setAutoCommit(false);
+			sql = "select * from savings_customer where ac_no="
+				+ accountNumber;
+			PreparedStatement ps
+				= con.prepareStatement(sql);
+			ps.executeQuery();
+
+
+			Statement st = con.createStatement();
+
+			// debit
+			//con.setSavepoint();
+
+			sql = "update savings_customer set balance=balance-"+ amount + " where ac_no=" + accountNumber;
+			if (st.executeUpdate(sql) == 1) {
+				con.commit();
+				return true;
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			con.rollback();
+		}
+		}
+		else
+		{
+			System.out.println("Balance insufficient");
+		}
+		// return
+		return false;
+	}
+
+	@Override
+	public boolean swipeTransferMoney(int accountNumber, int balance, int amount) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void getBalance(int acNo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

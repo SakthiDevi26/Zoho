@@ -1,0 +1,5 @@
+package adminFunctions;
+
+public interface DeleteUsersInterface {
+
+}

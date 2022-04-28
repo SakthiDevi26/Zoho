@@ -1,0 +1,33 @@
+package Account;
+
+import java.util.Scanner;
+
+import basics.PrintMenu;
+
+public class SavingsAccountDriver {
+	public void SavingsAccount(String userName, int passWord) {
+		
+		
+	PrintMenu printmenu = new PrintMenu();
+	Scanner scanner = new Scanner(System.in);
+	printmenu.printSavingsUserMenu();
+	int choice = scanner.nextInt();
+	switch(choice)
+	{
+	case 1:
+		//Deposit money
+	case 2:
+		//withdraw
+	case 3:
+		//swipe
+	case 4:
+		//apply
+	case 5:
+		//view
+	case 6:
+		//logout
+	default:
+		System.out.println("Enter valid choice");
+	}
+	}
+}

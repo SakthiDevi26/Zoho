@@ -1,0 +1,16 @@
+package Admin;
+
+import java.sql.Connection;
+
+import sql.connection;
+
+public class checkAdminLogin {
+	String sql="";
+	private static final int NULL = 0;
+	Connection con = connection.getConnection();
+	public boolean canAdminLogin(String adminUserName, String adminPassWord) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+}

@@ -1,0 +1,50 @@
+package basics;
+
+import BankConstants.BankConstants;
+
+public class PrintMenu implements PrintMenuInterface{
+	
+	public void printMainMenu()
+	{
+		System.out.println(BankConstants.mainMenu);
+	}
+	public void printAdminMenu()
+	{
+		System.out.println(BankConstants.adminMenu);
+	}
+	public void printUserMainMenu()
+	{
+		System.out.println(BankConstants.userMainMenu);
+	}
+	public void printAccountTypeMenu()
+	{
+		System.out.println("----Account Type----");
+		System.out.println("1)Savings Account");
+		System.out.println("2)Checkings Account");
+		System.out.println("Enter account type:");
+	}
+	public void printSavingsUserMenu()
+	{
+		System.out.println("Hello Savings Account User!");
+		System.out.println("What do you want to do?");
+		System.out.println("1)Deposit Money");
+		System.out.println("2)Withdraw Money");
+		System.out.println("3)Transfer Money Using Swipe Card");
+		System.out.println("4)Apply Interest");
+		System.out.println("5)View Balance");
+		System.out.println("6)Logout");
+		System.out.println("Enter your choice:");
+	}
+	public void printCheckingUserMenu()
+	{
+		System.out.println("Hello Checking Account User!");
+		System.out.println("What do you want to do?");
+		System.out.println("1)Deposit Money");
+		System.out.println("2)Withdraw Money");
+		System.out.println("3)Transfer Money Using Swipe Card");
+		System.out.println("4)View Balance");
+		System.out.println("5)Logout");
+		System.out.println("Enter your choice:");
+	}
+
+}

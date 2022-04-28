@@ -1,0 +1,49 @@
+package adminFunctions;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import sql.connection;
+
+public class viewUsers implements ViewUsersInterface {
+	String sql="";
+	Connection connect = connection.getConnection();
+	public void viewAllUsers()
+	{
+		Statement statement;
+		try {
+			statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery("Select * from savings_customer");
+			System.out.println("-----Savings Account-----");
+			System.out.println("accountNumber  accountName  balance  passCode");
+			while (resultset.next())
+			{
+				int accountNumber = resultset.getInt("ac_no");
+				String accountName = resultset.getString("name");
+				int balance = resultset.getInt("balance");
+				int passCode = resultset.getInt("pass_code");
+				System.out.println("      "+accountNumber+"           "+accountName+"         "+balance+"        "+passCode+"\n");
+			}
+			//view checkings account customer
+			Statement statement1 = connect.createStatement(); 
+			ResultSet resultset1 = statement1.executeQuery("Select * from checkings_customer");
+			System.out.println("-----Checkings Account-----");
+			System.out.println("accountNumber  accountName  balance  passCode");
+			while (resultset1.next())
+			{
+				int accountNumber = resultset1.getInt("ac_no");
+				String accountName = resultset1.getString("name");
+				int balance = resultset1.getInt("balance");
+				int passCode = resultset1.getInt("pass_code");
+				System.out.printf("      "+accountNumber+"           "+accountName+"         "+balance+"        "+passCode+"\n");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+	}
+}
+

@@ -1,0 +1,34 @@
+package Admin;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import sql.connection;
+
+public class checkAdminLogin {
+	String sql="";
+	private static final int NULL = 0;
+	Connection con = connection.getConnection();
+	public boolean canAdminLogin(String adminUserName, int adminPassWord) {
+		// TODO Auto-generated method stub
+		//BufferedReader scanner = new BufferedReader(
+				//new InputStreamReader(System.in));
+		if (adminUserName == "" || adminPassWord == NULL) {
+			System.out.println("All Field Required!");
+			return false;
+		}
+		sql = "select * from admin where aname='"
+				+ adminUserName + "' and admin_pass=" + adminPassWord;
+			try {
+				PreparedStatement statement = con.prepareStatement(sql);
+				ResultSet resultset = statement.executeQuery();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+}

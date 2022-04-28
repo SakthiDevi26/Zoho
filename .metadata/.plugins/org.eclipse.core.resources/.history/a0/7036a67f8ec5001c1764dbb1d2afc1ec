@@ -1,0 +1,202 @@
+package Account;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class SavingsAccountMethods extends AccountMethods{
+
+	@Override
+	public boolean depositMoney(int accountNumber, int amount) throws SQLException {
+		// TODO Auto-generated method stub
+		if (accountNumber==NULL || amount == NULL || amount<0) {
+			System.out.println("No amount Added. Account Number or amount is null");
+			return false;
+		}
+		try {
+			connect.setAutoCommit(false);
+			sql = "select * from savings_customer where ac_no="
+				+ accountNumber;
+			PreparedStatement preparedstatement
+				= connect.prepareStatement(sql);
+			preparedstatement.executeQuery();
+
+
+			Statement statement = connect.createStatement();
+
+
+			sql = "update savings_customer set balance=balance+"
+				+ amount + " where ac_no=" + accountNumber;
+			if (statement.executeUpdate(sql) == 1) {
+				connect.commit();
+				return true;
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			connect.rollback();
+		}
+		// return
+		return false;
+	}
+
+	@Override
+	public boolean withdrawMoney(int accountNumber, int amount, int accountBalance) {
+		// TODO Auto-generated method stub
+		int charges=0;
+		if(amount%5!=0) {
+			System.out.println("Please enter in multiples of 5");
+			return false;
+		}
+		if(amount>100)
+		{
+			charges = (int)(0.04*amount);
+			amount = amount + charges;
+			System.out.println("Charges: "+charges);
+		}
+		else
+		{
+			charges = (int)(0.02*amount);
+			amount = amount + charges;
+			System.out.println("Charges: "+charges);
+		}
+		if(amount<accountBalance)
+		{
+		try {
+			connect.setAutoCommit(false);
+			sql = "select * from savings_customer where ac_no="
+				+ accountNumber;
+			PreparedStatement preparedstatement
+				= connect.prepareStatement(sql);
+			preparedstatement.executeQuery();
+
+
+			Statement statement = connect.createStatement();
+			sql = "update savings_customer set balance=balance-"+ amount + " where ac_no=" + accountNumber;
+			if (statement.executeUpdate(sql) == 1) {
+				connect.commit();
+				return true;
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			try {
+				connect.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		}
+		else
+		{
+			System.out.println("Balance insufficient");
+		}
+		// return
+		return false;
+	}
+
+	@Override
+	public boolean swipeTransferMoney(int accountNumber, int accountBalance, int amount) throws SQLException {
+		// TODO Auto-generated method stub
+		if(amount<accountBalance)
+		{
+		int cashBack =(int)(0.01*amount);
+		System.out.println("CashBack: "+cashBack);
+		amount = amount-cashBack;
+		
+		try {
+			connect.setAutoCommit(false);
+			sql = "select * from savings_customer where ac_no="
+				+ accountNumber;
+			PreparedStatement preparedstatement
+				= connect.prepareStatement(sql);
+			preparedstatement.executeQuery();
+
+
+			Statement statement = connect.createStatement();
+			sql = "update savings_customer set balance=balance-"
+				+ amount + " where ac_no=" + accountNumber;
+			if (statement.executeUpdate(sql) == 1) {
+				System.out.println("Amount Withdrawed!");
+				connect.commit();
+				return true;
+			}
+
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			connect.rollback();
+		}
+		}
+		return false;
+	}
+
+	@Override
+	public void getBalance(int acNo) {
+		// TODO Auto-generated method stub
+		try {
+
+			// query
+			sql = "select * from savings_customer where ac_no="
+				+ acNo;
+			PreparedStatement statement
+				= connect.prepareStatement(sql);
+
+			ResultSet resultset = statement.executeQuery(sql);
+			System.out.println(
+				"-----------------------------------------------------------");
+			System.out.printf("%12s %10s %10s\n",
+							"Account No", "Name",
+							"Balance");
+
+			// Execution
+
+			while (resultset.next()) {
+				System.out.printf("%12d %10s %10d.00\n",
+								resultset.getInt("ac_no"),
+								resultset.getString("name"),
+								resultset.getInt("balance"));
+			}
+			System.out.println(
+				"-----------------------------------------------------------\n");
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+	}
+
+	public boolean applyInterest(int accountNumber, int accountBalance) {
+		// TODO Auto-generated method stub
+		int interest = (int)(0.02*accountBalance);
+		System.out.println("Interest:"+interest);
+		try {
+			connect.setAutoCommit(false);
+			sql = "select * from savings_customer where ac_no=" + accountNumber;
+			PreparedStatement preparedstatement = connect.prepareStatement(sql);
+			preparedstatement.executeQuery();
+			Statement statement = connect.createStatement();
+			sql ="update savings_customer set balance= "+(accountBalance+interest) +" where ac_no="+accountNumber;
+				if (statement.executeUpdate(sql) == 1) {
+					System.out.println("Interest Applied!");
+					connect.commit();
+					return true;
+				}
+		
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			try {
+				connect.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		return false;
+	}
+
+}

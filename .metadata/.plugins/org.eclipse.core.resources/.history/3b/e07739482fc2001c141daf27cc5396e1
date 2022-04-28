@@ -1,0 +1,74 @@
+package user;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+import basics.GetDetails;
+import basics.PrintMenu;
+import basics.PrintMenuInterface;
+import sql.connection;
+
+public class CreateUserAccount {
+	String sql="";
+	Connection connect = connection.getConnection();
+	public boolean createUserAccount() {
+		PrintMenuInterface printmenu = new PrintMenu();
+		printmenu.printAccountTypeMenu();
+		GetDetails get = new GetDetails();
+		Scanner scanner = new Scanner(System.in);
+		int choice = scanner.nextInt();
+		if(choice == 1)
+		{
+				if(get.getUserCreateAccountDetails())
+				{
+				Statement statement;
+				try {
+					statement = connect.createStatement();
+					sql ="Insert into savings_customer(name,balance,pass_code) values('"+ get.userName+"'," +get.accountBalance+ "," + get.passWord +")";
+					if (statement.executeUpdate(sql)==1)
+					{
+						//System.out.println("Savings account user added successfully!!");
+						return true;
+					}
+				}catch (SQLIntegrityConstraintViolationException e) {
+					System.out.println("Username Not Available!");
+				}
+				catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				} 
+			return false;
+		}
+		else if(choice == 2)
+		{
+			if(get.getUserCreateAccountDetails())
+			{
+				Statement statement;
+				try {
+					statement = connect.createStatement();
+					sql ="Insert into checkings_customer(name,balance,pass_code) values('"+ get.userName + "'" +get.accountBalance + get.passWord +")";
+					if (statement.executeUpdate(sql)==1)
+					{
+						//System.out.println("Checkings account user added successfully!!");
+						return true;
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			return false;
+		}
+		else
+		{
+			System.out.println("Enter valid choice");
+			createUserAccount();
+		}
+		return false;
+	}
+}

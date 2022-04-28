@@ -1,0 +1,16 @@
+package basics;
+
+public interface GetDetailsInterface {
+
+	String adminUserName = null;
+	int adminPassWord = 0;
+	String userName = null;
+	String passWord = null;
+
+	void getAdminLoginDetails();
+
+	void getUserLoginDetails();
+
+	boolean getUserCreateAccountDetails();
+	
+}

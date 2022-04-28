@@ -1,0 +1,17 @@
+package basics;
+
+public interface PrintMenuInterface {
+	public void print();
+
+	public void printCheckingUserMenu();
+
+	public void printSavingsUserMenu();
+
+	public void printAdminMenu();
+
+	public void printAccountTypeMenu();
+
+	public void printMainMenu();
+
+	public void printUserMainMenu();
+}

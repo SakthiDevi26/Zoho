@@ -1,0 +1,54 @@
+package user;
+
+import basics.*;
+import java.util.*;
+
+import Account.CheckingAccountDriver;
+import Account.SavingsAccountDriver;
+
+public class UserLogin implements UserLoginInterface{
+	public void userLoginAccount()
+	{
+	PrintMenu printmenu = new PrintMenu();
+	GetDetails get = new GetDetails();
+	Scanner scanner = new Scanner(System.in);
+	printmenu.printAccountTypeMenu();
+	int choice = scanner.nextInt();
+	switch(choice)
+	{
+	case 1:
+		get.getUserLoginDetails();
+		CheckSavingsUserLoginInterface checksave = new checkSavingsUserLogin();
+		if(checksave.canSavingsUserLogin(get.userName,get.passWord))
+		{
+			System.out.println("Successfully logged in");
+			SavingsAccountDriverInterface savedriver = new SavingsAccountDriver();
+			savedriver.SavingsAccount(get.userName,get.passWord);
+		}
+		else
+		{
+			System.out.println("Cannot login");
+			UserRegisterationInterface user = new UserRegisteration();
+			user.userRegister();
+		}
+		break;
+	case 2:
+		get.getUserLoginDetails();
+		checkCheckingUserLoginInterface checkchecking = new checkCheckingUserLogin();
+		if(checkchecking.canCheckingUserLogin(get.userName,get.passWord))
+		{
+			System.out.println("Successfully logged in");
+			CheckingAccountDriverInterface checkdriver = new CheckingAccountDriver();
+			checkdriver.CheckingAccount(get.userName,get.passWord);
+		}
+		else
+		{
+			System.out.println("Cannot login");
+			UserRegisterationInterface user = new UserRegisteration();
+			user.userRegister();
+		}
+		break;
+		
+	}
+	}
+}

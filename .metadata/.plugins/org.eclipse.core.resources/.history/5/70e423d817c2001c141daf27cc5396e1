@@ -1,0 +1,42 @@
+package Account;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+import sql.connection;
+import basics.PrintMenu;
+
+public class SavingsAccountDriver {
+
+	public void SavingsAccount(String userName, int passWord) {
+		
+	sql = "select * from savings_customer where name='"
+			+ name + "' and pass_code=" + passCode;
+	PreparedStatement st
+			= con.prepareStatement(sql);
+	ResultSet rs = st.executeQuery();
+	PrintMenu printmenu = new PrintMenu();
+	Scanner scanner = new Scanner(System.in);
+	printmenu.printSavingsUserMenu();
+	int choice = scanner.nextInt();
+	switch(choice)
+	{
+	case 1:
+		//Deposit money
+	case 2:
+		//withdraw
+	case 3:
+		//swipe
+	case 4:
+		//apply
+	case 5:
+		//view
+	case 6:
+		//logout
+	default:
+		System.out.println("Enter valid choice");
+	}
+	}
+}

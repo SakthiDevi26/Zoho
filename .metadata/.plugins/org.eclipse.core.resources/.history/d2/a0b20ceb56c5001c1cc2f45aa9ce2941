@@ -1,0 +1,19 @@
+package Admin;
+
+import basics.GetDetails;
+
+public class AdminLogin implements AdminLoginInterface {
+	//connection
+	public boolean adminLoginAccount() {
+		GetDetails getdetails = new GetDetails();
+		CheckAdminLoginInterface checkadminlogin = new checkAdminLogin();
+		
+		getdetails.getAdminLoginDetails();
+		if(checkadminlogin.canAdminLogin(getdetails.adminUserName,getdetails.adminPassWord))
+		{
+			System.out.println("Admin Login Successful!");			
+			return true;
+		}
+		return false;
+	}
+}

@@ -1,0 +1,10 @@
+package Admin;
+
+import basics.GetDetails;
+
+public class AdminLogin {
+	//connection
+	GetDetails getdetails = new GetDetails();
+	getdetails.getAdminLoginDetails();
+	
+}

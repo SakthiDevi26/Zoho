@@ -1,0 +1,31 @@
+package Account;
+
+import java.sql.SQLException;
+
+public class CheckingAccountMethods extends AccountMethods{
+
+	@Override
+	public boolean depositMoney(int accountNumber, int amount) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean withdrawMoney(int accountNumber, int balance, int amount) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean swipeTransferMoney(int accountNumber, int balance, int amount) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void getBalance(int acNo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+package user;
+
+public class CheckingUserLogin {
+
+	public boolean canCheckingUserLogin(String userName, int passWord) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

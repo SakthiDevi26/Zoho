@@ -1,0 +1,27 @@
+package BankConstants;
+
+public class BankConstants {
+
+	
+	public static String savingsAccount = "Savings Account";
+	public static String checkingAccount = "Checking Account";
+	public static String user ="User";
+	public static String admin = "Admin";
+	public static String enterChoice ="Enter your choice:";
+	public static String one ="1)";
+	public static String two ="2)";
+	public static String three ="3)";
+	public static String four ="4)";
+	public static String hello ="Hello";
+	public static String whatWantToDo ="What do you want to do?";
+	public static String mainMenu = "----Welcome to Bank----\nAre You?\n1)"+admin+"\n2)User\n"+enterChoice;
+	public static String adminMenu ="Hello Admin!\n1)View Users\n2)Add Users\n3)Delete Users\n4)Logout\nEnter your choice:";
+	public static String userMainMenu ="Hello User!\n1)Create New User Account\n2)Login into Existing User Account\nEnter your choice:";
+	public static String accountTypeMenu = "----Account Type----\n1)"+savingsAccount+"2)Checking Account\nEnter Account Type:";
+	
+	
+	
+	public static String checkingUserMenu = "Hello"+checkingAccount+"User!\nWhat do you want to do?\n1)Deposit Money\n2)Withdraw Money\n3)"
+			+ "Transfer Money using SwipeCard\n4)View Balance\n5)Logout\n"+enterChoice;
+
+}

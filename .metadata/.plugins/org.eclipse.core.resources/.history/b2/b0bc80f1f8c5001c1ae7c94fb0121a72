@@ -1,0 +1,7 @@
+package Admin;
+
+public interface AdminLoginInterface {
+
+	boolean adminLoginAccount();
+
+}

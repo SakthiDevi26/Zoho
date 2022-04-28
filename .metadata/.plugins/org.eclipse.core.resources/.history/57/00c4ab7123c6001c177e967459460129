@@ -1,0 +1,17 @@
+package adminfunctions.testcases;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import basics.GetDetails;
+
+class TestAddUsers {
+
+	@Test
+	void test() {
+		GetDetails getdetails = new GetDetails();
+		
+	}
+
+}

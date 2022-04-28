@@ -1,0 +1,116 @@
+package Account;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+import sql.connection;
+import basics.Main;
+import basics.PrintMenu;
+
+public class SavingsAccountDriver {
+
+
+	AccountMethods savemethods = new SavingsAccountMethods();
+	Connection con = connection.getConnection();
+	String sql = "";
+	public int accountNumber, accountBalance, amount;
+	public void SavingsAccount(String userName, int passWord) {
+		
+	sql = "select * from savings_customer where name='"
+			+ userName + "' and pass_code=" + passWord;
+	
+	try {
+		PreparedStatement statement = con.prepareStatement(sql);
+		ResultSet resultset = statement.executeQuery();
+		resultset.next();
+		accountNumber = resultset.getInt("ac_no");
+		accountBalance = resultset.getInt("balance");
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	PrintMenu printmenu = new PrintMenu();
+	Scanner scanner = new Scanner(System.in);
+	//int choice ;
+	printmenu.printSavingsUserMenu();
+	int choice = scanner.nextInt();
+	switch(choice)
+	{
+	case 1:
+		//Deposit money
+		System.out.print("Enter Amount:");
+		amount = scanner.nextInt();
+		try {
+			if(savemethods.depositMoney(accountNumber, amount)) {
+				System.out.println("MSG : Money Deposited Successfully!\n");
+			}
+			else {
+				System.out.println(
+					"ERR : Failed!\n");			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		break;
+	case 2:
+		//withdraw
+		System.out.print("Enter Amount:");
+		amount = scanner.nextInt();
+		try {
+			if(savemethods.withdrawMoney(accountNumber, amount,accountBalance)) {
+				System.out.println("MSG : Money Withdrawed Successfully!\n");
+			}
+			else {
+				System.out.println(
+					"ERR : Failed!\n");	
+				}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		break;
+	case 3:
+		//swipe
+		System.out.print("Enter Amount:");
+		amount = scanner.nextInt();
+		
+		try {
+			if (savemethods.swipeTransferMoney(accountNumber,accountBalance, amount)) {
+				System.out.println("MSG : Money Transfered Successfully!\n");
+			}
+			else {
+				System.out.println("ERR : Failed!\n");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		break;
+	case 4:
+		//apply
+		SavingsAccountMethods savingmethod = new SavingsAccountMethods();
+		if (savingmethod.applyInterest(accountNumber,accountBalance))
+		{
+			System.out.println("Applied Interest Successfully!");
+		}
+		else {
+			System.out.println("ERR: cannot apply interest");
+		}
+		break;
+	case 5:
+		savemethods.getBalance(accountNumber);
+		break;
+	case 6:
+		System.out.println("Thank you. Visit Again");
+		System.exit(6);
+		break;
+	default:
+		System.out.println("Enter valid choice");
+		break;
+	}
+	SavingsAccount(userName,passWord);
+	}
+}

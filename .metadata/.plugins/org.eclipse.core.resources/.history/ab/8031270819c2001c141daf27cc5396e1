@@ -1,0 +1,61 @@
+package Account;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class SavingsAccountMethods extends AccountMethods{
+
+	@Override
+	public boolean depositMoney(int accountNumber, int amount) throws SQLException {
+		// TODO Auto-generated method stub
+		if (accountNumber==NULL || amount == NULL) {
+			System.out.println("No amount Added");
+			return false;
+		}
+		try {
+			con.setAutoCommit(false);
+			sql = "select * from savings_customer where ac_no="
+				+ accountNumber;
+			PreparedStatement preparedstatement
+				= con.prepareStatement(sql);
+			preparedstatement.executeQuery();
+
+
+			Statement statement = con.createStatement();
+
+
+			sql = "update savings_customer set balance=balance+"
+				+ amount + " where ac_no=" + accountNumber;
+			if (statement.executeUpdate(sql) == 1) {
+				con.commit();
+				return true;
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			con.rollback();
+		}
+		// return
+		return false;
+	}
+
+	@Override
+	public boolean withdrawMoney(int accountNumber, int balance, int amount) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean swipeTransferMoney(int accountNumber, int balance, int amount) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void getBalance(int acNo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

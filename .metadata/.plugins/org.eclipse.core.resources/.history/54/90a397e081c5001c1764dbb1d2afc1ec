@@ -1,0 +1,7 @@
+package user;
+
+public interface CheckSavingsUserLoginInterface {
+
+	boolean canSavingsUserLogin(String userName, int passWord);
+
+}

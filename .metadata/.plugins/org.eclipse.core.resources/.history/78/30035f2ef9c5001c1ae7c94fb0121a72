@@ -1,0 +1,61 @@
+package admin.classes;
+
+import java.util.*;
+
+import adminFunctions.AddUsers;
+import adminFunctions.AddUsersInterface;
+import adminFunctions.DeleteUsers;
+import adminFunctions.DeleteUsersInterface;
+import adminFunctions.ViewUsersInterface;
+import adminFunctions.ViewUsers;
+import basics.Main;
+import basics.PrintMenu;
+import 	BankConstants.BankConstants;
+public class AdminManagement implements AdminManagementInterface {
+	public void adminOperations() {
+		
+		PrintMenu printmenu = new PrintMenu();
+		Scanner scanner = new Scanner(System.in);
+		
+		printmenu.printAdminMenu();
+		int choice;
+		choice = scanner.nextInt();
+		switch(choice)
+		{
+		case 1:
+			ViewUsersInterface view = new ViewUsers();
+			view.viewAllUsers();
+			break;
+		case 2:
+			AddUsersInterface add = new AddUsers();
+			if(add.addUsers())
+			{
+				System.out.println("User added successfully");
+			}
+			else
+			{
+				System.out.println("User cannot be added. Sorry");
+			}
+			break;
+		case 3:
+			DeleteUsersInterface delete = new DeleteUsers();
+			if(delete.deleteUsers())
+			{
+				System.out.println("User deleted successfully");
+			}
+			else
+			{
+				System.out.println("User cannot be deleted. Sorry");
+			}
+			break;
+		case 4:
+			System.out.println(BankConstants.successfulLogout);
+			Main.main(null);
+			break;
+		default:
+			System.out.println(BankConstants.invalidChoice);
+		}
+
+		adminOperations();
+	}
+}

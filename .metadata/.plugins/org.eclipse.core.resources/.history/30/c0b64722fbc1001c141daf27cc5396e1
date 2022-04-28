@@ -1,0 +1,32 @@
+package Admin;
+
+import java.util.*;
+
+import adminFunctions.viewUsers;
+import basics.PrintMenu;
+
+public class adminManagement {
+	public void adminOperations() {
+		PrintMenu printmenu = new PrintMenu();
+		printmenu.printAdminMenu();
+		Scanner scanner = new Scanner(System.in);
+		int choice;
+		choice = scanner.nextInt();
+		switch(choice)
+		{
+		case 1:
+			viewUsers view = new viewUsers();
+			view.viewAllUsers();
+			break;
+		case 2:
+			//addUsers()
+			break;
+		case 3:
+			//deleteUsers()
+			break;
+		case 4:
+			//logout
+			break;
+		}
+	}
+}

@@ -1,0 +1,24 @@
+package adminFunctions;
+
+import java.sql.Connection;
+
+
+import sql.connection;
+import user.CreateUserAccount;
+
+
+public class AddUsers implements AddUsersInterface, AddUsersInterface {
+	String sql="";
+	Connection connect = connection.getConnection();
+	public boolean addUsers() {
+		CreateUserAccount create = new CreateUserAccount();
+		if(create.createUserAccount())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+}

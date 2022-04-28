@@ -1,0 +1,19 @@
+1650974116571	Rename type 'adminManagement'
+1650974132185	Rename type 'checkAdminLogin'
+1650974153584	Rename type 'viewUsers'
+1650974193966	Rename type 'connection'
+1650976133613	Rename type 'BankStringConstants'
+1651035459112	Delete element
+1651040932199	Delete element
+1651041443808	Delete element
+1651041865873	Delete element
+1651041882647	Delete element
+1651042945209	Rename package 'admin.classes'
+1651043214488	Delete element
+1651043220347	Delete element
+1651043225753	Delete element
+1651044296746	Rename local variable 'checksave'
+1651044454805	Rename package 'user.classes'
+1651053678289	Delete element
+1651053682814	Delete element
+1651061607509	Delete element

@@ -1,0 +1,57 @@
+package Admin;
+
+import java.util.*;
+
+import adminFunctions.AddUsers;
+import adminFunctions.DeleteUsers;
+import adminFunctions.viewUsers;
+import basics.Main;
+import basics.PrintMenu;
+import basics.PrintMenuInterface;
+
+public class adminManagement {
+	public void adminOperations() {
+		PrintMenuInterface printmenu = new PrintMenu();
+		printmenu.printAdminMenu();
+		Scanner scanner = new Scanner(System.in);
+		int choice;
+		choice = scanner.nextInt();
+		switch(choice)
+		{
+		case 1:
+			viewUsers view = new viewUsers();
+			view.viewAllUsers();
+			break;
+		case 2:
+			AddUsers add = new AddUsers();
+			if(add.addUsers())
+			{
+				System.out.println("User added successfully");
+			}
+			else
+			{
+				System.out.println("User cannot be added. Sorry");
+			}
+			break;
+		case 3:
+			DeleteUsers delete = new DeleteUsers();
+			if(delete.deleteUsers())
+			{
+				System.out.println("User deleted successfully");
+			}
+			else
+			{
+				System.out.println("User cannot be deleted. Sorry");
+			}
+			break;
+		case 4:
+			System.out.println("Logged Out Successfully");
+			System.exit(4);
+			break;
+		}
+		if(choice!=4)
+		{
+		adminOperations();
+		}
+	}
+}

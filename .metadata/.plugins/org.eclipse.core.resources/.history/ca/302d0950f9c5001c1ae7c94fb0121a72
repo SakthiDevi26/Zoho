@@ -1,0 +1,18 @@
+package admin.classes;
+
+import basics.GetDetails;
+import BankConstants.BankConstants;
+public class AdminLogin implements AdminLoginInterface {
+	//connection
+	public boolean adminLoginAccount() {
+		GetDetails getdetails = new GetDetails();
+		CheckAdminLoginInterface checkadminlogin = new CheckAdminLogin();
+		
+		getdetails.getAdminLoginDetails();
+		if(checkadminlogin.canAdminLogin(getdetails.adminUserName,getdetails.adminPassWord))
+		{		
+			return true;
+		}
+		return false;
+	}
+}

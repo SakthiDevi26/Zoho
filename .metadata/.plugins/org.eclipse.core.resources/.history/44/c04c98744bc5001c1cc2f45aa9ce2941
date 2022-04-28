@@ -1,0 +1,36 @@
+package Admin;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import sql.connection;
+
+public class checkAdminLogin implements CheckAdminLoginInterface {
+	String sql="";
+	private static final int NULL = 0;
+	Connection connect = connection.getConnection();
+	public boolean canAdminLogin(String adminUserName, int adminPassWord) {
+		// TODO Auto-generated method stub
+		if (adminUserName == "" || adminPassWord == NULL) {
+			System.out.println("All Field Required!");
+			return false;
+		}
+		sql = "select * from admin where aname='"
+				+ adminUserName + "' and admin_pass=" + adminPassWord;
+		try {
+			PreparedStatement statement = connect.prepareStatement(sql);
+			ResultSet resultset = statement.executeQuery();
+			if(resultset.next())
+			{
+				return true;
+			}
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+}

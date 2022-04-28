@@ -1,0 +1,11 @@
+package FileHandling;
+
+public abstract class Account {
+
+	
+	public Account(String userName, String passWord)
+	{
+		this.userName = userName;
+		this.passWord = passWord;
+	}
+}

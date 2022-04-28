@@ -1,0 +1,29 @@
+package FileHandling;
+
+import java.io.*;
+import java.util.*;
+public class bankOperation {
+	File userfile = new File("userDetails.txt");
+	public static void getBalanceFromFile(String userName) throws FileNotFoundException
+	{
+		File userfile= new File("userDetails.txt");
+		Scanner fileContent = new Scanner(userfile);
+		while(fileContent.hasNextLine())
+		{
+			String contentLineInFile = fileContent.nextLine();
+			if(contentLineInFile.equals(Registeration.addToUserDetails(userName)))
+			{
+				
+			}
+		}
+	
+	}
+	public static void doDeposit(String userName,int amount)
+	{
+		getBalanceFromFile(userName);
+	}
+	public static void doWithdraw(String userName,String passWord,int amount)
+	{
+		
+	}
+}

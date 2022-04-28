@@ -1,0 +1,53 @@
+package adminFunctions;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import sql.DBConnection;
+
+public class ViewUsers implements ViewUsersInterface {
+	String sql="";
+	Connection connect = DBConnection.getConnection();
+	public void viewAllUsers()
+	{
+		Statement statement;
+		try {
+			statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery("Select * from savings_customer");
+			System.out.println("----------------Savings Account---------------");
+			System.out.printf("%12s %10s %12s %10s\n",
+					"Account No", "Name",
+					"Balance","Pin Number");
+			while (resultset.next())
+			{
+				int accountNumber = resultset.getInt("ac_no");
+				String accountName = resultset.getString("name");
+				int balance = resultset.getInt("balance");
+				String pinNumber= resultset.getString("pass_code");
+				System.out.printf("%12d %10s %10d.00 %10d\n",accountNumber,accountName,balance,pinNumber);
+			}
+			//view checking account customer
+			Statement statement1 = connect.createStatement(); 
+			ResultSet resultset1 = statement1.executeQuery("Select * from checkings_customer");
+			System.out.println("\n----------------Checking Account---------------");
+			System.out.printf("%12s %10s %12s %10s\n",
+					"Account No", "Name",
+					"Balance","Pin Number");
+			while (resultset1.next())
+			{
+				int accountNumber = resultset1.getInt("ac_no");
+				String accountName = resultset1.getString("name");
+				int balance = resultset1.getInt("balance");
+				String pinNumber = resultset1.getString("pass_code");
+				System.out.printf("%12d %10s %10d.00 %10d\n",accountNumber,accountName,balance,pinNumber);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+	}
+}
+

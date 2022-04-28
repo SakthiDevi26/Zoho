@@ -1,0 +1,7 @@
+package user;
+
+public interface CheckCheckingUserLoginInterface {
+
+	boolean canCheckingUserLogin(String userName, int passWord);
+
+}

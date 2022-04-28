@@ -1,0 +1,75 @@
+package basics;
+import java.util.*;
+import BankConstants.BankConstants;
+
+public class GetDetails {
+	public String adminUserName;
+	public String adminPassWord;
+	public String userName;
+	public String pinNumber;
+	public int accountBalance;
+	
+	public void getAdminLoginDetails()
+	{
+		Scanner scanner = new Scanner(System.in);
+		System.out.println(BankConstants.enter+" "+BankConstants.admin+" "+BankConstants.userName+":");
+		adminUserName = scanner.nextLine();
+		System.out.println(BankConstants.enter+" "+BankConstants.admin+" "+BankConstants.password+":");
+		adminPassWord = scanner.nextLine();
+		//checkAdminLogin(adminUserName,adminPassWord);
+	}
+	public boolean getUserCreateAccountDetails()
+	{
+		Scanner scanner = new Scanner(System.in);
+		System.out.println(BankConstants.enter+" your unique "+BankConstants.userName+":");
+		userName = scanner.nextLine();
+		System.out.println(BankConstants.enter+" new "+BankConstants.password+":");
+		pinNumber = scanner.nextLine();
+		int pinNumberLength = pinNumber.length();
+		if(checkPassword(pinNumber,pinNumberLength))
+		{
+		System.out.println(BankConstants.enter+" your "+BankConstants.startingBalance+":");
+		accountBalance = scanner.nextInt();
+		if(accountBalance<100)
+		{
+			System.out.println(BankConstants.startingBalance+" should be more than 100");
+			return false;
+		}
+		return true;
+		}
+		System.out.println("Enter only digits as"+BankConstants.password);
+		return false;
+		
+	}
+	public void getUserLoginDetails()
+	{
+		Scanner scanner = new Scanner(System.in);
+		System.out.println(BankConstants.enter+BankConstants.userName+":");
+		userName = scanner.nextLine();
+		System.out.println(BankConstants.enter+BankConstants.password+":");
+		pinNumber = scanner.nextLine();
+	}
+	public void getDeleteUserDetails()
+	{
+		Scanner scanner = new Scanner(System.in);
+		System.out.println(BankConstants.enter+BankConstants.userName+":");
+		userName = scanner.nextLine();
+	}
+	public boolean checkPassword(String pinNumber,int pinNumberLength)
+	{
+		for (int iterator =0; iterator<pinNumberLength;iterator++)
+		{
+			if(pinNumber.charAt(iterator)>='0'&&pinNumber.charAt(iterator)<='9')
+			{
+				continue;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		return false;
+		
+	}
+
+}

@@ -1,0 +1,36 @@
+package user;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import basics.GetDetails;
+import sql.DBConnection;
+
+public class CheckSavingsUserLogin implements CheckSavingsUserLoginInterface{
+	String sql="";
+	Connection connect = DBConnection.getConnection();
+	public boolean canSavingsUserLogin(String userName, String pinNumber)
+	{
+		if (userName == "" || pinNumber == "") {
+			System.out.println("All Field Required!");
+			return false;
+		}
+		sql = "select * from savings_customer where name='"
+				+ userName + "' and pass_code=" + pinNumber+"'";
+			try {
+				PreparedStatement statement = connect.prepareStatement(sql);
+				ResultSet resultset = statement.executeQuery();
+				if(resultset.next())
+				{
+					return true;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		return false;
+	}
+}

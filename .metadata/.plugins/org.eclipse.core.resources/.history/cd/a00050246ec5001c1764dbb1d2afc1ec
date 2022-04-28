@@ -1,0 +1,39 @@
+package basics;
+
+import BankConstants.BankConstants;
+
+public class PrintMenu implements PrintMenuInterface{
+	
+	public void printMainMenu()
+	{
+		System.out.println("----Welcome To Bank----");
+		System.out.println("Are you?");
+		System.out.println(BankConstants.one+BankConstants.admin);
+		System.out.println(BankConstants.two+BankConstants.user);
+		System.out.println(BankConstants.enterChoice);
+	}
+	public void printAdminMenu()
+	{
+		System.out.println(BankConstants.hello+BankConstants.admin+"!");
+		System.out.println(BankConstants.whatWantToDo);
+		
+	}
+	public void printUserMainMenu()
+	{
+		System.out.println(BankConstants.userMainMenu);
+	}
+	public void printAccountTypeMenu()
+	{
+		System.out.println(BankConstants.accountTypeMenu);
+	}
+	public void printSavingsUserMenu()
+	{
+		System.out.println("Hello "+BankConstants.savingsAccount+" User");
+		//System.out.println("")
+	}
+	public void printCheckingUserMenu()
+	{
+		System.out.println(BankConstants.checkingUserMenu);
+	}
+
+}

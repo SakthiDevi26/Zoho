@@ -1,0 +1,66 @@
+package adminFunctions;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.*;
+
+import sql.DBConnection;
+import basics.GetDetails;
+import basics.PrintMenu;
+import basics.PrintMenuInterface;
+
+public class DeleteUsers implements DeleteUsersInterface {
+	String sql="";
+	Connection connect = DBConnection.getConnection();
+	public boolean deleteUsers() {
+		PrintMenuInterface printmenu = new PrintMenu();
+		printmenu.printAccountTypeMenu();
+		GetDetails get = new GetDetails();
+		Scanner scanner = new Scanner(System.in);
+		int choice = scanner.nextInt();
+		if(choice == 1)
+		{
+				get.getDeleteUserDetails();
+				Statement statement;
+				try {
+					statement = connect.createStatement();
+					sql = "delete from savings_customer where name='"+get.userName+"'";
+					if (statement.executeUpdate(sql)==1)
+					{
+						return true;
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return false;
+		}
+		else if(choice == 2)
+		{
+			if(get.getUserCreateAccountDetails())
+			{
+				Statement statement;
+				try {
+					statement = connect.createStatement();
+					sql = "delete from checkings_customer where name='"+get.userName+"'";
+					if (statement.executeUpdate(sql)==1)
+					{
+						return true;
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			return false;
+		}
+		else
+		{
+			System.out.println("Enter valid choice");
+			deleteUsers();
+		}
+		return false;
+	}
+}

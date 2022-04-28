@@ -1,0 +1,12 @@
+package FileHandling;
+
+import java.io.File;
+import java.io.IOException;
+
+public class File {
+
+	String fileName =
+	public void fileCreation(String fileName)
+	{
+	}
+}
