@@ -1,6 +1,7 @@
 package appconstants;
 
 public class ShoppingAppConstants {
+	
 	public static String stars ="*****************************************************************";
 	public static String one ="(1)";
 	public static String two ="(2)";
@@ -29,6 +30,9 @@ public class ShoppingAppConstants {
 	public static String incompleteFields ="Please enter all the required fields.";
 	public static String invalidLoginCredentials ="User Name or Password is wrong or do not exists.Please enter correct credentials\n";
 	public static String successfulLogin ="LoggedIn Successfully!!\n";
+	public static String successfulUpdate = "Product Updated Successfully!!\n";
+	public static String failedUpdate ="Unable to update product. Sorry :(";
+	
 	//cowsay
 	public static String cowsayBody = " \t\t\t^__^\n" +
 			" \t\t\t(oo)\\_______\n" +
@@ -54,4 +58,5 @@ public class ShoppingAppConstants {
 	public static String productCategoryColumn ="product_category";
 	public static String productDescriptionColumn ="product_description";
 	public static String productPriceColumn ="product_price";
+	public static String productIdColumn ="product_id";
 }

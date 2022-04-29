@@ -1,7 +1,11 @@
 package utilities.classes;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 import appconstants.ShoppingAppConstants;
 import suppliers.suppliersregistration.classes.CreateSupplierAccount;
+import utilities.classes.withdatabases.CheckProductId;
 
 public class GetDetails {
 	public String supplierUserName;
@@ -11,10 +15,11 @@ public class GetDetails {
 	public String productCategory;
 	public String productDescription;
 	public int productPrice;
-	
+	public int productId;
 	
 	Scanner scanner = new Scanner(System.in);
 	CreateSupplierAccount createSupplierAccount = new CreateSupplierAccount();
+
 	public boolean getSupplierCreateAccountDetails()
 	{
 		System.out.println(ShoppingAppConstants.enterUserName);
@@ -67,4 +72,23 @@ public class GetDetails {
 		System.out.println("Enter Product Price:");
 		productPrice = scanner.nextInt();
 	}
+	public boolean getProductIdForModification() {
+		// TODO Auto-generated method stub
+		System.out.println("Enter Product Id you wish to modify/remove:");
+		productId = scanner.nextInt();
+		CheckProductId checkProductId = new CheckProductId();
+		if(checkProductId.isProductIdInTable(productId))
+		{
+			return true;
+		}
+		return false;
+		
+	}
+	public void getProductNameToUpdate()
+	{
+		System.out.println("Enter Product Name to update:");
+		productName = scanner.nextLine();
+	}
+	
+	
 }

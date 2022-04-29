@@ -6,14 +6,14 @@ import suppliers.suppliersmethods.classes.SupplierMethodsDriver;
 import utilities.classes.*;
 
 public class SupplierRegisterationDriver {
-	public void supplierRegisterDriver()
+	public void supplierRegisterationDriver()
 	{
 		Scanner scanner = new Scanner(System.in);
 		PrintMenu printMenu = new PrintMenu();
 		CreateSupplierAccount createSupplierAccount = new CreateSupplierAccount();
 		SupplierLogin supplierLogin = new SupplierLogin();
 		GetDetails getDetails = new GetDetails();
-		printMenu.printSupplierRegisterationDriverMenu();
+		printMenu.printRegisterationDriverMenu();
 		int choice = scanner.nextInt();
 		switch(choice)
 		{
@@ -31,7 +31,7 @@ public class SupplierRegisterationDriver {
 		default:
 			System.out.println(ShoppingAppConstants.invalidChoice);
 		}
-		supplierRegisterDriver();
+		supplierRegisterationDriver();
 		
 	}
 }

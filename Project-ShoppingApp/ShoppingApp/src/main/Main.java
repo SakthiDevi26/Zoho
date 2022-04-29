@@ -3,6 +3,7 @@ import utilities.classes.*;
 
 import java.util.*;
 import appconstants.ShoppingAppConstants;
+import customers.registeration.classes.*;
 import suppliers.suppliersregistration.classes.SupplierRegisterationDriver;
 
 public class Main {
@@ -11,17 +12,18 @@ public class Main {
 		// TODO Auto-generated method stub
 		Scanner scanner = new Scanner(System.in);
 		PrintMenu printMenu = new PrintMenu();
-		SupplierRegisterationDriver supplierRegisterationDriver = new SupplierRegisterationDriver();
+		SupplierRegisterationDriver supplierRegisterDriver = new SupplierRegisterationDriver();
+		CustomerRegisterationDriver customerRegisterDriver = new CustomerRegisterationDriver();
 		
 		printMenu.printMainMenu();
 		int choice = scanner.nextInt();
 		switch(choice)
 		{
 		case 1:
-			//customer driver
+			customerRegisterDriver.customerRegisterationDriver();
 			break;
 		case 2:
-			supplierRegisterationDriver.supplierRegisterDriver();
+			supplierRegisterDriver.supplierRegisterationDriver();
 			break;
 		case 3:
 			//shipping clerk
