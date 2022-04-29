@@ -1,0 +1,38 @@
+package suppliers.suppliersmethods.classes.updateproductdetails;
+
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+
+import appconstants.ShoppingAppConstants;
+import bankconstants.BankConstants;
+import utilities.classes.GetDetails;
+
+public class UpdateProductName {
+
+	public boolean updateProductName(String supplierUserName, int productId) {
+		// TODO Auto-generated method stub
+		GetDetails getDetails = new GetDetails();
+		getDetails.getProductNameToUpdate();
+		try {
+			connect.setAutoCommit(false);
+
+			Statement statement = connect.createStatement();
+
+
+			sql = "update "+ShoppingAppConstants.productsTable+" set "+ShoppingAppConstants.productNameColumn+"="+getDetails.productName+ 
+					" where " +ShoppingAppConstants.productIdColumn+"=" + productId;
+			if (statement.executeUpdate(sql) == 1) {
+				connect.commit();
+				return true;
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			connect.rollback();
+		}
+		// return
+		return false;
+		return false;
+	}
+
+}

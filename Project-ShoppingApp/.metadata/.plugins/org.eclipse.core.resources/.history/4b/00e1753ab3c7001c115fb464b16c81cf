@@ -1,0 +1,11 @@
+Project Title : Online Shopping App
+
+Project Description : Online shopping app is a jdbc java based project for customers, admin and suppliers.
+The app allows customers to buy products online and suppliers to sell their products online
+
+
+INSTALLATION:
+
+openjdk 17.0.2
+
+JUnit 5

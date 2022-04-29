@@ -1,0 +1,19 @@
+package suppliers.suppliersmethods.classes;
+
+import java.util.Scanner;
+
+import utilities.classes.*;
+
+public class UpdateProductDriver {
+	public void updateProductDriver(String supplierUserName)
+	{
+	Scanner scanner = new S(System.in);
+	ViewProducts viewProducts = new ViewProducts();
+	PrintMenu printMenu = new PrintMenu();
+	GetDetails getDetails = new GetDetails();
+	viewProducts.viewAllProducts(supplierUserName);
+	getDetails.getProductDetailsForModification();
+	printMenu.printUpdateProductDriverMenu();
+	
+	}
+}

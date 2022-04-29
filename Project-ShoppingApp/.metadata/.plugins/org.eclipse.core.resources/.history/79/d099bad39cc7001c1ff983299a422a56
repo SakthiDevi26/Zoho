@@ -1,0 +1,117 @@
+package utilities.classes;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
+import appconstants.ShoppingAppConstants;
+import bankconstants.BankConstants;
+import suppliers.suppliersregistration.classes.CreateSupplierAccount;
+
+public class GetDetails {
+	public String supplierUserName;
+	public String supplierPassword;
+	public long supplierPhoneNumber;
+	public String productName;
+	public String productCategory;
+	public String productDescription;
+	public int productPrice;
+	public int productId;
+	
+	Scanner scanner = new Scanner(System.in);
+	CreateSupplierAccount createSupplierAccount = new CreateSupplierAccount();
+
+	public boolean getSupplierCreateAccountDetails()
+	{
+		System.out.println(ShoppingAppConstants.enterUserName);
+		supplierUserName = scanner.nextLine();
+		if(supplierUserName.matches("[a-zA-Z]+"))
+		{
+			System.out.println(ShoppingAppConstants.enterPassword);
+			supplierPassword = scanner.nextLine();
+			System.out.println(ShoppingAppConstants.enterPhoneNumber);
+			try {
+			supplierPhoneNumber = scanner.nextLong();
+			String supplierPhoneNumberString =Long.toString(supplierPhoneNumber);
+			int phoneNumberLength = supplierPhoneNumberString.length();
+			if(phoneNumberLength!=10)
+			{
+				System.out.println("Invalid PhoneNumber.Please enter 10 digits number.");
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+			}
+			catch(InputMismatchException e)
+			{
+				System.out.println(ShoppingAppConstants.enterOnlyNumbers);
+				return false;
+			}
+		}
+		else {
+			System.out.println("UserName cannot contain digits.Please enter valid UserName..");
+			return false;
+		}
+	}
+	public void getSupplierLoginDetails()
+	{
+		System.out.println(ShoppingAppConstants.enterUserName);
+		supplierUserName = scanner.nextLine();
+		System.out.println(ShoppingAppConstants.enterPassword);
+		supplierPassword = scanner.nextLine();
+	}
+	public void getProductDetails()
+	{
+		System.out.println("Enter Product Name:");
+		productName = scanner.nextLine();
+		System.out.println("Enter Product Category:");
+		productCategory = scanner.nextLine();
+		System.out.println("Enter Product Description:");
+		productDescription = scanner.nextLine();
+		System.out.println("Enter Product Price:");
+		productPrice = scanner.nextInt();
+	}
+	public boolean getProductIdForModification() {
+		// TODO Auto-generated method stub
+		System.out.println("Enter Product Id you wish to modify/remove:");
+		productId = scanner.nextInt();
+		if(isProductIdInTable(productId))
+		{
+			return true;
+		}
+		return false;
+		
+	}
+	public void getProductNameToUpdate()
+	{
+		System.out.println("Enter Product Name to update:");
+		productName = scanner.nextLine();
+	}
+	
+	public boolean isProductIdInTable(int productId)
+	{
+		if (productId == Null) {
+			System.out.println(BankConstants.incompleteFields);
+			return false;
+		}
+		sql = "select * from "+BankConstants.adminTable+" where "+BankConstants.adminNameColumn+"='"
+				+ adminUserName + "' and "+BankConstants.adminPasswordColumn+"='" + adminPassWord+"'";
+		try {
+			PreparedStatement statement = connect.prepareStatement(sql);
+			ResultSet resultset = statement.executeQuery();
+			if(resultset.next())
+			{
+				System.out.println(BankConstants.successfulLogin);	
+				return true;
+			}
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(BankConstants.invalidLoginCredentials);
+		return false;
+		
+	}
+}

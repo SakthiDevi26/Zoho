@@ -1,0 +1,35 @@
+package suppliers.suppliersmethods.classes;
+
+import java.util.Scanner;
+
+import appconstants.ShoppingAppConstants;
+import suppliers.suppliersmethods.classes.updateproductdetails.*;
+import utilities.classes.*;
+
+public class UpdateProductDriver {
+	public void updateProductDriver(String supplierUserName)
+	{
+	Scanner scanner = new Scanner(System.in);
+	ViewProducts viewProducts = new ViewProducts();
+	PrintMenu printMenu = new PrintMenu();
+	GetDetails getDetails = new GetDetails();
+	viewProducts.viewAllProducts(supplierUserName);
+	getDetails.getProductDetailsForModification();
+	printMenu.printUpdateProductDriverMenu();
+	int choice = scanner.nextInt();
+	switch(choice)
+	{
+	case 1:
+		UpdateProductName updateProductName = new UpdateProductName();
+		if(updateProductName.updateProductName(supplierUserName))
+		{
+			System.out.println(ShoppingAppConstants.successfulUpdate);
+		}
+	case 2:
+	case 3:
+	case 4:
+	default:
+		
+	}
+	}
+}

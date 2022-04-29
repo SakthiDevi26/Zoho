@@ -1,0 +1,10 @@
+package suppliers.suppliersmethods.classes;
+
+public class DeleteProduct {
+
+	public boolean deleteProduct(String supplierUserName) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

@@ -1,0 +1,10 @@
+package customers.registeration.classes;
+
+public class CustomerRegisterationDriver {
+
+	public void customerRegisterationDriver() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

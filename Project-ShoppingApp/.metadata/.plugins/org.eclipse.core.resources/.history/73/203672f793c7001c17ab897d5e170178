@@ -1,0 +1,5 @@
+package suppliers.suppliersmethods.classes.updateproductdetails;
+
+public class UpdateProductPrice {
+
+}
