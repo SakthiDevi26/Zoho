@@ -4420,3 +4420,20 @@ org.eclipse.core.runtime.CoreException: Cannot determine URI for '/JdbcBank3/src
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 !SUBENTRY 2 org.eclipse.core.filebuffers 4 0 2022-04-29 10:34:39.201
 !MESSAGE Cannot determine URI for '/JdbcBank3/src/Admin/AdminManagementInterface.java'.
+
+!ENTRY org.eclipse.core.resources 2 2 2022-04-29 11:43:30.658
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2022-04-29 11:43:30.658
+!MESSAGE The project description file (.project) for 'Bank' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2022-04-29 11:43:30.658
+!MESSAGE The project description file (.project) for 'FileHandling' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2022-04-29 11:43:30.658
+!MESSAGE The project description file (.project) for 'FileHandlingFunctions' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2022-04-29 11:43:30.658
+!MESSAGE The project description file (.project) for 'JSON' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2022-04-29 11:43:30.658
+!MESSAGE The project description file (.project) for 'JdbcBank3(Final)' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2022-04-29 11:43:30.658
+!MESSAGE The project description file (.project) for 'JsonFoodMenu' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2022-04-29 11:43:30.658
+!MESSAGE The project description file (.project) for 'UpdateInFile(Practice)' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
