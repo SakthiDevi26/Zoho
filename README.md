@@ -10,4 +10,5 @@ JUnit==5
 mysql==8.0.23
 mysql-connector-java-5.1.49.jar
 
-![ShoppingAppDbDiagram](https://user-images.githubusercontent.com/69042451/165940677-745a6afa-9fe2-4797-8a0f-5246114f2384.jpg)
+![OnlineShoppingApp](https://user-images.githubusercontent.com/69042451/165978507-6fda72a9-8da6-4936-b319-c0952755fc86.jpg)
+
