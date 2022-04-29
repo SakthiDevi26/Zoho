@@ -1,0 +1,29 @@
+package utilities.classes;
+import java.util.*;
+import appconstants.ShoppingAppConstants;
+import suppliers.classes.CreateSupplierAccount;
+
+public class GetDetails {
+	public String supplierUserName;
+	public String supplierPassword;
+	public int supplierPhoneNumber;
+	
+	Scanner scanner = new Scanner(System.in);
+	CreateSupplierAccount createSupplierAccount = new CreateSupplierAccount();
+	public void getSupplierCreateAccountDetails()
+	{
+		System.out.println(ShoppingAppConstants.enterUserName);
+		supplierUserName = scanner.nextLine();
+		System.out.println(ShoppingAppConstants.enterPassword);
+		supplierPassword = scanner.nextLine();
+		System.out.println(ShoppingAppConstants.enterPhoneNumber);
+		try {
+		supplierPhoneNumber = scanner.nextInt();
+		}
+		catch(InputMismatchException e)
+		{
+			System.out.println(ShoppingAppConstants.enterOnlyNumbers);
+			createSupplierAccount.createSupplierAccount();
+		}
+	}
+}

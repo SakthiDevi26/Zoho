@@ -1,0 +1,33 @@
+package suppliers.suppliersmethods.classes;
+
+import java.sql.Connection;
+import java.sql.*;
+
+import sql.DatabaseConnection;
+import utilities.classes.GetDetailsFromDatabase;
+
+public class ViewProducts {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	public void viewAllProducts(String supplierUserName) {
+		// TODO Auto-generated method stub
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		int supplierId =getDetailsFromDb.getSupplierId(supplierUserName);
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery("Select * from "+BankConstants.savingsCustomerTable);
+			System.out.println("----------------Savings Account---------------");
+			System.out.printf("%12s %10s %12s %12s\n",
+					"Account No", "Name",
+					"Balance","PinNumber");
+			while (resultset.next())
+			{
+				int accountNumber = resultset.getInt(BankConstants.accountNumberColumn);
+				String accountName = resultset.getString(BankConstants.userNameColumn);
+				int balance = resultset.getInt(BankConstants.balanceColumn);
+				String pinNumber= resultset.getString(BankConstants.pinNumberColumn);
+				System.out.printf("%12d %10s %10d.00 %12s\n",accountNumber,accountName,balance,pinNumber);
+			}
+	}
+	
+}

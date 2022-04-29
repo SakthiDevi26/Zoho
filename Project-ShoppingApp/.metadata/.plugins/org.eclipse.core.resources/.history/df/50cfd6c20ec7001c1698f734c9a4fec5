@@ -1,0 +1,11 @@
+package utilities.classes;
+
+public class GetDetails {
+	public String supplierUserName;
+	public String supplierPassword;
+	public int supplierPhoneNumber;
+	public void getSupplierCreateAccountDetails()
+	{
+		
+	}
+}

@@ -1,0 +1,17 @@
+package utilities.classes;
+
+import sql.DatabaseConnection;
+
+public class GetDetailsFromDatabase {
+	
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	
+	public int supplierId;
+	public int getSupplierId(String supplierUserName)
+	{
+		
+		return supplierId;
+		
+	}
+}

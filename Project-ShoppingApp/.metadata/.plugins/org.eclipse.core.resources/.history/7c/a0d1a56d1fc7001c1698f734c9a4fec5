@@ -1,0 +1,22 @@
+package suppliers.classes;
+
+import java.sql.Connection;
+
+import sql.DatabaseConnection;
+import utilities.classes.GetDetails;
+
+public class SupplierLogin {
+	public boolean supplierLogin()
+	{
+		String sql="";
+		Connection connect = DatabaseConnection.getConnection();
+		GetDetails getDetails = new GetDetails();
+		if (getDetails.supplierUserName == "" || getDetails.supplierPassword == "") {
+			System.out.println(BankConstants.incompleteFields);
+			return false;
+		}
+
+		return false;
+		
+	}
+}

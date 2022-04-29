@@ -1,0 +1,13 @@
+package utilities;
+
+import appconstants.ShoppingAppConstants;
+public class PrintMenu {
+	public void printMainMenu()
+	{
+		System.out.println("->||Welcome To Shopping App||<-");
+		System.out.println("Are You?");
+		System.out.println(ShoppingAppConstants.one+" Customer");
+		System.out.println(ShoppingAppConstants.two+" Supplier");
+	}
+	
+}

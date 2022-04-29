@@ -1,0 +1,34 @@
+package suppliers.suppliersmethods.classes;
+
+import java.sql.Connection;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+import utilities.classes.GetDetails;
+
+public class AddProduct {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	public boolean addProduct() {
+		GetDetails getDetails = new GetDetails();
+		try {
+			Statement statement = connect.createStatement();
+			sql ="Insert into "+ShoppingAppConstants.productsTable+
+					"("+ShoppingAppConstants.productNameColumn+","++ShoppingAppConstants.productCategoryColumn+","+BankConstants.pinNumberColumn+")"
+					+ " values('"+ getDetails.userName+"'," +getDetails.accountBalance+ ",'" + getDetails.pinNumber +"')";
+			if (statement.executeUpdate(sql)==1)
+			{
+				//System.out.println("Savings account user added successfully!!");
+				return true;
+			}
+		}catch (SQLIntegrityConstraintViolationException e) {
+			System.out.println("Username Not Available!");
+		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+}

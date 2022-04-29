@@ -1,0 +1,32 @@
+package suppliers.classes;
+import java.util.*;
+
+import appconstants.ShoppingAppConstants;
+import utilities.classes.*;
+
+public class SupplierRegisterationDriver {
+	public void supplierRegisterDriver()
+	{
+		Scanner scanner = new Scanner(System.in);
+		PrintMenu printMenu = new PrintMenu();
+		CreateSupplierAccount createSupplierAccount = new CreateSupplierAccount();
+		printMenu.printSupplierRegisterationDriverMenu();
+		int choice = scanner.nextInt();
+		switch(choice)
+		{
+		case 1:
+			if(createSupplierAccount.createSupplierAccount())
+			{
+				System.out.println("Account Created");
+			}
+			break;
+		case 2:
+			//SupplierLogin();
+			break;
+		default:
+			System.out.println(ShoppingAppConstants.invalidChoice);
+		}
+		supplierRegisterDriver();
+		
+	}
+}

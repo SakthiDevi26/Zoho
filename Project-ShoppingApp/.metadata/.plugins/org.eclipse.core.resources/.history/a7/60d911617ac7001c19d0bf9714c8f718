@@ -1,0 +1,17 @@
+package suppliers.suppliersmethods.classes;
+
+import java.sql.Connection;
+
+import sql.DatabaseConnection;
+import utilities.classes.GetDetailsFromDatabase;
+
+public class ViewProducts {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	public void viewAllProducts(String supplierUserName) {
+		// TODO Auto-generated method stub
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		
+	}
+	
+}

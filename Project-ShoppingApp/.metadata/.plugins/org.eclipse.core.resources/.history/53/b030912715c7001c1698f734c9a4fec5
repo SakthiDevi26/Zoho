@@ -1,0 +1,14 @@
+package suppliers.classes;
+
+import utilities.classes.GetDetails;
+
+public class CreateSupplierAccount {
+	public boolean createSupplierAccount()
+	{
+		GetDetails getDetails = new GetDetails();
+		getDetails.getSupplierCreateAccountDetails();
+		
+		return false;
+		
+	}
+}

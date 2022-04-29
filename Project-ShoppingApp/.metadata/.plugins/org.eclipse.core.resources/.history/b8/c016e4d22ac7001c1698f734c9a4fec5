@@ -1,0 +1,21 @@
+package suppliers.suppliersmethods.classes;
+
+import java.util.*;
+
+import utilities.classes.PrintMenu;
+
+public class SupplierMethodsDriver {
+
+	public void supplierMethodsDriver(String supplierUserName) {
+
+		Scanner scanner = new Scanner(System.in);
+		PrintMenu printMenu = new PrintMenu();
+		printMenu.printSupplierMethodsMenu();
+		int choice = scanner.nextInt();
+		switch(choice)
+		{
+		
+		}
+	}
+
+}

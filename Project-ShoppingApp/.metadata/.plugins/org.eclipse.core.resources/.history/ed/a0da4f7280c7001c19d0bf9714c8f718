@@ -1,0 +1,49 @@
+package suppliers.suppliersmethods.classes;
+
+import java.sql.Connection;
+import java.sql.*;
+
+import sql.DatabaseConnection;
+import utilities.classes.GetDetailsFromDatabase;
+import appconstants.ShoppingAppConstants;
+
+public class ViewProducts {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	//String productDescription ="";
+	public void viewAllProducts(String supplierUserName) {
+		// TODO Auto-generated method stub
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		int supplierId =getDetailsFromDb.getSupplierId(supplierUserName);
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery("Select * from "+ShoppingAppConstants.productsTable+" where "
+			+ShoppingAppConstants.supplierIdColumn+" = "+ supplierId);
+			System.out.println("----------------<< My Products >>---------------");
+			System.out.printf("%12s %12s %24s\n",
+					"Product Name",
+					"Product Category","Product Price");
+			while (resultset.next())
+			{
+				String productName = resultset.getString(ShoppingAppConstants.productNameColumn);
+				String productCategory = resultset.getString(ShoppingAppConstants.productCategoryColumn);
+				String productDescribed = resultset.getString(ShoppingAppConstants.productDescriptionColumn);
+				int productPrice = resultset.getInt(ShoppingAppConstants.productPriceColumn);
+				System.out.printf("%12s %12s %24d\n",productName,productCategory,productPrice);
+				System.out.printf("%12s\n","Product Description");
+				String[] productDescribedSplitted = productDescribed.split(" ");
+					for(int i=0; i<productDescribedSplitted.length /6; i++)
+					{
+						String productDescription = productDescribedSplitted[i] +" " + productDescribedSplitted[i+1] + " " +productDescribedSplitted[i+2]+" "
+								+productDescribedSplitted[i+3]+" "+productDescribedSplitted[i+4]+" "+productDescribedSplitted[i+5]+" "+productDescribedSplitted[i+6];
+						System.out.printf("%50s\n",productDescription);
+					}
+	
+			}
+		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,5 @@
+package appconstants;
+
+public class ShoppingAppConstants {
+	public static String enterChoice ="Enter your choice";
+}
