@@ -1,8 +1,0 @@
-package Admin;
-
-public class AdminLogin {
-	//connection
-	getDetails getdetails = new getDetails()
-	getDetails.getAdminLoginDetails();
-	
-}

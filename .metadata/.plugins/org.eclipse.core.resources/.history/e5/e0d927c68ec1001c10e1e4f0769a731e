@@ -1,8 +1,0 @@
-package Admin;
-
-public class checkAdminLogin {
-	//public boolean checkAdminLogin(String adminuserName)
-	{
-		
-	}
-}
