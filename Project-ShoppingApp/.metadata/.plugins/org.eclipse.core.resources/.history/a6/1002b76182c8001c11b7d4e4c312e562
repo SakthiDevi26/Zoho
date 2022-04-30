@@ -1,0 +1,63 @@
+package customers.methods;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+
+public class ViewProductInDetail {
+	String sql="",sql1="";
+	Connection connect = DatabaseConnection.getConnection();
+	public String productName, productCategory,productDescription,supplierName;
+	public int productPrice,supplierId;
+	public long supplierPhoneNumber;
+	
+	public void viewProductInDetail(int productId) {
+		ProductOptionsDriver productOptionDriver = new ProductOptionsDriver();
+		sql = "SELECT * FROM "+ShoppingAppConstants.productsTable+" where "+ShoppingAppConstants.productIdColumn+ " = "+productId;
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			while(resultset.next())
+			{
+				productName = resultset.getString(ShoppingAppConstants.productNameColumn);
+				productCategory = resultset.getString(ShoppingAppConstants.productCategoryColumn);
+				productDescription = resultset.getString(ShoppingAppConstants.productDescriptionColumn);
+				productPrice = resultset.getInt(ShoppingAppConstants.productPriceColumn);
+				supplierId = resultset.getInt(ShoppingAppConstants.supplierIdColumn);
+			}
+			System.out.println("\n"+ShoppingAppConstants.equalLine);
+			System.out.printf("%12s %25s\n",
+					"Product Name",
+					"Product Category");
+			System.out.printf("%12s %25s\n\n",productName,productCategory);
+			System.out.printf("%12s\n\n","Product Description:");
+			String[] productDescriptionSplit = productDescription.split("[.]",0);
+			for(String productDescriptionFormatted:productDescriptionSplit)
+			{
+				System.out.printf("%12s",productDescriptionFormatted);
+			}
+			
+			sql1 = "SELECT * FROM "+ShoppingAppConstants.suppliersTable+" where "+ShoppingAppConstants.supplierIdColumn+ " = "+supplierId;
+			Statement supplierStatement = connect.createStatement();
+			ResultSet supplierResultset = supplierStatement.executeQuery(sql1);
+			while(supplierResultset.next())
+			{
+				supplierName = supplierResultset.getString(ShoppingAppConstants.supplierUserNameColumn);
+				supplierPhoneNumber = supplierResultset.getLong(ShoppingAppConstants.supplierPhoneNumberColumn);
+			}
+			System.out.printf("\nSold by :%s\n",supplierName);
+			System.out.printf("Contact Supplier at %d\n\n", supplierPhoneNumber);
+			System.out.printf("Buy at only:%d\n\n",productPrice);
+			//reviews
+			productOptionDriver.productOptionsDriver(productId);
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

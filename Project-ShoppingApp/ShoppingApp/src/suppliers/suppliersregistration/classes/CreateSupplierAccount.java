@@ -1,6 +1,8 @@
 package suppliers.suppliersregistration.classes;
 
 
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
@@ -13,7 +15,7 @@ public class CreateSupplierAccount {
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 
-	public boolean createSupplierAccount()
+	public boolean createSupplierAccount() throws NoSuchAlgorithmException, NoSuchProviderException
 	{
 		GetDetails getDetails = new GetDetails();
 		if(getDetails.getSupplierCreateAccountDetails())
@@ -22,10 +24,9 @@ public class CreateSupplierAccount {
 			Statement statement = connect.createStatement();
 			sql ="Insert into "+ShoppingAppConstants.suppliersTable+
 					"("+ShoppingAppConstants.supplierUserNameColumn+","+ShoppingAppConstants.supplierPasswordColumn+","+ShoppingAppConstants.supplierPhoneNumberColumn+")"
-					+ " values('"+ getDetails.supplierUserName+"','" +getDetails.supplierPassword+ "'," + getDetails.supplierPhoneNumber +")";
+					+ " values('"+ getDetails.supplierUserName+"','" +getDetails.supplierHashedPassword+ "'," + getDetails.supplierPhoneNumber +")";
 			if (statement.executeUpdate(sql)==1)
 			{
-				//System.out.println("Savings account user added successfully!!");
 				return true;
 			}
 		}catch (SQLIntegrityConstraintViolationException e) {

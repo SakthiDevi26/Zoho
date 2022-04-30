@@ -1,0 +1,13 @@
+package customers.methods;
+
+import utilities.classes.PrintMenu;
+
+public class ProductOptionsDriver {
+
+	public void productOptionsDriver(int productId) {
+		// TODO Auto-generated method stub
+		PrintMenu printMenu = new PrintMenu();
+		printMenu.printProductOptionsDriver();
+	}
+
+}

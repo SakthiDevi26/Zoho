@@ -1,0 +1,15 @@
+package customers.registeration.classes;
+
+import java.util.Scanner;
+
+import utilities.classes.PrintMenu;
+
+public class CustomerBeforeLoginDriver {
+	public void customerBeforeLoginDriver()
+	{
+		Scanner scanner = new Scanner(System.in);
+		PrintMenu printMenu = new PrintMenu();
+		printMenu.printBeforeLoginCustomerMainMenu();
+		
+	}
+}

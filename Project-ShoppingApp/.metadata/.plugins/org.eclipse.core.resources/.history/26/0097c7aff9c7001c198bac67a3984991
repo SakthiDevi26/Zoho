@@ -1,0 +1,60 @@
+package customers.registeration.classes;
+
+import java.sql.*;
+import java.util.Scanner;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+import appconstants.ShoppingAppConstants;
+
+public class ProductRecommendations {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	public int productId;
+
+	public int showProductRecommendations() {
+		Scanner scanner = new Scanner(System.in);
+		CustomerRegisterationDriver customerRegisterDriver = new CustomerRegisterationDriver();
+		sql ="SELECT "+ShoppingAppConstants.productIdColumn+","+ShoppingAppConstants.productNameColumn+","+ ShoppingAppConstants.productDescriptionColumn+" FROM "+
+				ShoppingAppConstants.productsTable+ " ORDER BY RAND ( ) LIMIT 4 ";
+						try {
+							Statement statement = connect.createStatement();
+							ResultSet resultset = statement.executeQuery(sql);
+							System.out.println("--------------------------<< Let your day begin here!! >>--------------------------\n");
+							System.out.printf("%20s\n",ShoppingAppConstants.productRecommendation);
+							while (resultset.next())
+							{
+								int productId = resultset.getInt(ShoppingAppConstants.productIdColumn);
+								String productName = resultset.getString(ShoppingAppConstants.productNameColumn);
+								
+								System.out.printf("%12s %25s\n","Product Id",
+										"Product Name");
+								System.out.printf("%12d %25s\n\n",productId,productName);
+								System.out.println(ShoppingAppConstants.line+ShoppingAppConstants.line);
+							}
+							System.out.println("Enter the product id to view the product:");
+							System.out.println("Not interested in any? press 0");
+							productId = scanner.nextInt();
+							while(resultset.next())
+							{
+								int productIdInTable = resultset.getInt(ShoppingAppConstants.productIdColumn);
+								if(productIdInTable == productId)
+								{
+									return productId;
+								}
+							}
+							if(productId!=0)
+							{
+							System.out.println(ShoppingAppConstants.invalidChoice);
+							customerRegisterDriver.customerRegisterationDriver();
+							}
+						}
+						catch (SQLException e) {
+							e.printStackTrace();
+						}
+						return 0;
+				
+		
+	}
+
+}

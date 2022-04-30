@@ -5,7 +5,7 @@ public class PrintMenu {
 	public void printMainMenu()
 	{
 		System.out.println(ShoppingAppConstants.stars);
-		System.out.println("\t\t->||Welcome To Shopping App||<-");
+		System.out.println("\t\t\t->||Welcome To Shopping App||<-");
 		System.out.println(ShoppingAppConstants.stars+"\n");
 		System.out.println("Are You?");
 		System.out.println(ShoppingAppConstants.one+"Customer");
@@ -42,5 +42,39 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.four+"Product Price");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
-	
+	public void printProductOptionsDriver()
+	{
+		System.out.println(ShoppingAppConstants.one+"Add to Cart");
+		System.out.println(ShoppingAppConstants.two+"Add to Wishlist");
+		System.out.println(ShoppingAppConstants.three+"Buy Now");
+		System.out.println(ShoppingAppConstants.four+"Go back");
+		System.out.println(ShoppingAppConstants.enterChoice);
+	}
+	public void printBeforeLoginCustomerMainMenu()
+	{
+		System.out.println(ShoppingAppConstants.one+"Search Product By Category");
+		System.out.println(ShoppingAppConstants.two+"SignUp/Login");
+		System.out.println(ShoppingAppConstants.enterChoice);
+	}
+	public void printAfterLoginCustomerMainMenu()
+	{
+		System.out.println(ShoppingAppConstants.one+"Search Product By Category");
+		System.out.println(ShoppingAppConstants.two+"My Account");
+		System.out.println(ShoppingAppConstants.three+"My Orders");
+		System.out.println(ShoppingAppConstants.four+"My Cart");
+		System.out.println(ShoppingAppConstants.five+"My Wishlist");
+		System.out.println(ShoppingAppConstants.six+"Give Feedback");
+		System.out.println(ShoppingAppConstants.seven+"Logout");
+		System.out.println(ShoppingAppConstants.enterChoice);
+	}
+	public void printProductCategories()
+	{
+		System.out.println("----------------Our Categories-------------");
+		System.out.println(ShoppingAppConstants.one+"Clothing");
+		System.out.println(ShoppingAppConstants.two+"Jewellery");
+		System.out.println(ShoppingAppConstants.three+"Beauty");
+		System.out.println(ShoppingAppConstants.four+"Electronics");
+		System.out.println(ShoppingAppConstants.five+"Grocery");
+		System.out.println(ShoppingAppConstants.enterChoice);
+	}
 }

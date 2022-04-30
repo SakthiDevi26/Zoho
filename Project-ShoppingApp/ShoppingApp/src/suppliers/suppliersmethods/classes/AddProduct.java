@@ -14,7 +14,8 @@ public class AddProduct {
 	public boolean addProduct(String supplierUserName) {
 		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
 		GetDetails getDetails = new GetDetails();
-		getDetails.getProductDetails();
+		if(getDetails.getProductDetails())
+		{
 		try {
 			Statement statement = connect.createStatement();
 			sql ="Insert into "+ShoppingAppConstants.productsTable+
@@ -30,6 +31,7 @@ public class AddProduct {
 		catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
 		}
 		return false;
 	}

@@ -1,0 +1,53 @@
+package customers.methods;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+
+public class ViewProductInDetail {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	public String productName, productCategory,productDescription,supplierName;
+	public int productPrice,supplierId;
+	
+	
+	public void viewProductInDetail(int productId) {
+		sql = "SELECT * FROM "+ShoppingAppConstants.productsTable+" where "+ShoppingAppConstants.productIdColumn+ " = "+productId;
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			while(resultset.next())
+			{
+				productName = resultset.getString(ShoppingAppConstants.productNameColumn);
+				productCategory = resultset.getString(ShoppingAppConstants.productCategoryColumn);
+				productDescription = resultset.getString(ShoppingAppConstants.productDescriptionColumn);
+				productPrice = resultset.getInt(ShoppingAppConstants.productPriceColumn);
+				supplierId = resultset.getInt(ShoppingAppConstants.supplierIdColumn);
+			}
+			System.out.printf("%12s %25s\n",
+					"Product Name",
+					"Product Category");
+			System.out.printf("%12s %25s\n\n",productName,productCategory);
+			System.out.printf("%40s\n","Product Description:");
+			System.out.printf("%12s\n\n",productDescription);
+			sql = "SELECT * FROM "+ShoppingAppConstants.suppliersTable+" where "+ShoppingAppConstants.supplierIdColumn+ " = "+supplierId;
+			Statement supplierStatement = connect.createStatement();
+			ResultSet supplierResultset = supplierStatement.executeQuery(sql);
+			while(resultset.next())
+			{
+				supplierName = supplierResultset.getString(ShoppingAppConstants.supplierUserNameColumn);
+				System.out.printf("Sold by : %12s",supplierName);
+			}
+			System.out.printf("Buy at only: %12s",productPrice);
+			System.out.println(ShoppingAppConstants.equalLine+ShoppingAppConstants.equalLine);
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+}

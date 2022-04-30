@@ -1,0 +1,5 @@
+package passwordencryption;
+
+public class EncryptPassword {
+
+}

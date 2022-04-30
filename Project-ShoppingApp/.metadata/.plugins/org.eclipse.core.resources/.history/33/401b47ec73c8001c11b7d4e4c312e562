@@ -1,0 +1,10 @@
+package customers.methods.searchbycategory;
+
+public class ClothingCategory {
+
+	public void showClothingCategoryProducts() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -33,7 +33,7 @@ public class UpdateProductDriver {
 			break;
 		case 2:
 			UpdateProductCategory updateProductCategory = new UpdateProductCategory();
-			if(updateProductCategory.updateProductCategory(supplierUserName))
+			if(updateProductCategory.updateProductCategory(getDetails.productId))
 			{
 				System.out.println(ShoppingAppConstants.successfulUpdate);
 			}
@@ -44,7 +44,7 @@ public class UpdateProductDriver {
 			break;
 		case 3:
 			UpdateProductDescription updateProductDescription = new UpdateProductDescription();
-			if(updateProductDescription.updateProductDescription(supplierUserName))
+			if(updateProductDescription.updateProductDescription(getDetails.productId))
 			{
 				System.out.println(ShoppingAppConstants.successfulUpdate);
 			}
@@ -55,7 +55,7 @@ public class UpdateProductDriver {
 			break;
 		case 4:
 			UpdateProductPrice updateProductPrice = new UpdateProductPrice();
-			if(updateProductPrice.updateProductPrice(supplierUserName))
+			if(updateProductPrice.updateProductPrice(getDetails.productId))
 			{
 				System.out.println(ShoppingAppConstants.successfulUpdate);
 			}

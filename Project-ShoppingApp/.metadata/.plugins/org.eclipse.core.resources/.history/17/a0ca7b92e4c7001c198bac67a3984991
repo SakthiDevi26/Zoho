@@ -1,0 +1,46 @@
+package suppliers.suppliersregistration.classes;
+
+import java.sql.Connection;
+import java.sql.*;
+
+import appconstants.ShoppingAppConstants;
+import passwordencryption.EncryptPassword;
+import sql.DatabaseConnection;
+import suppliers.suppliersmethods.classes.SupplierMethodsDriver;
+import utilities.classes.GetDetails;
+
+public class SupplierLogin {
+	public boolean supplierLogin()
+	{
+		String sql="";
+		Connection connect = DatabaseConnection.getConnection();
+		GetDetails getDetails = new GetDetails();
+		SupplierMethodsDriver supplierMethodsDrive = new SupplierMethodsDriver();
+		getDetails.getSupplierLoginDetails();
+		if (getDetails.supplierUserName == "" || getDetails.supplierPassword == "") {
+			System.out.println(ShoppingAppConstants.incompleteFields);
+			return false;
+		}
+		sql = "select * from "+ShoppingAppConstants.suppliersTable+" where "+ShoppingAppConstants.supplierUserNameColumn+"='"
+				+ getDetails.supplierUserName + "'";
+			try {
+				PreparedStatement statement = connect.prepareStatement(sql);
+				ResultSet resultset = statement.executeQuery();
+				String supplierOriginalPassword = resultset.getString("ShoppingAppConstants.supplierPasswordColumn");
+				String saltvalue = EncryptPassword.getSaltvalue(30);  
+				Boolean verifyPassword = EncryptPassword.isPasswordSame(getDetails.supplierPassword,supplierOriginalPassword,saltvalue);  
+
+				if(resultset.next())
+				{
+					System.out.println(ShoppingAppConstants.successfulLogin);
+					supplierMethodsDrive.supplierMethodsDriver(getDetails.supplierUserName);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		System.out.println(ShoppingAppConstants.invalidLoginCredentials);
+		return false;
+		
+	}
+}

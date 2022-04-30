@@ -1,0 +1,21 @@
+package customers.methods;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+
+public class ViewProductInDetail {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	public void viewProductInDetail(int productId) {
+		sql = "SELECT * FROM "+ShoppingAppConstants.productsTable+" where "+ShoppingAppConstants.productIdColumn+ " = "+productId;
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+		
+	}
+
+}

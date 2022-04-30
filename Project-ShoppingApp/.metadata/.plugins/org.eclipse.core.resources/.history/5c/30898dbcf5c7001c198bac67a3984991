@@ -1,0 +1,42 @@
+package customers.registeration.classes;
+
+import java.sql.*;
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+import appconstants.ShoppingAppConstants;
+
+public class ProductRecommendations {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+
+	public void showProductRecommendations() {
+		sql ="SELECT "+ShoppingAppConstants.productIdColumn+","+ShoppingAppConstants.productNameColumn+","+ ShoppingAppConstants.productDescriptionColumn+" FROM "+
+				ShoppingAppConstants.productsTable+ " ORDER BY RAND ( ) LIMIT 4 ";
+						try {
+							Statement statement = connect.createStatement();
+							ResultSet resultset = statement.executeQuery(sql);
+							System.out.println("--------------------------<< Let your day begin here!! >>--------------------------\n");
+							System.out.printf("%20s\n",ShoppingAppConstants.productRecommendation);
+							while (resultset.next())
+							{
+								int productId = resultset.getInt(ShoppingAppConstants.productIdColumn);
+								String productName = resultset.getString(ShoppingAppConstants.productNameColumn);
+								//String productDescription = resultset.getString(ShoppingAppConstants.productDescriptionColumn);
+								
+								System.out.printf("%12s %25s\n","Product Id",
+										"Product Name");
+								System.out.printf("%12d %25s\n\n",productId,productName);
+								//System.out.printf("%45s\n","Product Description");
+								//System.out.printf("%12s\n\n",productDescription);
+								System.out.println(ShoppingAppConstants.line+ShoppingAppConstants.line);
+								System.out.println("Enter the product id to view the product:");
+							}
+						}
+						catch (SQLException e) {
+							e.printStackTrace();
+						}
+				
+		
+	}
+
+}

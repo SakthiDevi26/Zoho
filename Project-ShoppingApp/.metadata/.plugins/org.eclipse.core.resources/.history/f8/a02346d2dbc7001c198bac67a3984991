@@ -1,0 +1,8 @@
+package hashpassword;
+import java.security.*;
+import java.io.*;
+public class HashPassword {
+	public String hashPassword(String plainTextPassword){
+		return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
+	}
+}

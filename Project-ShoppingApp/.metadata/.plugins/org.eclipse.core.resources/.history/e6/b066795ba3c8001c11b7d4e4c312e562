@@ -1,0 +1,27 @@
+package customers.registeration.classes;
+
+import java.util.Scanner;
+
+import customers.methods.SearchByCategoryDriver;
+import utilities.classes.PrintMenu;
+
+public class CustomerBeforeLoginDriver {
+	public void customerBeforeLoginDriver()
+	{
+		Scanner scanner = new Scanner(System.in);
+		PrintMenu printMenu = new PrintMenu();
+		printMenu.printBeforeLoginCustomerMainMenu();
+		int choice = scanner.nextInt();
+		switch(choice)
+		{
+		case 1:
+			SearchByCategoryDriver categoryDriver = new SearchByCategoryDriver();
+			categoryDriver.searchByCategoryDriver();
+			break;
+		case 2:
+			CustomerRegisterationDriver customerRegisterDriver = new CustomerRegisterationDriver();
+			customerRegisterDriver.customerRegisterationDriver();
+			break;
+		}
+	}
+}

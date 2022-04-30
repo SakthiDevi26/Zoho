@@ -1,0 +1,10 @@
+package customers.methods;
+
+public class ViewProductInDetail {
+
+	public void viewProductInDetail(int productId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,17 @@
+package passwordencryption;
+
+public class VerifyEncryptedPassword {
+	 public static boolean isPasswordSame(String providedPassword,  
+	            String securedPassword, String salt)  
+	    {  
+	        boolean finalvalue = false;  
+	          
+	        /* Generate New secure password with the same salt */  
+	        String newSecurePassword = EncryptPassword.generateSecurePassword(providedPassword, salt);  
+	          System.out.println(newSecurePassword);
+	        /* Check if two passwords are equal */  
+	        finalvalue = newSecurePassword.equalsIgnoreCase(securedPassword);  
+	          
+	        return finalvalue;  
+	    }  
+	}  

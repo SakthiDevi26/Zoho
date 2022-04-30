@@ -2,6 +2,8 @@ package suppliers.suppliersmethods.classes;
 
 import java.util.*;
 
+import main.Main;
+import suppliers.suppliersregistration.classes.SupplierRegisterationDriver;
 import utilities.classes.PrintMenu;
 
 public class SupplierMethodsDriver {
@@ -47,6 +49,8 @@ public class SupplierMethodsDriver {
 		case 5:
 		case 6:
 		case 7:
+			Main.main(null);
+			break;
 		default:
 		}
 		supplierMethodsDriver(supplierUserName);

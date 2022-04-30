@@ -19,7 +19,12 @@ public class ViewProducts {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery("Select * from "+ShoppingAppConstants.productsTable+" where "
 			+ShoppingAppConstants.supplierIdColumn+" = "+ supplierId);
-			System.out.println("----------------------<< My Products >>----------------------");
+			System.out.println(ShoppingAppConstants.smallHyphen+"<< My Products >>"+ShoppingAppConstants.smallHyphen+"\n");
+			if(!resultset.next())
+			{
+				System.out.println("Sorry you have no products :(");
+			}
+			resultset.previous();
 			while (resultset.next())
 			{
 				int productId = resultset.getInt(ShoppingAppConstants.productIdColumn);
@@ -32,9 +37,13 @@ public class ViewProducts {
 						"Product Name",
 						"Product Category","Product Price");
 				System.out.printf("%12d %12s %12s %12d\n\n",productId,productName,productCategory,productPrice);
-				System.out.printf("%12s\n","Product Description:");
-				System.out.printf("%12s\n\n",productDescription);
-				System.out.println(ShoppingAppConstants.line+ShoppingAppConstants.line);
+				System.out.printf("%40s\n","Product Description:");
+				String[] productDescriptionSplit = productDescription.split("[.]",0);
+				for(String productDescriptionFormatted:productDescriptionSplit)
+				{
+					System.out.printf("%12s\n",productDescriptionFormatted);
+				}
+				System.out.println("\n"+ShoppingAppConstants.equalLine+ShoppingAppConstants.equalLine);
 			}
 		}
 		catch (SQLException e) {

@@ -1,0 +1,13 @@
+package customers.methods;
+
+import utilities.classes.PrintMenu;
+
+public class SearchByCategoryDriver {
+	public void searchByCategoryDriver()
+	{
+		PrintMenu printMenu = new PrintMenu();
+		printMenu.printProductCategories();
+		
+				
+	}
+}

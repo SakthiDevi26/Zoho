@@ -1,0 +1,64 @@
+package customers.methods.searchbycategory;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+import utilities.classes.withdatabases.CheckProductId;
+
+public class ClothingCategory {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	int productId;
+	public int showClothingCategoryProducts() {
+		Scanner scanner = new Scanner(System.in);
+		CheckProductId checkProductId = new CheckProductId();
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery("Select * from "+ShoppingAppConstants.productsTable+" where "
+			+ShoppingAppConstants.productCategoryColumn+" = 'clothing'");
+			System.out.println(ShoppingAppConstants.hyphenLine+"<< Here's to chasing your dreams in your favourite dress >>"+ShoppingAppConstants.hyphenLine+"\n");
+			if(!resultset.next())
+			{
+				System.out.println("Sorry There is no clothing products :(");
+			}
+			resultset.previous();
+			while (resultset.next())
+			{
+				int productId = resultset.getInt(ShoppingAppConstants.productIdColumn);
+				String productName = resultset.getString(ShoppingAppConstants.productNameColumn);
+				String productCategory = resultset.getString(ShoppingAppConstants.productCategoryColumn);
+				String productDescription = resultset.getString(ShoppingAppConstants.productDescriptionColumn);
+				int productPrice = resultset.getInt(ShoppingAppConstants.productPriceColumn);
+				
+				System.out.printf("%12s %12s %12s %12s\n","Product Id",
+						"Product Name",
+						"Product Category","Product Price");
+				System.out.printf("%12d %12s %12s %12d\n\n",productId,productName,productCategory,productPrice);
+				System.out.printf("%40s\n","Product Description:");
+				System.out.printf("%12s\n\n",productDescription);
+				System.out.println(ShoppingAppConstants.equalLine+ShoppingAppConstants.equalLine);
+				connect.rollback();
+			}
+			System.out.println("Enter ProductId of the product you love: ");
+			productId = scanner.nextInt();
+			if(checkProductId.isProductIdInTable(productId))
+			{
+				return productId;
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+		// TODO Auto-generated method stub
+		
+	}
+
+}

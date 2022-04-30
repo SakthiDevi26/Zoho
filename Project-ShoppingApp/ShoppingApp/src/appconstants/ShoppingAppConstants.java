@@ -2,7 +2,7 @@ package appconstants;
 
 public class ShoppingAppConstants {
 	
-	public static String stars ="*****************************************************************";
+	public static String stars ="********************************************************************************";
 	public static String one ="(1)";
 	public static String two ="(2)";
 	public static String three ="(3)";
@@ -40,12 +40,15 @@ public class ShoppingAppConstants {
 			" \t\t\t     ||----w |\n" +
 			" \t\t\t     ||     ||\n";
 
-			public static String whatWantToDo = "------------------------\nWhat Do You want to do?\n------------------------\n"
-		  + "\t\t \\\n" +
-			"\t\t   \\\n" +
-			"\t\t      \\";
+	public static String whatWantToDo = "------------------------\nWhat Do You want to do?\n------------------------\n"
+  + "\t\t \\\n" +
+	"\t\t   \\\n" +
+	"\t\t      \\";
 			
-	public static String line = "=================================================================================";
+	public static String equalLine = "========================================================================";
+	public static String hyphenLine ="---------------------------------------------";
+	public static String underscoreLine ="____________________________________________\n";
+	public static String smallHyphen ="------------------";
 	
 	//sql
 	public static String suppliersTable ="suppliers";
@@ -59,4 +62,30 @@ public class ShoppingAppConstants {
 	public static String productDescriptionColumn ="product_description";
 	public static String productPriceColumn ="product_price";
 	public static String productIdColumn ="product_id";
+	public static String customerLoginTable ="customer_login";
+	public static String customersTable ="customers";
+	public static String customerUserNameColumn ="customer_username";
+	public static String customerPasswordColumn ="customer_password";
+	public static String customerPhoneNumberColumn ="customer_phonenumber";
+	public static String customerIdColumn ="customer_id";
+	public static String customerAddressTable ="customer_address";
+	public static String doorNumberColumn ="door_number";
+	public static String streetNameColumn ="street_name";
+	public static String cityColumn ="city";
+	public static String stateColumn ="state";
+	public static String pincodeColumn ="pincode";
+	
+	 public static String productRecommendation ="\t\t\t\t\t______________________\r\n"
+	 		+ "\t\t\t\t\t< Anything you Love?? >\r\n"
+	 		+ "\t\t\t\t\t-----------------------\r\n"
+	 		+ "\t\t\t\t\t   \\\r\n"
+	 		+ "\t\t\t\t\t    \\\r\n"
+	 		+ "\t\t\t\t\t        .--.\r\n"
+	 		+ "\t\t\t\t\t       |o_o |\r\n"
+	 		+ "\t\t\t\t\t       |:_/ |\r\n"
+	 		+ "\t\t\t\t\t      //   \\ \\\r\n"
+	 		+ "\t\t\t\t\t     (|     | )\r\n"
+	 		+ "\t\t\t\t\t    /'\\_   _/`\\\r\n"
+	 		+ "\t\t\t\t\t    \\___)=(___/\r\n"
+	 		+ "\t\t\t\t\t";
 }

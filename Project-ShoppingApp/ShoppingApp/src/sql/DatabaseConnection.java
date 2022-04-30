@@ -11,7 +11,7 @@ public class DatabaseConnection {
             String mysqlJDBCDriver
                 = "com.mysql.jdbc.Driver"; //jdbc driver
             String url
-                = "jdbc:mysql://localhost:3306/shopping_app"; //mysql url
+                = "jdbc:mysql://localhost:3306/shopping_app?autoReconnect=true&useSSL=false"; //mysql url
             String user = "root";   //mysql username
             String pass = "1234";  //mysql passcode
             Class.forName(mysqlJDBCDriver);

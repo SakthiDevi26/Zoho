@@ -1,4 +1,6 @@
 package suppliers.suppliersregistration.classes;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.util.*;
 
 import appconstants.ShoppingAppConstants;
@@ -18,15 +20,23 @@ public class SupplierRegisterationDriver {
 		switch(choice)
 		{
 		case 1:
-			if(createSupplierAccount.createSupplierAccount())
-			{
-				System.out.println("Account Created Successfully!!");
-				System.out.println("Now you Login...");
-				if(supplierLogin.supplierLogin());
+			try {
+				if(createSupplierAccount.createSupplierAccount())
+				{
+					System.out.println("Account Created Successfully!!");
+					System.out.println("Now you Login...");
+					if(supplierLogin.supplierLogin());
+				}
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NoSuchProviderException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			break;
 		case 2:
-			if(supplierLogin.supplierLogin())
+			if(supplierLogin.supplierLogin());
 			break;
 		default:
 			System.out.println(ShoppingAppConstants.invalidChoice);

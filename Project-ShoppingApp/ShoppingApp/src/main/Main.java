@@ -4,6 +4,7 @@ import utilities.classes.*;
 import java.util.*;
 import appconstants.ShoppingAppConstants;
 import customers.registeration.classes.*;
+import passwordencryption.EncryptPassword;
 import suppliers.suppliersregistration.classes.SupplierRegisterationDriver;
 
 public class Main {
@@ -13,14 +14,13 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		PrintMenu printMenu = new PrintMenu();
 		SupplierRegisterationDriver supplierRegisterDriver = new SupplierRegisterationDriver();
-		CustomerRegisterationDriver customerRegisterDriver = new CustomerRegisterationDriver();
-		
+		CustomerMainDriver customerMainDriver = new CustomerMainDriver();
 		printMenu.printMainMenu();
 		int choice = scanner.nextInt();
 		switch(choice)
 		{
 		case 1:
-			customerRegisterDriver.customerRegisterationDriver();
+			customerMainDriver.customerMainDriver();
 			break;
 		case 2:
 			supplierRegisterDriver.supplierRegisterationDriver();

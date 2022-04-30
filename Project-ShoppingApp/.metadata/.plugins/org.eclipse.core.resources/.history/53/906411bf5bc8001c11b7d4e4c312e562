@@ -1,0 +1,36 @@
+package customers.registeration.classes;
+
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+import customers.methods.ViewProductInDetail;
+import utilities.*;
+import utilities.classes.*;
+
+public class CustomerRegisterationDriver {
+	public int productId;
+	public void customerRegisterationDriver() {
+		Scanner scanner = new Scanner(System.in);
+		PrintMenu printMenu = new PrintMenu();
+		ProductRecommendations productRecommend = new ProductRecommendations();
+		productId = productRecommend.showProductRecommendations();
+		if(productId!=0 && productId!=1)
+		{
+			ViewProductInDetail viewProduct = new ViewProductInDetail();
+			viewProduct.viewProductInDetail(productId);
+		}
+		else if(productId == 1)
+		{
+			System.out.println("Enter options");
+		}
+		else
+		{
+			System.out.println("Invalid");
+			customerRegisterationDriver();
+		}
+	}
+
+}

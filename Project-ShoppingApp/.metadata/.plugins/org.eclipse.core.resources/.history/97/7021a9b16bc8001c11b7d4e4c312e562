@@ -1,0 +1,11 @@
+package customers.registeration.classes;
+
+import utilities.classes.PrintMenu;
+
+public class CustomerBeforeLoginDriver {
+	public void customerBeforeLoginDriver()
+	{
+	PrintMenu printMenu = new PrintMenu();
+	
+	}
+}

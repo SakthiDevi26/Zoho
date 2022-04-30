@@ -1,0 +1,17 @@
+package customers.methods;
+
+import java.util.Scanner;
+
+import utilities.classes.PrintMenu;
+
+public class ProductOptionsDriver {
+
+	public void productOptionsDriver(int productId) {
+		// TODO Auto-generated method stub
+		PrintMenu printMenu = new PrintMenu();
+		Scanner scanner = new Scanner(System.in);
+		printMenu.printProductOptionsDriver();
+		
+	}
+
+}

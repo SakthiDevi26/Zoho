@@ -1,0 +1,16 @@
+package customers.methods;
+
+import java.util.Scanner;
+
+import utilities.classes.PrintMenu;
+
+public class SearchByCategoryDriver {
+	public void searchByCategoryDriver()
+	{
+		Scanner scanner = new Scanner(System.in);
+		PrintMenu printMenu = new PrintMenu();
+		printMenu.printProductCategories();
+		int choice = scanner.nextInt();
+				
+	}
+}

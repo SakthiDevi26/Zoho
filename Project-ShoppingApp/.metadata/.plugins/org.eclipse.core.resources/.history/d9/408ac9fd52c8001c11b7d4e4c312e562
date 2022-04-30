@@ -1,0 +1,28 @@
+package customers.registeration.classes;
+
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+import utilities.*;
+import utilities.classes.*;
+
+public class CustomerRegisterationDriver {
+	public int productId;
+	public void customerRegisterationDriver() {
+		Scanner scanner = new Scanner(System.in);
+		PrintMenu printMenu = new PrintMenu();
+		ProductRecommendations productRecommend = new ProductRecommendations();
+		productId = productRecommend.showProductRecommendations();
+		if(productId!=0)
+		{
+			System.out.println("Product selected");
+		}
+		else
+		{
+			System.out.println("Enter options");
+		}
+	}
+
+}

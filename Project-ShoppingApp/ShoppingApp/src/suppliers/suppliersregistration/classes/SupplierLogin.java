@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.*;
 
 import appconstants.ShoppingAppConstants;
+import passwordencryption.EncryptPassword;
+import passwordencryption.VerifyEncryptedPassword;
 import sql.DatabaseConnection;
 import suppliers.suppliersmethods.classes.SupplierMethodsDriver;
 import utilities.classes.GetDetails;
@@ -21,20 +23,30 @@ public class SupplierLogin {
 			return false;
 		}
 		sql = "select * from "+ShoppingAppConstants.suppliersTable+" where "+ShoppingAppConstants.supplierUserNameColumn+"='"
-				+ getDetails.supplierUserName + "' and "+ShoppingAppConstants.supplierPasswordColumn+"='" + getDetails.supplierPassword+"'";
+				+ getDetails.supplierUserName + "'";
 			try {
 				PreparedStatement statement = connect.prepareStatement(sql);
 				ResultSet resultset = statement.executeQuery();
 				if(resultset.next())
 				{
+				String supplierOriginalPassword = resultset.getString(ShoppingAppConstants.supplierPasswordColumn); 
+				Boolean verifyPassword = VerifyEncryptedPassword.isPasswordSame(getDetails.supplierPassword,supplierOriginalPassword);  
+				if(verifyPassword==true)
+				{
 					System.out.println(ShoppingAppConstants.successfulLogin);
 					supplierMethodsDrive.supplierMethodsDriver(getDetails.supplierUserName);
+				}
+				else
+				{
+					System.out.println(ShoppingAppConstants.invalidLoginCredentials);
+					return false;
+				}
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		System.out.println(ShoppingAppConstants.invalidLoginCredentials);
+		
 		return false;
 		
 	}
