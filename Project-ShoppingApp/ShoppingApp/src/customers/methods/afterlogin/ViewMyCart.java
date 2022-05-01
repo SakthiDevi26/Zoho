@@ -30,6 +30,8 @@ public class ViewMyCart {
 		{
 			System.out.println("Sorry your cart is empty :(");
 		}
+		else
+		{
 		resultset.previous();
 		while (resultset.next())
 		{
@@ -38,18 +40,19 @@ public class ViewMyCart {
 			int productPrice = getDetailsFromDb.getProductPrice(productId);
 			
 			System.out.printf("%12s %12s %12s\n","Product Id",
-					"Product Name",
-					"Product Price");
+					"Name",
+					"Price");
 			System.out.printf("%12d %12s %12d\n",productId,productName,productPrice);
 			System.out.println("\n"+ShoppingAppConstants.equalLine+ShoppingAppConstants.equalLine);
 		}
-		System.out.println("Enter productId to buy the product:");
+		System.out.println("Enter productId you want to work with:");
+		}
 		System.out.println("press 0 to go to home");
 		int productId = scanner.nextInt();
 		if(productId!=0 && checkProductId.isProductIdInCart(productId))
 		{
-			ShippingAddressDriver shipAddressDrive = new ShippingAddressDriver();
-			shipAddressDrive.shippingAddressDriver(productId);
+			MyCartDriver myCartDrive = new MyCartDriver();
+			myCartDrive.myCartDriver(productId);
 		}
 		else if(productId==0)
 		{

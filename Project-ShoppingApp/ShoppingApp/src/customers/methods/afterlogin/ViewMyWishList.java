@@ -32,8 +32,10 @@ public class ViewMyWishList {
 		System.out.println(ShoppingAppConstants.smallHyphen+"<< My WishList>>"+ShoppingAppConstants.smallHyphen+"\n");
 		if(!resultset.next())
 		{
-			System.out.println("Sorry your cart is empty :(");
+			System.out.println("Sorry your wishlist is empty :(");
 		}
+		else
+		{
 		resultset.previous();
 		while (resultset.next())
 		{
@@ -42,18 +44,19 @@ public class ViewMyWishList {
 			int productPrice = getDetailsFromDb.getProductPrice(productId);
 			
 			System.out.printf("%12s %12s %12s\n","Product Id",
-					"Product Name",
-					"Product Price");
+					"Name",
+					"Price");
 			System.out.printf("%12d %12s %12d\n",productId,productName,productPrice);
 			System.out.println("\n"+ShoppingAppConstants.equalLine+ShoppingAppConstants.equalLine);
 		}
-		System.out.println("Enter productId to view the product:");
+		System.out.println("Enter productId of the product you want to work with:");
+		}
 		System.out.println("press 0 to go to home");
 		int productId = scanner.nextInt();
 		if(productId!=0 && checkProductId.isProductIdInWishList(productId))
 		{
-			ViewProductInDetail viewProductInDetail = new ViewProductInDetail();
-			viewProductInDetail.viewProductInDetail(productId);
+			MyWishListDriver myWishListDrive = new MyWishListDriver();
+			myWishListDrive.myWishListDriver(productId);
 		}
 		else if(productId==0)
 		{

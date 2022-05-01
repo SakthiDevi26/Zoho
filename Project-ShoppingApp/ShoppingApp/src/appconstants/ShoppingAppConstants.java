@@ -35,7 +35,8 @@ public class ShoppingAppConstants {
 	public static String failedUpdate ="Unable to update product. Sorry :(";
 	public static String alreadyAdded ="Product is there already";
 	public static String productAdded ="Your Product is Added!";
-	public static String addressNoted ="Your address is Noted!";
+	public static String addressNoted ="Your order will be delivered here!";
+	public static String productRemoved ="Your Product is Removed!";
 	
 	//cowsay
 	public static String cowsayBody = " \t\t\t^__^\n" +
@@ -76,6 +77,7 @@ public class ShoppingAppConstants {
 	public static String cartTable ="cart";
 	public static String wishlistTable ="wishlist";
 	public static String ordersTable ="orders";
+	public static String orderIdColumn ="order_id";
 	
 	
 	

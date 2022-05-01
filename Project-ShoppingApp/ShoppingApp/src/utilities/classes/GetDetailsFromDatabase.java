@@ -14,7 +14,8 @@ public class GetDetailsFromDatabase {
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 	public int supplierId,currentCustomerId,productPrice;
-	public String productName,customerAddress;
+	public long customerPhoneNumber;
+	public String productName,productCategory,customerAddress,customerName;
 	
 	public int getSupplierId(String supplierUserName)
 	{
@@ -71,6 +72,24 @@ public class GetDetailsFromDatabase {
 	return productName;
 
 	}
+	public String getProductCategory(int productId)
+	{
+		sql ="Select * from "+ShoppingAppConstants.productsTable+" where "+ShoppingAppConstants.productIdColumn +" = "
+				+productId;
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			if(resultset.next())
+			{
+				productCategory = resultset.getString(ShoppingAppConstants.productCategoryColumn);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	return productCategory;
+
+	}
 	public int getProductPrice(int productId)
 	{
 
@@ -107,4 +126,39 @@ public class GetDetailsFromDatabase {
 		}
 	return customerAddress;
 	}
+	public String getCustomerName(int customerId)
+	{
+		sql ="Select * from "+ShoppingAppConstants.customersTable+" where "+ShoppingAppConstants.customerIdColumn+" = '"
+				+customerId+"'";
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			if(resultset.next())
+			{
+				customerName = resultset.getString(ShoppingAppConstants.customerUserNameColumn);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	return customerName;
+	}
+	public long getCustomerPhoneNumber(int customerId)
+	{
+		sql ="Select * from "+ShoppingAppConstants.customersTable+" where "+ShoppingAppConstants.customerIdColumn+" = '"
+				+customerId+"'";
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			if(resultset.next())
+			{
+				customerPhoneNumber = resultset.getLong(ShoppingAppConstants.customerPhoneNumberColumn);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	return customerPhoneNumber;
+	}
+	
 }

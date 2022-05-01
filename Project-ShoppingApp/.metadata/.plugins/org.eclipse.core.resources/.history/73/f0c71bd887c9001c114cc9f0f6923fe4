@@ -1,0 +1,85 @@
+package utilities.classes.withdatabases;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+import utilities.classes.GetDetailsFromDatabase;
+
+public class CheckProductId {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	private static final int Null = 0;
+	public boolean isProductIdInProductTable(int productId)
+	{
+		if (productId == Null) {
+			System.out.println(ShoppingAppConstants.incompleteFields);
+			return false;
+		}
+		sql = "select * from "+ShoppingAppConstants.productsTable+" where "+ShoppingAppConstants.productIdColumn+"="
+				+ productId;
+		try {
+			PreparedStatement statement = connect.prepareStatement(sql);
+			ResultSet resultset = statement.executeQuery();
+			if(resultset.next())
+			{	
+				return true;
+			}
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+		
+	}
+	public boolean isProductIdInCart(int productId)
+	{
+		GetDetailsFromDatabase getDetailsFromDatabase = new GetDetailsFromDatabase();
+		int customerId = getDetailsFromDatabase.getCurrentlyLoggedInCustomerId();
+		if (productId == Null) {
+			System.out.println(ShoppingAppConstants.incompleteFields);
+			return false;
+		}
+		sql = "select * from "+ShoppingAppConstants.cartTable+" where "+ShoppingAppConstants.productIdColumn+"="
+				+ productId +" and "+ShoppingAppConstants.customerIdColumn+"="+ customerId;
+		try {
+			PreparedStatement statement = connect.prepareStatement(sql);
+			ResultSet resultset = statement.executeQuery();
+			if(resultset.next())
+			{	
+				return true;
+			}
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public boolean isProductIdInWishList(int productId)
+	{
+		if (productId == Null) {
+			System.out.println(ShoppingAppConstants.incompleteFields);
+			return false;
+		}
+		sql = "select * from "+ShoppingAppConstants.wishlistTable+" where "+ShoppingAppConstants.productIdColumn+"="
+				+ productId;
+		try {
+			PreparedStatement statement = connect.prepareStatement(sql);
+			ResultSet resultset = statement.executeQuery();
+			if(resultset.next())
+			{	
+				return true;
+			}
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+}

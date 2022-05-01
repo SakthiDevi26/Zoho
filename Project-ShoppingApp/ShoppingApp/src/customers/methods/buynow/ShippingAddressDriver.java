@@ -11,6 +11,7 @@ public class ShippingAddressDriver {
 	{
 		Scanner scanner = new Scanner(System.in);
 		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		OrderConfirmation orderConfirm = new OrderConfirmation();
 		PrintMenu printMenu = new PrintMenu();
 		int customerId = getDetailsFromDb.getCurrentlyLoggedInCustomerId();
 		String customerAddress = getDetailsFromDb.getCustomerAddress(customerId);
@@ -22,8 +23,7 @@ public class ShippingAddressDriver {
 		switch(choice)
 		{
 		case 1:
-			PaymentModeDriver paymentDriver = new PaymentModeDriver();
-			paymentDriver.paymentModeDriver()
+			System.out.println(ShoppingAppConstants.addressNoted);
 			break;
 		case 2:
 			UpdateCustomerAddress updateCustomerAddress = new UpdateCustomerAddress();
@@ -34,9 +34,9 @@ public class ShippingAddressDriver {
 			break;
 		default:
 			System.out.println(ShoppingAppConstants.invalidChoice);
-			
+			shippingAddressDriver(productId);
 		}
-		shippingAddressDriver();
+		orderConfirm.orderConfirmation(productId);
 		
 	}
 }

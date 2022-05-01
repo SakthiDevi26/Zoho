@@ -1,0 +1,27 @@
+package customers.methods.buynow;
+
+import java.util.Scanner;
+
+import utilities.classes.PrintMenu;
+
+public class PaymentModeDriver {
+
+	public void paymentModeDriver(int productId) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		PrintMenu printMenu = new PrintMenu();
+		printMenu.printPaymentMode();
+		int choice = scanner.nextInt();
+		switch(choice)
+		{
+		case 1:
+			System.out.println("UPI payment app will be opened and prompt for payment...");
+			OrderPlacement orderPlacement = new OrderPlacement();
+			if(orderPlacement.orderPlacement(productId))
+			{
+				
+			}
+		}
+	}
+
+}

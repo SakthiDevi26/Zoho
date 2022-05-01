@@ -1,0 +1,13 @@
+package customers.methods.buynow;
+
+public class OrderConfirmation {
+
+	public void orderConfirmation(int productId) {
+		// TODO Auto-generated method stub
+		DisplayOrderSummary displayOrder = new DisplayOrderSummary();
+		displayOrder.displayOrderSummary(productId);
+		
+	}
+	//PaymentModeDriver paymentDriver = new PaymentModeDriver();
+	//paymentDriver.paymentModeDriver(productId);
+}

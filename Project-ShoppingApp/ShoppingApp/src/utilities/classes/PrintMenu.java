@@ -33,6 +33,7 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.five+"View Orders of My Products");
 		System.out.println(ShoppingAppConstants.six+"View Customer FeedBack");
 		System.out.println(ShoppingAppConstants.seven+ShoppingAppConstants.logout);
+		System.out.println(ShoppingAppConstants.enterChoice);
 	}
 	public void printUpdateProductDriverMenu()
 	{
@@ -75,10 +76,27 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.smallHyphen+"Mode Of Payment"+ShoppingAppConstants.smallHyphen);
 		System.out.println(ShoppingAppConstants.one+"Online Payment");
 		System.out.println(ShoppingAppConstants.two+"Cash On Delivery");
+		System.out.println(ShoppingAppConstants.enterChoice);
 	}
 	public void printAddressOption()
 	{
-		System.out.println(ShoppingAppConstants.one+"Use same address entered during registeration");
+		System.out.println("Do you want to?");
+		System.out.println(ShoppingAppConstants.one+"Use same address");
 		System.out.println(ShoppingAppConstants.two+"Change address");
+		System.out.println(ShoppingAppConstants.enterChoice);
+	}
+	public void printCartDriverMenu()
+	{
+		System.out.println("What do you want to do?");
+		System.out.println(ShoppingAppConstants.one+"Remove Product from My Cart");
+		System.out.println(ShoppingAppConstants.two+"Buy Now");
+		System.out.println(ShoppingAppConstants.enterChoice);
+	}
+	public void printWishListDriverMenu()
+	{
+		System.out.println("What do you want to do?");
+		System.out.println(ShoppingAppConstants.one+"Remove Product from My WishList");
+		System.out.println(ShoppingAppConstants.two+"View Product");
+		System.out.println(ShoppingAppConstants.enterChoice);
 	}
 }

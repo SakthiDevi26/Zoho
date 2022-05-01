@@ -33,7 +33,6 @@
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.Map.Entry"/>
     <fullyQualifiedTypeName name="suppliers.suppliersregistration.classes.SupplierRegisterationDriver"/>
-    <fullyQualifiedTypeName name="utilities.classes.PrintMenu"/>
     <fullyQualifiedTypeName name="customers.methods.SearchByCategoryDriver"/>
     <fullyQualifiedTypeName name="customers.methods.searchbycategory.ClothingCategory"/>
     <fullyQualifiedTypeName name="main.Main"/>
@@ -49,13 +48,16 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="customers.methods.afterlogin.viewMyCart"/>
     <fullyQualifiedTypeName name="customers.methods.afterlogin.ViewMyCart"/>
-    <fullyQualifiedTypeName name="customers.methods.buynow.ShippingAddressDriver"/>
-    <fullyQualifiedTypeName name="utilities.classes.GetDetailsFromDatabase"/>
     <fullyQualifiedTypeName name="utilities.classes.GetDetails"/>
-    <fullyQualifiedTypeName name="customers.registeration.classes.CustomerMainDriver"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="utilities.classes.withdatabases.CheckProductId"/>
-    <fullyQualifiedTypeName name="appconstants.ShoppingAppConstants"/>
     <fullyQualifiedTypeName name="customers.methods.ViewProductInDetail"/>
+    <fullyQualifiedTypeName name="utilities.classes.GetDetailsFromDatabase"/>
+    <fullyQualifiedTypeName name="customers.registeration.classes.CustomerMainDriver"/>
     <fullyQualifiedTypeName name="customers.methods.afterlogin.ViewMyWishList"/>
+    <fullyQualifiedTypeName name="customers.methods.buynow.ShippingAddressDriver"/>
+    <fullyQualifiedTypeName name="utilities.classes.PrintMenu"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="appconstants.ShoppingAppConstants"/>
+    <fullyQualifiedTypeName name="customers.methods.removemethods.RemoveProductFromWishList"/>
+    <fullyQualifiedTypeName name="customers.methods.removemethods.RemoveProductFromCart"/>
 </qualifiedTypeNameHistroy>

@@ -62,12 +62,14 @@ public class CheckProductId {
 	}
 	public boolean isProductIdInWishList(int productId)
 	{
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		int customerId = getDetailsFromDb.getCurrentlyLoggedInCustomerId();
 		if (productId == Null) {
 			System.out.println(ShoppingAppConstants.incompleteFields);
 			return false;
 		}
 		sql = "select * from "+ShoppingAppConstants.wishlistTable+" where "+ShoppingAppConstants.productIdColumn+"="
-				+ productId;
+				+ productId + " and "+ShoppingAppConstants.customerIdColumn+ " = "+customerId;
 		try {
 			PreparedStatement statement = connect.prepareStatement(sql);
 			ResultSet resultset = statement.executeQuery();

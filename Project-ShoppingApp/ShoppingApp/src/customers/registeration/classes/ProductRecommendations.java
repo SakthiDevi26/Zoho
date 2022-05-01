@@ -18,8 +18,8 @@ public class ProductRecommendations {
 		Scanner scanner = new Scanner(System.in);
 		Map <Integer, String> productMap = new HashMap<>();
 	
-		sql ="SELECT "+ShoppingAppConstants.productIdColumn+","+ShoppingAppConstants.productNameColumn+","+ ShoppingAppConstants.productDescriptionColumn+" FROM "+
-				ShoppingAppConstants.productsTable+ " ORDER BY RAND ( ) LIMIT 4 ";
+		sql ="SELECT "+ShoppingAppConstants.productIdColumn+","+ShoppingAppConstants.productNameColumn+","+ ShoppingAppConstants.productCategoryColumn+" FROM "+
+				ShoppingAppConstants.productsTable+ " ORDER BY RAND ( ) LIMIT 4";
 						try {
 							Statement statement = connect.createStatement();
 							ResultSet resultset = statement.executeQuery(sql);

@@ -1,0 +1,10 @@
+package customers.methods.buynow;
+
+public class DisplayOrderDetails {
+
+	public void displayOrderDetails(int productId)
+	{
+		
+	}
+
+}

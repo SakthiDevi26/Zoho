@@ -17,7 +17,7 @@ public class PrintMenuUsingDataBase {
 		}
 		if(checkProductId.isProductIdInWishList(productId))
 		{
-			System.out.println(ShoppingAppConstants.two+"In Wishlist");
+			System.out.println(ShoppingAppConstants.two+"In Wishlist(Go to WishList)");
 		}
 		else
 		{

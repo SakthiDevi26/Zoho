@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
 import customers.methods.afterlogin.ViewMyCart;
+import customers.methods.afterlogin.ViewMyWishList;
+import customers.methods.buynow.ShippingAddressDriver;
 import customers.methods.productoptions.AddToCart;
 import customers.methods.productoptions.AddToWishList;
 import customers.registeration.classes.CheckCustomerLoggedIn;
@@ -70,9 +72,8 @@ public class ProductOptionsDriver {
 				}
 				else
 				{
-					System.out.println(ShoppingAppConstants.alreadyAdded);
-					//goto wishlist
-					viewProductInDetail.viewProductInDetail(productId);
+					ViewMyWishList viewWishlist = new ViewMyWishList();
+					viewWishlist.viewMyWishList();
 				}
 			}
 			else
@@ -84,8 +85,18 @@ public class ProductOptionsDriver {
 			}
 			break;
 		case 3:
-			//check
-			//buy
+			if(checkCustomerLoggedIn.isCustomerLoggedin())
+			{
+				ShippingAddressDriver shipAddressDrive = new ShippingAddressDriver();
+				shipAddressDrive.shippingAddressDriver(productId);
+			}
+			else
+			{
+				if(customerRegisterDriver.customerRegisterationDriver())
+				{
+					viewProductInDetail.viewProductInDetail(productId);
+				}
+			}
 			break;
 		case 4:
 			customerMainDriver.customerMainDriver();

@@ -30,11 +30,11 @@ public class ViewProductInDetail {
 				supplierId = resultset.getInt(ShoppingAppConstants.supplierIdColumn);
 			}
 			System.out.println("\n"+ShoppingAppConstants.equalLine);
-			System.out.printf("%12s %25s\n",
+			System.out.printf("\n%12s %25s\n",
 					"Product Name",
-					"Product Category");
+					"Category");
 			System.out.printf("%12s %25s\n\n",productName,productCategory);
-			System.out.printf("%12s\n","Product Description:");
+			System.out.printf("%12s\n","Description:");
 			String[] productDescriptionSplit = productDescription.split("[.]",0);
 			for(String productDescriptionFormatted:productDescriptionSplit)
 			{
@@ -52,6 +52,7 @@ public class ViewProductInDetail {
 			System.out.printf("\n\nSold by :%s\n",supplierName);
 			System.out.printf("Contact Supplier at %d\n\n", supplierPhoneNumber);
 			System.out.printf("Buy at only:%d\n\n",productPrice);
+			System.out.println("\n"+ShoppingAppConstants.equalLine);
 			//reviews
 			productOptionDriver.productOptionsDriver(productId);
 		}
