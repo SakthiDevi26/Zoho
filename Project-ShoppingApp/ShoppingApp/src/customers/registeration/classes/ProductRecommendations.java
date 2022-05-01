@@ -23,7 +23,7 @@ public class ProductRecommendations {
 						try {
 							Statement statement = connect.createStatement();
 							ResultSet resultset = statement.executeQuery(sql);
-							System.out.println("\n-----------------------<< Let your day begin here!! >>---------------------\n");
+							System.out.println("\n-----------------------<< Enjoy Your Hustle Free Shopping >>---------------------\n");
 							System.out.printf("%20s\n",ShoppingAppConstants.productRecommendation);
 							while (resultset.next())
 							{

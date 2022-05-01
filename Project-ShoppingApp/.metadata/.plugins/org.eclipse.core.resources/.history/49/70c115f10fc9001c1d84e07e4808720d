@@ -1,0 +1,61 @@
+package customers.methods;
+
+import java.util.Scanner;
+
+import appconstants.ShoppingAppConstants;
+import customers.methods.productoptions.AddToCart;
+import customers.methods.productoptions.AddToWishList;
+import customers.registeration.classes.CheckCustomerLoggedIn;
+import utilities.classes.PrintMenu;
+
+public class ProductOptionsDriver {
+
+	public void productOptionsDriver(int productId) {
+		// TODO Auto-generated method stub
+		PrintMenu printMenu = new PrintMenu();
+		CheckCustomerLoggedIn checkCustomerLoggedIn = new CheckCustomerLoggedIn();
+		//CustomerRegisterationDriver customerRegisterDriver 
+		Scanner scanner = new Scanner(System.in);
+		printMenu.printProductOptionsDriver();
+		int choice = scanner.nextInt();
+		switch(choice)
+		{
+		case 1:
+			if(checkCustomerLoggedIn.isCustomerLoggedin())
+			{
+				AddToCart addCart = new AddToCart();
+				if(addCart.addToCart(productId))
+				{
+					System.out.println("Product Added");
+				}
+			}
+			//cart
+			break;
+		case 2:
+			if(checkCustomerLoggedIn.isCustomerLoggedin())
+			{
+				AddToWishList addWishlist = new AddToWishList();
+				if(addWishlist.addToWishList(productId))
+				{
+					System.out.println("Product Added to wishlist");
+				}
+			}
+			else
+			{
+				
+			}
+			break;
+		case 3:
+			//check
+			//buy
+			break;
+		case 4:
+			//customerRegistration
+			break;
+		default:
+			System.out.println(ShoppingAppConstants.invalidChoice);
+		}
+		productOptionsDriver(productId);
+	}
+
+}

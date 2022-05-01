@@ -41,7 +41,7 @@ public class ElectronicsCategory {
 			}
 			System.out.println("Enter ProductId of the product you love: ");
 			productId = scanner.nextInt();
-			if(checkProductId.isProductIdInTable(productId))
+			if(checkProductId.isProductIdInProductTable(productId))
 			{
 				return productId;
 			}

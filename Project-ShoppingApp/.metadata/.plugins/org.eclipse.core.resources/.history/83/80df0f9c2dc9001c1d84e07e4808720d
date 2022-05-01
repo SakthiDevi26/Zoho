@@ -1,0 +1,16 @@
+package customers.methods.afterlogin;
+
+import java.sql.Connection;
+
+import sql.DatabaseConnection;
+import utilities.classes.GetDetailsFromDatabase;
+
+public class viewMyCart {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	public void viewMyCart()
+	{
+		GetDetailsFromDatabase getDetailsFromDatabase = new GetDetailsFromDatabase();
+		int customerId = getDetails
+	}
+}

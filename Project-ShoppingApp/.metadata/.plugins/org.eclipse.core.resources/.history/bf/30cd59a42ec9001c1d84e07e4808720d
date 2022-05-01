@@ -1,0 +1,24 @@
+package customers.methods.afterlogin;
+
+import java.sql.*;
+import java.util.ArrayList;
+
+import com.mysql.jdbc.Statement;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+import utilities.classes.GetDetailsFromDatabase;
+
+public class viewMyCart {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	public void viewMyCart()
+	{
+		GetDetailsFromDatabase getDetailsFromDatabase = new GetDetailsFromDatabase();
+		int customerId = getDetailsFromDatabase.getCurrentlyLoggedInCustomerId();
+		
+		ArrayList<Integer> productIdList = new ArrayList<Integer>();
+		productIdList = getDetailsFromDatabase.getProductIdFromCartTable(customerId);
+		
+	}
+}

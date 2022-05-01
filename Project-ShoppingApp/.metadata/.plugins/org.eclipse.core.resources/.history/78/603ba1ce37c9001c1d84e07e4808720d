@@ -1,0 +1,11 @@
+package customers.methods.afterlogin;
+
+public class BuyNow {
+
+	public boolean BuyProduct(int productId)
+	{
+		
+		return false;
+		
+	}
+}

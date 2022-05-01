@@ -1,0 +1,20 @@
+package customers.methods.productoptions;
+
+import java.sql.Connection;
+import java.sql.Statement;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+
+public class AddToCart {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	int customerId;
+	public void addToCart(int productId) {
+		// TODO Auto-generated method stub
+		sql = "select * from "+ShoppingAppConstants.customerLoginTable;
+		Statement statement = connect.createStatement();
+		
+	}
+	
+}

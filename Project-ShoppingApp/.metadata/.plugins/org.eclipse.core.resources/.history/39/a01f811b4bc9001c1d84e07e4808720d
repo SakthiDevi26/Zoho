@@ -1,0 +1,45 @@
+package customers.methods;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+import utilities.classes.GetDetailsFromDatabase;
+
+public class ViewCustomerAccount {
+	String sql="",sql1="";
+	Connection connect = DatabaseConnection.getConnection();
+	public int customerId;
+	public long customerPhoneNumber;
+	public String customerName,customerAddress;
+	
+	public void viewCustomerAccount()
+	{
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		customerId = getDetailsFromDb.getCurrentlyLoggedInCustomerId();
+		sql = "Select * from "+ShoppingAppConstants.customersTable+" where "+ShoppingAppConstants.customerIdColumn+ " = "
+				+customerId;
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			if(resultset.next())
+			{
+				customerName = resultset.getString(ShoppingAppConstants.customerUserNameColumn);
+				customerPhoneNumber = resultset.getLong(ShoppingAppConstants.customerPhoneNumberColumn);
+				customerAddress = resultset.getString(ShoppingAppConstants.customerAddressColumn);
+			}
+			System.out.printf("%12s %12s\n","My Name","My phone Number");
+			System.out.printf("%12s %12d\n\n",customerName,customerPhoneNumber);
+			System.out.printf("%12s\n","My address");
+			System.out.printf("%12s", customerAddress);
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+}

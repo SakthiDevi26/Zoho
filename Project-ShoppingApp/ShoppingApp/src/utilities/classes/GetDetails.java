@@ -25,11 +25,7 @@ public class GetDetails {
 	public String customerPassword;
 	public long customerPhoneNumber;
 	public String customerHashedPassword;
-	public String doorNumber;
-	public String streetName;
-	public String city;
-	public String state;
-	public int pincode;
+	public String customerAddress;
 	
 	Scanner scanner = new Scanner(System.in);
 	CreateSupplierAccount createSupplierAccount = new CreateSupplierAccount();
@@ -99,7 +95,7 @@ public class GetDetails {
 		System.out.println("Enter Product Id you wish to modify/remove:");
 		productId = scanner.nextInt();
 		CheckProductId checkProductId = new CheckProductId();
-		if(checkProductId.isProductIdInTable(productId))
+		if(checkProductId.isProductIdInProductTable(productId))
 		{
 			return true;
 		}
@@ -135,59 +131,34 @@ public class GetDetails {
 			System.out.println(ShoppingAppConstants.enterPassword);
 			customerPassword = scanner.nextLine();
 			customerHashedPassword = EncryptPassword.encryptPassword(customerPassword);
-			if(getCustomerAddress())
+			System.out.println(ShoppingAppConstants.enterAddress);
+			customerAddress = scanner.nextLine();
+			System.out.println(ShoppingAppConstants.enterPhoneNumber);
+			try {
+			customerPhoneNumber = scanner.nextLong();
+			String customerPhoneNumberString =Long.toString(customerPhoneNumber);
+			int phoneNumberLength = customerPhoneNumberString.length();
+			if(phoneNumberLength!=10)
 			{
-				System.out.println(ShoppingAppConstants.enterPhoneNumber);
-				try {
-				customerPhoneNumber = scanner.nextLong();
-				String customerPhoneNumberString =Long.toString(customerPhoneNumber);
-				int phoneNumberLength = customerPhoneNumberString.length();
-				if(phoneNumberLength!=10)
-				{
-					System.out.println("Invalid PhoneNumber.Please enter 10 digits number.");
-					return false;
-				}
-				else
-				{
-					return true;
-				}
-				}
-				catch(InputMismatchException e)
-				{
-					System.out.println(ShoppingAppConstants.enterOnlyNumbers);
-					return false;
-				}
+				System.out.println("Invalid PhoneNumber.Please enter 10 digits number.");
+				return false;
 			}
 			else
 			{
+				return true;
+			}
+			}
+			catch(InputMismatchException e)
+			{
+				System.out.println(ShoppingAppConstants.enterOnlyNumbers);
 				return false;
 			}
-			
 		}
+			
 		else {
 			System.out.println("UserName cannot contain digits.Please enter valid UserName..");
 			return false;
 		}
-	}
-	public boolean getCustomerAddress() {
-		System.out.println("Enter door number:");
-		doorNumber = scanner.nextLine();
-		System.out.println("Enter street name:");
-		streetName = scanner.nextLine();
-		System.out.println("Enter City:");
-		city = scanner.nextLine();
-		System.out.println("Enter State:");
-		state = scanner.nextLine();
-		try {
-		System.out.println("Enter pincode:");
-		pincode = scanner.nextInt();
-		}
-		catch(InputMismatchException e)
-		{
-			System.out.println("Please enter only numbers for pincode..");
-			return false;
-		}
-		return true;
 	}
 	public boolean getCustomerLoginDetails() {
 		// TODO Auto-generated method stub
@@ -215,6 +186,11 @@ public class GetDetails {
 			return false;
 		}
 		
+	}
+	public void getCustomerNewAddress()
+	{
+		System.out.println("Enter new Address to ship the product:");
+		customerAddress = scanner.nextLine();
 	}
 	
 	

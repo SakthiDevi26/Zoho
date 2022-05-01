@@ -1,0 +1,59 @@
+package customers.methods;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+import utilities.classes.GetDetailsFromDatabase;
+
+public class ViewCustomerAccount {
+	String sql="",sql1="";
+	Connection connect = DatabaseConnection.getConnection();
+	public int customerId;
+	public long customerPhoneNumber,customerPincode;
+	public String customerName,customerDoorNumber,customerStreetName,customerCity,customerState;
+	public void viewCustomerAccount()
+	{
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		customerId = getDetailsFromDb.getCurrentlyLoggedInCustomerId();
+		sql = "Select * from "+ShoppingAppConstants.customersTable+" where "+ShoppingAppConstants.customerIdColumn+ " = "
+				+customerId;
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			if(resultset.next())
+			{
+				customerName = resultset.getString(ShoppingAppConstants.customerUserNameColumn);
+				customerPhoneNumber = resultset.getLong(ShoppingAppConstants.customerPhoneNumberColumn);
+			}
+			System.out.printf("%12s %12s","My Name","My phone Number");
+			System.out.printf("%12s %12d",customerName,customerPhoneNumber);
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		sql = "Select * from "+ShoppingAppConstants.customerAddressTable+" where "+ShoppingAppConstants.customerIdColumn+ " = "
+				+customerId;
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			if(resultset.next())
+			{
+				customerDoorNumber = resultset.getString(ShoppingAppConstants.doorNumberColumn);
+				customerStreetName = resultset.getString(ShoppingAppConstants.streetNameColumn);
+				customerCity = resultset.getString(ShoppingAppConstants.cityColumn);
+				customerState = resultset.getString(ShoppingAppConstants.stateColumn);
+				customerPincode = resultset.getLong(ShoppingAppConstants.pincodeColumn);
+			}
+			ArrayList<String> customerAccount = new ArrayList<String>();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+}

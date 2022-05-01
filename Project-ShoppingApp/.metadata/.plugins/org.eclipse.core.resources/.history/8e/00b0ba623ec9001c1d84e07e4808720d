@@ -1,0 +1,32 @@
+package customers.methods.buynow;
+
+import java.util.Scanner;
+
+import utilities.classes.*;
+
+public class ShippingAddressDriver {
+
+	public void shippingAddressDriver()
+	{
+		Scanner scanner = new Scanner(System.in);
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		PrintMenu printMenu = new PrintMenu();
+		int customerId = getDetailsFromDb.getCurrentlyLoggedInCustomerId();
+		String customerAddress = getDetailsFromDb.getCustomerAddress(customerId);
+		System.out.printf("%12s\n","Your Address is");
+		System.out.printf("%12s", customerAddress);
+		printMenu.printAddressOption();
+		
+		int choice = scanner.nextInt();
+		switch(choice)
+		{
+		case 1:
+			//payment mode
+			break;
+		case 2:
+			//update address
+			
+		}
+		
+	}
+}

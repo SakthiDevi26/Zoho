@@ -17,7 +17,6 @@ public class CustomerLogin {
 		String sql="";
 		Connection connect = DatabaseConnection.getConnection();
 		GetDetails getDetails = new GetDetails();
-		//SupplierMethodsDriver supplierMethodsDrive = new SupplierMethodsDriver();
 		if(getDetails.getCustomerLoginDetails())
 		{
 			if (getDetails.customerPhoneNumber == 0 || getDetails.customerPassword == "") {
@@ -31,20 +30,20 @@ public class CustomerLogin {
 					ResultSet resultset = statement.executeQuery();
 					if(resultset.next())
 					{
-					int customerId = resultset.getInt(ShoppingAppConstants.customerIdColumn);
-					String customerOriginalPassword = resultset.getString(ShoppingAppConstants.customerPasswordColumn); 
-					Boolean verifyPassword = VerifyEncryptedPassword.isPasswordSame(getDetails.customerPassword,customerOriginalPassword);  
-					if(verifyPassword==true)
-					{
-						sql ="insert into "+ShoppingAppConstants.customerLoginTable+" values ("+customerId +")";
-						statement.executeUpdate(sql);
-						return true;
+						int customerId = resultset.getInt(ShoppingAppConstants.customerIdColumn);
+						String customerOriginalPassword = resultset.getString(ShoppingAppConstants.customerPasswordColumn); 
+						Boolean verifyPassword = VerifyEncryptedPassword.isPasswordSame(getDetails.customerPassword,customerOriginalPassword);  
+						if(verifyPassword==true)
+						{
+							sql ="insert into "+ShoppingAppConstants.customerLoginTable+" values ("+customerId +")";
+							statement.executeUpdate(sql);
+							return true;
+						}
 					}
 					else
 					{
 						System.out.println(ShoppingAppConstants.invalidLoginCredentials);
 						return false;
-					}
 					}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block

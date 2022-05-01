@@ -31,7 +31,17 @@ public class SearchByCategoryDriver {
 			}
 			break;
 		case 2:
-			
+			JewelleryCategory jewelleryCategory = new JewelleryCategory();
+			productId = jewelleryCategory.showJewelleryCategoryProducts();
+			if(productId!=0)
+			{
+				ViewProductInDetail viewProduct = new ViewProductInDetail();
+				viewProduct.viewProductInDetail(productId);
+			}
+			else
+			{
+				System.out.println(ShoppingAppConstants.invalidChoice);
+			}
 			break;
 		case 3:
 			BeautyCategory beautyCategory = new BeautyCategory();

@@ -1,0 +1,54 @@
+package customers.registeration.classes;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.Statement;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+import utilities.classes.GetDetails;
+
+public class CreateCustomerAccount {
+	String sql="",sql1="",sql2="";
+	Connection connect = DatabaseConnection.getConnection();
+	public int customerId;
+	public boolean createCustomerAccount() throws NoSuchAlgorithmException, NoSuchProviderException
+	{
+		GetDetails getDetails = new GetDetails();
+		if(getDetails.getCustomerCreateAccountDetails())
+		{
+		try {
+			Statement statement = connect.createStatement();
+			sql ="Insert into "+ShoppingAppConstants.customersTable+
+					"("+ShoppingAppConstants.customerUserNameColumn+","+ShoppingAppConstants.customerPasswordColumn+","+ShoppingAppConstants.customerPhoneNumberColumn+")"
+					+ " values('"+ getDetails.customerUserName+"','" +getDetails.customerHashedPassword+ "'," + getDetails.customerPhoneNumber +")";
+			sql1 ="select * from customers where customer_phoneNumber = "+getDetails.customerPhoneNumber;
+			ResultSet resultset = statement.executeQuery(sql1);
+			if(resultset.next())
+			{
+				customerId = resultset.getInt("customer_id");
+			}
+			sql2 ="Insert into "+ShoppingAppConstants.customerAddressTable+
+					"("+ShoppingAppConstants.customerIdColumn+","+ShoppingAppConstants.doorNumberColumn+","+ShoppingAppConstants.streetNameColumn+","+ShoppingAppConstants.cityColumn+","+ShoppingAppConstants.stateColumn+","+ShoppingAppConstants.pincodeColumn+")"+
+					 " values("+customerId+",'"+ getDetails.doorNumber+"','" +getDetails.streetName+ "','" + getDetails.city +"','"+getDetails.state+"',"+getDetails.pincode+")";
+			if (statement.executeUpdate(sql)==1)
+			{
+				if (statement.executeUpdate(sql2)==1)
+				return true;
+			}
+		}catch (SQLIntegrityConstraintViolationException e) {
+			System.out.println("Phone number exists already");
+		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		return false;
+		
+	}
+}

@@ -21,7 +21,6 @@ public class CheckCustomerLoggedIn {
 				ResultSet resultset = statement.executeQuery();
 				if(resultset.next())
 				{
-						System.out.println("true");
 					return true;
 				}
 			} catch (SQLException e) {

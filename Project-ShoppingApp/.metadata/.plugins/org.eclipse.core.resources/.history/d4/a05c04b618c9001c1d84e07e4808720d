@@ -1,0 +1,57 @@
+package customers.methods.productoptions;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+
+public class AddToCart {
+	String sql="",sql1="";
+	Connection connect = DatabaseConnection.getConnection();
+	int customerId;
+	public boolean addToCart(int productId) {
+		// TODO Auto-generated method stub
+		sql = "select * from "+ShoppingAppConstants.customerLoginTable;
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			if(resultset.next())
+			{
+				customerId = resultset.getInt(ShoppingAppConstants.customerIdColumn);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sql ="select * from "+ShoppingAppConstants.cartTable;
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			if(resultset.next())
+			{
+				sql1 = "insert into "+ShoppingAppConstants.cartTable+" values ("+customerId+","+productId+")";
+				Statement statement1;
+				try {
+					statement1 = connect.createStatement();
+					if(statement1.executeUpdate(sql1)==1)
+					{
+						return true;
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+		
+		
+	}
+	
+}

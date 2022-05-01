@@ -21,6 +21,7 @@ public class ShoppingAppConstants {
 	public static String enterUserName ="Enter your UserName:";
 	public static String enterPassword ="Enter your Password:";
 	public static String enterPhoneNumber ="Enter your Phone Number:";
+	public static String enterAddress ="Enter your address:";
 	
 
 	
@@ -32,6 +33,9 @@ public class ShoppingAppConstants {
 	public static String successfulLogin ="LoggedIn Successfully!!\n";
 	public static String successfulUpdate = "Product Updated Successfully!!\n";
 	public static String failedUpdate ="Unable to update product. Sorry :(";
+	public static String alreadyAdded ="Product is there already";
+	public static String productAdded ="Your Product is Added!";
+	public static String addressNoted ="Your address is Noted!";
 	
 	//cowsay
 	public static String cowsayBody = " \t\t\t^__^\n" +
@@ -45,10 +49,10 @@ public class ShoppingAppConstants {
 	"\t\t   \\\n" +
 	"\t\t      \\";
 			
-	public static String equalLine = "========================================================================";
+	public static String equalLine = "======================================================================================";
 	public static String hyphenLine ="---------------------------------------------";
-	public static String underscoreLine ="____________________________________________\n";
-	public static String smallHyphen ="------------------";
+	public static String underscoreLine ="________________________________________________\n";
+	public static String smallHyphen ="--------------------";
 	
 	//sql
 	public static String suppliersTable ="suppliers";
@@ -68,12 +72,12 @@ public class ShoppingAppConstants {
 	public static String customerPasswordColumn ="customer_password";
 	public static String customerPhoneNumberColumn ="customer_phonenumber";
 	public static String customerIdColumn ="customer_id";
-	public static String customerAddressTable ="customer_address";
-	public static String doorNumberColumn ="door_number";
-	public static String streetNameColumn ="street_name";
-	public static String cityColumn ="city";
-	public static String stateColumn ="state";
-	public static String pincodeColumn ="pincode";
+	public static String customerAddressColumn ="customer_address";
+	public static String cartTable ="cart";
+	public static String wishlistTable ="wishlist";
+	public static String ordersTable ="orders";
+	
+	
 	
 	 public static String productRecommendation ="\t\t\t\t\t______________________\r\n"
 	 		+ "\t\t\t\t\t< Anything you Love?? >\r\n"
@@ -88,4 +92,21 @@ public class ShoppingAppConstants {
 	 		+ "\t\t\t\t\t    /'\\_   _/`\\\r\n"
 	 		+ "\t\t\t\t\t    \\___)=(___/\r\n"
 	 		+ "\t\t\t\t\t";
+	 
+	 public static String thankYouMessage ="                                    /~\\                               \r\n"
+	 		+ "       Thank You                   |oo )                              \r\n"
+	 		+ "     Visit Us Again!         #     _\\=/_    #                         \r\n"
+	 		+ "                             \\\\  /  _  \\  //                         \r\n"
+	 		+ "                              \\\\//|/.\\|\\\\//                          \r\n"
+	 		+ "                               \\/  \\_/  \\/                           \r\n"
+	 		+ "                                  |\\ /|                              \r\n"
+	 		+ "                                  \\_ _/                              \r\n"
+	 		+ "                                  | | |                              \r\n"
+	 		+ "                                  | | |                              \r\n"
+	 		+ "                                  []|[]                              \r\n"
+	 		+ "                                  | | |                              \r\n"
+	 		+ "  _______________________________/_]_[_\\_____________________________\r\n"
+	 		+ "";
+	
+	
 }

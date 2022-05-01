@@ -5,8 +5,9 @@ public class PrintMenu {
 	public void printMainMenu()
 	{
 		System.out.println(ShoppingAppConstants.stars);
-		System.out.println("\t\t\t->||Welcome To Shopping App||<-");
-		System.out.println(ShoppingAppConstants.stars+"\n");
+		System.out.println("\t\t\t->||Welcome To The Ethereal Emporium||<-");
+		System.out.println(ShoppingAppConstants.stars);
+		System.out.println("\t\t\t\t\t\t-We Deliver Your Desire!!!");
 		System.out.println("Are You?");
 		System.out.println(ShoppingAppConstants.one+"Customer");
 		System.out.println(ShoppingAppConstants.two+"Supplier");
@@ -42,14 +43,6 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.four+"Product Price");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
-	public void printProductOptionsDriver()
-	{
-		System.out.println(ShoppingAppConstants.one+"Add to Cart");
-		System.out.println(ShoppingAppConstants.two+"Add to Wishlist");
-		System.out.println(ShoppingAppConstants.three+"Buy Now");
-		System.out.println(ShoppingAppConstants.four+"Go back");
-		System.out.println(ShoppingAppConstants.enterChoice);
-	}
 	public void printBeforeLoginCustomerMainMenu()
 	{
 		System.out.println(ShoppingAppConstants.one+"Search Product By Category");
@@ -69,12 +62,23 @@ public class PrintMenu {
 	}
 	public void printProductCategories()
 	{
-		System.out.println("----------------Our Categories-------------");
+		System.out.println(ShoppingAppConstants.smallHyphen+"Our Categories"+ShoppingAppConstants.smallHyphen);
 		System.out.println(ShoppingAppConstants.one+"Clothing");
 		System.out.println(ShoppingAppConstants.two+"Jewellery");
 		System.out.println(ShoppingAppConstants.three+"Beauty");
 		System.out.println(ShoppingAppConstants.four+"Electronics");
 		System.out.println(ShoppingAppConstants.five+"Grocery");
 		System.out.println(ShoppingAppConstants.enterChoice);
+	}
+	public void printPaymentMode()
+	{
+		System.out.println(ShoppingAppConstants.smallHyphen+"Mode Of Payment"+ShoppingAppConstants.smallHyphen);
+		System.out.println(ShoppingAppConstants.one+"Online Payment");
+		System.out.println(ShoppingAppConstants.two+"Cash On Delivery");
+	}
+	public void printAddressOption()
+	{
+		System.out.println(ShoppingAppConstants.one+"Use same address entered during registeration");
+		System.out.println(ShoppingAppConstants.two+"Change address");
 	}
 }
