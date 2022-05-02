@@ -1,0 +1,9 @@
+package admin.methods.adminview;
+
+public class DisplayOrderDetails {
+
+	public void displayOrderDetails(int orderId)
+	{
+		
+	}
+}

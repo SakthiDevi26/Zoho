@@ -15,10 +15,12 @@ import utilities.classes.databaseoperations.databasegetoperations.GetListDetails
 public class ViewAllOrders {
 	public void viewAllOrders()
 	{
-		CheckOrderId checkOrderId = new CheckOrderId();
-		GetDetails getDetails = new GetDetails();
+		
+		
 		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
 		GetListDetailsFromDatabase getListDetailsFromDb = new GetListDetailsFromDatabase();
+		
+		
 		ArrayList<Integer> orderIdList = new ArrayList<Integer>();
 		orderIdList = getListDetailsFromDb.getAllOrderIdList();
 		if(!orderIdList.isEmpty())
@@ -39,32 +41,7 @@ public class ViewAllOrders {
 				System.out.printf("%30s %20s\n", orderIdListIterator.next(),productName);
 			}
 			System.out.println("\n"+ShoppingAppConstants.equalLine);
-			getDetails.getOrderId();
-			if(getDetails.orderId!=0 && checkOrderId.isOrderIdInOrdersTable(getDetails.orderId))
-			{
-				if(checkOrderId.isOrderIdInShipmentTable(getDetails.orderId))
-				{
-					//displayOrderDetails
-				}
-				else
-				{
-					EnterOrderDetails enterOrderDetails = new EnterOrderDetails();
-					if(EnterOrderDetails.enterOrderDetails(getDetails.orderId))
-					{
-						//displayOrderDetails
-					}
-				}
-			}
-			else if(getDetails.orderId==0)
-			{
-				AdminMethodsDriver adminMethodsDrive = new AdminMethodsDriver();
-				adminMethodsDrive.adminMethodsDriver();
-			}
-			else
-			{
-				System.out.println(ShoppingAppConstants.invalidChoice);
-				viewAllOrders();
-			}
+			
 	
 		}
 	}

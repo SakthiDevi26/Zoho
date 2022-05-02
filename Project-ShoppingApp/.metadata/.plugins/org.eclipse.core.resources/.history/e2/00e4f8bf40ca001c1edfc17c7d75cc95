@@ -1,0 +1,30 @@
+package admin.methods.adminview;
+
+import appconstants.ShoppingAppConstants;
+import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+
+public class DisplayOrderDetails {
+
+	public void displayOrderDetails(int orderId)
+	{
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		 
+		String deliveryStatus = getDetailsFromDb.getDeliveryStatus(orderId);
+		String deliveryDate = getDetailsFromDb.getDeliveryDate(orderId);
+		
+		int productId = getDetailsFromDb.getProductIdUsingOrderId(orderId);
+		String productName = getDetailsFromDb.getProductName(productId);
+		String productCategory = getDetailsFromDb.getProductCategory(productId);
+		
+		int customerId = getDetailsFromDb.getCustomerId(orderId);
+		String customerName = getDetailsFromDb.getCustomerName(customerId);
+		String customerAddress = getDetailsFromDb.getCustomerAddress(customerId);
+		long customerPhoneNumber = getDetailsFromDb.getCustomerPhoneNumber(customerId);
+		int productPrice = getDetailsFromDb.getProductPrice(productId);
+		
+		//print
+		System.out.println(ShoppingAppConstants.equalLine);
+
+		
+	}
+}

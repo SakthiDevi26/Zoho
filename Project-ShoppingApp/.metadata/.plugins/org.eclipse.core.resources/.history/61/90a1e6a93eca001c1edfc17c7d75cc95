@@ -1,0 +1,21 @@
+package admin.methods.adminview;
+
+import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+
+public class DisplayOrderDetails {
+
+	public void displayOrderDetails(int orderId)
+	{
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		String deliveryStatus = getDetailsFromDb.getDeliveryStatus(orderId);
+		String deliveryDate = getDetailsFromDb.getDeliveryDate(orderId);
+		
+		int productId = getDetailsFromDb.getProductIdUsingOrderId(orderId);
+		String productName = getDetailsFromDb.getProductName(productId);
+		String productCategory = getDetailsFromDb.getProductCategory(productId);
+		
+		String customerId = getDetailsFromDb.getCustomerId(orderId);
+		int productPrice = getDetailsFromDb.getProductPrice(productId);
+		
+	}
+}

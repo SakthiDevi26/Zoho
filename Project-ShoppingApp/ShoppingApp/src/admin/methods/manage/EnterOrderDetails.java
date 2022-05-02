@@ -9,7 +9,7 @@ import sql.DatabaseConnection;
 import utilities.classes.GetDetails;
 
 public class EnterOrderDetails {
-	public static boolean enterOrderDetails(int orderId) {
+	public boolean enterOrderDetails(int orderId) {
 		// TODO Auto-generated method stub
 		
 		String sql="";
@@ -20,8 +20,8 @@ public class EnterOrderDetails {
 			Statement statement = connect.createStatement();
 			try {
 				sql ="Insert into "+ShoppingAppConstants.shipmentTable+
-						"("+ShoppingAppConstants.deliveryStatusColumn+","+ShoppingAppConstants.deliveryDateColumn+")"
-						+ " values('"+ getDetails.deliveryStatus +"','" + getDetails.deliveryDate+"')";
+						"("+ShoppingAppConstants.orderIdColumn+","+ShoppingAppConstants.deliveryStatusColumn+","+ShoppingAppConstants.deliveryDateColumn+")"
+						+ " values("+orderId +",'"+ getDetails.deliveryStatus +"','" + getDetails.deliveryDate+"')";
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

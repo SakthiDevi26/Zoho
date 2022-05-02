@@ -83,7 +83,10 @@ public class ShoppingAppConstants {
 	public static String equalLine = "======================================================================================";
 	public static String hyphenLine ="---------------------------------------------";
 	public static String underscoreLine ="________________________________________________\n";
+	public static String bigUnderscoreLine ="______________________________________________________________________________________\n";
 	public static String smallHyphen ="--------------------";
+	public static String greaterThanLine =">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
+	public static String lessThanLine ="<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
 	
 	//sql
 	public static String suppliersTable ="suppliers";

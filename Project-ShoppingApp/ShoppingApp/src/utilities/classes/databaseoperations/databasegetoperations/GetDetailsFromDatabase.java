@@ -1,6 +1,7 @@
 package utilities.classes.databaseoperations.databasegetoperations;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,15 +14,71 @@ import sql.DatabaseConnection;
 public class GetDetailsFromDatabase {
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
-	public int supplierId,currentCustomerId,productPrice,orderId,productId;
-	public long customerPhoneNumber;
-	public String productName,productCategory,customerAddress,customerName,deliveryStatus;
+	public int supplierId,currentCustomerId,productPrice,orderId,productId,customerId;
+	public long customerPhoneNumber,supplierPhoneNumber;
+	public String productName,productCategory,customerAddress,customerName,deliveryStatus,deliveryDateString,supplierName;
+	Date deliveryDate;
 	
 	public int getSupplierId(String supplierUserName)
 	{
 
 		sql ="Select * from "+ShoppingAppConstants.suppliersTable+" where "+ShoppingAppConstants.supplierUserNameColumn +" = '"
 	+supplierUserName+"'";
+			try {
+				Statement statement = connect.createStatement();
+				ResultSet resultset = statement.executeQuery(sql);
+				if(resultset.next())
+				{
+					supplierId = resultset.getInt(ShoppingAppConstants.supplierIdColumn);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return supplierId;
+		
+	}
+	public String getSupplierName(int supplierId)
+	{
+
+		sql ="Select * from "+ShoppingAppConstants.suppliersTable+" where "+ShoppingAppConstants.supplierIdColumn +" = "
+	+supplierId;
+			try {
+				Statement statement = connect.createStatement();
+				ResultSet resultset = statement.executeQuery(sql);
+				if(resultset.next())
+				{
+					supplierName = resultset.getString(ShoppingAppConstants.supplierUserNameColumn);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return supplierName;
+		
+	}
+	public long getSupplierPhoneNumber(int supplierId)
+	{
+		sql ="Select * from "+ShoppingAppConstants.suppliersTable+" where "+ShoppingAppConstants.supplierIdColumn+" = "
+				+supplierId;
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			if(resultset.next())
+			{
+				supplierPhoneNumber = resultset.getLong(ShoppingAppConstants.supplierPhoneNumberColumn);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	return supplierPhoneNumber;
+	}
+	public int getSupplierId(int productId)
+	{
+
+		sql ="Select * from "+ShoppingAppConstants.productsTable+" where "+ShoppingAppConstants.productIdColumn +" = "
+	+productId;
 			try {
 				Statement statement = connect.createStatement();
 				ResultSet resultset = statement.executeQuery(sql);
@@ -100,7 +157,7 @@ public class GetDetailsFromDatabase {
 				ResultSet resultset = statement.executeQuery(sql);
 				if(resultset.next())
 				{
-					productPrice = resultset.getInt(ShoppingAppConstants.productIdColumn);
+					productPrice = resultset.getInt(ShoppingAppConstants.productPriceColumn);
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -178,6 +235,23 @@ public class GetDetailsFromDatabase {
 		}
 	return productId;
 	}
+	public int getCustomerId(int orderId)
+	{
+		sql ="Select * from "+ShoppingAppConstants.ordersTable+" where "+ShoppingAppConstants.orderIdColumn+" = "
+				+orderId;
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			if(resultset.next())
+			{
+				customerId = resultset.getInt(ShoppingAppConstants.customerIdColumn);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	return customerId;
+	}
 	public int getOrderId(int productId) {
 		sql ="Select * from "+ShoppingAppConstants.ordersTable+" where "+ShoppingAppConstants.productIdColumn+" = "
 				+productId;
@@ -228,5 +302,24 @@ public class GetDetailsFromDatabase {
 			e.printStackTrace();
 		}
 		return deliveryStatus;
+	}
+	public String getDeliveryDate(int orderId)
+	{
+		sql ="Select * from "+ShoppingAppConstants.shipmentTable+" where "+ShoppingAppConstants.orderIdColumn+" = "
+				+orderId;
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			if(resultset.next())
+			{
+				deliveryDate = resultset.getDate(ShoppingAppConstants.deliveryDateColumn);
+				deliveryDateString = deliveryDate.toString();
+			}
+		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return deliveryDateString;
 	}
 }

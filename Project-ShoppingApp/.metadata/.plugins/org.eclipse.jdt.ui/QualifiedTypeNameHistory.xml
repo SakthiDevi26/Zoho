@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="hashpassword.GetSalt"/>
     <fullyQualifiedTypeName name="hashpassword.HashPassword"/>
     <fullyQualifiedTypeName name="java.security.SecureRandom"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
@@ -33,7 +32,6 @@
     <fullyQualifiedTypeName name="customers.methods.ViewProductInDetail"/>
     <fullyQualifiedTypeName name="customers.methods.afterlogin.ViewMyWishList"/>
     <fullyQualifiedTypeName name="customers.methods.buynow.ShippingAddressDriver"/>
-    <fullyQualifiedTypeName name="appconstants.ShoppingAppConstants"/>
     <fullyQualifiedTypeName name="customers.methods.removemethods.RemoveProductFromWishList"/>
     <fullyQualifiedTypeName name="customers.methods.removemethods.RemoveProductFromCart"/>
     <fullyQualifiedTypeName name="utilities.classes.withdatabases.GetListDetailsFromDatabase"/>
@@ -53,11 +51,13 @@
     <fullyQualifiedTypeName name="admin.methods.manage.ManageOrders"/>
     <fullyQualifiedTypeName name="admin.methods.adminview.ViewAllOrders"/>
     <fullyQualifiedTypeName name="java.util.ListIterator"/>
-    <fullyQualifiedTypeName name="utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase"/>
     <fullyQualifiedTypeName name="utilities.classes.databaseoperations.databasecheckoperations.CheckOrderId"/>
     <fullyQualifiedTypeName name="admin.registration.AdminMethodsDriver"/>
     <fullyQualifiedTypeName name="customers.methods.buynow.ShowOrderDetailsForCustomers"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="admin.methods.manage.EnterOrderDetails"/>
     <fullyQualifiedTypeName name="utilities.classes.GetDetails"/>
+    <fullyQualifiedTypeName name="admin.methods.adminview.DisplayOrderDetails"/>
+    <fullyQualifiedTypeName name="utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase"/>
+    <fullyQualifiedTypeName name="appconstants.ShoppingAppConstants"/>
 </qualifiedTypeNameHistroy>

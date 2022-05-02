@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.ListIterator;
 
 import appconstants.ShoppingAppConstants;
-import customers.methods.buynow.ShowOrderDetails;
 import customers.registeration.classes.CustomerMainDriver;
 import sql.DatabaseConnection;
 import utilities.classes.GetDetails;
@@ -65,8 +64,8 @@ public class ViewSupplierOrders {
 		getDetails.getOrderId();
 		if(getDetails.orderId!=0 && checkOrderId.isOrderIdInOrdersTable(getDetails.orderId))
 		{
-			ShowOrderDetails showOrderDetails = new ShowOrderDetails();
-			showOrderDetails.showOrderDetails(getDetails.orderId);
+			//ShowOrderDetails showOrderDetails = new ShowOrderDetails();
+			//showOrderDetails.showOrderDetails(getDetails.orderId);
 		}
 		else if(getDetails.orderId==0)
 		{
