@@ -1,0 +1,30 @@
+package customers.methods.afterlogin;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+import utilities.classes.GetDetailsFromDatabase;
+import utilities.classes.withdatabases.GetListDetailsFromDatabase;
+
+public class ViewMyOrders {
+
+	String sql="",sql1="";
+	Connection connect = DatabaseConnection.getConnection();
+	public void viewMyOrders()
+	{
+		GetListDetailsFromDatabase getListDetailsFromDb = new GetListDetailsFromDatabase();
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		int customerId = getDetailsFromDb.getCurrentlyLoggedInCustomerId();
+		ArrayList<Integer> orderIdList = new ArrayList<Integer>();
+		orderIdList = getListDetailsFromDb.getOrderIdList(customerId);
+		int productId = getDetailsFromDb.getProductId(customerId);
+		String productName = getDetailsFromDb.getProductName(productId);
+		
+		System.out.println(ShoppingAppConstants.equalLine+"\n");
+		System.out.println("My ORDERS");
+		System.out.println(ShoppingAppConstants.equalLine+"\n");
+		System.out.printf("%12s","Order Id");
+	}
+}

@@ -36,7 +36,10 @@ public class SupplierRegisterationDriver {
 			}
 			break;
 		case 2:
-			if(supplierLogin.supplierLogin());
+			if(!supplierLogin.supplierLogin())
+			{
+				System.out.println(ShoppingAppConstants.invalidLoginCredentials);
+			}
 			break;
 		default:
 			System.out.println(ShoppingAppConstants.invalidChoice);

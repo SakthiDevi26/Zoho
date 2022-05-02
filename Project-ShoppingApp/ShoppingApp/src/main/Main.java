@@ -2,6 +2,8 @@ package main;
 import utilities.classes.*;
 
 import java.util.*;
+
+import admin.registration.AdminLogin;
 import appconstants.ShoppingAppConstants;
 import customers.registeration.classes.*;
 import passwordencryption.EncryptPassword;
@@ -15,6 +17,7 @@ public class Main {
 		PrintMenu printMenu = new PrintMenu();
 		SupplierRegisterationDriver supplierRegisterDriver = new SupplierRegisterationDriver();
 		CustomerMainDriver customerMainDriver = new CustomerMainDriver();
+		AdminLogin adminLogin = new AdminLogin();
 		printMenu.printMainMenu();
 		int choice = scanner.nextInt();
 		switch(choice)
@@ -26,7 +29,7 @@ public class Main {
 			supplierRegisterDriver.supplierRegisterationDriver();
 			break;
 		case 3:
-			//shipping clerk
+			adminLogin.adminLogin();
 			break;
 		default:
 			System.out.println(ShoppingAppConstants.invalidChoice);

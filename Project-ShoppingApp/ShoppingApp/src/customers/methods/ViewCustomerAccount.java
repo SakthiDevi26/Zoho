@@ -10,7 +10,7 @@ import java.util.Scanner;
 import appconstants.ShoppingAppConstants;
 import customers.registeration.classes.CustomerMainDriver;
 import sql.DatabaseConnection;
-import utilities.classes.GetDetailsFromDatabase;
+import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
 
 public class ViewCustomerAccount {
 	String sql="",sql1="";
@@ -38,7 +38,7 @@ public class ViewCustomerAccount {
 			}
 			System.out.println(ShoppingAppConstants.equalLine+"\n\n");
 			System.out.println("\t\t"+ShoppingAppConstants.smallHyphen+"MY PROFILE"+ShoppingAppConstants.smallHyphen);
-			System.out.printf("\n%s %25s\n","\t\tI am","\t\tContact me at");
+			System.out.printf("\n%s %25s\n","\t\tName","\t\tPhone Number");
 			System.out.print("\t\t"+customerName);
 			System.out.println("\t\t\t"+customerPhoneNumber);
 			System.out.println("\t\t"+ShoppingAppConstants.underscoreLine);

@@ -11,8 +11,8 @@ import customers.methods.ViewProductInDetail;
 import customers.methods.buynow.ShippingAddressDriver;
 import customers.registeration.classes.CustomerMainDriver;
 import sql.DatabaseConnection;
-import utilities.classes.GetDetailsFromDatabase;
-import utilities.classes.withdatabases.CheckProductId;
+import utilities.classes.databaseoperations.databasecheckoperations.CheckProductId;
+import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
 
 public class ViewMyWishList {
 	String sql="",sql1="";

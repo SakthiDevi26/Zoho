@@ -1,0 +1,5 @@
+package admin.adminview;
+
+public class ViewAllOrders {
+
+}

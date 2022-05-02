@@ -1,0 +1,18 @@
+package customers.methods.afterlogin;
+
+import java.sql.Connection;
+
+import sql.DatabaseConnection;
+import utilities.classes.GetDetailsFromDatabase;
+
+public class ViewMyOrders {
+
+	String sql="",sql1="";
+	Connection connect = DatabaseConnection.getConnection();
+	public void viewMyOrders()
+	{
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		int customerId = getDetailsFromDb.getCurrentlyLoggedInCustomerId();
+		
+	}
+}

@@ -2,6 +2,7 @@ package appconstants;
 
 public class ShoppingAppConstants {
 	
+	//printMenu
 	public static String stars ="********************************************************************************";
 	public static String one ="(1)";
 	public static String two ="(2)";
@@ -37,8 +38,9 @@ public class ShoppingAppConstants {
 	public static String productAdded ="Your Product is Added!";
 	public static String addressNoted ="Your order will be delivered here!";
 	public static String productRemoved ="Your Product is Removed!";
+	public static String goHome ="Press 0 to go Home";
 	
-	//cowsay
+	//decoration
 	public static String cowsayBody = " \t\t\t^__^\n" +
 			" \t\t\t(oo)\\_______\n" +
 			" \t\t\t(__)\\        )\\/\\\n" +
@@ -49,7 +51,35 @@ public class ShoppingAppConstants {
   + "\t\t \\\n" +
 	"\t\t   \\\n" +
 	"\t\t      \\";
-			
+	 public static String productRecommendation ="\t\t\t\t\t______________________\r\n"
+		 		+ "\t\t\t\t\t< Anything you Love?? >\r\n"
+		 		+ "\t\t\t\t\t-----------------------\r\n"
+		 		+ "\t\t\t\t\t   \\\r\n"
+		 		+ "\t\t\t\t\t    \\\r\n"
+		 		+ "\t\t\t\t\t        .--.\r\n"
+		 		+ "\t\t\t\t\t       |o_o |\r\n"
+		 		+ "\t\t\t\t\t       |:_/ |\r\n"
+		 		+ "\t\t\t\t\t      //   \\ \\\r\n"
+		 		+ "\t\t\t\t\t     (|     | )\r\n"
+		 		+ "\t\t\t\t\t    /'\\_   _/`\\\r\n"
+		 		+ "\t\t\t\t\t    \\___)=(___/\r\n"
+		 		+ "\t\t\t\t\t";
+		 
+		 public static String thankYouMessage ="                                    /~\\                               \r\n"
+		 		+ "       Thank You                   |oo )                              \r\n"
+		 		+ "     Visit Us Again!         #     _\\=/_    #                         \r\n"
+		 		+ "                             \\\\  /  _  \\  //                         \r\n"
+		 		+ "                              \\\\//|/.\\|\\\\//                          \r\n"
+		 		+ "                               \\/  \\_/  \\/                           \r\n"
+		 		+ "                                  |\\ /|                              \r\n"
+		 		+ "                                  \\_ _/                              \r\n"
+		 		+ "                                  | | |                              \r\n"
+		 		+ "                                  | | |                              \r\n"
+		 		+ "                                  []|[]                              \r\n"
+		 		+ "                                  | | |                              \r\n"
+		 		+ "  _______________________________/_]_[_\\_____________________________\r\n"
+		 		+ "";
+				
 	public static String equalLine = "======================================================================================";
 	public static String hyphenLine ="---------------------------------------------";
 	public static String underscoreLine ="________________________________________________\n";
@@ -78,37 +108,15 @@ public class ShoppingAppConstants {
 	public static String wishlistTable ="wishlist";
 	public static String ordersTable ="orders";
 	public static String orderIdColumn ="order_id";
+	public static String adminTable ="admin";
+	public static String adminUserNameColumn = "admin_username";
+	public static String adminPasswordColumn = "admin_password";
+	public static String shipmentTable ="shipment";
+	public static String deliveryDateColumn ="delivery_date";
+	public static String deliveryStatusColumn ="delivery_status";
+			
 	
 	
-	
-	 public static String productRecommendation ="\t\t\t\t\t______________________\r\n"
-	 		+ "\t\t\t\t\t< Anything you Love?? >\r\n"
-	 		+ "\t\t\t\t\t-----------------------\r\n"
-	 		+ "\t\t\t\t\t   \\\r\n"
-	 		+ "\t\t\t\t\t    \\\r\n"
-	 		+ "\t\t\t\t\t        .--.\r\n"
-	 		+ "\t\t\t\t\t       |o_o |\r\n"
-	 		+ "\t\t\t\t\t       |:_/ |\r\n"
-	 		+ "\t\t\t\t\t      //   \\ \\\r\n"
-	 		+ "\t\t\t\t\t     (|     | )\r\n"
-	 		+ "\t\t\t\t\t    /'\\_   _/`\\\r\n"
-	 		+ "\t\t\t\t\t    \\___)=(___/\r\n"
-	 		+ "\t\t\t\t\t";
-	 
-	 public static String thankYouMessage ="                                    /~\\                               \r\n"
-	 		+ "       Thank You                   |oo )                              \r\n"
-	 		+ "     Visit Us Again!         #     _\\=/_    #                         \r\n"
-	 		+ "                             \\\\  /  _  \\  //                         \r\n"
-	 		+ "                              \\\\//|/.\\|\\\\//                          \r\n"
-	 		+ "                               \\/  \\_/  \\/                           \r\n"
-	 		+ "                                  |\\ /|                              \r\n"
-	 		+ "                                  \\_ _/                              \r\n"
-	 		+ "                                  | | |                              \r\n"
-	 		+ "                                  | | |                              \r\n"
-	 		+ "                                  []|[]                              \r\n"
-	 		+ "                                  | | |                              \r\n"
-	 		+ "  _______________________________/_]_[_\\_____________________________\r\n"
-	 		+ "";
 	
 	
 }

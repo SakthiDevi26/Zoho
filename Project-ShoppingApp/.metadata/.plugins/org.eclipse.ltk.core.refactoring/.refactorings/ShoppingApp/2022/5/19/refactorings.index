@@ -2,3 +2,14 @@
 1651407554858	Rename type 'ConfirmBuyNow'
 1651407584905	Rename type 'ShowBuyDetails'
 1651417272751	Delete element
+1651470866653	Rename package 'utilities.classes.withdatabases'
+1651473027540	Delete element
+1651484646933	Encapsulate field 'adminUserName'
+1651484658820	Encapsulate field 'adminPassword'
+1651486385580	Delete element
+1651486632376	Move compilation unit
+1651486640405	Delete element
+1651490277820	Delete element
+1651490316452	Rename package 'admin.methods.adminview'
+1651490617768	Delete element
+1651495305268	Delete element

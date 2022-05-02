@@ -1,0 +1,13 @@
+package admin.methods.manage;
+
+import utilities.classes.GetDetails;
+
+public class EnterOrderDetails {
+
+	public static void enterOrderDetails(int orderId) {
+		// TODO Auto-generated method stub
+		GetDetails getDetails = new GetDetails();
+		getDetails.getOrderDetails();
+	}
+
+}

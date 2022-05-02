@@ -1,0 +1,10 @@
+package admin.methods.manage;
+
+public class ManageOrders {
+
+	public void manageOrders() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

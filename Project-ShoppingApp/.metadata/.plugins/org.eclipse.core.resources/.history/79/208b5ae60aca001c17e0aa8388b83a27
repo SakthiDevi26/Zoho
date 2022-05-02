@@ -1,0 +1,23 @@
+package admin.methods.adminview;
+
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+import utilities.classes.databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
+
+public class ViewAllOrders {
+	public void viewAllOrders()
+	{
+		GetListDetailsFromDatabase getListDetailsFromDb = new GetListDetailsFromDatabase();
+		ArrayList<Integer> orderIdList = new ArrayList<Integer>();
+		ArrayList<Integer> productIdList = new ArrayList<Integer>();
+		orderIdList = getListDetailsFromDb.getAllOrderIdList();
+		productIdList = getListDetailsFromDb.getAllOrderedProductIdList();
+		if(!orderIdList.isEmpty())
+		{
+		ListIterator<Integer> orderIdListIterator = orderIdList.listIterator();
+		while(orderIdListIterator.hasNext())
+		{
+		}
+	}
+}

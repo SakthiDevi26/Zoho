@@ -7,7 +7,7 @@ import java.sql.Statement;
 import appconstants.ShoppingAppConstants;
 import sql.DatabaseConnection;
 import utilities.classes.GetDetails;
-import utilities.classes.GetDetailsFromDatabase;
+import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
 
 
 public class UpdateCustomerAddress {

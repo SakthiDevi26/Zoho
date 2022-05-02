@@ -47,8 +47,12 @@ public class SupplierMethodsDriver {
 			updateProductDriver.updateProductDriver(supplierUserName);
 			break;
 		case 5:
+			ViewSupplierOrders viewSupplierOrders = new ViewSupplierOrders();
+			viewSupplierOrders.viewSupplierOrders(supplierUserName);
+			break;
 		case 6:
 		case 7:
+			System.out.println("Thank you! Logged out successfully!!\n");
 			Main.main(null);
 			break;
 		default:

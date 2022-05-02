@@ -8,8 +8,8 @@ import appconstants.ShoppingAppConstants;
 import customers.methods.buynow.ShippingAddressDriver;
 import customers.registeration.classes.CustomerMainDriver;
 import sql.DatabaseConnection;
-import utilities.classes.GetDetailsFromDatabase;
-import utilities.classes.withdatabases.CheckProductId;
+import utilities.classes.databaseoperations.databasecheckoperations.CheckProductId;
+import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
 
 public class ViewMyCart {
 	String sql="",sql1="";
@@ -47,7 +47,7 @@ public class ViewMyCart {
 		}
 		System.out.println("Enter productId you want to work with:");
 		}
-		System.out.println("press 0 to go to home");
+		System.out.println(ShoppingAppConstants.goHome);
 		int productId = scanner.nextInt();
 		if(productId!=0 && checkProductId.isProductIdInCart(productId))
 		{

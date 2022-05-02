@@ -1,0 +1,15 @@
+package admin.methods.adminview;
+
+import java.util.ArrayList;
+
+import utilities.classes.databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
+
+public class ViewAllOrders {
+	public void viewAllOrders()
+	{
+		GetListDetailsFromDatabase getListDetailsFromDb = new GetListDetailsFromDatabase
+		ArrayList<Integer> orderIdList = new ArrayList<Integer>();
+		ArrayList<Integer> productIdList = new ArrayList<Integer>();
+		orderIdList = getListDetailsFromDb.getAllOrderIdList();
+	}
+}

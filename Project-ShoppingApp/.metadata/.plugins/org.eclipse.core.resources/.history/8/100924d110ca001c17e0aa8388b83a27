@@ -1,0 +1,10 @@
+package customers.methods.buynow;
+
+public class ShowOrderDetails {
+
+	public void showOrderDetails(int orderId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

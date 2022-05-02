@@ -1,0 +1,64 @@
+package suppliers.suppliersmethods.classes;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+import appconstants.ShoppingAppConstants;
+import customers.methods.buynow.ShowOrderDetails;
+import customers.registeration.classes.CustomerMainDriver;
+import sql.DatabaseConnection;
+import utilities.classes.GetDetails;
+import utilities.classes.databaseoperations.databasecheckoperations.CheckOrderId;
+import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import utilities.classes.databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
+
+public class ViewSupplierOrders {
+	public void viewSupplierOrders(String supplierUserName) {
+		GetDetails getDetails = new GetDetails();
+		GetListDetailsFromDatabase getListDetailsFromDb = new GetListDetailsFromDatabase();
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		CheckOrderId checkOrderId = new CheckOrderId();
+		
+		int supplierId = getDetailsFromDb.getSupplierId(supplierUserName);
+		ArrayList<Integer> productIdList = new ArrayList<Integer>();
+		productIdList = getListDetailsFromDb.getProductIdList(supplierId);
+		if(!productIdList.isEmpty())
+		{
+			System.out.println(ShoppingAppConstants.equalLine+"\n");
+			System.out.println("\t\t\t\tMy PRODUCT ORDERS");
+			System.out.println(ShoppingAppConstants.equalLine+"\n");
+			System.out.printf("%30s %20s\n","Order Id",
+					"Product Name");
+			System.out.println("\t\t"+ShoppingAppConstants.underscoreLine);
+	
+			ListIterator<Integer> iterator = productIdList.listIterator();
+			while(iterator.hasNext())
+			{
+			int orderId = getDetailsFromDb.getOrderId(iterator.next());
+			String productName = getDetailsFromDb.getProductName(iterator.next());
+			System.out.printf("%30s %20s\n", orderId,productName);
+			}
+			System.out.println("\n"+ShoppingAppConstants.equalLine);
+			getDetails.getOrderId();
+			if(getDetails.orderId!=0 && checkOrderId.isOrderIdInOrdersTable(getDetails.orderId))
+			{
+				ShowOrderDetails showOrderDetails = new ShowOrderDetails();
+				showOrderDetails.showOrderDetails(getDetails.orderId);
+			}
+			else if(getDetails.orderId==0)
+			{
+				CustomerMainDriver customerMainDrive = new CustomerMainDriver();
+				customerMainDrive.customerMainDriver();
+			}
+			else
+			{
+				System.out.println(ShoppingAppConstants.invalidChoice);
+				viewSupplierOrders(supplierUserName);
+			}
+		
+		}
+		
+	}
+
+}

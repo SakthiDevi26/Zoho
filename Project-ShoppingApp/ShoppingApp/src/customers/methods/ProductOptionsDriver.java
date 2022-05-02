@@ -12,8 +12,8 @@ import customers.registeration.classes.CheckCustomerLoggedIn;
 import customers.registeration.classes.CustomerMainDriver;
 import customers.registeration.classes.CustomerRegisterationDriver;
 import utilities.classes.PrintMenu;
-import utilities.classes.PrintMenuUsingDataBase;
-import utilities.classes.withdatabases.CheckProductId;
+import utilities.classes.databaseoperations.databasecheckoperations.CheckProductId;
+import utilities.classes.databaseoperations.databaseprintoperations.PrintMenuUsingDataBase;
 
 public class ProductOptionsDriver {
 

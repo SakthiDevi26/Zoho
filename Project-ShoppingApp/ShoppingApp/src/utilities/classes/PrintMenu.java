@@ -99,4 +99,16 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.two+"View Product");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	public void printAdminMethodsMenu()
+	{
+		System.out.println(ShoppingAppConstants.one+"Manage Suppliers");
+		System.out.println(ShoppingAppConstants.two+"Manage Customers");
+		System.out.println(ShoppingAppConstants.three+"Manage Orders");
+	}
+	public void printAdminOrdersManagementMenu()
+	{
+		System.out.println(ShoppingAppConstants.one+"View Orders");
+		System.out.println(ShoppingAppConstants.two+"Update Order Status");
+		System.out.println(ShoppingAppConstants.three+"Cancel a order");
+	}
 }

@@ -1,0 +1,8 @@
+package admin.registration;
+
+public class AdminLogin {
+	public void adminLogin()
+	{
+		
+	}
+}

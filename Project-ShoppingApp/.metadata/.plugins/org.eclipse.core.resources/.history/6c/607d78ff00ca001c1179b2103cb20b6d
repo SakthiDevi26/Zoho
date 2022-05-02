@@ -1,0 +1,10 @@
+package admin.registration;
+
+public class AdminMethodsDriver {
+
+	public void adminMethodsDriver() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

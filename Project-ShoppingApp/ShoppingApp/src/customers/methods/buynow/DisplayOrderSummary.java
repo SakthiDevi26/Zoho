@@ -1,7 +1,7 @@
 package customers.methods.buynow;
 
 import appconstants.ShoppingAppConstants;
-import utilities.classes.GetDetailsFromDatabase;
+import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
 
 public class DisplayOrderSummary {
 

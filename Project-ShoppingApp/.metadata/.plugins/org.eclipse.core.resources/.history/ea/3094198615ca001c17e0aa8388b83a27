@@ -1,0 +1,10 @@
+package admin.methods.manage;
+
+public class EnterOrderDetails {
+
+	public static void enterOrderDetails(int orderId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

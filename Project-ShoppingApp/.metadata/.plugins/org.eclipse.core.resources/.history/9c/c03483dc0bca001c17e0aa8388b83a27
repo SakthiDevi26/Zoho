@@ -1,0 +1,30 @@
+package admin.methods.adminview;
+
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import utilities.classes.databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
+
+public class ViewAllOrders {
+	public void viewAllOrders()
+	{
+		GetDetailsFromDatabase getDetailsFromDatabase = new GetDetailsFromDatabase();
+		GetListDetailsFromDatabase getListDetailsFromDb = new GetListDetailsFromDatabase();
+		ArrayList<Integer> orderIdList = new ArrayList<Integer>();
+		//ArrayList<Integer> productIdList = new ArrayList<Integer>();
+		orderIdList = getListDetailsFromDb.getAllOrderIdList();
+		//productIdList = getListDetailsFromDb.getAllOrderedProductIdList();
+		if(!orderIdList.isEmpty())
+		{
+			ListIterator<Integer> orderIdListIterator = orderIdList.listIterator();
+			while(orderIdListIterator.hasNext())
+			{
+				int productId = getDetailsFromDatabase.getProductIdUsingOrderId(orderIdListIterator.next());
+				String productName = getDetailsFromDb.getProductName(productId);
+				System.out.printf("%30s %20s\n", orderIdListIterator.next(),productName);
+			}
+	
+		}
+	}
+}

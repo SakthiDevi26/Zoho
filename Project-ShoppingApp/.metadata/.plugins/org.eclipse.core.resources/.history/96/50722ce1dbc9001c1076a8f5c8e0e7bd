@@ -1,0 +1,39 @@
+package customers.methods.afterlogin;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+import utilities.classes.GetDetailsFromDatabase;
+import utilities.classes.withdatabases.GetListDetailsFromDatabase;
+
+public class ViewMyOrders {
+
+	String sql="",sql1="";
+	Connection connect = DatabaseConnection.getConnection();
+	public void viewMyOrders()
+	{
+		GetListDetailsFromDatabase getListDetailsFromDb = new GetListDetailsFromDatabase();
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		int customerId = getDetailsFromDb.getCurrentlyLoggedInCustomerId();
+		ArrayList<Integer> orderIdList = new ArrayList<Integer>();
+		orderIdList = getListDetailsFromDb.getOrderIdList(customerId);
+		
+		System.out.println(ShoppingAppConstants.equalLine+"\n");
+		System.out.println("\t\t\t\tMy ORDERS");
+		System.out.println(ShoppingAppConstants.equalLine+"\n");
+		System.out.printf("%30s %20s\n","Order Id",
+				"Product Name");
+		System.out.println("\t\t"+ShoppingAppConstants.underscoreLine+"\n");
+
+		ListIterator<Integer> iterator = orderIdList.listIterator();
+		while(iterator.hasNext())
+		{
+		int productId = getDetailsFromDb.getProductId(customerId);
+		String productName = getDetailsFromDb.getProductName(productId);
+		System.out.printf("%30s %20s\n", iterator.next(),productName);
+		}
+	}
+}

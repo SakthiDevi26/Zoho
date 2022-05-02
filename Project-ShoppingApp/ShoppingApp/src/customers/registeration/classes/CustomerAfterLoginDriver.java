@@ -6,6 +6,7 @@ import appconstants.ShoppingAppConstants;
 import customers.methods.SearchByCategoryDriver;
 import customers.methods.ViewCustomerAccount;
 import customers.methods.afterlogin.ViewMyCart;
+import customers.methods.afterlogin.ViewMyOrders;
 import customers.methods.afterlogin.ViewMyWishList;
 import main.Main;
 import utilities.classes.PrintMenu;
@@ -28,7 +29,8 @@ public class CustomerAfterLoginDriver {
 			viewCustomerAccount.viewCustomerAccount();
 			break;
 		case 3:
-			//My orders
+			ViewMyOrders viewOrders = new ViewMyOrders();
+			viewOrders.viewMyOrders();
 			break;
 		case 4:
 			ViewMyCart viewCart = new ViewMyCart();

@@ -8,7 +8,8 @@ import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
 import sql.DatabaseConnection;
-import utilities.classes.withdatabases.CheckProductId;
+import utilities.classes.databaseoperations.databasecheckoperations.CheckProductId;
+
 
 public class ClothingCategory {
 	String sql="";

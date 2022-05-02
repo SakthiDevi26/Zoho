@@ -1,0 +1,33 @@
+package admin.methods.manage;
+
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import appconstants.ShoppingAppConstants;
+import utilities.classes.GetDetails;
+
+public class EnterOrderDetails {
+
+	public static boolean enterOrderDetails(int orderId) {
+		// TODO Auto-generated method stub
+		GetDetails getDetails = new GetDetails();
+		getDetails.getOrderDetails();
+		try {
+			Statement statement = connect.createStatement();
+			sql ="Insert into "+ShoppingAppConstants.ordersTable+
+					"("+ShoppingAppConstants.customerIdColumn+","+ShoppingAppConstants.productIdColumn+")"
+					+ " values("+ customerId +"," + productId+")";
+			if (statement.executeUpdate(sql)==1)
+			{
+				return true;
+			}
+		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+		
+	}
+
+}

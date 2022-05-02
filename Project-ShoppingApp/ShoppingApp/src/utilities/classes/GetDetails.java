@@ -6,26 +6,31 @@ import java.util.*;
 import appconstants.ShoppingAppConstants;
 import passwordencryption.EncryptPassword;
 import suppliers.suppliersregistration.classes.CreateSupplierAccount;
-import utilities.classes.withdatabases.CheckProductId;
+import utilities.classes.databaseoperations.databasecheckoperations.CheckProductId;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.SecureRandom;
 public class GetDetails {
-	public String supplierUserName;
+	public String supplierUserName; 
 	public String supplierPassword;
 	public long supplierPhoneNumber;
 	public String productName;
 	public String productCategory;
 	public String productDescription;
 	public int productPrice;
-	public int productId;
+	public int productId,orderId;
 	public String supplierHashedPassword;
 	public String customerUserName;
 	public String customerPassword;
 	public long customerPhoneNumber;
 	public String customerHashedPassword;
 	public String customerAddress;
+	private String adminUserName;
+	private String adminPassword;
+	public String deliveryStatus;
+	public String deliveryDate;
 	
 	Scanner scanner = new Scanner(System.in);
 	CreateSupplierAccount createSupplierAccount = new CreateSupplierAccount();
@@ -192,7 +197,42 @@ public class GetDetails {
 		System.out.println("Enter new Address to ship the product:");
 		customerAddress = scanner.nextLine();
 	}
+	public void getOrderId()
+	{
+		System.out.println("Enter Order Id to view the details:");
+		System.out.println(ShoppingAppConstants.goHome);
+		orderId = scanner.nextInt();
+	}
+	public void getAdminLoginDetails()
+	{
+		System.out.println("Hello Admin");
+		System.out.println(ShoppingAppConstants.enterUserName);
+		setAdminUserName(scanner.nextLine());
+		System.out.println(ShoppingAppConstants.enterPassword);
+		setAdminPassword(scanner.nextLine());
+	}
 	
+	//getters and setters - encapsulation
+	public String getAdminUserName() {
+		return adminUserName;
+	}
+	public void setAdminUserName(String adminUserName) {
+		this.adminUserName = adminUserName;
+	}
+	public String getAdminPassword() {
+		return adminPassword;
+	}
+	public void setAdminPassword(String adminPassword) {
+		this.adminPassword = adminPassword;
+	}
+	public void getOrderDetails() {
+		// TODO Auto-generated method stub
+		System.out.println("Give the current status of the product: ");
+		deliveryStatus = scanner.nextLine();
+		System.out.println("Enter the delivery date of the product in YYYY-MM-DD:");
+		deliveryDate = scanner.nextLine();
+		
+	}
 	
 	
 }

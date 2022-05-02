@@ -1,0 +1,12 @@
+package admin.methods;
+
+import admin.adminview.ViewAllOrders;
+
+public class ManageOrders {
+
+	public void manageOrders() {
+		// TODO Auto-generated method stub
+		ViewAllOrders viewOrders = new ViewAllOrders();
+	}
+
+}

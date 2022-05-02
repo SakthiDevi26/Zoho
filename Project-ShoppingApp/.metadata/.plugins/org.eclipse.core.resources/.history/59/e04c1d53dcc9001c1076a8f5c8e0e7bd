@@ -1,0 +1,35 @@
+package utilities.classes.withdatabases;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+
+public class GetListDetailsFromDatabase {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	public int orderId;
+	public ArrayList<Integer> getOrderIdList(int customerId)
+	{
+		ArrayList<Integer> orderIdList = new ArrayList<Integer>();
+		sql ="Select * from "+ShoppingAppConstants.ordersTable+" where "+ShoppingAppConstants.customerIdColumn+" = '"
+				+customerId+"'";
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			while(resultset.next())
+			{
+				orderId = resultset.getInt(ShoppingAppConstants.orderIdColumn);
+				orderIdList.add(orderId);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	return orderIdList;
+	}
+}

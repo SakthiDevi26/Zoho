@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.*;
 
 import sql.DatabaseConnection;
-import utilities.classes.GetDetailsFromDatabase;
+import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
 import appconstants.ShoppingAppConstants;
 
 public class ViewProducts {
@@ -12,7 +12,7 @@ public class ViewProducts {
 	Connection connect = DatabaseConnection.getConnection();
 
 	public void viewAllProducts(String supplierUserName) {
-		
+		SupplierMethodsDriver supplierMethodsDrive = new SupplierMethodsDriver();
 		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
 		int supplierId =getDetailsFromDb.getSupplierId(supplierUserName);
 		try {
@@ -23,7 +23,12 @@ public class ViewProducts {
 			if(!resultset.next())
 			{
 				System.out.println("Sorry you have no products :(");
+				System.out.println(ShoppingAppConstants.underscoreLine+"\n");
+				
+				supplierMethodsDrive.supplierMethodsDriver(supplierUserName);
 			}
+			else
+			{
 			resultset.previous();
 			while (resultset.next())
 			{
@@ -44,6 +49,7 @@ public class ViewProducts {
 					System.out.printf("%12s\n",productDescriptionFormatted);
 				}
 				System.out.println("\n"+ShoppingAppConstants.equalLine+ShoppingAppConstants.equalLine);
+			}
 			}
 		}
 		catch (SQLException e) {
