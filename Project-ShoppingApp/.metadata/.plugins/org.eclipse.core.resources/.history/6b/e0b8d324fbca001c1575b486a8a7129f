@@ -1,0 +1,15 @@
+package entity;
+
+import java.util.ArrayList;
+
+public class Suppliers {
+
+	private int supplierId;
+	private String supplierUserName;
+	private long supplierPhoneNumber;
+	public Suppliers(String supplierUserName , long supplierPhoneNumber) {
+		// TODO Auto-generated constructor stub
+		
+		
+	}
+}

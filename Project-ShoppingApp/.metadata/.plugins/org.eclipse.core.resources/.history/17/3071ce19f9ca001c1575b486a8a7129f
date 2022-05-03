@@ -1,0 +1,13 @@
+package entity;
+
+public class Suppliers {
+
+	private int supplierId;
+	private String supplierUserName;
+	private long supplierPhoneNumber;
+	public Suppliers(String supplierUserName , String supplierPhoneNumber) {
+		// TODO Auto-generated constructor stub
+		this.supplierUserName = supplierUserName;
+		this.supplierPhoneNumber =supplierPhoneNumber;
+	}
+}

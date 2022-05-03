@@ -2,9 +2,9 @@ package utilities;
 
 import java.util.*;
 import appconstants.ShoppingAppConstants;
+import databaseoperations.classes.databasecheckoperations.CheckProductId;
 import passwordencryption.EncryptPassword;
-import suppliers.suppliersregistration.classes.CreateSupplierAccount;
-import databaseoperations.databasecheckoperations.CheckProductId;
+import suppliers.suppliersregistration.classes.database.CreateSupplierAccount;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;

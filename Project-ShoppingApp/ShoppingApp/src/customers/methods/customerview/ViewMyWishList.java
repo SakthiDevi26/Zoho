@@ -7,10 +7,12 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
-import customers.registeration.classes.CustomerMainDriver;
+import customers.methods.driver.MyWishListDriver;
+import customers.registeration.classes.driver.CustomerMainDriver;
+import databaseoperations.classes.databasecheckoperations.CheckProductId;
+import databaseoperations.classes.databasegetoperations.GetDetailsFromDatabase;
 import sql.DatabaseConnection;
-import databaseoperations.databasecheckoperations.CheckProductId;
-import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+
 
 public class ViewMyWishList {
 	String sql="",sql1="";

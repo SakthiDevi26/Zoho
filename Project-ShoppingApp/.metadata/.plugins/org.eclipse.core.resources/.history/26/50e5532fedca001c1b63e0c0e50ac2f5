@@ -1,0 +1,21 @@
+package customers.methods.buynow;
+
+import appconstants.ShoppingAppConstants;
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+
+public class ShowSupplierInfo {
+
+	public void showSupplierInfo(int orderId)
+	{
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		int productId = getDetailsFromDb.getProductIdUsingOrderId(orderId);
+		int supplierId = getDetailsFromDb.getSupplierId(productId);
+		String supplierName = getDetailsFromDb.getSupplierName(supplierId);
+		long supplierPhoneNumber = getDetailsFromDb.getSupplierPhoneNumber(supplierId);
+		
+		System.out.println(ShoppingAppConstants.supplierBox);
+		System.out.println("\n\t"+supplierName);
+		System.out.println("\n\t"+supplierPhoneNumber);
+		System.out.println("\n"+ShoppingAppConstants.equalLine);
+	}
+}

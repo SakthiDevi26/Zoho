@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.ListIterator;
 
 import appconstants.ShoppingAppConstants;
-import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
-import databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
+import databaseoperations.classes.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.classes.databasegetoperations.GetListDetailsFromDatabase;
 
 public class ViewAllOrders {
 	public void viewAllOrders()

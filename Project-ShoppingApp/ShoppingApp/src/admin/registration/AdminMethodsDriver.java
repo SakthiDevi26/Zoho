@@ -2,7 +2,9 @@ package admin.registration;
 
 import java.util.Scanner;
 
-import admin.methods.manage.ManageOrders;
+import admin.methods.adminview.ViewAllCustomers;
+import admin.methods.adminview.ViewAllProducts;
+import admin.methods.driver.ManageOrders;
 import utilities.PrintMenu;
 
 public class AdminMethodsDriver {
@@ -16,10 +18,12 @@ public class AdminMethodsDriver {
 		switch(choice)
 		{
 		case 1:
-			//suppliers
+			ViewAllProducts view = new ViewAllProducts();
+			view.ViewAllProducts();
 			break;
 		case 2:
-			//customers
+			ViewAllCustomers viewAllCustomers = new ViewAllCustomers();
+			viewAllCustomers.viewAllCustomers();
 			break;
 		case 3:
 			ManageOrders manageOrders = new ManageOrders();

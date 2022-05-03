@@ -1,0 +1,16 @@
+package admin.methods.adminview;
+
+import java.util.ArrayList;
+
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.databasegetoperations.GetDetailsInHashMapFromDatabase;
+import databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
+
+public class ViewAllSuppliers {
+
+	public void ViewAllSuppliers()
+	{
+		GetDetailsInHashMapFromDatabase getMapDetailsFromDb = new GetDetailsInHashMapFromDatabase();
+		 
+	}
+}

@@ -43,7 +43,6 @@
     <fullyQualifiedTypeName name="utilities.classes.GetDetails"/>
     <fullyQualifiedTypeName name="admin.methods.manage.ManageOrderDetails"/>
     <fullyQualifiedTypeName name="utilities.classes.PrintMenu"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="utilities.classes.databaseoperations.databasecheckoperations.CheckOrderId"/>
     <fullyQualifiedTypeName name="admin.methods.admindatabaseupdate.UpdateDeliveryStatus"/>
     <fullyQualifiedTypeName name="admin.methods.adminview.DisplayOrderDetails"/>
@@ -57,7 +56,8 @@
     <fullyQualifiedTypeName name="databaseoperations.databasegetoperations.GetDetailsInHashMapFromDatabase"/>
     <fullyQualifiedTypeName name="databaseoperations.databasecheckoperations.CheckOrderId"/>
     <fullyQualifiedTypeName name="customers.methods.buynow.CustomerOrderDetailsDriver"/>
+    <fullyQualifiedTypeName name="utilities.PrintMenu"/>
     <fullyQualifiedTypeName name="databaseoperations.databasegetoperations.GetDetailsFromDatabase"/>
     <fullyQualifiedTypeName name="appconstants.ShoppingAppConstants"/>
-    <fullyQualifiedTypeName name="utilities.PrintMenu"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>

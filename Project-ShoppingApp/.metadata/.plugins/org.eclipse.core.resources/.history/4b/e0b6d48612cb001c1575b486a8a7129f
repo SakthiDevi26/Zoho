@@ -1,0 +1,64 @@
+package suppliers.suppliersmethods.classes;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.ListIterator;
+import java.sql.*;
+
+import sql.DatabaseConnection;
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
+import appconstants.ShoppingAppConstants;
+
+public class ViewSupplierProducts {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+
+	public void viewSupplierAllProducts(String supplierUserName) {
+		SupplierMethodsDriver supplierMethodsDrive = new SupplierMethodsDriver();
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		GetListDetailsFromDatabase getListDetailsFromDb = new GetListDetailsFromDatabase();
+		int supplierId =getDetailsFromDb.getSupplierId(supplierUserName);
+
+		
+		
+		ArrayList<Integer> productIdList = new ArrayList<Integer>();
+		productIdList = getListDetailsFromDb.getSupplierProductIdList(supplierId);
+		if(!productIdList.isEmpty())
+		{
+		
+			System.out.println(ShoppingAppConstants.smallHyphen+"<< My Products >>"+ShoppingAppConstants.smallHyphen+"\n");
+			System.out.println(ShoppingAppConstants.underscoreLine+"\n");
+			ListIterator<Integer> productIdListIterator = productIdList.listIterator();
+			while(productIdListIterator.hasNext())
+			{
+			System.out.printf("%12s %20s %20s %20s\n","Product Id",
+					"Name",
+					"Category","Price");
+				
+				
+				String productName = getDetailsFromDb.getProductName(productIdListIterator.next());
+				productIdListIterator.previous();
+				String productCategory = resultset.getString(ShoppingAppConstants.productCategoryColumn);
+				String productDescription = resultset.getString(ShoppingAppConstants.productDescriptionColumn);
+				int productPrice = resultset.getInt(ShoppingAppConstants.productPriceColumn);
+				
+				
+				System.out.printf("%12d %20s %20s %20d\n\n\n",productId,productName,productCategory,productPrice);
+				System.out.printf("%s\n\n","Product Description:");
+				String[] productDescriptionSplit = productDescription.split("[.]",0);
+				for(String productDescriptionFormatted:productDescriptionSplit)
+				{
+					System.out.printf("%12s\n",productDescriptionFormatted);
+				}
+				System.out.println("\n"+ShoppingAppConstants.equalLine+ShoppingAppConstants.equalLine);
+			}
+		}
+		else
+		{
+			System.out.println("Sorry you have no products :(");
+			supplierMethodsDrive.supplierMethodsDriver(supplierUserName);
+
+		}
+	}
+}

@@ -1,0 +1,39 @@
+package suppliers.suppliersmethods.classes.database;
+
+import java.sql.Connection;
+import java.sql.*;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+import utilities.GetDetails;
+import databaseoperations.classes.databasegetoperations.GetDetailsFromDatabase;
+
+public class AddProduct {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	public boolean addProduct(String supplierUserName) {
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		GetDetails getDetails = new GetDetails();
+		if(getDetails.getProductDetails())
+		{
+		try {
+			Statement statement = connect.createStatement();
+			sql ="Insert into "+ShoppingAppConstants.productsTable+
+					"("+ShoppingAppConstants.productNameColumn+","+ShoppingAppConstants.productCategoryColumn+","+ShoppingAppConstants.productDescriptionColumn+","
+					+ ShoppingAppConstants.productPriceColumn +","+ShoppingAppConstants.supplierIdColumn+")"
+					+ " values('"+ getDetails.productName +"','" + getDetails.productCategory + "','" + getDetails.productDescription 
+					+"',"+getDetails.productPrice+","+getDetailsFromDb.getSupplierId(supplierUserName)+")";
+			if (statement.executeUpdate(sql)==1)
+			{
+				return true;
+			}
+		}
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		return false;
+	}
+
+}

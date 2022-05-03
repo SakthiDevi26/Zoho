@@ -39,6 +39,7 @@ public class ShoppingAppConstants {
 	public static String addressNoted ="Your order will be delivered here!";
 	public static String productRemoved ="Your Product is Removed!";
 	public static String goHome ="Press 0 to go Home";
+	public static String goBack ="Press 0 to go Back";
 	public static String delivered ="delivered";
 	public static String processed ="processing";
 	public static String cancelled ="cancelled";
@@ -74,8 +75,8 @@ public class ShoppingAppConstants {
 		 		+ "\t\t\t\t\t";
 		 
 		 public static String thankYouMessage ="                                    /~\\                               \r\n"
-		 		+ "       Thank You                   |oo )                              \r\n"
-		 		+ "     Visit Us Again!         #     _\\=/_    #                         \r\n"
+		 		+ "       Hello Admin                 |oo )                              \r\n"
+		 		+ "  What do you want to do?     #     \\=/_    #                         \r\n"
 		 		+ "                             \\\\  /  _  \\  //                         \r\n"
 		 		+ "                              \\\\//|/.\\|\\\\//                          \r\n"
 		 		+ "                               \\/  \\_/  \\/                           \r\n"
@@ -89,14 +90,36 @@ public class ShoppingAppConstants {
 		 		+ "";
 				
 	public static String equalLine = "======================================================================================";
+	public static String bigEqualLine = "=========================================================================================================================";
 	public static String hyphenLine ="---------------------------------------------";
 	public static String underscoreLine ="________________________________________________\n";
-	public static String bigUnderscoreLine ="______________________________________________________________________________________\n";
+	public static String bigUnderscoreLine ="_________________________________________________________________________________________________________________________\n";
 	public static String smallHyphen ="--------------------";
-	public static String greaterThanLine =">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
-	public static String lessThanLine ="<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
+	public static String greaterThanLine =">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
+	public static String lessThanLine ="<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
 	
+	public static String manThankyouMessage ="                         .-\"\"\"-.\r\n"
+			+ "                       / .===. \\\r\n"
+			+ "                       \\/ 6 6 \\/\r\n"
+			+ "                       ( \\___/ )\r\n"
+			+ "  _________________ooo__\\_____/_____________________\r\n"
+			+ " /                                                  \\\r\n"
+			+ "|    Thank you for shopping with us!Visit us Again   |\r\n"
+			+ " \\______________________________ooo_________________/\r\n"
+			+ "                       |  |  |\r\n"
+			+ "                       |_ | _|\r\n"
+			+ "                       |  |  |\r\n"
+			+ "                       |__|__|\r\n"
+			+ "                       /-'Y'-\\\r\n"
+			+ "                      (__/ \\__)\r\n"
+			+ "";
+	
+	public static String supplierBox ="    \t\t\t     -----------------\r\n"
+			+ "  \t\t\t     --   Supplier   --\r\n"
+			+ "  \t\t\t     --     Info     --\r\n"
+			+ "  \t\t\t     ------------------";
 	//sql
+
 	public static String suppliersTable ="suppliers";
 	public static String supplierUserNameColumn ="supplier_username";
 	public static String supplierPasswordColumn ="supplier_password";

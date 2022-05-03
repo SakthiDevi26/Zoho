@@ -5,18 +5,16 @@ import java.util.ArrayList;
 import java.util.ListIterator;
 
 import appconstants.ShoppingAppConstants;
-import customers.methods.buynow.CustomerOrderDetailsDriver;
-import customers.registeration.classes.CustomerMainDriver;
+import customers.methods.orders.driver.CustomerOrderDetailsDriver;
+import customers.registeration.classes.driver.CustomerMainDriver;
+import databaseoperations.classes.databasecheckoperations.CheckOrderId;
+import databaseoperations.classes.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.classes.databasegetoperations.GetListDetailsFromDatabase;
 import sql.DatabaseConnection;
 import utilities.GetDetails;
-import databaseoperations.databasecheckoperations.CheckOrderId;
-import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
-import databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
+
 
 public class ViewMyOrders {
-
-	String sql="",sql1="";
-	Connection connect = DatabaseConnection.getConnection();
 	public void viewMyOrders()
 	{
 		GetDetails getDetails = new GetDetails();

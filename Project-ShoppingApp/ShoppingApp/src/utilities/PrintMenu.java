@@ -101,15 +101,18 @@ public class PrintMenu {
 	}
 	public void printAdminMethodsMenu()
 	{
-		System.out.println(ShoppingAppConstants.one+"Manage Suppliers");
+		System.out.println("What do you want to do?");
+		System.out.println(ShoppingAppConstants.one+"Manage Products");
 		System.out.println(ShoppingAppConstants.two+"Manage Customers");
 		System.out.println(ShoppingAppConstants.three+"Manage Orders");
+		System.out.println(ShoppingAppConstants.enterChoice);
 	}
 	public void printAdminOrdersManagementMenu()
 	{
 		System.out.println(ShoppingAppConstants.one+"Update Delivery Date");
 		System.out.println(ShoppingAppConstants.two+"Update Order Status");
 		System.out.println(ShoppingAppConstants.three+"Go Home");
+		System.out.println(ShoppingAppConstants.enterChoice);
 	}
 	public void printUpdateDeliveryStatusMenu()
 	{
@@ -118,6 +121,7 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.two+ShoppingAppConstants.shipped);
 		System.out.println(ShoppingAppConstants.three+ShoppingAppConstants.delivered);
 		System.out.println(ShoppingAppConstants.four+ShoppingAppConstants.cancelled);
+		System.out.println(ShoppingAppConstants.enterChoice);
 	}
 	public void printDeliveredOrderDetailsMenu()
 	{
@@ -130,6 +134,8 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.bigUnderscoreLine);
 		System.out.println("ORDER INFO\n");
 		System.out.println(ShoppingAppConstants.three+"View Order Info");
+		System.out.println("\n"+ShoppingAppConstants.stars);
+		System.out.println(ShoppingAppConstants.enterChoice);
 	}
 	
 }

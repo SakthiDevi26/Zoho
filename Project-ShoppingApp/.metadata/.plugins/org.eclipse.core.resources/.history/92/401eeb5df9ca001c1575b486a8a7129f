@@ -1,0 +1,14 @@
+package admin.methods.adminview;
+
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
+
+public class ViewAllSuppliers {
+
+	public void ViewAllSuppliers()
+	{
+		GetListDetailsFromDatabase getListDetailsFromDb = new GetListDetailsFromDatabase();
+		 
+		suppliersList = getListDetailsFromDb.getAllSuppliers();
+	}
+}

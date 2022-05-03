@@ -1,0 +1,26 @@
+package entity;
+
+public class Suppliers {
+
+	private int supplierId;
+	private String supplierUserNam;
+	private long supplierPhoneNumber;
+	public int getSupplierId() {
+		return supplierId;
+	}
+	public String getSupplierUserNam() {
+		return supplierUserNam;
+	}
+	public long getSupplierPhoneNumber() {
+		return supplierPhoneNumber;
+	}
+	public void setSupplierId(int supplierId) {
+		this.supplierId = supplierId;
+	}
+	public void setSupplierUserNam(String supplierUserNam) {
+		this.supplierUserNam = supplierUserNam;
+	}
+	public void setSupplierPhoneNumber(long supplierPhoneNumber) {
+		this.supplierPhoneNumber = supplierPhoneNumber;
+	}
+}

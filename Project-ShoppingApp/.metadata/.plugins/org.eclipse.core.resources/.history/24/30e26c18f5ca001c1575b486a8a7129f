@@ -1,0 +1,5 @@
+package admin.methods.adminview;
+
+public class ViewAllSuppliers {
+
+}

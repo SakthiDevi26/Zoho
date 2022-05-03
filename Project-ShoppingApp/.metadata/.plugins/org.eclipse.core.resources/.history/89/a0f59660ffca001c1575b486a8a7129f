@@ -1,0 +1,43 @@
+package admin.methods.adminview;
+
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+import appconstants.ShoppingAppConstants;
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
+
+public class ViewAllCustomers {
+
+	public void viewAllCustomers()
+	{
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		GetListDetailsFromDatabase getListDetailsFromDb = new GetListDetailsFromDatabase();
+		
+		
+		ArrayList<Integer> customerIdList = new ArrayList<Integer>();
+		customerIdList = getListDetailsFromDb.getAllOrderIdList();
+		if(!customerIdList.isEmpty())
+		{
+			System.out.println(ShoppingAppConstants.equalLine+"\n");
+			System.out.println("\t\t\t\tOUR CUSTOMERS");
+			System.out.println("\t\t\tDon't Find Customers for products,find products for Customers");
+			System.out.println(ShoppingAppConstants.equalLine+"\n");
+			System.out.printf("%30s %20s\n","Customer Id",
+					"Customer Name");
+			System.out.println("\t\t"+ShoppingAppConstants.underscoreLine);
+	
+			ListIterator<Integer> customerIdListIterator = customerIdList.listIterator();
+			while(customerIdListIterator.hasNext())
+			{
+				String customerName = getDetailsFromDb.getCustomerName(customerIdListIterator.next());
+				customerIdListIterator.previous();
+				String productName = getDetailsFromDb.getProductName(productId);
+				System.out.printf("%30s %20s\n", orderIdListIterator.next(),productName);
+			}
+			System.out.println("\n"+ShoppingAppConstants.equalLine);
+			
+	
+		}
+	}
+}

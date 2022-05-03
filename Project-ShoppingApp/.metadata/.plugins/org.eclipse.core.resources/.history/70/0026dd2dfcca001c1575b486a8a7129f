@@ -1,0 +1,19 @@
+package admin.methods.adminview;
+
+import java.util.ArrayList;
+
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
+import entity.Suppliers;
+
+public class ViewAllSuppliers {
+
+	public void ViewAllSuppliers()
+	{
+		GetListDetailsFromDatabase getListDetailsFromDb = new GetListDetailsFromDatabase();
+		 
+		ArrayList<Suppliers> suppliersList = getListDetailsFromDb.getAllSuppliers();
+		
+		System.out.println(suppliersList);
+	}
+}

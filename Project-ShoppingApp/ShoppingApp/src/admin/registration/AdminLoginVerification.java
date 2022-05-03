@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import appconstants.ShoppingAppConstants;
-import databaseAbstract.LoginVerification;
+import databaseoperations.classes.databaseAbstract.LoginVerification;
 import passwordencryption.VerifyEncryptedPassword;
 
 public class AdminLoginVerification extends LoginVerification {

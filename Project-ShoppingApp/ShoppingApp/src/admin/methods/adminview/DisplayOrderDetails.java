@@ -1,8 +1,8 @@
 package admin.methods.adminview;
 
-import admin.methods.manage.ManageOrderDetails;
+import admin.methods.driver.ManageOrderDetails;
 import appconstants.ShoppingAppConstants;
-import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.classes.databasegetoperations.GetDetailsFromDatabase;
 
 public class DisplayOrderDetails {
 

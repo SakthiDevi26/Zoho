@@ -3,20 +3,21 @@ import java.util.*;
 
 import admin.registration.AdminLogin;
 import appconstants.ShoppingAppConstants;
-import customers.registeration.classes.*;
-import passwordencryption.EncryptPassword;
-import suppliers.suppliersregistration.classes.SupplierRegisterationDriver;
+import customers.registeration.classes.driver.CustomerMainDriver;
+import suppliers.suppliersregistration.classes.driver.SupplierRegisterationDriver;
 import utilities.*;
 
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		Scanner scanner = new Scanner(System.in);
 		PrintMenu printMenu = new PrintMenu();
 		SupplierRegisterationDriver supplierRegisterDriver = new SupplierRegisterationDriver();
 		CustomerMainDriver customerMainDriver = new CustomerMainDriver();
 		AdminLogin adminLogin = new AdminLogin();
+		
+		
 		printMenu.printMainMenu();
 		int choice = scanner.nextInt();
 		switch(choice)
