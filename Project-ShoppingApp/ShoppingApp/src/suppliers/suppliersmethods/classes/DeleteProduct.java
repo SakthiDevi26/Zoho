@@ -6,8 +6,8 @@ import java.sql.Statement;
 
 import appconstants.ShoppingAppConstants;
 import sql.DatabaseConnection;
-import utilities.classes.GetDetails;
-import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import utilities.GetDetails;
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
 
 public class DeleteProduct {
 	String sql="";

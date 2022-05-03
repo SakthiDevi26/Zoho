@@ -1,0 +1,5 @@
+package database.login;
+
+public class VerifyLogin {
+
+}

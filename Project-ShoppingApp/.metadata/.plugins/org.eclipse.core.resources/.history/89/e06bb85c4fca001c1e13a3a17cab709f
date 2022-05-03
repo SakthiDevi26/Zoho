@@ -1,0 +1,5 @@
+package admin.methods.admindatabaseupdate;
+
+public class UpdateDeliveryStatus {
+
+}

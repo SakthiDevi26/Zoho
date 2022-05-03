@@ -7,8 +7,8 @@ import java.util.Scanner;
 import appconstants.ShoppingAppConstants;
 import suppliers.suppliersregistration.classes.CreateSupplierAccount;
 import suppliers.suppliersregistration.classes.SupplierLogin;
-import utilities.classes.GetDetails;
-import utilities.classes.PrintMenu;
+import utilities.GetDetails;
+import utilities.PrintMenu;
 
 public class CustomerRegisterationDriver {
 	public boolean customerRegisterationDriver()

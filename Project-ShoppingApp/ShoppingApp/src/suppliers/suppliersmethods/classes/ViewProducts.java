@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.*;
 
 import sql.DatabaseConnection;
-import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
 import appconstants.ShoppingAppConstants;
 
 public class ViewProducts {
@@ -38,11 +38,11 @@ public class ViewProducts {
 				String productDescription = resultset.getString(ShoppingAppConstants.productDescriptionColumn);
 				int productPrice = resultset.getInt(ShoppingAppConstants.productPriceColumn);
 				
-				System.out.printf("%12s %12s %12s %12s\n","Product Id",
+				System.out.printf("%12s %20s %20s %20s\n","Product Id",
 						"Product Name",
 						"Product Category","Product Price");
-				System.out.printf("%12d %12s %12s %12d\n\n",productId,productName,productCategory,productPrice);
-				System.out.printf("%40s\n","Product Description:");
+				System.out.printf("%12d %20s %20s %20d\n\n\n",productId,productName,productCategory,productPrice);
+				System.out.printf("%s\n\n","Product Description:");
 				String[] productDescriptionSplit = productDescription.split("[.]",0);
 				for(String productDescriptionFormatted:productDescriptionSplit)
 				{

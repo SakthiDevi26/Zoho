@@ -3,8 +3,8 @@ package customers.methods.buynow;
 import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
-import utilities.classes.*;
-import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import utilities.*;
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
 
 public class ShippingAddressDriver {
 

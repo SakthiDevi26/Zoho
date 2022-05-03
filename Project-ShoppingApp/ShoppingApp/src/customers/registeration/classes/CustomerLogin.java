@@ -9,7 +9,7 @@ import appconstants.ShoppingAppConstants;
 import passwordencryption.VerifyEncryptedPassword;
 import sql.DatabaseConnection;
 import suppliers.suppliersmethods.classes.SupplierMethodsDriver;
-import utilities.classes.GetDetails;
+import utilities.GetDetails;
 
 public class CustomerLogin {
 	public boolean customerLogin()
@@ -23,34 +23,19 @@ public class CustomerLogin {
 				System.out.println(ShoppingAppConstants.incompleteFields);
 				return false;
 			}
-			sql = "select * from "+ShoppingAppConstants.customersTable+" where "+ShoppingAppConstants.customerPhoneNumberColumn+"="
-					+ getDetails.customerPhoneNumber;
-				try {
-					PreparedStatement statement = connect.prepareStatement(sql);
-					ResultSet resultset = statement.executeQuery();
-					if(resultset.next())
-					{
-						int customerId = resultset.getInt(ShoppingAppConstants.customerIdColumn);
-						String customerOriginalPassword = resultset.getString(ShoppingAppConstants.customerPasswordColumn); 
-						Boolean verifyPassword = VerifyEncryptedPassword.isPasswordSame(getDetails.customerPassword,customerOriginalPassword);  
-						if(verifyPassword==true)
-						{
-							sql ="insert into "+ShoppingAppConstants.customerLoginTable+" values ("+customerId +")";
-							statement.executeUpdate(sql);
-							return true;
-						}
-					}
-					else
-					{
-						System.out.println(ShoppingAppConstants.invalidLoginCredentials);
-						return false;
-					}
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+			else
+			{
+				CustomerLoginVerification verifyLogin = new CustomerLoginVerification();
+				if(verifyLogin.verifyCustomerLogin(getDetails.customerPhoneNumber,getDetails.customerPassword))
+				{
+					return true;
 				}
-			
-			return false;
+				else
+				{
+					System.out.println(ShoppingAppConstants.invalidLoginCredentials);
+					return false;
+				}
+			}
 		}
 		return false;
 	}

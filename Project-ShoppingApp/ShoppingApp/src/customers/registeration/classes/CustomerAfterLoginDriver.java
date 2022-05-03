@@ -5,11 +5,11 @@ import java.util.Scanner;
 import appconstants.ShoppingAppConstants;
 import customers.methods.SearchByCategoryDriver;
 import customers.methods.ViewCustomerAccount;
-import customers.methods.afterlogin.ViewMyCart;
-import customers.methods.afterlogin.ViewMyOrders;
-import customers.methods.afterlogin.ViewMyWishList;
+import customers.methods.customerview.ViewMyCart;
+import customers.methods.customerview.ViewMyOrders;
+import customers.methods.customerview.ViewMyWishList;
 import main.Main;
-import utilities.classes.PrintMenu;
+import utilities.PrintMenu;
 
 public class CustomerAfterLoginDriver {
 	public void customerAfterLoginDriver()

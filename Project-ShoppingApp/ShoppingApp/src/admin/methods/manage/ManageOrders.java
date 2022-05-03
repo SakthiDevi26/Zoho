@@ -4,8 +4,8 @@ import admin.methods.adminview.DisplayOrderDetails;
 import admin.methods.adminview.ViewAllOrders;
 import admin.registration.AdminMethodsDriver;
 import appconstants.ShoppingAppConstants;
-import utilities.classes.GetDetails;
-import utilities.classes.databaseoperations.databasecheckoperations.CheckOrderId;
+import utilities.GetDetails;
+import databaseoperations.databasecheckoperations.CheckOrderId;
 
 public class ManageOrders {
 
@@ -28,7 +28,7 @@ public class ManageOrders {
 				EnterOrderDetails enterOrderDetails = new EnterOrderDetails();
 				if(enterOrderDetails.enterOrderDetails(getDetails.orderId))
 				{
-					//displayOrderDetails
+					displayOrderDetails.displayOrderDetails(getDetails.orderId);
 				}
 			}
 		}

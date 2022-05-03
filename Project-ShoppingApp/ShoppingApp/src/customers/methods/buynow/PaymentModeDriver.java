@@ -3,7 +3,7 @@ package customers.methods.buynow;
 import java.util.Scanner;
 
 import customers.registeration.classes.CustomerMainDriver;
-import utilities.classes.PrintMenu;
+import utilities.PrintMenu;
 
 public class PaymentModeDriver {
 

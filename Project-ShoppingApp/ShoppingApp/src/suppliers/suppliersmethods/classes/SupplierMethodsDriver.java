@@ -2,9 +2,10 @@ package suppliers.suppliersmethods.classes;
 
 import java.util.*;
 
+import appconstants.ShoppingAppConstants;
 import main.Main;
 import suppliers.suppliersregistration.classes.SupplierRegisterationDriver;
-import utilities.classes.PrintMenu;
+import utilities.PrintMenu;
 
 public class SupplierMethodsDriver {
 
@@ -56,6 +57,7 @@ public class SupplierMethodsDriver {
 			Main.main(null);
 			break;
 		default:
+			System.out.println(ShoppingAppConstants.invalidChoice);
 		}
 		supplierMethodsDriver(supplierUserName);
 	}

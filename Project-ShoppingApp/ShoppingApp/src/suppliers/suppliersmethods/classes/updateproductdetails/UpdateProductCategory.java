@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 import appconstants.ShoppingAppConstants;
 import sql.DatabaseConnection;
-import utilities.classes.GetDetails;
+import utilities.GetDetails;
 
 public class UpdateProductCategory {
 		String sql="";
@@ -16,7 +16,6 @@ public class UpdateProductCategory {
 			GetDetails getDetails = new GetDetails();
 			getDetails.getProductCategoryToUpdate();
 			try {
-				connect.setAutoCommit(false);
 
 				Statement statement = connect.createStatement();
 
@@ -24,18 +23,11 @@ public class UpdateProductCategory {
 				sql = "update "+ShoppingAppConstants.productsTable+" set "+ShoppingAppConstants.productCategoryColumn+"='"+getDetails.productCategory+ 
 						"' where " +ShoppingAppConstants.productIdColumn+"=" + productId;
 				if (statement.executeUpdate(sql) == 1) {
-					connect.commit();
 					return true;
 				}
 			}
 			catch (Exception e) {
 				e.printStackTrace();
-				try {
-					connect.rollback();
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
 			}
 			// return
 		return false;

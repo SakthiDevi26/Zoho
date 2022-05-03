@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
 import customers.methods.searchbycategory.*;
-
-import utilities.classes.PrintMenu;
+import utilities.PrintMenu;
 
 public class SearchByCategoryDriver {
 	int productId;

@@ -1,0 +1,14 @@
+package databaseoperations.databasegetoperations;
+
+import java.util.Map;
+
+public class GetDetailsInHashMapFromDatabase {
+
+	public Map<Integer, String> getProductRecommendationDetails (int productId, String productName)
+	{
+		
+		Map<Integer, String> productRecommendationMap;
+		return productRecommendationMap;
+		
+	}
+}

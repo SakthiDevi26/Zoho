@@ -3,17 +3,16 @@ package customers.methods;
 import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
-import customers.methods.afterlogin.ViewMyCart;
-import customers.methods.afterlogin.ViewMyWishList;
 import customers.methods.buynow.ShippingAddressDriver;
+import customers.methods.customerview.ViewMyCart;
+import customers.methods.customerview.ViewMyWishList;
 import customers.methods.productoptions.AddToCart;
 import customers.methods.productoptions.AddToWishList;
 import customers.registeration.classes.CheckCustomerLoggedIn;
 import customers.registeration.classes.CustomerMainDriver;
 import customers.registeration.classes.CustomerRegisterationDriver;
-import utilities.classes.PrintMenu;
-import utilities.classes.databaseoperations.databasecheckoperations.CheckProductId;
-import utilities.classes.databaseoperations.databaseprintoperations.PrintMenuUsingDataBase;
+import databaseoperations.databasecheckoperations.CheckProductId;
+import databaseoperations.databaseprintoperations.PrintMenuUsingDataBase;
 
 public class ProductOptionsDriver {
 

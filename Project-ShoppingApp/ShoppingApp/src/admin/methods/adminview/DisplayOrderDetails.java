@@ -1,7 +1,8 @@
 package admin.methods.adminview;
 
+import admin.methods.manage.ManageOrderDetails;
 import appconstants.ShoppingAppConstants;
-import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
 
 public class DisplayOrderDetails {
 
@@ -46,6 +47,9 @@ public class DisplayOrderDetails {
 		System.out.printf("\n%d", customerPhoneNumber);
 		System.out.printf("%40s %s","Total Price: ",productPrice);
 		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
+		
+		ManageOrderDetails manageOrderDetails = new ManageOrderDetails();
+		manageOrderDetails.manageOrderDetails(orderId);
 		
 	}
 }

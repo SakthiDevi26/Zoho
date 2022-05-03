@@ -4,57 +4,52 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Map;
 import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
+import databaseoperations.databasegetoperations.GetDetailsInHashMapFromDatabase;
 import sql.DatabaseConnection;
-import utilities.classes.databaseoperations.databasecheckoperations.CheckProductId;
+import databaseoperations.databasecheckoperations.CheckProductId;
 
 
 public class ClothingCategory {
-	String sql="";
-	Connection connect = DatabaseConnection.getConnection();
 	int productId;
-	public int showClothingCategoryProducts() {
-		Scanner scanner = new Scanner(System.in);
-		CheckProductId checkProductId = new CheckProductId();
-		try {
-			Statement statement = connect.createStatement();
-			ResultSet resultset = statement.executeQuery("Select * from "+ShoppingAppConstants.productsTable+" where "
-			+ShoppingAppConstants.productCategoryColumn+" = 'clothing'");
-			System.out.println(ShoppingAppConstants.smallHyphen+"<< Here's to chasing your dreams in your favourite dress >>"+ShoppingAppConstants.smallHyphen+"\n");
-			if(!resultset.next())
-			{
-				System.out.println("Sorry There is no clothing products :(");
-			}
-			resultset.previous();
-			System.out.printf("%12s %25s\n","Product Id",
-					"Product Name");
-			System.out.println(ShoppingAppConstants.underscoreLine);
-			while (resultset.next())
-			{
-				int productId = resultset.getInt(ShoppingAppConstants.productIdColumn);
-				String productName = resultset.getString(ShoppingAppConstants.productNameColumn);
-				
-				
-				System.out.printf("%12d %25s\n",productId,productName);
-				System.out.println(ShoppingAppConstants.hyphenLine);
-			}
-			System.out.println("Enter ProductId of the product you love: ");
-			productId = scanner.nextInt();
-			if(checkProductId.isProductIdInProductTable(productId))
-			{
-				return productId;
-			}
+	public  int showClothingCategoryProducts() {
+	String productCategory ="clothing";
+	Scanner scanner = new Scanner(System.in);
+	CheckProductId checkProductId = new CheckProductId();
+	GetDetailsInHashMapFromDatabase getDetailsMapFromDb = new GetDetailsInHashMapFromDatabase();
+	Map<Integer, String> productByCategoryMap = getDetailsMapFromDb.getProductByCategoryDetails(productCategory);
+	if(!productByCategoryMap.isEmpty())
+	{
+	
+		System.out.println(ShoppingAppConstants.smallHyphen+"<< Here's to chasing your dreams in your favourite attire >>"+ShoppingAppConstants.smallHyphen+"\n");
+		System.out.printf("%12s %25s\n","Product Id",
+				"Product Name");
+		System.out.println(ShoppingAppConstants.underscoreLine);
+		for(Map.Entry<Integer, String> entry : productByCategoryMap.entrySet())
+		{
+			
+			System.out.printf("%12d %25s\n",entry.getKey(),entry.getValue());
+			System.out.println(ShoppingAppConstants.hyphenLine);
 		}
-		catch (SQLException e) {
-			e.printStackTrace();
+		System.out.println("Enter ProductId of the product you love: ");
+		productId = scanner.nextInt();
+		if(checkProductId.isProductIdInProductTable(productId))
+		{
+			return productId;
 		}
-		
-		
-		return 0;
-		// TODO Auto-generated method stub
-		
 	}
-
+	else
+	{
+		System.out.println("Sorry there is no Clothing product");
+	}
+	
+	return 0;
+	// TODO Auto-generated method stub
+	
+	}
+		
 }
+

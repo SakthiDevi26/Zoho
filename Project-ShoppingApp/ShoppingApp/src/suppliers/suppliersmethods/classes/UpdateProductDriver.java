@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
 import suppliers.suppliersmethods.classes.updateproductdetails.*;
-import utilities.classes.*;
+import utilities.*;
 
 public class UpdateProductDriver {
 	public void updateProductDriver(String supplierUserName)

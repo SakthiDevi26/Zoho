@@ -1,0 +1,5 @@
+package suppliers.suppliersregistration.classes;
+
+public class SupplierLoginVerification {
+
+}

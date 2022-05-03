@@ -1,45 +1,31 @@
 package customers.methods.searchbycategory;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.Map;
 import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
-import sql.DatabaseConnection;
-import utilities.classes.databaseoperations.databasecheckoperations.CheckProductId;
+import databaseoperations.databasegetoperations.GetDetailsInHashMapFromDatabase;
+import databaseoperations.databasecheckoperations.CheckProductId;
 
 public class GroceryCategory {
-	String sql="";
-	Connection connect = DatabaseConnection.getConnection();
 	int productId;
 	public int showGroceryCategoryProducts() {
+		String productCategory ="grocery";
 		Scanner scanner = new Scanner(System.in);
 		CheckProductId checkProductId = new CheckProductId();
-		try {
-			Statement statement = connect.createStatement();
-			ResultSet resultset = statement.executeQuery("Select * from "+ShoppingAppConstants.productsTable+" where "
-			+ShoppingAppConstants.productCategoryColumn+" = 'grocery'");
+		GetDetailsInHashMapFromDatabase getDetailsMapFromDb = new GetDetailsInHashMapFromDatabase();
+		Map<Integer, String> productByCategoryMap = getDetailsMapFromDb.getProductByCategoryDetails(productCategory);
+		if(!productByCategoryMap.isEmpty())
+		{
+		
 			System.out.println(ShoppingAppConstants.smallHyphen+"<< Healthy eating is a journey that begins here >>"+ShoppingAppConstants.smallHyphen+"\n");
-			if(!resultset.next())
-			{
-				System.out.println("Sorry There is no grocery products :(");
-
-			}
-			else
-			{
-			resultset.previous();
 			System.out.printf("%12s %25s\n","Product Id",
 					"Product Name");
 			System.out.println(ShoppingAppConstants.underscoreLine);
-			while (resultset.next())
+			for(Map.Entry<Integer, String> entry : productByCategoryMap.entrySet())
 			{
-				int productId = resultset.getInt(ShoppingAppConstants.productIdColumn);
-				String productName = resultset.getString(ShoppingAppConstants.productNameColumn);
 				
-				
-				System.out.printf("%12d %25s\n",productId,productName);
+				System.out.printf("%12d %25s\n",entry.getKey(),entry.getValue());
 				System.out.println(ShoppingAppConstants.hyphenLine);
 			}
 			System.out.println("Enter ProductId of the product you love: ");
@@ -48,15 +34,13 @@ public class GroceryCategory {
 			{
 				return productId;
 			}
-			}
 		}
-		catch (SQLException e) {
-			e.printStackTrace();
+		else
+		{
+			System.out.println("Sorry there is no Grocery product");
 		}
-		
 		
 		return 0;
-		// TODO Auto-generated method stub
 		
 	}
 }

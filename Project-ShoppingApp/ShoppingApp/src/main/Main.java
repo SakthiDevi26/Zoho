@@ -1,6 +1,4 @@
 package main;
-import utilities.classes.*;
-
 import java.util.*;
 
 import admin.registration.AdminLogin;
@@ -8,6 +6,7 @@ import appconstants.ShoppingAppConstants;
 import customers.registeration.classes.*;
 import passwordencryption.EncryptPassword;
 import suppliers.suppliersregistration.classes.SupplierRegisterationDriver;
+import utilities.*;
 
 public class Main {
 

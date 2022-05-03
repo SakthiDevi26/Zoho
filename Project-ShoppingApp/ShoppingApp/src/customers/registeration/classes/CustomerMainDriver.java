@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 import customers.methods.ViewProductInDetail;
 import utilities.*;
-import utilities.classes.*;
 
 public class CustomerMainDriver {
 	public int productId;

@@ -6,14 +6,14 @@ import java.sql.Statement;
 
 import appconstants.ShoppingAppConstants;
 import sql.DatabaseConnection;
-import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
 
 public class RemoveProductFromWishList {
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 	int customerId;
 	public boolean removeProductFromWishList(int productId) {
-		// TODO Auto-generated method stub
+		
 		GetDetailsFromDatabase getDetailsFromDatabase = new GetDetailsFromDatabase();
 		customerId = getDetailsFromDatabase.getCurrentlyLoggedInCustomerId();
 		sql = "delete from "+ShoppingAppConstants.wishlistTable+" where "+ShoppingAppConstants.customerIdColumn+" = "+customerId +

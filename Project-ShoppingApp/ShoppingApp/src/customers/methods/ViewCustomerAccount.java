@@ -4,13 +4,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
 import customers.registeration.classes.CustomerMainDriver;
 import sql.DatabaseConnection;
-import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
 
 public class ViewCustomerAccount {
 	String sql="",sql1="";

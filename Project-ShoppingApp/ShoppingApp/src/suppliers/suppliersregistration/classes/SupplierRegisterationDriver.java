@@ -5,7 +5,7 @@ import java.util.*;
 
 import appconstants.ShoppingAppConstants;
 import suppliers.suppliersmethods.classes.SupplierMethodsDriver;
-import utilities.classes.*;
+import utilities.*;
 
 public class SupplierRegisterationDriver {
 	public void supplierRegisterationDriver()

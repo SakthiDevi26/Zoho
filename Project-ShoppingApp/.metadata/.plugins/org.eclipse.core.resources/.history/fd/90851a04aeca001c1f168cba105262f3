@@ -1,0 +1,13 @@
+package admin.registration;
+
+import databaseAbstract.LoginVerification;
+
+public class AdminLoginVerification extends LoginVerification {
+
+	@Override
+	public boolean verifyLogin(String userName, String password) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

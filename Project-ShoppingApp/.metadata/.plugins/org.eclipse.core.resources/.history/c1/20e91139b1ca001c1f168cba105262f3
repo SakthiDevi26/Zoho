@@ -1,0 +1,13 @@
+package suppliers.suppliersregistration.classes;
+
+import databaseAbstract.LoginVerification;
+
+public class SupplierLoginVerification extends LoginVerification{
+
+	@Override
+	public boolean verifyLogin(String userName, String password) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

@@ -1,0 +1,33 @@
+package admin.methods.manage;
+
+import java.util.Scanner;
+
+import utilities.PrintMenu;
+import utilities.classes.databaseoperations.databasecheckoperations.CheckOrderId;
+
+public class ManageOrderDetails {
+
+	public void manageOrderDetails(int orderId) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		PrintMenu printMenu = new PrintMenu();
+		CheckOrderId checkOrderId = new CheckOrderId();
+		if(!checkOrderId.isOrderDelivered(orderId))
+		{
+			printMenu.printAdminOrdersManagementMenu();
+			int choice = scanner.nextInt();
+			switch(choice)
+			{
+			case 1:
+				//delivery date
+				break;
+			case 2:
+				UpdateDeliveryStatusDriver deliveryStatusDrive = new UpdateDeliveryStatusDriver();
+				deliveryStatusDrive.updateDeliveryStatusDriver(orderId);
+				break;
+			}
+			
+		}
+	}
+
+}

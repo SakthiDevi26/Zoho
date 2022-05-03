@@ -1,0 +1,18 @@
+package admin.methods.manage;
+
+import utilities.classes.PrintMenu;
+import utilities.classes.databaseoperations.databasecheckoperations.CheckOrderId;
+
+public class ManageOrderDetails {
+
+	public void manageOrderDetails(int orderId) {
+		// TODO Auto-generated method stub
+		PrintMenu printMenu = new PrintMenu();
+		CheckOrderId checkOrderId = new CheckOrderId();
+		if(!checkOrderId.isOrderDelivered(orderId))
+		{
+			
+		}
+	}
+
+}

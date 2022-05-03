@@ -1,0 +1,5 @@
+package databaseoperations.databasegetoperations;
+
+public class GetDetailsInHashMapFromDatabase {
+
+}

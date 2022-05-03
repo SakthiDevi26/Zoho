@@ -1,0 +1,42 @@
+package customers.methods.buynow;
+
+import appconstants.ShoppingAppConstants;
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import utilities.PrintMenu;
+
+public class ShowDeliveredOrderDetailsDriver {
+
+	public void showDeliveredOrderDetailsDriver(int orderId) {
+		
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		PrintMenu printMenu = new PrintMenu();
+		
+		String deliveryStatus = getDetailsFromDb.getDeliveryStatus(orderId);
+		System.out.println(ShoppingAppConstants.stars);
+		System.out.println("\n"+deliveryStatus);
+		printMenu.printDeliveredOrderDetailsMenu();
+		System.out.println(ShoppingAppConstants.stars);
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+//DeliveryStatus
+//line
+//Need help with your item?
+//1)contact seller:
+//seller name
+//seller contact num
+//line
+//How's your item
+//2)write a product review
+//line
+//3)orderinfo

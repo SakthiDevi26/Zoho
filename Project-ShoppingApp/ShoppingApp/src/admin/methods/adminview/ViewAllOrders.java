@@ -3,20 +3,13 @@ package admin.methods.adminview;
 import java.util.ArrayList;
 import java.util.ListIterator;
 
-import admin.methods.manage.EnterOrderDetails;
-import admin.registration.AdminMethodsDriver;
 import appconstants.ShoppingAppConstants;
-import customers.registeration.classes.CustomerMainDriver;
-import utilities.classes.GetDetails;
-import utilities.classes.databaseoperations.databasecheckoperations.CheckOrderId;
-import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
-import utilities.classes.databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
 
 public class ViewAllOrders {
 	public void viewAllOrders()
-	{
-		
-		
+	{		
 		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
 		GetListDetailsFromDatabase getListDetailsFromDb = new GetListDetailsFromDatabase();
 		

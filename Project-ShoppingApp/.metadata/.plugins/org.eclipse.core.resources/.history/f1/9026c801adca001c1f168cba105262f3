@@ -1,0 +1,6 @@
+package database;
+
+public abstract class LoginVerification {
+
+	public boolean verifyLogin
+}

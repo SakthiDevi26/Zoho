@@ -1,0 +1,13 @@
+package admin.methods.manage;
+
+import utilities.classes.databaseoperations.databasecheckoperations.CheckOrderId;
+
+public class ManageOrderDetails {
+
+	public void manageOrderDetails(int orderId) {
+		// TODO Auto-generated method stub
+		CheckOrderId checkOrderId = new CheckOrderId();
+		if(!)
+	}
+
+}

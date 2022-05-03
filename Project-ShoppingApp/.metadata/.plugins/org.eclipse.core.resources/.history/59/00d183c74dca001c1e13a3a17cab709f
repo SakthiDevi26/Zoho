@@ -1,0 +1,10 @@
+package admin.methods.manage;
+
+public class UpdateDeliveryStatusDriver {
+
+	public void updateDeliveryStatusDriver(int orderId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

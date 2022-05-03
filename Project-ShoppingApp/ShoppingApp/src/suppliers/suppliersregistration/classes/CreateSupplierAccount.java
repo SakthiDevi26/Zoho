@@ -9,7 +9,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import appconstants.ShoppingAppConstants;
 import sql.DatabaseConnection;
-import utilities.classes.GetDetails;
+import utilities.GetDetails;
 
 public class CreateSupplierAccount {
 	String sql="";

@@ -1,0 +1,6 @@
+package databaseAbstract;
+
+public abstract class LoginVerification {
+
+	public abstract boolean verifyLogin(String userName, String password);
+}

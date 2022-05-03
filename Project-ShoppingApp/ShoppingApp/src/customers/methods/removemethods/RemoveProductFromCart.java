@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 import appconstants.ShoppingAppConstants;
 import sql.DatabaseConnection;
-import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
 
 public class RemoveProductFromCart {
 	String sql="";

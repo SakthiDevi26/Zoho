@@ -1,0 +1,14 @@
+package customers.methods.buynow;
+
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+
+public class ShowDeliveredOrderDetails {
+
+	public void showDeliveredOrderDetails(int orderId) {
+		
+		GetDetailsFromDatabase getDetailsFromDb = new GetDetailsFromDatabase();
+		
+		String deliveryStatus = getDetailsFromDb.getDeliveryStatus(orderId);
+	}
+
+}

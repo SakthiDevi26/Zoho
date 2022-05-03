@@ -1,8 +1,0 @@
-package utilities;
-
-public class PrintMenu {
-	public void printMainMenu()
-	{
-		System.out.println("->||Welcome To Shopping App||<-");
-	}
-}

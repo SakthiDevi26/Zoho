@@ -7,10 +7,10 @@ import java.util.ListIterator;
 import appconstants.ShoppingAppConstants;
 import customers.registeration.classes.CustomerMainDriver;
 import sql.DatabaseConnection;
-import utilities.classes.GetDetails;
-import utilities.classes.databaseoperations.databasecheckoperations.CheckOrderId;
-import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
-import utilities.classes.databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
+import utilities.GetDetails;
+import databaseoperations.databasecheckoperations.CheckOrderId;
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.databasegetoperations.GetListDetailsFromDatabase;
 
 public class ViewSupplierOrders {
 	ArrayList<Integer> ordersProductIdList = new ArrayList<Integer>();
@@ -69,8 +69,8 @@ public class ViewSupplierOrders {
 		}
 		else if(getDetails.orderId==0)
 		{
-			CustomerMainDriver customerMainDrive = new CustomerMainDriver();
-			customerMainDrive.customerMainDriver();
+			SupplierMethodsDriver supplierMethodsDrive = new SupplierMethodsDriver();
+			supplierMethodsDrive.supplierMethodsDriver(supplierUserName);
 		}
 		else
 		{

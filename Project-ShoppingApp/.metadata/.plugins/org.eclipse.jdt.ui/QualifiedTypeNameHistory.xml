@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="hashpassword.HashPassword"/>
-    <fullyQualifiedTypeName name="java.security.SecureRandom"/>
-    <fullyQualifiedTypeName name="java.util.Random"/>
-    <fullyQualifiedTypeName name="passwordencryption.VerifyEncryptedPassword"/>
-    <fullyQualifiedTypeName name="java.security.NoSuchAlgorithmException"/>
-    <fullyQualifiedTypeName name="java.lang.System.Logger"/>
-    <fullyQualifiedTypeName name="java.util.logging.Logger"/>
-    <fullyQualifiedTypeName name="java.lang.System.Logger.Level"/>
-    <fullyQualifiedTypeName name="java.security.MessageDigest"/>
-    <fullyQualifiedTypeName name="passwordencryption.EncryptPassword"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
-    <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.Map.Entry"/>
     <fullyQualifiedTypeName name="suppliers.suppliersregistration.classes.SupplierRegisterationDriver"/>
     <fullyQualifiedTypeName name="customers.methods.SearchByCategoryDriver"/>
@@ -43,21 +31,33 @@
     <fullyQualifiedTypeName name="customers.methods.buynow.ShowOrderDetails"/>
     <fullyQualifiedTypeName name="customers.registeration.classes.CustomerMainDriver"/>
     <fullyQualifiedTypeName name="admin.registration.AdminLogin"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="utilities.classes.PrintMenu"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="utilities.classes.databaseoperations.databasegetoperations.GetListDetailsFromDatabase"/>
     <fullyQualifiedTypeName name="admin.methods.ManageOrders"/>
     <fullyQualifiedTypeName name="admin.methods.manage.ManageOrders"/>
     <fullyQualifiedTypeName name="admin.methods.adminview.ViewAllOrders"/>
     <fullyQualifiedTypeName name="java.util.ListIterator"/>
-    <fullyQualifiedTypeName name="utilities.classes.databaseoperations.databasecheckoperations.CheckOrderId"/>
-    <fullyQualifiedTypeName name="admin.registration.AdminMethodsDriver"/>
     <fullyQualifiedTypeName name="customers.methods.buynow.ShowOrderDetailsForCustomers"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="admin.methods.manage.EnterOrderDetails"/>
     <fullyQualifiedTypeName name="utilities.classes.GetDetails"/>
+    <fullyQualifiedTypeName name="admin.methods.manage.ManageOrderDetails"/>
+    <fullyQualifiedTypeName name="utilities.classes.PrintMenu"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="utilities.classes.databaseoperations.databasecheckoperations.CheckOrderId"/>
+    <fullyQualifiedTypeName name="admin.methods.admindatabaseupdate.UpdateDeliveryStatus"/>
     <fullyQualifiedTypeName name="admin.methods.adminview.DisplayOrderDetails"/>
+    <fullyQualifiedTypeName name="admin.registration.AdminMethodsDriver"/>
     <fullyQualifiedTypeName name="utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase"/>
+    <fullyQualifiedTypeName name="database.login.VerifyLogin"/>
+    <fullyQualifiedTypeName name="databaseAbstract.LoginVerification"/>
+    <fullyQualifiedTypeName name="utilities.GetDetails"/>
+    <fullyQualifiedTypeName name="admin.methods.admindatabaseupdate.UpdateDeliveryDate"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="databaseoperations.databasegetoperations.GetDetailsInHashMapFromDatabase"/>
+    <fullyQualifiedTypeName name="databaseoperations.databasecheckoperations.CheckOrderId"/>
+    <fullyQualifiedTypeName name="customers.methods.buynow.CustomerOrderDetailsDriver"/>
+    <fullyQualifiedTypeName name="databaseoperations.databasegetoperations.GetDetailsFromDatabase"/>
     <fullyQualifiedTypeName name="appconstants.ShoppingAppConstants"/>
+    <fullyQualifiedTypeName name="utilities.PrintMenu"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,11 @@
+package databaseAbstract;
+
+import java.sql.Connection;
+
+import sql.DatabaseConnection;
+
+public abstract class LoginVerification {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	public abstract boolean verifyLogin(String userName, String password);
+}

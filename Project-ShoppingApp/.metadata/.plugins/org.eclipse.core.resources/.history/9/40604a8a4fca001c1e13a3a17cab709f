@@ -1,0 +1,14 @@
+package admin.methods.manage;
+
+import utilities.PrintMenu;
+
+public class UpdateDeliveryStatusDriver {
+
+	public void updateDeliveryStatusDriver(int orderId) {
+		// TODO Auto-generated method stub
+		PrintMenu printMenu = new PrintMenu();
+		printMenu.printUpdateDeliveryStatusMenu();
+		
+	}
+
+}

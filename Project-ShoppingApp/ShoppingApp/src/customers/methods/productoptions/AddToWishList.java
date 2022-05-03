@@ -1,13 +1,12 @@
 package customers.methods.productoptions;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import appconstants.ShoppingAppConstants;
 import sql.DatabaseConnection;
-import utilities.classes.databaseoperations.databasegetoperations.GetDetailsFromDatabase;
+import databaseoperations.databasegetoperations.GetDetailsFromDatabase;
 
 public class AddToWishList {
 	String sql="",sql1="";

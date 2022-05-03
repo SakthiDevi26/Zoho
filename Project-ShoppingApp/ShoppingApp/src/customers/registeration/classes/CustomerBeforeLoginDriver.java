@@ -3,7 +3,7 @@ package customers.registeration.classes;
 import java.util.Scanner;
 
 import customers.methods.SearchByCategoryDriver;
-import utilities.classes.PrintMenu;
+import utilities.PrintMenu;
 
 public class CustomerBeforeLoginDriver {
 	public void customerBeforeLoginDriver()

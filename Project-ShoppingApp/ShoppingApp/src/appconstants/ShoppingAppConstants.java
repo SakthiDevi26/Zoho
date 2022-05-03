@@ -39,6 +39,14 @@ public class ShoppingAppConstants {
 	public static String addressNoted ="Your order will be delivered here!";
 	public static String productRemoved ="Your Product is Removed!";
 	public static String goHome ="Press 0 to go Home";
+	public static String delivered ="delivered";
+	public static String processed ="processing";
+	public static String cancelled ="cancelled";
+	public static String shipped ="shipped";
+	public static String successfulStatusUpdate ="Delivery Status is Updated Successfully!!";
+	public static String successfulDateUpdate = "Delivery Date is updated Successfully!!";
+	public static String failedDeliveryUpdate = "Unable to update :(";
+	public static String orderIsAlready ="Order is already ";
 	
 	//decoration
 	public static String cowsayBody = " \t\t\t^__^\n" +
