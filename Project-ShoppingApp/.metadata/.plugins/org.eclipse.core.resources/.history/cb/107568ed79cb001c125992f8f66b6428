@@ -1,0 +1,5 @@
+package databaseoperations.interfaces.gettable;
+
+public interface OrderDetailsGettable {
+	public int getOrderId(int productId);
+}

@@ -1,0 +1,64 @@
+package view.suppliers;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.ListIterator;
+import sql.DatabaseConnection;
+import appconstants.ShoppingAppConstants;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails;
+import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetProductIdList;
+import driver.suppliers.SupplierMethodsDriver;
+
+public class ViewSupplierProducts {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+
+	public void viewSupplierAllProducts(String supplierUserName) {
+		SupplierMethodsDriver supplierMethodsDrive = new SupplierMethodsDriver();
+		GetProductDetails getProductDetails = new GetProductDetails();
+		GetSupplierDetails getSupplierDetails = new GetSupplierDetails();
+		GetProductIdList getProductIdList = new GetProductIdList();
+		int supplierId = getSupplierDetails.getSupplierId(supplierUserName);
+
+		
+		
+		ArrayList<Integer> productIdList = new ArrayList<Integer>();
+		productIdList = getProductIdList.getSupplierProductIdList(supplierId);
+		if(!productIdList.isEmpty())
+		{
+		
+			System.out.println(ShoppingAppConstants.smallHyphen+"<< My Products >>"+ShoppingAppConstants.smallHyphen+"\n");
+			ListIterator<Integer> productIdListIterator = productIdList.listIterator();
+			while(productIdListIterator.hasNext())
+			{
+			System.out.printf("%12s %20s %20s %20s\n","Product Id",
+					"Name",
+					"Category","Price");		
+			System.out.println(ShoppingAppConstants.bigUnderscoreLine+"\n");
+			String productName = getProductDetails.getProductName(productIdListIterator.next());
+			productIdListIterator.previous();
+			String productCategory = getProductDetails.getProductCategory(productIdListIterator.next());
+			productIdListIterator.previous();
+			String productDescription = getProductDetails.getProductDescription(productIdListIterator.next());
+			productIdListIterator.previous();
+			int productPrice = getProductDetails.getProductPrice(productIdListIterator.next());
+			productIdListIterator.previous();	
+			System.out.printf("%12d %20s %20s %20d\n\n\n",productIdListIterator.next(),productName,productCategory,productPrice);
+			System.out.printf("%s\n\n","Product Description:");
+			String[] productDescriptionSplit = productDescription.split("[.]",0);
+			for(String productDescriptionFormatted:productDescriptionSplit)
+			{
+				System.out.printf("%12s\n",productDescriptionFormatted);
+			}
+			System.out.println("\n"+ShoppingAppConstants.equalLine+ShoppingAppConstants.equalLine+"\n");
+			}
+		}
+		else
+		{
+			System.out.println("Sorry you have no products :(");
+			supplierMethodsDrive.supplierMethodsDriver(supplierUserName);
+
+		}
+	}
+}

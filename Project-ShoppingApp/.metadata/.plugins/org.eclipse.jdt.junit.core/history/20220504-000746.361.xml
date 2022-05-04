@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="TestCheckOrderId" project="ShoppingApp" tests="2" started="2" failures="0" errors="0" ignored="0">
-  <testsuite name="testcases.TestCheckOrderId" time="0.053" displayname="TestCheckOrderId" uniqueid="[engine:junit-jupiter]/[class:testcases.TestCheckOrderId]">
-    <testcase name="testIsOrderIdInShipmentTable" classname="testcases.TestCheckOrderId" time="0.042" displayname="testIsOrderIdInShipmentTable()" uniqueid="[engine:junit-jupiter]/[class:testcases.TestCheckOrderId]/[method:testIsOrderIdInShipmentTable()]"/>
-    <testcase name="testIsOrderIdInOrdersTable" classname="testcases.TestCheckOrderId" time="0.002" displayname="testIsOrderIdInOrdersTable()" uniqueid="[engine:junit-jupiter]/[class:testcases.TestCheckOrderId]/[method:testIsOrderIdInOrdersTable()]"/>
-  </testsuite>
-</testrun>

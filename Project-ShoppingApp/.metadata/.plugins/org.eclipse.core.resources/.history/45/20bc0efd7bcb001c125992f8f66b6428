@@ -1,0 +1,5 @@
+package databaseoperations.interfaces.customers.addmethods;
+
+public interface CartRemovable {
+
+}

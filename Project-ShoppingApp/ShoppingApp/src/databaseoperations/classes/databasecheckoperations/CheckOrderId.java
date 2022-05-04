@@ -6,11 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import appconstants.ShoppingAppConstants;
+import databaseoperations.interfaces.checkable.OrderIdCheckable;
 import sql.DatabaseConnection;
 
-public class CheckOrderId {
+public class CheckOrderId implements OrderIdCheckable{
+	
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
+	
 	public boolean isOrderIdInOrdersTable(int orderId)
 	{
 		sql = "select * from "+ShoppingAppConstants.ordersTable+" where "+ShoppingAppConstants.orderIdColumn+"="

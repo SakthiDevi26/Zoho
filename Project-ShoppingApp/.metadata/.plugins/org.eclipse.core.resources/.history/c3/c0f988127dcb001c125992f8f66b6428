@@ -1,0 +1,5 @@
+package databaseoperations.interfaces.customers;
+
+public interface CustomerLogoutInterface {
+
+}

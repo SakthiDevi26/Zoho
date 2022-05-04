@@ -1,0 +1,15 @@
+package databaseoperations.classes.databasegetoperations.getDetailsFromDabase;
+
+import java.sql.Connection;
+import java.sql.Date;
+
+import sql.DatabaseConnection;
+
+public class getSupplierDetails {
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	public int supplierId,currentCustomerId,productPrice,orderId,productId,customerId;
+	public long customerPhoneNumber,supplierPhoneNumber;
+	public String productName,productCategory,customerAddress,customerName,deliveryStatus,deliveryDateString,supplierName,productDescription;
+	Date deliveryDate;
+}

@@ -1,0 +1,7 @@
+package databaseoperations.interfaces.gettable;
+
+public interface ProductDetailsGettable {
+
+	public String getProductName(int productId);
+	public String getProductCategory(int productId);
+}

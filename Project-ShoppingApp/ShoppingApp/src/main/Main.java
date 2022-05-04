@@ -1,10 +1,10 @@
 package main;
 import java.util.*;
 
-import admin.registration.AdminLogin;
 import appconstants.ShoppingAppConstants;
-import customers.registeration.classes.driver.CustomerMainDriver;
-import suppliers.suppliersregistration.classes.driver.SupplierRegisterationDriver;
+import driver.admin.AdminLogin;
+import driver.customers.CustomerMainDriver;
+import driver.suppliers.SupplierRegisterationDriver;
 import utilities.*;
 
 public class Main {

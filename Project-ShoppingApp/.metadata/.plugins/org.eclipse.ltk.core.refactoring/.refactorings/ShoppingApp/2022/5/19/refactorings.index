@@ -33,3 +33,25 @@
 1651609002450	Move compilation unit
 1651609112665	Move compilation unit
 1651609121870	Move compilation unit
+1651639757718	Delete element
+1651640338629	Delete element
+1651640403415	Rename package 'databaseoperations.classes.databasegetoperations.getDetailsFromDabase'
+1651640531658	Rename type 'getCustomerDetails'
+1651640546510	Rename type 'getOrderDetails'
+1651640571080	Rename type 'getProductDetails'
+1651640583070	Rename type 'getSupplierDetails'
+1651640997629	Rename type 'getCustomerIdList'
+1651641007745	Rename type 'getOrderIdList'
+1651641031980	Rename type 'getProductIdList'
+1651642951113	Delete element
+1651642995634	Delete element
+1651647534481	Rename package 'databaseoperations.interfaces.Checkable'
+1651647543167	Rename package 'databaseoperations.interfaces.Gettable'
+1651647555160	Rename package 'databaseoperations.interfaces.Printable'
+1651647980303	Delete element
+1651647984167	Delete element
+1651647987633	Delete element
+1651649088348	Delete element
+1651649392874	Rename type 'CartRemovable'
+1651649851091	Rename type 'CustomerLogout'
+1651649916365	Move compilation unit

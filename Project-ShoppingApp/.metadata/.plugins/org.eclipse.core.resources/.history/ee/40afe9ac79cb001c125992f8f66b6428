@@ -1,0 +1,7 @@
+package databaseoperations.interfaces.gettable;
+
+public interface CustomerDetailsGettable {
+
+	public int getCurrentlyLoggedInCustomerId();
+	public String getCustomerAddress(int customerId);
+}

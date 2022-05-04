@@ -1,0 +1,5 @@
+package databaseoperations.classes.customers;
+
+public interface CustomerLoginVerifable {
+
+}
