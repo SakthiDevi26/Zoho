@@ -9,7 +9,7 @@ import databaseoperations.interfaces.suppliers.ProductAddable;
 import databaseoperations.interfaces.suppliers.ProductDeletable;
 import main.Main;
 import utilities.PrintMenu;
-import view.suppliers.ViewSupplierOrders;
+import view.suppliers.ViewCustomerOrders;
 import view.suppliers.ViewSupplierProducts;
 
 public class SupplierMethodsDriver {
@@ -54,8 +54,8 @@ public class SupplierMethodsDriver {
 			updateProductDriver.updateProductDriver(supplierUserName);
 			break;
 		case 5:
-			ViewSupplierOrders viewSupplierOrders = new ViewSupplierOrders();
-			viewSupplierOrders.viewSupplierOrders(supplierUserName);
+			ViewCustomerOrders viewCustomerOrders = new ViewCustomerOrders();
+			viewCustomerOrders.viewCustomerOrders(supplierUserName);
 			break;
 		case 6:
 		case 7:

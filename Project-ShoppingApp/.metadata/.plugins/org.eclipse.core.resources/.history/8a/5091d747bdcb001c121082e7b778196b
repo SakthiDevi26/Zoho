@@ -1,0 +1,13 @@
+package view.suppliers;
+
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
+import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+
+public class ViewCustomerDetails {
+
+	public void viewCustomerDetails(int orderId)
+	{
+		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		
+	}
+}

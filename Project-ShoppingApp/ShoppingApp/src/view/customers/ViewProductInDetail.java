@@ -6,6 +6,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import appconstants.ShoppingAppConstants;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails;
+import databaseoperations.interfaces.gettable.ProductDetailsGettable;
+import databaseoperations.interfaces.gettable.SupplierDetailsGettable;
 import driver.customers.ProductOptionsDriver;
 import sql.DatabaseConnection;
 
@@ -18,48 +22,35 @@ public class ViewProductInDetail {
 	
 	public void viewProductInDetail(int productId) {
 		ProductOptionsDriver productOptionDriver = new ProductOptionsDriver();
-		sql = "SELECT * FROM "+ShoppingAppConstants.productsTable+" where "+ShoppingAppConstants.productIdColumn+ " = "+productId;
-		try {
-			Statement statement = connect.createStatement();
-			ResultSet resultset = statement.executeQuery(sql);
-			while(resultset.next())
-			{
-				productName = resultset.getString(ShoppingAppConstants.productNameColumn);
-				productCategory = resultset.getString(ShoppingAppConstants.productCategoryColumn);
-				productDescription = resultset.getString(ShoppingAppConstants.productDescriptionColumn);
-				productPrice = resultset.getInt(ShoppingAppConstants.productPriceColumn);
-				supplierId = resultset.getInt(ShoppingAppConstants.supplierIdColumn);
-			}
-			System.out.println("\n"+ShoppingAppConstants.equalLine);
-			System.out.printf("\n%12s %30s\n",
-					"Product Name",
-					"Category");
-			System.out.printf("%12s %30s\n\n",productName,productCategory);
-			System.out.printf("%12s\n","Description:");
-			String[] productDescriptionSplit = productDescription.split("[.]",0);
-			for(String productDescriptionFormatted:productDescriptionSplit)
-			{
-				System.out.printf("%12s\n",productDescriptionFormatted);
-			}
+		ProductDetailsGettable getProductDetails = new GetProductDetails();
+		SupplierDetailsGettable getSupplierDetails = new GetSupplierDetails();
+		
+		productName = getProductDetails.getProductName(productId);
+		productCategory = getProductDetails.getProductCategory(productId);
+		productDescription = getProductDetails.getProductDescription(productId);
+		productPrice = getProductDetails.getProductPrice(productId);
+		
+		supplierId = getSupplierDetails.getSupplierId(productId);
+		System.out.println("\n"+ShoppingAppConstants.equalLine);
+		System.out.printf("\n%12s %30s\n",
+				"Product Name",
+				"Category");
+		System.out.printf("%12s %30s\n\n",productName,productCategory);
+		System.out.printf("%12s\n","Description:");
+		String[] productDescriptionSplit = productDescription.split("[.]",0);
+		for(String productDescriptionFormatted:productDescriptionSplit)
+		{
+			System.out.printf("%12s\n",productDescriptionFormatted);
+		}
 			
-			sql1 = "SELECT * FROM "+ShoppingAppConstants.suppliersTable+" where "+ShoppingAppConstants.supplierIdColumn+ " = "+supplierId;
-			Statement supplierStatement = connect.createStatement();
-			ResultSet supplierResultset = supplierStatement.executeQuery(sql1);
-			while(supplierResultset.next())
-			{
-				supplierName = supplierResultset.getString(ShoppingAppConstants.supplierUserNameColumn);
-				supplierPhoneNumber = supplierResultset.getLong(ShoppingAppConstants.supplierPhoneNumberColumn);
-			}
-			System.out.printf("\n\nSold by :%s\n",supplierName);
-			System.out.printf("Contact Supplier at %d\n\n", supplierPhoneNumber);
-			System.out.printf("Buy at only:%d\n\n",productPrice);
-			System.out.println("\n"+ShoppingAppConstants.equalLine);
-			//reviews
-			productOptionDriver.productOptionsDriver(productId);
-		}
-		catch (SQLException e) {
-			e.printStackTrace();
-		}
+		supplierName = getSupplierDetails.getSupplierName(supplierId);
+		supplierPhoneNumber = getSupplierDetails.getSupplierPhoneNumber(supplierId);
+		System.out.printf("\n\nSold by :%s\n",supplierName);
+		System.out.printf("Contact Supplier at %d\n\n", supplierPhoneNumber);
+		System.out.printf("Buy at only:%d\n\n",productPrice);
+		System.out.println("\n"+ShoppingAppConstants.equalLine);
+		//reviews
+		productOptionDriver.productOptionsDriver(productId);
 	}
 
 }

@@ -25,7 +25,7 @@ public class PrintMenuUsingDataBase implements DatabaseMenuPrintable{
 		System.out.println(ShoppingAppConstants.two+"Add to Wishlist");
 		}
 		System.out.println(ShoppingAppConstants.three+"Buy Now");
-		System.out.println(ShoppingAppConstants.four+"Go back");
+		System.out.println(ShoppingAppConstants.four+"Go Home");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
 }

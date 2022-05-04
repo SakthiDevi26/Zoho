@@ -1,0 +1,22 @@
+package view.suppliers;
+
+import appconstants.ShoppingAppConstants;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
+import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+
+public class ViewCustomerDetails {
+
+	public void viewCustomerDetails(int orderId)
+	{
+		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		int customerId = getCustomerDetails.getCustomerId(orderId);
+		String customerName = getCustomerDetails.getCustomerName(customerId);
+				
+		System.out.println(ShoppingAppConstants.bigEqualLine);
+		System.out.println(ShoppingAppConstants.customerBox);
+		System.out.printf("%40s","Customer Id : ","%s",customerId);
+		System.out.printf("\n%40s","Name : " ,"%s",customerName);
+		System.out.printf("\nOther Details Of Customers are Confidential. Kindly approach Our team if there is a neccesity\n");		
+		System.out.println(ShoppingAppConstants.bigEqualLine);		
+	}
+}

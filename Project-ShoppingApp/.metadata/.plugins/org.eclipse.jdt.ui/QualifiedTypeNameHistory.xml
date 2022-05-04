@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetOrderDetails"/>
-    <fullyQualifiedTypeName name="driver.admin.ManageOrderDetails"/>
-    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetCustomerIdList"/>
     <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetOrderIdList"/>
     <fullyQualifiedTypeName name="driver.customers.MyCartDriver"/>
     <fullyQualifiedTypeName name="driver.orders.CustomerOrderDetailsDriver"/>
     <fullyQualifiedTypeName name="driver.customers.ProductOptionsDriver"/>
     <fullyQualifiedTypeName name="driver.customers.MyWishListDriver"/>
-    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails"/>
     <fullyQualifiedTypeName name="driver.orders.ShowDeliveredOrderDetailsDriver"/>
     <fullyQualifiedTypeName name="driver.customers.CustomerMainDriver"/>
-    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails"/>
     <fullyQualifiedTypeName name="view.orders.OrderConfirmationMessage"/>
     <fullyQualifiedTypeName name="driver.orders.OrderConfirmation"/>
     <fullyQualifiedTypeName name="databaseoperations.interfaces.admin.DeliveryDateUpdatable"/>
@@ -44,15 +39,10 @@
     <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.DetailsInHashMapGettable"/>
     <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.OrderIdListGettable"/>
     <fullyQualifiedTypeName name="databaseoperations.interfaces.checkable.ProductIdCheckable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.CustomerDetailsGettable"/>
     <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.OrderDetailsGettable"/>
     <fullyQualifiedTypeName name="databaseoperations.interfaces.checkable.OrderIdCheckable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.ProductDetailsGettable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.ProductIdListGettable"/>
     <fullyQualifiedTypeName name="view.admin.ViewAllSuppliers"/>
     <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.SupplierIdListGettable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.SupplierDetailsGettable"/>
-    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails"/>
     <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetSupplierIdList"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="utilities.GetDetails"/>
@@ -60,4 +50,14 @@
     <fullyQualifiedTypeName name="databaseoperations.interfaces.checkable.SupplierIdCheckable"/>
     <fullyQualifiedTypeName name="view.suppliers.ViewSupplierProducts"/>
     <fullyQualifiedTypeName name="driver.suppliers.SupplierMethodsDriver"/>
+    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails"/>
+    <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.CustomerDetailsGettable"/>
+    <fullyQualifiedTypeName name="appconstants.ShoppingAppConstants"/>
+    <fullyQualifiedTypeName name="view.suppliers.ViewCustomerOrders"/>
+    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetProductIdList"/>
+    <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.ProductIdListGettable"/>
+    <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.ProductDetailsGettable"/>
+    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails"/>
+    <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.SupplierDetailsGettable"/>
+    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails"/>
 </qualifiedTypeNameHistroy>

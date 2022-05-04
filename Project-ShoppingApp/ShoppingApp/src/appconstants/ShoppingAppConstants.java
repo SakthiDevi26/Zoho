@@ -118,6 +118,11 @@ public class ShoppingAppConstants {
 			+ "  \t\t\t     --   Supplier   --\r\n"
 			+ "  \t\t\t     --     Info     --\r\n"
 			+ "  \t\t\t     ------------------";
+	
+	public static String customerBox ="    \t\t\t     -----------------\r\n"
+			+ "  \t\t\t     --   Customer   --\r\n"
+			+ "  \t\t\t     --     Info     --\r\n"
+			+ "  \t\t\t     ------------------";
 	//sql
 
 	public static String suppliersTable ="suppliers";
