@@ -11,8 +11,7 @@ mysql==8.0.23\
 mysql-connector-java-5.1.49.jar
 
 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/69042451/166670073-eb2908a0-492c-4bd6-ba0e-66d84810d321.gif)
-
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/69042451/166728019-a109577b-ecc4-428e-a7ff-e2c94d6d6c2b.gif)
 
 ![OnlineShoppingApp](https://user-images.githubusercontent.com/69042451/165978507-6fda72a9-8da6-4936-b319-c0952755fc86.jpg)
 
