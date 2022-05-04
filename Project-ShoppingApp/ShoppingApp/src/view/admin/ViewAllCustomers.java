@@ -6,14 +6,16 @@ import java.util.ListIterator;
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
 import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetCustomerIdList;
+import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+import databaseoperations.interfaces.gettable.CustomerIdListGettable;
 
 
 public class ViewAllCustomers {
 
 	public void viewAllCustomers()
 	{
-		GetCustomerDetails getCustomerDetails = new GetCustomerDetails();
-		GetCustomerIdList getCustomerIdList = new GetCustomerIdList();
+		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		CustomerIdListGettable getCustomerIdList = new GetCustomerIdList();
 		
 		
 		ArrayList<Integer> customerIdList = new ArrayList<Integer>();

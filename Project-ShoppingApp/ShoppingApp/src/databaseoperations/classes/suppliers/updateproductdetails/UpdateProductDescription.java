@@ -5,10 +5,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import appconstants.ShoppingAppConstants;
+import databaseoperations.interfaces.suppliers.updateproduct.ProductDescriptionUpdatable;
 import sql.DatabaseConnection;
 import utilities.GetDetails;
 
-public class UpdateProductDescription {
+public class UpdateProductDescription implements ProductDescriptionUpdatable {
 
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();

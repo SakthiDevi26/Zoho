@@ -6,10 +6,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import appconstants.ShoppingAppConstants;
+import databaseoperations.interfaces.suppliers.updateproduct.ProductNameUpdatable;
 import sql.DatabaseConnection;
 import utilities.GetDetails;
 
-public class UpdateProductName {
+public class UpdateProductName implements ProductNameUpdatable {
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 	public boolean updateProductName(int productId) {

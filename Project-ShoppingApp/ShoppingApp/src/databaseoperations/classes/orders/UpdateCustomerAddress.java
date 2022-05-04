@@ -6,11 +6,12 @@ import java.sql.Statement;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
+import databaseoperations.interfaces.orders.CustomerAddressUpdatable;
 import sql.DatabaseConnection;
 import utilities.GetDetails;
 
 
-public class UpdateCustomerAddress {
+public class UpdateCustomerAddress implements CustomerAddressUpdatable{
 	String sql="",sql1="";
 	Connection connect = DatabaseConnection.getConnection();
 	public boolean updateCustomerAddress()

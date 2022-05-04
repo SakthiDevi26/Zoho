@@ -6,13 +6,15 @@ import java.util.Scanner;
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasecheckoperations.CheckProductId;
 import databaseoperations.classes.databasegetoperations.GetDetailsInHashMapFromDatabase;
+import databaseoperations.interfaces.checkable.ProductIdCheckable;
+import databaseoperations.interfaces.gettable.DetailsInHashMapGettable;
 public class BeautyCategory {
 	int productId;
 	public  int showBeautyCategoryProducts() {
 		String productCategory ="beauty";
 		Scanner scanner = new Scanner(System.in);
-		CheckProductId checkProductId = new CheckProductId();
-		GetDetailsInHashMapFromDatabase getDetailsMapFromDb = new GetDetailsInHashMapFromDatabase();
+		ProductIdCheckable checkProductId = new CheckProductId();
+		DetailsInHashMapGettable getDetailsMapFromDb = new GetDetailsInHashMapFromDatabase();
 		Map<Integer, String> productByCategoryMap = getDetailsMapFromDb.getProductByCategoryDetails(productCategory);
 		if(!productByCategoryMap.isEmpty())
 		{

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import utilities.PrintMenu;
 import view.admin.ViewAllCustomers;
-import view.admin.ViewAllProducts;
+import view.admin.ViewAllSuppliers;
 
 public class AdminMethodsDriver {
 
@@ -17,8 +17,8 @@ public class AdminMethodsDriver {
 		switch(choice)
 		{
 		case 1:
-			ViewAllProducts view = new ViewAllProducts();
-			view.ViewAllProducts();
+			ViewAllSuppliers view = new ViewAllSuppliers();
+			view.ViewAllSuppliers();
 			break;
 		case 2:
 			ViewAllCustomers viewAllCustomers = new ViewAllCustomers();

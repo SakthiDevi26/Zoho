@@ -1,0 +1,17 @@
+package businesslayer;
+
+import java.util.ArrayList;
+
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
+import databaseoperations.interfaces.gettable.ProductDetailsGettable;
+
+public class GetProductsList {
+
+	public ArrayList<products> productsDisplayOrderDetails()
+	{
+		ProductDetailsGettable getProductDetails = new GetProductDetails();
+		int productId = getProductDetails.getProductIdUsingOrderId(orderId);
+		String productName = getProductDetails.getProductName(productId);
+		String productCategory = getProductDetails.getProductCategory(productId);
+	}
+}

@@ -1,0 +1,25 @@
+package entities;
+
+public class Products {
+	public int productId;
+	String productName;
+	String productDescription;
+	String productCategory;
+	int productPrice;
+
+	public Products(int productId, String productName, String productCategory, int productPrice) {
+		this.productId = productId;
+		this.productName = productName;
+		this.productCategory = productCategory;
+		this.productPrice = productPrice;
+	}
+	
+	public Products(int productId, String productName, String productDescription, String productCategory,int productPrice) {
+		this.productId = productId;
+		this.productName = productName;
+		this.productDescription = productDescription;
+		this.productCategory = productCategory;
+		this.productPrice = productPrice;
+	}
+	
+}

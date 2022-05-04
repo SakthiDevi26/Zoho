@@ -8,10 +8,11 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import appconstants.ShoppingAppConstants;
+import databaseoperations.interfaces.suppliers.SupplierAccountCreatable;
 import sql.DatabaseConnection;
 import utilities.GetDetails;
 
-public class CreateSupplierAccount {
+public class CreateSupplierAccount implements SupplierAccountCreatable{
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 

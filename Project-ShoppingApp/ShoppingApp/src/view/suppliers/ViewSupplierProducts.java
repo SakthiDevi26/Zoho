@@ -8,6 +8,9 @@ import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails;
 import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetProductIdList;
+import databaseoperations.interfaces.gettable.ProductDetailsGettable;
+import databaseoperations.interfaces.gettable.ProductIdListGettable;
+import databaseoperations.interfaces.gettable.SupplierDetailsGettable;
 import driver.suppliers.SupplierMethodsDriver;
 
 public class ViewSupplierProducts {
@@ -16,19 +19,17 @@ public class ViewSupplierProducts {
 
 	public void viewSupplierAllProducts(String supplierUserName) {
 		SupplierMethodsDriver supplierMethodsDrive = new SupplierMethodsDriver();
-		GetProductDetails getProductDetails = new GetProductDetails();
-		GetSupplierDetails getSupplierDetails = new GetSupplierDetails();
-		GetProductIdList getProductIdList = new GetProductIdList();
+		ProductDetailsGettable getProductDetails = new GetProductDetails();
+		SupplierDetailsGettable getSupplierDetails = new GetSupplierDetails();
+		ProductIdListGettable getProductIdList = new GetProductIdList();
 		int supplierId = getSupplierDetails.getSupplierId(supplierUserName);
-
-		
-		
+	
 		ArrayList<Integer> productIdList = new ArrayList<Integer>();
 		productIdList = getProductIdList.getSupplierProductIdList(supplierId);
 		if(!productIdList.isEmpty())
 		{
 		
-			System.out.println(ShoppingAppConstants.smallHyphen+"<< My Products >>"+ShoppingAppConstants.smallHyphen+"\n");
+			System.out.println(ShoppingAppConstants.smallHyphen+"<< Products >>"+ShoppingAppConstants.smallHyphen+"\n");
 			ListIterator<Integer> productIdListIterator = productIdList.listIterator();
 			while(productIdListIterator.hasNext())
 			{
@@ -56,7 +57,7 @@ public class ViewSupplierProducts {
 		}
 		else
 		{
-			System.out.println("Sorry you have no products :(");
+			System.out.println("Sorry there is no product :(");
 			supplierMethodsDrive.supplierMethodsDriver(supplierUserName);
 
 		}

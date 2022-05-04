@@ -1,0 +1,5 @@
+package databaseoperations.interfaces.suppliers.updateproduct;
+
+public interface ProductDescriptionUpdatable {
+
+}

@@ -3,6 +3,7 @@ package driver.orders;
 import java.util.Scanner;
 
 import databaseoperations.classes.orders.OrderPlacement;
+import databaseoperations.interfaces.orders.OrderPlaceable;
 import driver.customers.CustomerMainDriver;
 import utilities.PrintMenu;
 
@@ -11,7 +12,7 @@ public class PaymentModeDriver {
 	public void paymentModeDriver(int productId) {
 		// TODO Auto-generated method stub
 		Scanner scanner = new Scanner(System.in);
-		OrderPlacement orderPlacement = new OrderPlacement();
+		OrderPlaceable orderPlacement = new OrderPlacement();
 		CustomerMainDriver customerMainDrive = new CustomerMainDriver();
 		PrintMenu printMenu = new PrintMenu();
 		printMenu.printPaymentMode();

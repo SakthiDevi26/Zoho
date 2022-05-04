@@ -1,0 +1,14 @@
+package businesslayer;
+
+import java.util.ArrayList;
+
+import entities.Products;
+
+public class print {
+
+	public void print(ArrayList<Products> productsDisplayOrderDetails) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

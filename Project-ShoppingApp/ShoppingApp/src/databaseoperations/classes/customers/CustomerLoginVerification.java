@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import appconstants.ShoppingAppConstants;
-import databaseoperations.interfaces.customers.CustomerLoginVerifable;
+import databaseoperations.interfaces.customers.CustomerLoginVerifiable;
 import passwordencryption.VerifyEncryptedPassword;
 import sql.DatabaseConnection;
 
-public class CustomerLoginVerification implements CustomerLoginVerifable{
+public class CustomerLoginVerification implements CustomerLoginVerifiable{
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 	public boolean verifyCustomerLogin(long customerPhoneNumber, String customerPassword) {

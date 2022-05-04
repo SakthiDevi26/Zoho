@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
+import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
 import driver.customers.CustomerMainDriver;
 import sql.DatabaseConnection;
 
@@ -22,7 +23,7 @@ public class ViewCustomerAccount {
 	{
 		Scanner scanner = new Scanner(System.in);
 		CustomerMainDriver customerMainDrive = new CustomerMainDriver();
-		GetCustomerDetails getCustomerDetails = new GetCustomerDetails();
+		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
 		
 		customerId = getCustomerDetails.getCurrentlyLoggedInCustomerId();
 		customerName = getCustomerDetails.getCustomerName(customerId);

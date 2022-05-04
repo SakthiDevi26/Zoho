@@ -1,0 +1,15 @@
+package databaseoperations.classes.databasegetoperations.getlistfromdatabase;
+
+import java.util.ArrayList;
+
+import databaseoperations.interfaces.gettable.SupplierIdListGettable;
+
+public class GetSupplierIdList implements SupplierIdListGettable{
+
+	@Override
+	public ArrayList<Integer> getAllSuppliersId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

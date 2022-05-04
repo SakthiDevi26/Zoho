@@ -1,0 +1,18 @@
+package view.orders;
+
+import driver.orders.OrderConfirmation;
+
+public class OrderConfirmationMessage {
+
+	public void orderConfirmationMessage(int productId) {
+		// TODO Auto-generated method stub
+		DisplayOrderSummary displayOrder = new DisplayOrderSummary();
+		displayOrder.displayOrderSummary(productId);
+		System.out.println("Do you want to place order? Type: y/n");
+		OrderConfirmation orderConfirm = new OrderConfirmation();
+		orderConfirm.orderConfirmation(productId);
+				
+		
+	}
+
+}

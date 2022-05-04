@@ -5,10 +5,11 @@ import java.sql.*;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails;
+import databaseoperations.interfaces.suppliers.ProductAddable;
 import sql.DatabaseConnection;
 import utilities.GetDetails;
 
-public class AddProduct {
+public class AddProduct implements ProductAddable{
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 	public boolean addProduct(String supplierUserName) {

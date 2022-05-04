@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.customers.CreateCustomerAccount;
+import databaseoperations.interfaces.customers.CustomerAccountCreatable;
 import utilities.GetDetails;
 import utilities.PrintMenu;
 
@@ -14,8 +15,9 @@ public class CustomerRegisterationDriver {
 	{
 		Scanner scanner = new Scanner(System.in);
 		PrintMenu printMenu = new PrintMenu();
-		CreateCustomerAccount createCustomerAccount = new CreateCustomerAccount();
+		CustomerAccountCreatable createCustomerAccount = new CreateCustomerAccount();
 		CustomerLogin customerLogin = new CustomerLogin();
+		
 		printMenu.printRegisterationDriverMenu();
 		int choice = scanner.nextInt();
 		switch(choice)

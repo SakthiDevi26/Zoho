@@ -9,6 +9,10 @@ import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.G
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
 import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetOrderIdList;
 import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetProductIdList;
+import databaseoperations.interfaces.checkable.OrderIdCheckable;
+import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+import databaseoperations.interfaces.gettable.OrderIdListGettable;
+import databaseoperations.interfaces.gettable.ProductDetailsGettable;
 import driver.customers.CustomerMainDriver;
 import driver.orders.CustomerOrderDetailsDriver;
 import sql.DatabaseConnection;
@@ -19,10 +23,10 @@ public class ViewMyOrders {
 	public void viewMyOrders()
 	{
 		GetDetails getDetails = new GetDetails();
-		GetOrderIdList getOrderIdList = new GetOrderIdList();
-		GetCustomerDetails getCustomerDetails = new GetCustomerDetails();
-		GetProductDetails getProductDetails = new GetProductDetails();
-		CheckOrderId checkOrderId = new CheckOrderId();
+		OrderIdListGettable getOrderIdList = new GetOrderIdList();
+		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		ProductDetailsGettable getProductDetails = new GetProductDetails();
+		OrderIdCheckable checkOrderId = new CheckOrderId();
 		
 		int customerId = getCustomerDetails.getCurrentlyLoggedInCustomerId();
 		ArrayList<Integer> orderIdList = new ArrayList<Integer>();

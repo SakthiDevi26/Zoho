@@ -5,6 +5,7 @@ import java.util.*;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.suppliers.CreateSupplierAccount;
+import databaseoperations.interfaces.suppliers.SupplierAccountCreatable;
 import utilities.*;
 
 public class SupplierRegisterationDriver {
@@ -12,7 +13,7 @@ public class SupplierRegisterationDriver {
 	{
 		Scanner scanner = new Scanner(System.in);
 		PrintMenu printMenu = new PrintMenu();
-		CreateSupplierAccount createSupplierAccount = new CreateSupplierAccount();
+		SupplierAccountCreatable createSupplierAccount = new CreateSupplierAccount();
 		SupplierLogin supplierLogin = new SupplierLogin();
 		GetDetails getDetails = new GetDetails();
 		printMenu.printRegisterationDriverMenu();

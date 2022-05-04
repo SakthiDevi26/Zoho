@@ -1,0 +1,10 @@
+package view.orders;
+
+public class OrderConfirmationMessage {
+
+	public void orderConfirmationMessage(int productId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

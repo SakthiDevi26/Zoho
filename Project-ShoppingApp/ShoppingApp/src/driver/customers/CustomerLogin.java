@@ -2,6 +2,7 @@ package driver.customers;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.customers.CustomerLoginVerification;
+import databaseoperations.interfaces.customers.CustomerLoginVerifiable;
 import utilities.GetDetails;
 
 public class CustomerLogin {
@@ -16,7 +17,7 @@ public class CustomerLogin {
 			}
 			else
 			{
-				CustomerLoginVerification verifyLogin = new CustomerLoginVerification();
+				CustomerLoginVerifiable verifyLogin = new CustomerLoginVerification();
 				if(verifyLogin.verifyCustomerLogin(getDetails.customerPhoneNumber,getDetails.customerPassword))
 				{
 					return true;

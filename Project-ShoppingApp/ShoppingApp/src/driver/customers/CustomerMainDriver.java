@@ -3,6 +3,7 @@ package driver.customers;
 import java.util.Scanner;
 
 import databaseoperations.classes.customers.CheckCustomerLoggedIn;
+import databaseoperations.interfaces.customers.CustomerLoggedInCheckable;
 import view.customers.ProductRecommendations;
 import view.customers.ViewProductInDetail;
 
@@ -11,7 +12,9 @@ public class CustomerMainDriver {
 	public void customerMainDriver() {
 		Scanner scanner = new Scanner(System.in);
 		ProductRecommendations productRecommend = new ProductRecommendations();
+		
 		productId = productRecommend.showProductRecommendations();
+		
 		if(productId!=0 && productId!=1) //entered id in random
 		{
 			ViewProductInDetail viewProduct = new ViewProductInDetail();
@@ -25,7 +28,7 @@ public class CustomerMainDriver {
 		}
 		else //entered 0
 		{
-			CheckCustomerLoggedIn checkCustomerLoggedIn = new CheckCustomerLoggedIn();
+			CustomerLoggedInCheckable checkCustomerLoggedIn = new CheckCustomerLoggedIn();
 			if(checkCustomerLoggedIn.isCustomerLoggedin())
 			{
 				CustomerAfterLoginDriver customerAfterLoginDriver = new CustomerAfterLoginDriver();

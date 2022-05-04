@@ -9,6 +9,9 @@ import databaseoperations.classes.databasecheckoperations.CheckProductId;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
 import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetProductIdList;
+import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+import databaseoperations.interfaces.gettable.ProductDetailsGettable;
+import databaseoperations.interfaces.gettable.ProductIdListGettable;
 import driver.customers.CustomerMainDriver;
 import driver.customers.MyCartDriver;
 
@@ -18,9 +21,9 @@ public class ViewMyCart {
 	Scanner scanner = new Scanner(System.in);
 	public void viewMyCart()
 	{
-		GetProductDetails getProductDetails = new GetProductDetails();
-		GetCustomerDetails getCustomerDetails = new GetCustomerDetails();
-		GetProductIdList getProductIdList = new GetProductIdList();
+		ProductDetailsGettable getProductDetails = new GetProductDetails();
+		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		ProductIdListGettable getProductIdList = new GetProductIdList();
 		int customerId = getCustomerDetails.getCurrentlyLoggedInCustomerId();
 		ArrayList<Integer> productIdList = new ArrayList<Integer>();
 		productIdList = getProductIdList.getProductIdListInCart(customerId);

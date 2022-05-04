@@ -5,6 +5,8 @@ import java.util.Scanner;
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.admin.UpdateDeliveryDate;
 import databaseoperations.classes.databasecheckoperations.CheckOrderId;
+import databaseoperations.interfaces.admin.DeliveryDateUpdatable;
+import databaseoperations.interfaces.checkable.OrderIdCheckable;
 import utilities.PrintMenu;
 
 
@@ -14,7 +16,7 @@ public class ManageOrderDetails {
 		// TODO Auto-generated method stub
 		Scanner scanner = new Scanner(System.in);
 		PrintMenu printMenu = new PrintMenu();
-		CheckOrderId checkOrderId = new CheckOrderId();
+		OrderIdCheckable checkOrderId = new CheckOrderId();
 		if(!checkOrderId.isOrderInParticularStatus(orderId,ShoppingAppConstants.delivered))
 		{
 			printMenu.printAdminOrdersManagementMenu();
@@ -22,7 +24,7 @@ public class ManageOrderDetails {
 			switch(choice)
 			{
 			case 1:
-				UpdateDeliveryDate updateDeliveryDate = new UpdateDeliveryDate();
+				DeliveryDateUpdatable updateDeliveryDate = new UpdateDeliveryDate();
 				if(updateDeliveryDate.updateDeliveryDate(orderId))
 				{
 					System.out.println(ShoppingAppConstants.successfulDateUpdate);

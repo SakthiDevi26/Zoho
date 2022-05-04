@@ -8,9 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import appconstants.ShoppingAppConstants;
+import databaseoperations.interfaces.gettable.DetailsInHashMapGettable;
 import sql.DatabaseConnection;
 
-public class GetDetailsInHashMapFromDatabase {
+public class GetDetailsInHashMapFromDatabase implements DetailsInHashMapGettable{
+	
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 	public int productId;

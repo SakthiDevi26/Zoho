@@ -10,6 +10,7 @@ public class CustomerBeforeLoginDriver {
 		Scanner scanner = new Scanner(System.in);
 		PrintMenu printMenu = new PrintMenu();
 		CustomerMainDriver customerMainDriver = new CustomerMainDriver();
+		
 		printMenu.printBeforeLoginCustomerMainMenu();
 		int choice = scanner.nextInt();
 		switch(choice)

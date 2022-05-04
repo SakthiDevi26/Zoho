@@ -7,12 +7,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import appconstants.ShoppingAppConstants;
+import databaseoperations.interfaces.gettable.CustomerIdListGettable;
 import sql.DatabaseConnection;
 
-public class GetCustomerIdList {
+public class GetCustomerIdList implements CustomerIdListGettable{
+	
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 	public int orderId,productId,customerId;
+	
 	public ArrayList<Integer> getAllCustomerId() {
 		// TODO Auto-generated method stub
 		ArrayList<Integer> customerIdList = new ArrayList<Integer>();

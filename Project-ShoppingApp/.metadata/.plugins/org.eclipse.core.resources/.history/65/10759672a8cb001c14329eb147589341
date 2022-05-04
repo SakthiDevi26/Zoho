@@ -1,0 +1,52 @@
+package view.admin;
+
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+import appconstants.ShoppingAppConstants;
+import databaseoperations.classes.databasegetoperations.GetDetailsInHashMapFromDatabase;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails;
+import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetCustomerIdList;
+import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetSupplierIdList;
+import databaseoperations.interfaces.gettable.SupplierDetailsGettable;
+import databaseoperations.interfaces.gettable.SupplierIdListGettable;
+
+
+
+public class ViewAllSuppliers {
+
+	public void ViewAllSuppliers()
+	{
+		SupplierDetailsGettable getSupplierDetails = new GetSupplierDetails();
+		SupplierIdListGettable getSuppliersIdList = new GetSupplierIdList();
+		
+		
+		ArrayList<Integer> suppliersIdList = new ArrayList<Integer>();
+		suppliersIdList = getSuppliersIdList.getAllSuppliersId();
+		if(!suppliersIdList.isEmpty())
+		{
+			System.out.println(ShoppingAppConstants.bigEqualLine+"\n");
+			System.out.println("\t\t\t\t\tOUR SUPPLIERS");
+			//System.out.println("\t\t\tDon't Find Customers for products,find products for Customers\n");
+			System.out.println(ShoppingAppConstants.bigEqualLine+"\n");
+			System.out.printf("%s %20s %35s\n","Supplier Id",
+					"Name","PhoneNumber");
+			System.out.println(ShoppingAppConstants.bigUnderscoreLine);
+	
+			ListIterator<Integer> suppliersIdListIterator = suppliersIdList.listIterator();
+			while(suppliersIdListIterator.hasNext())
+			{
+				String supplierName = getSupplierDetails.getSupplierName(suppliersIdListIterator.next());
+				suppliersIdListIterator.previous();
+				Long supplierPhoneNumber = getSupplierDetails.getSupplierPhoneNumber(suppliersIdListIterator.next());
+				suppliersIdListIterator.previous();
+				System.out.printf("%s %30s %40d\n", suppliersIdListIterator.next(),supplierName,supplierPhoneNumber);
+			}
+			System.out.println("\n"+ShoppingAppConstants.bigEqualLine);
+			
+	
+		}
+	}
+
+}

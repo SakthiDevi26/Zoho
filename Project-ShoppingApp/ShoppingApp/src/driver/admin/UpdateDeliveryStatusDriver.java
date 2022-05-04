@@ -8,14 +8,18 @@ import view.admin.DisplayOrderDetails;
 import databaseoperations.classes.admin.UpdateDeliveryStatus;
 import databaseoperations.classes.databasecheckoperations.CheckOrderId;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetOrderDetails;
+import databaseoperations.interfaces.admin.DeliveryStatusUpdatable;
+import databaseoperations.interfaces.checkable.OrderIdCheckable;
+import databaseoperations.interfaces.gettable.OrderDetailsGettable;
 
 public class UpdateDeliveryStatusDriver {
 
 	public void updateDeliveryStatusDriver(int orderId) {
 		// TODO Auto-generated method stub
-		CheckOrderId checkOrderId = new CheckOrderId();
-		UpdateDeliveryStatus updateDeliveryStatus = new UpdateDeliveryStatus();
-		GetOrderDetails getOrderDetails = new GetOrderDetails();
+		OrderIdCheckable checkOrderId = new CheckOrderId();
+		DeliveryStatusUpdatable updateDeliveryStatus = new UpdateDeliveryStatus();
+		OrderDetailsGettable getOrderDetails = new GetOrderDetails();
+		
 		PrintMenu printMenu = new PrintMenu();
 		Scanner scanner = new Scanner(System.in);
 		printMenu.printUpdateDeliveryStatusMenu();

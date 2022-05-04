@@ -16,8 +16,6 @@ public class Main {
 		SupplierRegisterationDriver supplierRegisterDriver = new SupplierRegisterationDriver();
 		CustomerMainDriver customerMainDriver = new CustomerMainDriver();
 		AdminLogin adminLogin = new AdminLogin();
-		
-		
 		printMenu.printMainMenu();
 		int choice = scanner.nextInt();
 		switch(choice)

@@ -10,13 +10,14 @@ import databaseoperations.classes.databasecheckoperations.CheckProductId;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
 import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetProductIdList;
+import databaseoperations.interfaces.checkable.ProductIdCheckable;
 import driver.customers.CustomerMainDriver;
 import driver.customers.MyWishListDriver;
 
 
 public class ViewMyWishList {
 	CustomerMainDriver customerMainDrive = new CustomerMainDriver();
-	CheckProductId checkProductId = new CheckProductId();
+	ProductIdCheckable checkProductId = new CheckProductId();
 	Scanner scanner = new Scanner(System.in);
 	public void viewMyWishList()
 	{

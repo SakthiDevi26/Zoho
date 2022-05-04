@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.customers.removemethods.RemoveProductFromWishList;
+import databaseoperations.interfaces.customers.removemethods.ProductFromWishListRemovable;
 import utilities.PrintMenu;
 import view.customers.ViewMyWishList;
 import view.customers.ViewProductInDetail;
@@ -18,7 +19,7 @@ public class MyWishListDriver {
 		switch(choice)
 		{
 		case 1:
-			RemoveProductFromWishList removeProduct = new RemoveProductFromWishList();
+			ProductFromWishListRemovable removeProduct = new RemoveProductFromWishList();
 			removeProduct.removeProductFromWishList(productId);
 			System.out.println(ShoppingAppConstants.productRemoved);
 			break;

@@ -1,0 +1,8 @@
+package databaseoperations.interfaces.gettable;
+
+import java.util.Map;
+
+public interface DetailsInHashMapGettable {
+
+	public Map<Integer, String> getProductRecommendationDetails ();
+}

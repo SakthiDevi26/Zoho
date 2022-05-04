@@ -1,0 +1,24 @@
+package businesslayer;
+
+import java.util.ArrayList;
+
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
+import databaseoperations.interfaces.gettable.ProductDetailsGettable;
+import entities.Products;
+
+public class GetProductsList {
+
+	public void productsDisplayOrderDetails(int orderId)
+	{
+		ProductDetailsGettable getProductDetails = new GetProductDetails();
+		int productId = getProductDetails.getProductIdUsingOrderId(orderId);
+		String productName = getProductDetails.getProductName(productId);
+		String productCategory = getProductDetails.getProductCategory(productId);
+		int productPrice = getProductDetails.getProductPrice(productId);
+		Products productsObject = new Products(productId, productName, productCategory , productPrice);
+		ArrayList<Products> productsDisplayOrderDetails = new ArrayList<>();
+		productsDisplayOrderDetails.add(new Products(productPrice, productName, productCategory, productPrice));
+		print print = new print();
+		print.print(productsDisplayOrderDetails);
+	}
+}

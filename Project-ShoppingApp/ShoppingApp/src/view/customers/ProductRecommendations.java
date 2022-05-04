@@ -5,14 +5,15 @@ import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.GetDetailsInHashMapFromDatabase;
+import databaseoperations.interfaces.gettable.DetailsInHashMapGettable;
 
 public class ProductRecommendations {
 	int productId;
 
 	public int showProductRecommendations() {
 		Scanner scanner = new Scanner(System.in);
-		//Map <Integer, String> productMap = new HashMap<>();
-		GetDetailsInHashMapFromDatabase getDetailsMapFromDb = new GetDetailsInHashMapFromDatabase();
+
+		DetailsInHashMapGettable getDetailsMapFromDb = new GetDetailsInHashMapFromDatabase();
 		Map<Integer, String> productRecommendationMap = getDetailsMapFromDb.getProductRecommendationDetails();
 		
 		System.out.println("\n-----------------------<< Enjoy Your Hustle Free Shopping >>---------------------\n");

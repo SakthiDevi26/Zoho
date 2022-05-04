@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.customers.removemethods.RemoveProductFromCart;
+import databaseoperations.interfaces.customers.removemethods.ProductFromCartRemovable;
 import driver.orders.ShippingAddressDriver;
 import utilities.PrintMenu;
 import view.customers.ViewMyCart;
@@ -19,7 +20,7 @@ public class MyCartDriver {
 		switch(choice)
 		{
 		case 1:
-			RemoveProductFromCart removeProduct = new RemoveProductFromCart();
+			ProductFromCartRemovable removeProduct = new RemoveProductFromCart();
 			removeProduct.removeProductFromCart(productId);
 			System.out.println(ShoppingAppConstants.productRemoved);
 			break;

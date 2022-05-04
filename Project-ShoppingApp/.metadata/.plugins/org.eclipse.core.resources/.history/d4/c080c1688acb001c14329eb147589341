@@ -1,0 +1,5 @@
+package databaseoperations.interfaces.orders;
+
+public interface OrderPlaceable {
+
+}

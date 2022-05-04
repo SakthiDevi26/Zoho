@@ -2,13 +2,14 @@ package driver.orders;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasecheckoperations.CheckOrderId;
+import databaseoperations.interfaces.checkable.OrderIdCheckable;
 import view.orders.ShowUndeliveredOrderDetails;
 
 public class CustomerOrderDetailsDriver {
 
 	public void customerOrderDetailsDriver(int orderId)
 	{
-		CheckOrderId checkOrderId = new CheckOrderId();
+		OrderIdCheckable checkOrderId = new CheckOrderId();
 		if(checkOrderId.isOrderInParticularStatus(orderId, ShoppingAppConstants.delivered))
 		{
 			ShowDeliveredOrderDetailsDriver showDeliveredOrderDetailsDrive = new ShowDeliveredOrderDetailsDriver();

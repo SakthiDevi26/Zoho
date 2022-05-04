@@ -6,6 +6,9 @@ import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetOrderDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
+import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+import databaseoperations.interfaces.gettable.OrderDetailsGettable;
+import databaseoperations.interfaces.gettable.ProductDetailsGettable;
 import driver.customers.CustomerMainDriver;
 
 public class ShowOrderInfo {
@@ -13,9 +16,9 @@ public class ShowOrderInfo {
 	public void showOrderInfo(int orderId)
 	{
 
-		GetCustomerDetails getCustomerDetails = new GetCustomerDetails();
-		GetProductDetails getProductDetails = new GetProductDetails();
-		GetOrderDetails getOrderDetails = new GetOrderDetails();
+		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		ProductDetailsGettable getProductDetails = new GetProductDetails();
+		OrderDetailsGettable getOrderDetails = new GetOrderDetails();
 		 
 		String deliveryStatus = getOrderDetails.getDeliveryStatus(orderId);
 		String deliveryDate = getOrderDetails.getDeliveryDate(orderId);

@@ -4,6 +4,7 @@ import java.util.*;
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasecheckoperations.CheckProductId;
 import databaseoperations.classes.suppliers.CreateSupplierAccount;
+import databaseoperations.interfaces.suppliers.SupplierAccountCreatable;
 import passwordencryption.EncryptPassword;
 
 import java.security.NoSuchAlgorithmException;
@@ -17,7 +18,7 @@ public class GetDetails {
 	public String productCategory;
 	public String productDescription;
 	public int productPrice;
-	public int productId,orderId;
+	public int productId,orderId, supplierId;
 	public String supplierHashedPassword;
 	public String customerUserName;
 	public String customerPassword;
@@ -30,7 +31,7 @@ public class GetDetails {
 	public String deliveryDate;
 	
 	Scanner scanner = new Scanner(System.in);
-	CreateSupplierAccount createSupplierAccount = new CreateSupplierAccount();
+	SupplierAccountCreatable createSupplierAccount = new CreateSupplierAccount();
 
 	public boolean getSupplierCreateAccountDetails() throws NoSuchAlgorithmException, NoSuchProviderException
 	{
@@ -207,6 +208,12 @@ public class GetDetails {
 		System.out.println("Enter Order Id to view the details:");
 		System.out.println(ShoppingAppConstants.goHome);
 		orderId = scanner.nextInt();
+	}
+	public void getSupplierId()
+	{
+		System.out.println("Enter Supplier Id to view their products:");
+		System.out.println(ShoppingAppConstants.goHome);
+		supplierId = scanner.nextInt();
 	}
 	public void getAdminLoginDetails()
 	{

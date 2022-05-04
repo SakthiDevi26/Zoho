@@ -5,6 +5,8 @@ import java.util.Scanner;
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails;
+import databaseoperations.interfaces.gettable.ProductDetailsGettable;
+import databaseoperations.interfaces.gettable.SupplierDetailsGettable;
 import driver.orders.ShowDeliveredOrderDetailsDriver;
 
 public class ShowSupplierInfo {
@@ -12,8 +14,8 @@ public class ShowSupplierInfo {
 	public void showSupplierInfo(int orderId)
 	{
 		Scanner scanner = new Scanner(System.in);
-		GetProductDetails getProductDetails = new GetProductDetails();
-		GetSupplierDetails getSupplierDetails = new GetSupplierDetails();
+		ProductDetailsGettable getProductDetails = new GetProductDetails();
+		SupplierDetailsGettable getSupplierDetails = new GetSupplierDetails();
 		int productId = getProductDetails.getProductIdUsingOrderId(orderId);
 		int supplierId = getSupplierDetails.getSupplierId(productId);
 		String supplierName = getSupplierDetails.getSupplierName(supplierId);

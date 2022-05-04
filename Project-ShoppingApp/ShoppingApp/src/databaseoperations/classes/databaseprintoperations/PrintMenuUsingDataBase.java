@@ -2,8 +2,9 @@ package databaseoperations.classes.databaseprintoperations;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasecheckoperations.CheckProductId;
+import databaseoperations.interfaces.printable.DatabaseMenuPrintable;
 
-public class PrintMenuUsingDataBase {
+public class PrintMenuUsingDataBase implements DatabaseMenuPrintable{
 	CheckProductId checkProductId = new CheckProductId();
 	public void printProductOptionsDriver(int productId)
 	{

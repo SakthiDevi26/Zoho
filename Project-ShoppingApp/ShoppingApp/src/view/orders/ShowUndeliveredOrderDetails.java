@@ -7,6 +7,10 @@ import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.G
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetOrderDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails;
+import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+import databaseoperations.interfaces.gettable.OrderDetailsGettable;
+import databaseoperations.interfaces.gettable.ProductDetailsGettable;
+import databaseoperations.interfaces.gettable.SupplierDetailsGettable;
 import driver.customers.CustomerMainDriver;
 
 
@@ -14,10 +18,10 @@ public class ShowUndeliveredOrderDetails {
 
 	public void showUndeliveredOrderDetails(int orderId) {
 		// TODO Auto-generated method stub
-		GetOrderDetails getOrderDetails = new GetOrderDetails();
-		GetProductDetails getProductDetails = new GetProductDetails();
-		GetCustomerDetails getCustomerDetails = new GetCustomerDetails();
-		GetSupplierDetails getSupplierDetails = new GetSupplierDetails();
+		OrderDetailsGettable getOrderDetails = new GetOrderDetails();
+		ProductDetailsGettable getProductDetails = new GetProductDetails();
+		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		SupplierDetailsGettable getSupplierDetails = new GetSupplierDetails();
 		
 		String deliveryStatus = getOrderDetails.getDeliveryStatus(orderId);
 		String deliveryDate = getOrderDetails.getDeliveryDate(orderId);

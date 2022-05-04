@@ -5,16 +5,20 @@ import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.G
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetOrderDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails;
+import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+import databaseoperations.interfaces.gettable.OrderDetailsGettable;
+import databaseoperations.interfaces.gettable.ProductDetailsGettable;
+import databaseoperations.interfaces.gettable.SupplierDetailsGettable;
 import driver.admin.ManageOrderDetails;
 
 public class DisplayOrderDetails {
 
 	public void displayOrderDetails(int orderId)
 	{
-		GetOrderDetails getOrderDetails = new GetOrderDetails();
-		GetProductDetails getProductDetails = new GetProductDetails();
-		GetCustomerDetails getCustomerDetails = new GetCustomerDetails();
-		GetSupplierDetails getSupplierDetails = new GetSupplierDetails();
+		OrderDetailsGettable getOrderDetails = new GetOrderDetails();
+		ProductDetailsGettable getProductDetails = new GetProductDetails();
+		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		SupplierDetailsGettable getSupplierDetails = new GetSupplierDetails();
 		 
 		String deliveryStatus = getOrderDetails.getDeliveryStatus(orderId);
 		String deliveryDate = getOrderDetails.getDeliveryDate(orderId);

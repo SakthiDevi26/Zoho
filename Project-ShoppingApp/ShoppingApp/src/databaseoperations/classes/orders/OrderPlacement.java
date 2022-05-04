@@ -6,9 +6,10 @@ import java.sql.Statement;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
+import databaseoperations.interfaces.orders.OrderPlaceable;
 import sql.DatabaseConnection;
 
-public class OrderPlacement {
+public class OrderPlacement implements OrderPlaceable{
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 	public boolean orderPlacement(int productId)

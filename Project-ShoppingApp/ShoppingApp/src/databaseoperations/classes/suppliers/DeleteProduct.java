@@ -6,11 +6,12 @@ import java.sql.Statement;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails;
+import databaseoperations.interfaces.suppliers.ProductDeletable;
 import sql.DatabaseConnection;
 import utilities.GetDetails;
 import view.suppliers.ViewSupplierProducts;
 
-public class DeleteProduct {
+public class DeleteProduct implements ProductDeletable{
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 

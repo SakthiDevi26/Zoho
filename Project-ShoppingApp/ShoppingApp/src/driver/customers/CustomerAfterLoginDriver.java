@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.customers.CustomerLogout;
+import databaseoperations.interfaces.customers.CustomerLogoutInterface;
 import main.Main;
 import utilities.PrintMenu;
 import view.customers.ViewCustomerAccount;
@@ -45,7 +46,7 @@ public class CustomerAfterLoginDriver {
 			break;
 		case 7:
 			System.out.println(ShoppingAppConstants.manThankyouMessage);
-			CustomerLogout customerLogout = new CustomerLogout();
+			CustomerLogoutInterface customerLogout = new CustomerLogout();
 			customerLogout.customerLogout();
 			Main.main(null);
 			break;

@@ -3,13 +3,15 @@ package view.orders;
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
+import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+import databaseoperations.interfaces.gettable.ProductDetailsGettable;
 
 public class DisplayOrderSummary {
 
 	public void displayOrderSummary(int productId)
 	{
-		GetCustomerDetails getCustomerDetails = new GetCustomerDetails();
-		GetProductDetails getProductDetails = new GetProductDetails();
+		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		ProductDetailsGettable getProductDetails = new GetProductDetails();
 		int customerId = getCustomerDetails.getCurrentlyLoggedInCustomerId();
 		
 		String customerName = getCustomerDetails.getCustomerName(customerId);

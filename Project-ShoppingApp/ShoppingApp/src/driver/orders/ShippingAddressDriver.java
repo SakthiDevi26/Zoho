@@ -5,6 +5,8 @@ import java.util.Scanner;
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
 import databaseoperations.classes.orders.UpdateCustomerAddress;
+import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+import databaseoperations.interfaces.orders.CustomerAddressUpdatable;
 import utilities.*;
 
 public class ShippingAddressDriver {
@@ -12,9 +14,10 @@ public class ShippingAddressDriver {
 	public void shippingAddressDriver(int productId)
 	{
 		Scanner scanner = new Scanner(System.in);
-		GetCustomerDetails getCustomerDetails = new GetCustomerDetails();
+		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
 		OrderConfirmation orderConfirm = new OrderConfirmation();
 		PrintMenu printMenu = new PrintMenu();
+		
 		int customerId = getCustomerDetails.getCurrentlyLoggedInCustomerId();
 		String customerAddress = getCustomerDetails.getCustomerAddress(customerId);
 		System.out.printf("%12s\n","Your Address is");
@@ -28,7 +31,7 @@ public class ShippingAddressDriver {
 			System.out.println(ShoppingAppConstants.addressNoted);
 			break;
 		case 2:
-			UpdateCustomerAddress updateCustomerAddress = new UpdateCustomerAddress();
+			CustomerAddressUpdatable updateCustomerAddress = new UpdateCustomerAddress();
 			if(updateCustomerAddress.updateCustomerAddress())
 			{
 				System.out.println(ShoppingAppConstants.addressNoted);

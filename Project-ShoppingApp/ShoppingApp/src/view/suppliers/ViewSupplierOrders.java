@@ -9,6 +9,11 @@ import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.G
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails;
 import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetProductIdList;
+import databaseoperations.interfaces.checkable.OrderIdCheckable;
+import databaseoperations.interfaces.gettable.OrderDetailsGettable;
+import databaseoperations.interfaces.gettable.ProductDetailsGettable;
+import databaseoperations.interfaces.gettable.ProductIdListGettable;
+import databaseoperations.interfaces.gettable.SupplierDetailsGettable;
 import driver.suppliers.SupplierMethodsDriver;
 import utilities.GetDetails;
 
@@ -17,11 +22,11 @@ public class ViewSupplierOrders {
 	ArrayList<Integer> ordersProductIdList = new ArrayList<Integer>();
 	public void viewSupplierOrders(String supplierUserName) {
 		GetDetails getDetails = new GetDetails();
-		GetProductIdList getProductIdList = new GetProductIdList();
-		GetSupplierDetails getSupplierDetails = new GetSupplierDetails();
-		GetOrderDetails getOrderDetails = new GetOrderDetails();
-		GetProductDetails getProductDetails = new GetProductDetails();
-		CheckOrderId checkOrderId = new CheckOrderId();
+		ProductIdListGettable getProductIdList = new GetProductIdList();
+		SupplierDetailsGettable getSupplierDetails = new GetSupplierDetails();
+		OrderDetailsGettable getOrderDetails = new GetOrderDetails();
+		ProductDetailsGettable getProductDetails = new GetProductDetails();
+		OrderIdCheckable checkOrderId = new CheckOrderId();
 		
 		int supplierId = getSupplierDetails.getSupplierId(supplierUserName); 
 		ArrayList<Integer> supplierProductIdList = new ArrayList<Integer>();

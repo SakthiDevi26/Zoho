@@ -5,6 +5,8 @@ import java.util.*;
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.suppliers.AddProduct;
 import databaseoperations.classes.suppliers.DeleteProduct;
+import databaseoperations.interfaces.suppliers.ProductAddable;
+import databaseoperations.interfaces.suppliers.ProductDeletable;
 import main.Main;
 import utilities.PrintMenu;
 import view.suppliers.ViewSupplierOrders;
@@ -17,6 +19,7 @@ public class SupplierMethodsDriver {
 		Scanner scanner = new Scanner(System.in);
 		PrintMenu printMenu = new PrintMenu();
 		printMenu.printSupplierMethodsMenu();
+		
 		int choice = scanner.nextInt();
 		switch(choice)
 		{
@@ -25,7 +28,7 @@ public class SupplierMethodsDriver {
 			viewProduct.viewSupplierAllProducts(supplierUserName);
 			break;
 		case 2:
-			AddProduct addProduct = new AddProduct();
+			ProductAddable addProduct = new AddProduct();
 			if(addProduct.addProduct(supplierUserName))
 			{
 				System.out.println("Product Added Successfully");
@@ -36,7 +39,7 @@ public class SupplierMethodsDriver {
 			}
 			break;
 		case 3:
-			DeleteProduct deleteProduct = new DeleteProduct();
+			ProductDeletable deleteProduct = new DeleteProduct();
 			if(deleteProduct.deleteProduct(supplierUserName))
 			{
 				System.out.println("Product Deleted Successfully");
