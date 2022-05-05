@@ -10,6 +10,7 @@ import databaseoperations.interfaces.customers.CustomerLoggedInCheckable;
 import sql.DatabaseConnection;
 
 public class CheckCustomerLoggedIn implements CustomerLoggedInCheckable {
+	
 	public boolean isCustomerLoggedin()
 	{
 		String sql="";
@@ -20,8 +21,8 @@ public class CheckCustomerLoggedIn implements CustomerLoggedInCheckable {
 			try {
 				PreparedStatement statement = connect.prepareStatement(sql);
 				ResultSet resultset = statement.executeQuery();
-				if(resultset.next())
-				{
+				if(resultset.next()) {
+					
 					return true;
 				}
 			} catch (SQLException e) {
@@ -29,7 +30,6 @@ public class CheckCustomerLoggedIn implements CustomerLoggedInCheckable {
 				e.printStackTrace();
 			}
 		
-		return false;
-		
+		return false;		
 	}
 }

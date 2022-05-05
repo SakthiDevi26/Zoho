@@ -16,23 +16,49 @@ public class GetCustomerIdList implements CustomerIdListGettable{
 	Connection connect = DatabaseConnection.getConnection();
 	public int orderId,productId,customerId;
 	
+	
 	public ArrayList<Integer> getAllCustomerId() {
-		// TODO Auto-generated method stub
+		
 		ArrayList<Integer> customerIdList = new ArrayList<Integer>();
 		sql ="Select * from "+ShoppingAppConstants.customersTable;
+		
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-				while(resultset.next())
-				{
-					customerId = resultset.getInt(ShoppingAppConstants.customerIdColumn);
-					customerIdList.add(customerId);
-				}
+			while(resultset.next()) {
+				customerId = resultset.getInt(ShoppingAppConstants.customerIdColumn);
+				customerIdList.add(customerId);
+			}
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	return customerIdList;
+		return customerIdList;
+	}
+	
+	/**
+	 * @param productId
+	 */
+	public ArrayList<Integer> getReviewedCustomerIdList(int productId) {
+
+		ArrayList<Integer> reviewedCustomerIdList = new ArrayList<Integer>();
+		sql ="Select * from "+ShoppingAppConstants.feedbackTable+" where "+ShoppingAppConstants.productIdColumn+" = "+productId;
+		
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+				
+			while(resultset.next()) {
+				customerId = resultset.getInt(ShoppingAppConstants.customerIdColumn);
+				reviewedCustomerIdList.add(customerId);
+			}
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return reviewedCustomerIdList;
 	}
 	
 }

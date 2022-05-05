@@ -10,14 +10,19 @@ import view.customers.ViewMyWishList;
 import view.customers.ViewProductInDetail;
 
 public class MyWishListDriver {
+	
+	/**
+	 * 
+	 * @param productId
+	 */
 	public void myWishListDriver(int productId)
 	{
 		Scanner scanner = new Scanner(System.in);
 		PrintMenu printMenu = new PrintMenu();
 		printMenu.printWishListDriverMenu();
+		
 		int choice = scanner.nextInt();
-		switch(choice)
-		{
+		switch(choice) {
 		case 1:
 			ProductFromWishListRemovable removeProduct = new RemoveProductFromWishList();
 			removeProduct.removeProductFromWishList(productId);
@@ -31,7 +36,6 @@ public class MyWishListDriver {
 			System.out.println(ShoppingAppConstants.invalidChoice);
 		}
 		ViewMyWishList viewWishList = new ViewMyWishList();
-		viewWishList.viewMyWishList();
-		
+		viewWishList.viewMyWishList();		
 	}
 }

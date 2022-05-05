@@ -8,31 +8,31 @@ import view.orders.DisplayOrderSummary;
 
 public class OrderConfirmation {
 
+	/**
+	 * 
+	 * @param productId
+	 */
 	public void orderConfirmation(int productId) {
-		// TODO Auto-generated method stub
+		
 		Scanner scanner = new Scanner(System.in);
 		DisplayOrderSummary displayOrder = new DisplayOrderSummary();
 		displayOrder.displayOrderSummary(productId);
+		
 		System.out.println("Do you want to place order? Type: y/n");
+		
 		String userInput = scanner.nextLine();
-		if(userInput.equals("y"))
-		{
+		if(userInput.equals("y")) {
 			PaymentModeDriver paymentModeDriver = new PaymentModeDriver();
 			paymentModeDriver.paymentModeDriver(productId);
 		}
-		else if(userInput.equals("n"))
-		{
+		else if(userInput.equals("n")) {
 			System.out.println("Alas!! you missed the product.But still there are plenty...");
 			CustomerMainDriver customerMainDrive = new CustomerMainDriver();
-			customerMainDrive.customerMainDriver();
-			
+			customerMainDrive.customerMainDriver();		
 		}
-		else
-		{
+		else {
 			System.out.println(ShoppingAppConstants.invalidChoice);
 			orderConfirmation(productId);
 		}
 	}
-	//PaymentModeDriver paymentDriver = new PaymentModeDriver();
-	//paymentDriver.paymentModeDriver(productId);
 }

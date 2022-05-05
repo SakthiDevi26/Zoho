@@ -13,10 +13,13 @@ import appconstants.ShoppingAppConstants;
 import sql.DatabaseConnection;
 
 class TestCheckOrderId {
+	
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
+	
 	@Test
 	void testIsOrderIdInOrdersTable() {
+		
 		int orderId = 2;
 		boolean answer = true;
 		boolean testValue;
@@ -33,9 +36,10 @@ class TestCheckOrderId {
 				e.printStackTrace();
 			}
 	}
+	
 	@Test
-	void testIsOrderIdInShipmentTable()
-	{
+	void testIsOrderIdInShipmentTable() {
+		
 		int orderId = 1;
 		boolean answer = true;
 		boolean testValue;
@@ -52,6 +56,4 @@ class TestCheckOrderId {
 			e.printStackTrace();
 		}
 	}
-	
-
 }

@@ -11,6 +11,7 @@ import databaseoperations.interfaces.gettable.OrderDetailsGettable;
 import sql.DatabaseConnection;
 
 public class GetOrderDetails implements OrderDetailsGettable {
+	
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 	public int supplierId,currentCustomerId,productPrice,orderId,productId,customerId;
@@ -18,32 +19,39 @@ public class GetOrderDetails implements OrderDetailsGettable {
 	public String productName,productCategory,customerAddress,customerName,deliveryStatus,deliveryDateString,supplierName,productDescription;
 	Date deliveryDate;
 	
+	/**
+	 * @param productId
+	 */
 	public int getOrderId(int productId) {
+		
 		sql ="Select * from "+ShoppingAppConstants.ordersTable+" where "+ShoppingAppConstants.productIdColumn+" = "
 				+productId;
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-			if(resultset.next())
-			{
+			if(resultset.next()) {
+				
 				orderId = resultset.getInt(ShoppingAppConstants.orderIdColumn);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	return orderId;
+		return orderId;
 	}
 
-	public String getDeliveryStatus(int orderId)
-	{
+	/**
+	 * @param orderId
+	 */
+	public String getDeliveryStatus(int orderId) {
+		
 		sql ="Select * from "+ShoppingAppConstants.shipmentTable+" where "+ShoppingAppConstants.orderIdColumn+" = "
 				+orderId;
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-			if(resultset.next())
-			{
+			if(resultset.next()) {
+				
 				deliveryStatus = resultset.getString(ShoppingAppConstants.deliveryStatusColumn);
 			}
 		}
@@ -53,15 +61,18 @@ public class GetOrderDetails implements OrderDetailsGettable {
 		}
 		return deliveryStatus;
 	}
-	public String getDeliveryDate(int orderId)
-	{
+	/**
+	 * @param orderId
+	 */
+	public String getDeliveryDate(int orderId) {
+		
 		sql ="Select * from "+ShoppingAppConstants.shipmentTable+" where "+ShoppingAppConstants.orderIdColumn+" = "
 				+orderId;
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-			if(resultset.next())
-			{
+			if(resultset.next()) {
+				
 				deliveryDate = resultset.getDate(ShoppingAppConstants.deliveryDateColumn);
 				deliveryDateString = deliveryDate.toString();
 			}

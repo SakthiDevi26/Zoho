@@ -11,11 +11,16 @@ import driver.orders.ShowDeliveredOrderDetailsDriver;
 
 public class ShowSupplierInfo {
 
-	public void showSupplierInfo(int orderId)
-	{
+	/**
+	 * 
+	 * @param orderId
+	 */
+	public void showSupplierInfo(int orderId) {
+		
 		Scanner scanner = new Scanner(System.in);
 		ProductDetailsGettable getProductDetails = new GetProductDetails();
 		SupplierDetailsGettable getSupplierDetails = new GetSupplierDetails();
+		
 		int productId = getProductDetails.getProductIdUsingOrderId(orderId);
 		int supplierId = getSupplierDetails.getSupplierId(productId);
 		String supplierName = getSupplierDetails.getSupplierName(supplierId);
@@ -28,13 +33,11 @@ public class ShowSupplierInfo {
 		System.out.println(ShoppingAppConstants.goBack);
 		
 		int userInput = scanner.nextInt();
-		if(userInput==0)
-		{
+		if(userInput==0) {
 			ShowDeliveredOrderDetailsDriver showDeliveredOrderDrive = new ShowDeliveredOrderDetailsDriver();
 			showDeliveredOrderDrive.showDeliveredOrderDetailsDriver(orderId);
 		}
-		else
-		{
+		else {
 			System.out.println(ShoppingAppConstants.invalidChoice);
 		}
 	}

@@ -49,7 +49,7 @@ public class ShoppingAppConstants {
 	public static String failedDeliveryUpdate = "Unable to update :(";
 	public static String orderIsAlready ="Order is already ";
 	
-	//decoration
+	//decoration	
 	public static String cowsayBody = " \t\t\t^__^\n" +
 			" \t\t\t(oo)\\_______\n" +
 			" \t\t\t(__)\\        )\\/\\\n" +
@@ -123,8 +123,8 @@ public class ShoppingAppConstants {
 			+ "  \t\t\t     --   Customer   --\r\n"
 			+ "  \t\t\t     --     Info     --\r\n"
 			+ "  \t\t\t     ------------------";
+	
 	//sql
-
 	public static String suppliersTable ="suppliers";
 	public static String supplierUserNameColumn ="supplier_username";
 	public static String supplierPasswordColumn ="supplier_password";
@@ -154,7 +154,9 @@ public class ShoppingAppConstants {
 	public static String deliveryDateColumn ="delivery_date";
 	public static String deliveryStatusColumn ="delivery_status";
 			
-	
+	public static String feedbackTable = "customer_feedback";
+	public static String feedbackColumn ="feedback";
+	public static String analyzedFeedbackColum ="analyzed_feedback";
 	
 	
 	

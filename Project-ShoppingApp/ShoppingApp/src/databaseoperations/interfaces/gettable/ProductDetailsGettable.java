@@ -9,4 +9,6 @@ public interface ProductDetailsGettable {
 	public int getProductIdUsingOrderId(int orderId);
 	public int getProductId(int customerId, int orderId);
 	public int getProductId(int customerId);
+	public String getCustomerFeedback(int productId);
+	public String getCustomerAnalyzedFeedback(int productId);
 }

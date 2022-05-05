@@ -11,96 +11,113 @@ import databaseoperations.interfaces.gettable.ProductDetailsGettable;
 import sql.DatabaseConnection;
 
 public class GetProductDetails implements ProductDetailsGettable {
+	
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 	public int supplierId,currentCustomerId,productPrice,orderId,productId,customerId;
 	public long customerPhoneNumber,supplierPhoneNumber;
 	public String productName,productCategory,customerAddress,customerName,deliveryStatus,deliveryDateString,supplierName,productDescription;
+	public String feedback,analyzedFeedback;
 	Date deliveryDate;
-	public String getProductName(int productId)
-	{
+	
+	/**
+	 * @param productId
+	 */
+	public String getProductName(int productId) {
+		
 		sql ="Select * from "+ShoppingAppConstants.productsTable+" where "+ShoppingAppConstants.productIdColumn +" = "
 				+productId;
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-			if(resultset.next())
-			{
+			
+			if(resultset.next()) {
+				
 				productName = resultset.getString(ShoppingAppConstants.productNameColumn);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	return productName;
-
+		return productName;
 	}
-	public String getProductCategory(int productId)
-	{
+	
+	/**
+	 * @param productId
+	 */
+	public String getProductCategory(int productId) {
+		
 		sql ="Select * from "+ShoppingAppConstants.productsTable+" where "+ShoppingAppConstants.productIdColumn +" = "
 				+productId;
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-			if(resultset.next())
-			{
+			
+			if(resultset.next()) {
+				
 				productCategory = resultset.getString(ShoppingAppConstants.productCategoryColumn);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	return productCategory;
-
+		return productCategory;
 	}
-	public String getProductDescription(int productId)
-	{
+	
+	/**
+	 * @param productId
+	 */
+	public String getProductDescription(int productId) {
+		
 		sql ="Select * from "+ShoppingAppConstants.productsTable+" where "+ShoppingAppConstants.productIdColumn +" = "
 				+productId;
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-			if(resultset.next())
-			{
+			if(resultset.next()) {
+				
 				productDescription = resultset.getString(ShoppingAppConstants.productDescriptionColumn);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	return productDescription;
-
+		return productDescription;
 	}
 	
-	
-	public int getProductPrice(int productId)
-	{
-
+	/**
+	 * @param productId
+	 */
+	public int getProductPrice(int productId) {
+		
 		sql ="Select * from "+ShoppingAppConstants.productsTable+" where "+ShoppingAppConstants.productIdColumn +" = "
 	+productId;
 			try {
 				Statement statement = connect.createStatement();
 				ResultSet resultset = statement.executeQuery(sql);
-				if(resultset.next())
-				{
+				if(resultset.next()) {
+					
 					productPrice = resultset.getInt(ShoppingAppConstants.productPriceColumn);
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		return productPrice;
-		
+		return productPrice;		
 	}
-	public int getProductIdUsingOrderId(int orderId)
-	{
+	
+	/**
+	 * @param orderId
+	 */
+	public int getProductIdUsingOrderId(int orderId) {
+		
 		sql ="Select * from "+ShoppingAppConstants.ordersTable+" where "+ShoppingAppConstants.orderIdColumn+" = "
 				+orderId;
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-			if(resultset.next())
-			{
+			if(resultset.next()) {
+				
 				productId = resultset.getInt(ShoppingAppConstants.productIdColumn);
 			}
 		} catch (SQLException e) {
@@ -110,39 +127,108 @@ public class GetProductDetails implements ProductDetailsGettable {
 		return productId;
 	}
 	
+	/**
+	 * @param customerId
+	 * @param orderId
+	 */
 	public int getProductId(int customerId, int orderId) {
+		
 		sql ="Select * from "+ShoppingAppConstants.ordersTable+" where "+ShoppingAppConstants.customerIdColumn+" = "
 				+customerId+" and "+ShoppingAppConstants.orderIdColumn+" = "+orderId;
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-			if(resultset.next())
-			{
+			if(resultset.next()) {
+				
 				productId = resultset.getInt(ShoppingAppConstants.productIdColumn);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	return productId;
-
+		return productId;
 	}
 
-	public int getProductId(int customerId)
-	{
+	/**
+	 * @param customerId
+	 */
+	public int getProductId(int customerId) {
+		
 		sql ="Select * from "+ShoppingAppConstants.ordersTable+" where "+ShoppingAppConstants.customerIdColumn+" = "
 				+customerId;
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-			if(resultset.next())
-			{
+			if(resultset.next()) {
+				
 				productId = resultset.getInt(ShoppingAppConstants.productIdColumn);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	return productId;
+		return productId;
+	}
+	
+	/**
+	 * 
+	 * @param productId
+	 * @param customerId
+	 * @return feedback
+	 */
+	public String getCustomerFeedback(int productId, int customerId)
+	{ 
+		sql ="Select * from "+ShoppingAppConstants.feedbackTable+" where "+ShoppingAppConstants.productIdColumn+" = "
+					+productId +" and "+ShoppingAppConstants.customerIdColumn+" = "+customerId;
+			try {
+				Statement statement = connect.createStatement();
+				ResultSet resultset = statement.executeQuery(sql);
+				if(resultset.next())
+				{
+					feedback = resultset.getString(ShoppingAppConstants.feedbackColumn);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		return feedback;
+	}
+	
+	/**
+	 * 
+	 * @param productId
+	 * @param customerId
+	 * @return analyzedFeedback
+	 */
+	public String getCustomerAnalyzedFeedback(int productId,int customerId)
+	{
+		sql ="Select * from "+ShoppingAppConstants.feedbackTable+" where "+ShoppingAppConstants.productIdColumn+" = "
+				+productId +" and "+ShoppingAppConstants.customerIdColumn+" = "+customerId;
+		try {
+			Statement statement = connect.createStatement();
+			ResultSet resultset = statement.executeQuery(sql);
+			if(resultset.next())
+			{
+				analyzedFeedback = resultset.getString(ShoppingAppConstants.analyzedFeedbackColum);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	return analyzedFeedback;
+	}
+	
+	//feedback retrieving - need to be added
+	@Override
+	public String getCustomerFeedback(int productId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String getCustomerAnalyzedFeedback(int productId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

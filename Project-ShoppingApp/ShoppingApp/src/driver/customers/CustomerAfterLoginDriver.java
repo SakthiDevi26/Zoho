@@ -13,14 +13,15 @@ import view.customers.ViewMyOrders;
 import view.customers.ViewMyWishList;
 
 public class CustomerAfterLoginDriver {
-	public void customerAfterLoginDriver()
-	{
+	
+	public void customerAfterLoginDriver() {
+		
 		Scanner scanner = new Scanner(System.in);
 		PrintMenu printMenu = new PrintMenu();
 		printMenu.printAfterLoginCustomerMainMenu();
+		
 		int choice = scanner.nextInt();
-		switch(choice)
-		{
+		switch(choice) {
 		case 1:
 			SearchByCategoryDriver categoryDriver = new SearchByCategoryDriver();
 			categoryDriver.searchByCategoryDriver();
@@ -42,13 +43,13 @@ public class CustomerAfterLoginDriver {
 				viewWishList.viewMyWishList();
 			break;
 		case 6:
-			//feedback
+			//feedback to be added
 			break;
 		case 7:
 			System.out.println(ShoppingAppConstants.manThankyouMessage);
 			CustomerLogoutInterface customerLogout = new CustomerLogout();
 			customerLogout.customerLogout();
-			Main.main(null);
+			//Main.main(null);
 			break;
 		}
 	}

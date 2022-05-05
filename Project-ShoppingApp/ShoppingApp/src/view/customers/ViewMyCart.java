@@ -19,20 +19,23 @@ public class ViewMyCart {
 	CustomerMainDriver customerMainDrive = new CustomerMainDriver();
 	CheckProductId checkProductId = new CheckProductId();
 	Scanner scanner = new Scanner(System.in);
-	public void viewMyCart()
-	{
+	public void viewMyCart() {
+		
 		ProductDetailsGettable getProductDetails = new GetProductDetails();
 		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
 		ProductIdListGettable getProductIdList = new GetProductIdList();
+		
 		int customerId = getCustomerDetails.getCurrentlyLoggedInCustomerId();
+		
 		ArrayList<Integer> productIdList = new ArrayList<Integer>();
 		productIdList = getProductIdList.getProductIdListInCart(customerId);
-		if(!productIdList.isEmpty())
-		{
+		if(!productIdList.isEmpty()) {
+			
 			System.out.println(ShoppingAppConstants.smallHyphen+"<< My Cart >>"+ShoppingAppConstants.smallHyphen+"\n");
+			
 			ListIterator<Integer> iterator = productIdList.listIterator();
-			while(iterator.hasNext())
-			{
+			while(iterator.hasNext()) {
+				
 				String productName = getProductDetails.getProductName(iterator.next());
 				iterator.previous();
 				int productPrice = getProductDetails.getProductPrice(iterator.next());
@@ -45,24 +48,25 @@ public class ViewMyCart {
 			}
 			System.out.println("Enter productId you want to work with:");
 			System.out.println(ShoppingAppConstants.goHome);
+			
 			int productId = scanner.nextInt();
-			if(productId!=0 && checkProductId.isProductIdInCart(productId))
-			{
+			if(productId!=0 && checkProductId.isProductIdInCart(productId)) {
+				
 				MyCartDriver myCartDrive = new MyCartDriver();
 				myCartDrive.myCartDriver(productId);
 			}
-			else if(productId==0)
-			{
+			else if(productId==0) {
+				
 				customerMainDrive.customerMainDriver();
 			}
-			else
-			{
+			else {
+				
 				System.out.println(ShoppingAppConstants.invalidChoice);
 				viewMyCart();
 			}
 		}
-		else
-		{
+		else {
+			
 			System.out.println("Sorry your cart is empty :(");
 		}
 	}

@@ -13,14 +13,16 @@ import driver.customers.CustomerMainDriver;
 import sql.DatabaseConnection;
 
 public class ViewCustomerAccount {
+	
 	String sql="",sql1="";
 	Connection connect = DatabaseConnection.getConnection();
+	
 	public int customerId;
 	public long customerPhoneNumber;
 	public String customerName,customerAddress;
 	
-	public void viewCustomerAccount()
-	{
+	public void viewCustomerAccount() {
+		
 		Scanner scanner = new Scanner(System.in);
 		CustomerMainDriver customerMainDrive = new CustomerMainDriver();
 		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
@@ -41,13 +43,14 @@ public class ViewCustomerAccount {
 		System.out.println("\t\t"+customerAddress);
 		System.out.println("\n"+ShoppingAppConstants.equalLine);
 		System.out.println("Press 0 to go to main");
+		
 		int userInput = scanner.nextInt();
-		if(userInput==0)
-		{
-		customerMainDrive.customerMainDriver();
+		if(userInput==0) {
+			
+			customerMainDrive.customerMainDriver();
 		}
-		else
-		{
+		else {
+			
 			System.out.println("Sorry.Invalid Input. Terminating...");
 		}
 	

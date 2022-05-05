@@ -1,0 +1,10 @@
+package databaseoperations.classes.customers;
+
+public class InsertFeedback {
+
+	public boolean insertFeedback(int orderId, String feedback, String analyzedFeedback) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

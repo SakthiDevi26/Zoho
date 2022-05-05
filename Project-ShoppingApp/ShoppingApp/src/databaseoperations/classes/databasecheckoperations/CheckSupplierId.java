@@ -12,18 +12,22 @@ import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
 import sql.DatabaseConnection;
 
 public class CheckSupplierId implements SupplierIdCheckable{
+	
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 	
-	public boolean isSupplierIdInSupplierTable(int supplierId)
-	{
+	/**
+	 * @param supplierId
+	 */
+	public boolean isSupplierIdInSupplierTable(int supplierId) {
+		
 		sql = "select * from "+ShoppingAppConstants.suppliersTable+" where "+ShoppingAppConstants.supplierIdColumn+"="
 				+ supplierId;
 		try {
 			PreparedStatement statement = connect.prepareStatement(sql);
 			ResultSet resultset = statement.executeQuery();
-			if(resultset.next())
-			{	
+			if(resultset.next()) {	
+				
 				return true;
 			}
 		} 

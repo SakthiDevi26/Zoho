@@ -9,13 +9,17 @@ import databaseoperations.interfaces.admin.OrderDetailsEnterable;
 import sql.DatabaseConnection;
 import utilities.GetDetails;
 
-public class EnterOrderDetails implements OrderDetailsEnterable{
+public class EnterOrderDetails implements OrderDetailsEnterable {
+	
+	/**
+	 * @param orderId
+	 */
 	public boolean enterOrderDetails(int orderId) {
-		// TODO Auto-generated method stub
 		
 		String sql="";
 		Connection connect = DatabaseConnection.getConnection();
 		GetDetails getDetails = new GetDetails();
+		
 		getDetails.getOrderDetails();
 		try {
 			Statement statement = connect.createStatement();
@@ -31,13 +35,10 @@ public class EnterOrderDetails implements OrderDetailsEnterable{
 			{
 				return true;
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
-		
+		return false;		
 	}
-
 }

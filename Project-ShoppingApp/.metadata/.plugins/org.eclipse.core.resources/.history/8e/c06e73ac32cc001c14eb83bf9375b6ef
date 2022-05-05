@@ -1,0 +1,27 @@
+package driver.orders;
+
+import java.util.Scanner;
+
+import databaseoperations.classes.customers.InsertFeedback;
+
+public class GiveFeedback {
+
+	public void giveFeedback(int orderId)
+	{
+
+		System.out.println("Waiting for your feedback: ");
+		Scanner scanner = new Scanner(System.in);
+		String feedback = scanner.nextLine();
+		try {
+			String analyzedFeedback = FeedbackAnalyzerAPI.feedbackAnalyzer(feedback);
+			InsertFeedback insertFeedback = new InsertFeedback();
+			insertFeedback.insertFeedback(orderId,feedback,analyzedFeedback);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Cannot");
+		}
+		
+	}
+
+}

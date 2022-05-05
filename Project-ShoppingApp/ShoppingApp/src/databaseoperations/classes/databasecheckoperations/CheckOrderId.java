@@ -13,16 +13,18 @@ public class CheckOrderId implements OrderIdCheckable{
 	
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
-	
-	public boolean isOrderIdInOrdersTable(int orderId)
-	{
+	/**
+	 * @param orderId
+	 */
+	public boolean isOrderIdInOrdersTable(int orderId) {
 		sql = "select * from "+ShoppingAppConstants.ordersTable+" where "+ShoppingAppConstants.orderIdColumn+"="
 				+ orderId;
 		try {
+			
 			PreparedStatement statement = connect.prepareStatement(sql);
 			ResultSet resultset = statement.executeQuery();
-			if(resultset.next())
-			{	
+			
+			if(resultset.next()) {	
 				return true;
 			}
 		} 
@@ -30,16 +32,21 @@ public class CheckOrderId implements OrderIdCheckable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
-		
+		return false;		
 	}
-	public boolean isOrderIdInShipmentTable(int orderId)
-	{
+	
+	/**
+	 * @param orderId
+	 */
+	public boolean isOrderIdInShipmentTable(int orderId) {
+		
 		sql = "select * from "+ShoppingAppConstants.shipmentTable+" where "+ShoppingAppConstants.orderIdColumn+"="
 				+ orderId;
+		
 		try {
 			PreparedStatement statement = connect.prepareStatement(sql);
 			ResultSet resultset = statement.executeQuery();
+			
 			if(resultset.next())
 			{	
 				return true;
@@ -49,19 +56,23 @@ public class CheckOrderId implements OrderIdCheckable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
-		
+		return false;		
 	}
 	 
-	public boolean isOrderInParticularStatus(int orderId,String orderStatus)
-	{
+	/**
+	 * @param orderId
+	 * @param orderStatus
+	 */
+	public boolean isOrderInParticularStatus(int orderId,String orderStatus) {
 		sql = "select * from "+ShoppingAppConstants.shipmentTable+" where "+ShoppingAppConstants.deliveryStatusColumn+"='"+orderStatus+"' and "+
-	ShoppingAppConstants.orderIdColumn+"="+orderId;
+				ShoppingAppConstants.orderIdColumn+"="+orderId;
+		
 		try {
 			PreparedStatement statement = connect.prepareStatement(sql);
 			ResultSet resultset = statement.executeQuery();
-			if(resultset.next())
-			{	
+			
+			if(resultset.next()) {	
+				
 				return true;
 			}
 		} 
@@ -71,15 +82,20 @@ public class CheckOrderId implements OrderIdCheckable{
 		}
 		return false;
 	}
-	public boolean isOrderInSameDate(int orderId,String deliveryDate)
-	{
+	
+	/**
+	 * @param orderId
+	 * @param deliveryDate
+	 */
+	public boolean isOrderInSameDate(int orderId,String deliveryDate) {
 		sql = "select * from "+ShoppingAppConstants.shipmentTable+" where "+ShoppingAppConstants.deliveryDateColumn+"='"+deliveryDate+"' and "+
-	ShoppingAppConstants.orderIdColumn+"="+orderId;
+				ShoppingAppConstants.orderIdColumn+"="+orderId;
+		
 		try {
 			PreparedStatement statement = connect.prepareStatement(sql);
 			ResultSet resultset = statement.executeQuery();
-			if(resultset.next())
-			{	
+			
+			if(resultset.next()) {	
 				return true;
 			}
 		} 

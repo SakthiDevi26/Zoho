@@ -11,8 +11,12 @@ import utilities.*;
 
 public class ShippingAddressDriver {
 
-	public void shippingAddressDriver(int productId)
-	{
+	/**
+	 * 
+	 * @param productId
+	 */
+	public void shippingAddressDriver(int productId) {
+		
 		Scanner scanner = new Scanner(System.in);
 		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
 		OrderConfirmation orderConfirm = new OrderConfirmation();
@@ -25,15 +29,13 @@ public class ShippingAddressDriver {
 		printMenu.printAddressOption();
 		
 		int choice = scanner.nextInt();
-		switch(choice)
-		{
+		switch(choice) {
 		case 1:
 			System.out.println(ShoppingAppConstants.addressNoted);
 			break;
 		case 2:
 			CustomerAddressUpdatable updateCustomerAddress = new UpdateCustomerAddress();
-			if(updateCustomerAddress.updateCustomerAddress())
-			{
+			if(updateCustomerAddress.updateCustomerAddress()) {
 				System.out.println(ShoppingAppConstants.addressNoted);
 			}
 			break;
@@ -41,7 +43,6 @@ public class ShippingAddressDriver {
 			System.out.println(ShoppingAppConstants.invalidChoice);
 			shippingAddressDriver(productId);
 		}
-		orderConfirm.orderConfirmation(productId);
-		
+		orderConfirm.orderConfirmation(productId);		
 	}
 }

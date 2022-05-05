@@ -15,6 +15,9 @@ public class RemoveProductFromWishList implements ProductFromWishListRemovable{
 	Connection connect = DatabaseConnection.getConnection();
 	int customerId;
 	
+	/**
+	 * @param productId
+	 */
 	public boolean removeProductFromWishList(int productId) {
 		
 		GetCustomerDetails getCustomerDetails = new GetCustomerDetails();
@@ -24,8 +27,7 @@ public class RemoveProductFromWishList implements ProductFromWishListRemovable{
 		Statement statement;
 		try {
 			statement = connect.createStatement();
-			if(statement.executeUpdate(sql)==1)
-			{
+			if(statement.executeUpdate(sql)==1) {
 				return true;
 			}
 		} catch (SQLException e) {

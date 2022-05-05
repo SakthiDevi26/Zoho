@@ -10,8 +10,9 @@ import databaseoperations.interfaces.gettable.OrderIdListGettable;
 import databaseoperations.interfaces.gettable.ProductDetailsGettable;
 
 public class ViewAllOrders {
-	public void viewAllOrders()
-	{		
+	
+	public void viewAllOrders() {		
+		
 		ProductDetailsGettable getProductDetails = new GetProductDetails();
 		OrderIdListGettable getOrderIdList = new GetOrderIdList();
 		
@@ -35,9 +36,7 @@ public class ViewAllOrders {
 				String productName = getProductDetails.getProductName(productId);
 				System.out.printf("%30s %20s\n", orderIdListIterator.next(),productName);
 			}
-			System.out.println("\n"+ShoppingAppConstants.equalLine);
-			
-	
+			System.out.println("\n"+ShoppingAppConstants.equalLine);	
 		}
 	}
 }

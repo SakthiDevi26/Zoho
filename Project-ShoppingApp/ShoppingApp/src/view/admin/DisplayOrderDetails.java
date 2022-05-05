@@ -13,24 +13,32 @@ import driver.admin.ManageOrderDetails;
 
 public class DisplayOrderDetails {
 
-	public void displayOrderDetails(int orderId)
-	{
+	/**
+	 * 
+	 * @param orderId
+	 */
+	public void displayOrderDetails(int orderId) {
+		
 		OrderDetailsGettable getOrderDetails = new GetOrderDetails();
 		ProductDetailsGettable getProductDetails = new GetProductDetails();
 		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
 		SupplierDetailsGettable getSupplierDetails = new GetSupplierDetails();
 		 
+		//order details
 		String deliveryStatus = getOrderDetails.getDeliveryStatus(orderId);
 		String deliveryDate = getOrderDetails.getDeliveryDate(orderId);
 		
+		//product details
 		int productId = getProductDetails.getProductIdUsingOrderId(orderId);
 		String productName = getProductDetails.getProductName(productId);
 		String productCategory = getProductDetails.getProductCategory(productId);
 		
+		//supplier details
 		int supplierId = getSupplierDetails.getSupplierId(productId);
 		String supplierName = getSupplierDetails.getSupplierName(supplierId);
 		long supplierPhoneNumber = getSupplierDetails.getSupplierPhoneNumber(supplierId);
 		
+		//customer details
 		int customerId = getCustomerDetails.getCustomerId(orderId);
 		String customerName = getCustomerDetails.getCustomerName(customerId);
 		String customerAddress = getCustomerDetails.getCustomerAddress(customerId);
@@ -44,13 +52,17 @@ public class DisplayOrderDetails {
 		System.out.printf("%s", "orderId");
 		System.out.printf("\n%d", orderId);
 		System.out.print("\nOrder is "+deliveryStatus);
-		System.out.printf("%32s %s","Delivery Date: " ,deliveryDate);
+		if(!(deliveryStatus.equals(ShoppingAppConstants.cancelled))) {
+			System.out.printf("%32s %s","Delivery Date: " ,deliveryDate);
+		}
 		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
+		
 		System.out.printf("%s", "Supplier Id\n");
 		System.out.printf("%d", supplierId);
 		System.out.printf("\n%s",supplierName);
 		System.out.printf("%50s %s","Contact supplier at: ",supplierPhoneNumber);
 		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
+		
 		System.out.println("Shipping Details\n");
 		System.out.printf("%s", customerName);
 		System.out.printf("\n%s", customerAddress);
@@ -59,7 +71,6 @@ public class DisplayOrderDetails {
 		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
 		
 		ManageOrderDetails manageOrderDetails = new ManageOrderDetails();
-		manageOrderDetails.manageOrderDetails(orderId);
-		
+		manageOrderDetails.manageOrderDetails(orderId);		
 	}
 }

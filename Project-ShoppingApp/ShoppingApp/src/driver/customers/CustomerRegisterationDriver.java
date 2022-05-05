@@ -11,8 +11,9 @@ import utilities.GetDetails;
 import utilities.PrintMenu;
 
 public class CustomerRegisterationDriver {
-	public boolean customerRegisterationDriver()
-	{
+	
+	public boolean customerRegisterationDriver() {
+		
 		Scanner scanner = new Scanner(System.in);
 		PrintMenu printMenu = new PrintMenu();
 		CustomerAccountCreatable createCustomerAccount = new CreateCustomerAccount();
@@ -20,49 +21,49 @@ public class CustomerRegisterationDriver {
 		
 		printMenu.printRegisterationDriverMenu();
 		int choice = scanner.nextInt();
-		switch(choice)
-		{
+		switch(choice) {
+		
 		case 1:
 			try {
-				if(createCustomerAccount.createCustomerAccount())
-				{
+				if(createCustomerAccount.createCustomerAccount()) {
+					
 					System.out.println("Account Created Successfully!!");
 					System.out.println("Now you Login...");
-					if(customerLogin.customerLogin())
-					{
+					if(customerLogin.customerLogin()) {
+						
 						System.out.println(ShoppingAppConstants.successfulLogin);
 						return true;
 					}
-					else
-					{
+					else {
 						customerRegisterationDriver();
 					}
 
 				}
-			} catch (NoSuchAlgorithmException e) {
+			} 
+			catch (NoSuchAlgorithmException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} catch (NoSuchProviderException e) {
+			} 
+			catch (NoSuchProviderException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			break;
+		
 		case 2:
-			if(customerLogin.customerLogin())
-			{
+			if(customerLogin.customerLogin()) {
 				System.out.println(ShoppingAppConstants.successfulLogin);
 				return true;
 			}
-			else
-			{
+			else {
 				customerRegisterationDriver();
 			}
 			break;
+		
 		default:
 			System.out.println(ShoppingAppConstants.invalidChoice);
 			customerRegisterationDriver();
 		}
-		return true;
-		
+		return true;	
 	}
 }

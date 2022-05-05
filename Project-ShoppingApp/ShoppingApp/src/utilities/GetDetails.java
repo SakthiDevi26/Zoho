@@ -11,6 +11,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 
 public class GetDetails {
+	
 	public String supplierUserName; 
 	public String supplierPassword;
 	public long supplierPhoneNumber;
@@ -33,29 +34,34 @@ public class GetDetails {
 	Scanner scanner = new Scanner(System.in);
 	SupplierAccountCreatable createSupplierAccount = new CreateSupplierAccount();
 
-	public boolean getSupplierCreateAccountDetails() throws NoSuchAlgorithmException, NoSuchProviderException
-	{
+	public boolean getSupplierCreateAccountDetails() throws NoSuchAlgorithmException, NoSuchProviderException {
+		
 		System.out.println(ShoppingAppConstants.enterUserName);
 		supplierUserName = scanner.nextLine();
-		if(supplierUserName.matches("[a-zA-Z]+"))
-		{
+		
+		//username must be letters
+		if(supplierUserName.matches("[a-zA-Z]+")) { 
+			
 			System.out.println(ShoppingAppConstants.enterPassword);
 			supplierPassword = scanner.nextLine();
+			
+			//hashing password using SHA
 			supplierHashedPassword = EncryptPassword.encryptPassword(supplierPassword);
 			System.out.println(ShoppingAppConstants.enterPhoneNumber);
+			
 			try {
-			supplierPhoneNumber = scanner.nextLong();
-			String supplierPhoneNumberString =Long.toString(supplierPhoneNumber);
-			int phoneNumberLength = supplierPhoneNumberString.length();
-			if(phoneNumberLength!=10)
-			{
-				System.out.println("Invalid PhoneNumber.Please enter 10 digits number.");
-				return false;
-			}
-			else
-			{
-				return true;
-			}
+				supplierPhoneNumber = scanner.nextLong();
+				String supplierPhoneNumberString =Long.toString(supplierPhoneNumber);
+				int phoneNumberLength = supplierPhoneNumberString.length();
+				if(phoneNumberLength!=10) {
+					
+					System.out.println("Invalid PhoneNumber.Please enter 10 digits number.");
+					return false;
+				}
+				else {
+					
+					return true;
+				}
 			}
 			catch(InputMismatchException e)
 			{
@@ -68,13 +74,17 @@ public class GetDetails {
 			return false;
 		}
 	}
-	public void getSupplierLoginDetails()
-	{
+	
+	
+	public void getSupplierLoginDetails() {
+		
 		System.out.println(ShoppingAppConstants.enterUserName);
 		supplierUserName = scanner.nextLine();
 		System.out.println(ShoppingAppConstants.enterPassword);
 		supplierPassword = scanner.nextLine();
 	}
+	
+	
 	public boolean getProductDetails()
 	{
 		System.out.println("Enter Product Name:");
@@ -83,62 +93,70 @@ public class GetDetails {
 		productCategory = scanner.nextLine();
 		System.out.println("Enter Product Description:");
 		productDescription = scanner.nextLine();
-		try
-		{
-		System.out.println("Enter Product Price:");
-		productPrice = scanner.nextInt();
+		
+		try {
+			System.out.println("Enter Product Price:");
+			productPrice = scanner.nextInt();
 		}
-		catch(InputMismatchException e)
-		{
+		catch(InputMismatchException e) {
+			
 			System.out.println("Enter valid product price");
 			return false;
 		}
-		if(!(productName.matches(".*[a-zA-Z]+.*")&&productCategory.matches(".*[a-zA-Z]+.*")&&productDescription.matches(".*[a-zA-Z]+.*")))
-		{
+		
+		//must contain atleast one alphabet letter (name cannot be only numbers)
+		if(!(productName.matches(".*[a-zA-Z]+.*")&&productCategory.matches(".*[a-zA-Z]+.*")&&productDescription.matches(".*[a-zA-Z]+.*"))) {
 			System.out.println("Product Name, Category and description must contain atleast one alphabet");
 			return false;
 		}
-		return true;
-		
+		return true;		
 	}
+	
+	
 	public boolean getProductIdForModification() {
-		// TODO Auto-generated method stub
+		
 		System.out.println("Enter Product Id you wish to modify/remove:");
 		productId = scanner.nextInt();
 		CheckProductId checkProductId = new CheckProductId();
-		if(checkProductId.isProductIdInProductTable(productId))
-		{
+		if(checkProductId.isProductIdInProductTable(productId)) {
 			return true;
 		}
-		return false;
-		
+		return false;		
 	}
-	public void getProductNameToUpdate()
-	{
+	
+	
+	public void getProductNameToUpdate() {
+		
 		System.out.println("Enter New Product Name:");
 		productName = scanner.nextLine();
 	}
+	
+	
 	public void getProductCategoryToUpdate() {
-		System.out.println("Enter New Product Category:");
-		productCategory = scanner.nextLine();
 		
+		System.out.println("Enter New Product Category:");
+		productCategory = scanner.nextLine();		
 	}
+	
+	
 	public void getProductDescriptionToUpdate() {
 		System.out.println("Enter New Product Description:");
-		productDescription = scanner.nextLine();
-		
+		productDescription = scanner.nextLine();		
 	}
+	
+	
 	public void getProductPriceToUpdate() {
 		System.out.println("Enter New Product Price:");
-		productPrice = scanner.nextInt();
-		
+		productPrice = scanner.nextInt();		
 	}
+	
+	
 	public boolean getCustomerCreateAccountDetails() throws NoSuchAlgorithmException, NoSuchProviderException
 	{
 		System.out.println(ShoppingAppConstants.enterUserName);
 		customerUserName = scanner.nextLine();
-		if(customerUserName.matches("[a-zA-Z]+"))
-		{
+		
+		if(customerUserName.matches("[a-zA-Z]+")) {
 			System.out.println(ShoppingAppConstants.enterPassword);
 			customerPassword = scanner.nextLine();
 			customerHashedPassword = EncryptPassword.encryptPassword(customerPassword);
@@ -146,21 +164,22 @@ public class GetDetails {
 			customerAddress = scanner.nextLine();
 			System.out.println(ShoppingAppConstants.enterPhoneNumber);
 			try {
-			customerPhoneNumber = scanner.nextLong();
-			String customerPhoneNumberString =Long.toString(customerPhoneNumber);
-			int phoneNumberLength = customerPhoneNumberString.length();
-			if(phoneNumberLength!=10)
-			{
-				System.out.println("Invalid PhoneNumber.Please enter 10 digits number.");
-				return false;
+				customerPhoneNumber = scanner.nextLong();
+				String customerPhoneNumberString =Long.toString(customerPhoneNumber);
+				int phoneNumberLength = customerPhoneNumberString.length();
+				
+				//phone number must be 10 digits
+				if(phoneNumberLength!=10) {
+					System.out.println("Invalid PhoneNumber.Please enter 10 digits number.");
+					return false;
+				}
+				else {
+					
+					return true;
+				}
 			}
-			else
-			{
-				return true;
-			}
-			}
-			catch(InputMismatchException e)
-			{
+			catch(InputMismatchException e) {
+				
 				System.out.println(ShoppingAppConstants.enterOnlyNumbers);
 				return false;
 			}
@@ -171,52 +190,62 @@ public class GetDetails {
 			return false;
 		}
 	}
+	
+	
 	public boolean getCustomerLoginDetails() {
-		// TODO Auto-generated method stub
+		
 		System.out.println(ShoppingAppConstants.enterPhoneNumber);
-		try{
-		customerPhoneNumber = scanner.nextLong();
-		scanner.nextLine();
-		System.out.println(ShoppingAppConstants.enterPassword);
-		customerPassword = scanner.nextLine();
-		String customerPhoneNumberString =Long.toString(customerPhoneNumber);
-		int phoneNumberLength = customerPhoneNumberString.length();
-		if(phoneNumberLength!=10)
-		{
-			System.out.println("Invalid PhoneNumber.Please enter 10 digits number.");
-			return false;
+		
+		try {
+			
+			customerPhoneNumber = scanner.nextLong();
+			scanner.nextLine();
+			System.out.println(ShoppingAppConstants.enterPassword);
+			customerPassword = scanner.nextLine();
+			String customerPhoneNumberString =Long.toString(customerPhoneNumber);
+			int phoneNumberLength = customerPhoneNumberString.length();
+			if(phoneNumberLength!=10) {
+				System.out.println("Invalid PhoneNumber.Please enter 10 digits number.");
+				return false;
+			}
+			else {
+				return true;
+			}
 		}
-		else
-		{
-			return true;
-		}
-		}
-		catch(InputMismatchException e)
-		{
+		catch(InputMismatchException e) {
+			
 			System.out.println(ShoppingAppConstants.enterOnlyNumbers);
 			return false;
 		}
 		
 	}
-	public void getCustomerNewAddress()
-	{
+	
+	
+	public void getCustomerNewAddress() {
+		
 		System.out.println("Enter new Address to ship the product:");
 		customerAddress = scanner.nextLine();
 	}
-	public void getOrderId()
-	{
+	
+	
+	public void getOrderId() {
+		
 		System.out.println("Enter Order Id to view the details:");
 		System.out.println(ShoppingAppConstants.goHome);
 		orderId = scanner.nextInt();
 	}
-	public void getSupplierId()
-	{
+	
+	
+	public void getSupplierId() {
+		
 		System.out.println("Enter Supplier Id to view their products:");
 		System.out.println(ShoppingAppConstants.goHome);
 		supplierId = scanner.nextInt();
 	}
-	public void getAdminLoginDetails()
-	{
+	
+	
+	public void getAdminLoginDetails() {
+		
 		System.out.println("Hello Admin");
 		System.out.println(ShoppingAppConstants.enterUserName);
 		setAdminUserName(scanner.nextLine());
@@ -228,27 +257,30 @@ public class GetDetails {
 	public String getAdminUserName() {
 		return adminUserName;
 	}
+	
 	public void setAdminUserName(String adminUserName) {
 		this.adminUserName = adminUserName;
 	}
+	
 	public String getAdminPassword() {
 		return adminPassword;
 	}
+	
 	public void setAdminPassword(String adminPassword) {
 		this.adminPassword = adminPassword;
 	}
+	
 	public void getOrderDetails() {
-		// TODO Auto-generated method stub
+
 		System.out.println("Give the current status of the product: ");
 		deliveryStatus = scanner.nextLine();
 		System.out.println("Enter the delivery date of the product in YYYY-MM-DD:");
 		deliveryDate = scanner.nextLine();
 	}
+	
 	public void getDeliveryDateToUpdate()
 	{
 		System.out.println("Enter the new delivery date of the product in YYYY-MM-DD:");
 		deliveryDate = scanner.nextLine();
-	}
-	
-	
+	}	
 }

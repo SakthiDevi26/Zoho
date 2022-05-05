@@ -21,8 +21,12 @@ import view.customers.ViewProductInDetail;
 
 public class ProductOptionsDriver {
 
+	/**
+	 * 
+	 * @param productId
+	 */
 	public void productOptionsDriver(int productId) {
-		// TODO Auto-generated method stub
+		
 		
 		DatabaseMenuPrintable printMenuUsingDatabase = new PrintMenuUsingDataBase();
 		CustomerLoggedInCheckable checkCustomerLoggedIn = new CheckCustomerLoggedIn();
@@ -34,84 +38,79 @@ public class ProductOptionsDriver {
 		
 		
 		printMenuUsingDatabase.printProductOptionsDriver(productId);
+		
 		int choice = scanner.nextInt();
-		switch(choice)
-		{
+		switch(choice) {
+		
 		case 1:
-			if(checkCustomerLoggedIn.isCustomerLoggedin())
-			{
-				if(!checkProductId.isProductIdInCart(productId))
-				{
-					CartAddable addCart = new AddToCart();
+			if(checkCustomerLoggedIn.isCustomerLoggedin()) {
+				
+				if(!checkProductId.isProductIdInCart(productId)) {
 					
-					if(addCart.addToCart(productId))
-					{
+					CartAddable addCart = new AddToCart();
+					if(addCart.addToCart(productId)) {
+						
 						System.out.println(ShoppingAppConstants.productAdded);
 						viewProductInDetail.viewProductInDetail(productId);
 					}
 				}
-				else
-				{
+				else {
+					
 					ViewMyCart viewCart = new ViewMyCart();
 					viewCart.viewMyCart();
 				}
 			}
-			else
-			{
-				if(customerRegisterDriver.customerRegisterationDriver())
-				{
+			else {
+				
+				if(customerRegisterDriver.customerRegisterationDriver()) {
 					viewProductInDetail.viewProductInDetail(productId);
 				}
 			}
 			break;
+		
 		case 2:
-			if(checkCustomerLoggedIn.isCustomerLoggedin())
-			{
-				if(!checkProductId.isProductIdInWishList(productId))
-				{
+			if(checkCustomerLoggedIn.isCustomerLoggedin()) {
+				
+				if(!checkProductId.isProductIdInWishList(productId)) {
 					WishListAddable addWishlist = new AddToWishList();
 					
-					if(addWishlist.addToWishList(productId))
-					{
+					if(addWishlist.addToWishList(productId)) {
 						System.out.println(ShoppingAppConstants.productAdded);
 						viewProductInDetail.viewProductInDetail(productId);
 					}
 				}
-				else
-				{
+				else {
 					ViewMyWishList viewWishlist = new ViewMyWishList();
 					viewWishlist.viewMyWishList();
 				}
 			}
-			else
-			{
+			else {
 				if(customerRegisterDriver.customerRegisterationDriver())
 				{
 					viewProductInDetail.viewProductInDetail(productId);
 				}
 			}
 			break;
+		
 		case 3:
-			if(checkCustomerLoggedIn.isCustomerLoggedin())
-			{
+			if(checkCustomerLoggedIn.isCustomerLoggedin()) {
 				ShippingAddressDriver shipAddressDrive = new ShippingAddressDriver();
 				shipAddressDrive.shippingAddressDriver(productId);
 			}
-			else
-			{
-				if(customerRegisterDriver.customerRegisterationDriver())
-				{
+			else {
+				if(customerRegisterDriver.customerRegisterationDriver()) {
 					viewProductInDetail.viewProductInDetail(productId);
 				}
 			}
 			break;
+		
 		case 4:
 			customerMainDriver.customerMainDriver();
 			break;
+		
 		default:
 			System.out.println(ShoppingAppConstants.invalidChoice);
 		}
 		productOptionsDriver(productId);
 	}
-
 }

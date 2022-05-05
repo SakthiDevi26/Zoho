@@ -8,38 +8,37 @@ import view.customers.ProductRecommendations;
 import view.customers.ViewProductInDetail;
 
 public class CustomerMainDriver {
+	
 	public int productId;
+	
 	public void customerMainDriver() {
+		
 		Scanner scanner = new Scanner(System.in);
 		ProductRecommendations productRecommend = new ProductRecommendations();
 		
 		productId = productRecommend.showProductRecommendations();
 		
-		if(productId!=0 && productId!=1) //entered id in random
-		{
+		if(productId!=0 && productId!=1) {//entered id in random 
 			ViewProductInDetail viewProduct = new ViewProductInDetail();
 			viewProduct.viewProductInDetail(productId);
 		}
-		else if(productId == 1) //entered invalid
-		{
+		else if(productId == 1) { //entered invalid
 
 			System.out.println("Invalid");
 			customerMainDriver();
 		}
-		else //entered 0
-		{
+		else { //entered 0
+			
 			CustomerLoggedInCheckable checkCustomerLoggedIn = new CheckCustomerLoggedIn();
-			if(checkCustomerLoggedIn.isCustomerLoggedin())
-			{
+			
+			if(checkCustomerLoggedIn.isCustomerLoggedin()) {
 				CustomerAfterLoginDriver customerAfterLoginDriver = new CustomerAfterLoginDriver();
 				customerAfterLoginDriver.customerAfterLoginDriver();
 			}
-			else
-			{
+			else {
 				CustomerBeforeLoginDriver customerBeforeLoginDriver = new CustomerBeforeLoginDriver();
 				customerBeforeLoginDriver.customerBeforeLoginDriver();
 			}
 		}
 	}
-
 }

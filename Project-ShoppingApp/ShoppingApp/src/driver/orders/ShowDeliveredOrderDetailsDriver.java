@@ -21,15 +21,18 @@ public class ShowDeliveredOrderDetailsDriver {
 		System.out.println(ShoppingAppConstants.stars);
 		System.out.println("\n"+deliveryStatus);
 		printMenu.printDeliveredOrderDetailsMenu();
+		
 		int choice = scanner.nextInt();
-		switch(choice)
-		{
+		
+		switch(choice) {
+		
 		case 1:
 			ShowSupplierInfo showSupplier = new ShowSupplierInfo();
 			showSupplier.showSupplierInfo(orderId);
 			break;
 		case 2:
-			//feedback
+			GiveFeedback giveFeedback = new GiveFeedback();
+			giveFeedback.giveFeedback(orderId);
 			break;
 		case 3:
 			ShowOrderInfo showOrderInfo = new ShowOrderInfo();
@@ -38,10 +41,7 @@ public class ShowDeliveredOrderDetailsDriver {
 		default:
 			System.out.println(ShoppingAppConstants.invalidChoice);
 			break;
-		}
-		
-		
+		}		
 	}
-
 }
 

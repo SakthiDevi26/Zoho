@@ -14,6 +14,8 @@ public class GetSupplierIdList implements SupplierIdListGettable{
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 	int supplierId;
+	
+	
 	@Override
 	public ArrayList<Integer> getAllSuppliersId() {
 		ArrayList<Integer> allSuppliersIdList = new ArrayList<Integer>();
@@ -21,11 +23,12 @@ public class GetSupplierIdList implements SupplierIdListGettable{
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-				while(resultset.next())
-				{
-					supplierId = resultset.getInt(ShoppingAppConstants.supplierIdColumn);
-					allSuppliersIdList.add(supplierId);
-				}
+			
+			while(resultset.next()) {
+				
+				supplierId = resultset.getInt(ShoppingAppConstants.supplierIdColumn);
+				allSuppliersIdList.add(supplierId);
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

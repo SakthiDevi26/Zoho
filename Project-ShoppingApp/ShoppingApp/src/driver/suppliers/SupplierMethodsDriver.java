@@ -21,51 +21,67 @@ public class SupplierMethodsDriver {
 		printMenu.printSupplierMethodsMenu();
 		
 		int choice = scanner.nextInt();
-		switch(choice)
-		{
+		switch(choice) {
+		
 		case 1:
+			
 			ViewSupplierProducts viewProduct = new ViewSupplierProducts();
 			viewProduct.viewSupplierAllProducts(supplierUserName);
 			break;
 		case 2:
+			
 			ProductAddable addProduct = new AddProduct();
-			if(addProduct.addProduct(supplierUserName))
-			{
+			if(addProduct.addProduct(supplierUserName)) {
+				
 				System.out.println("Product Added Successfully");
 			}
-			else
-			{
+			else {
+				
 				System.out.println("Product Cannot be Added. Sorry :(");
 			}
 			break;
 		case 3:
+			
 			ProductDeletable deleteProduct = new DeleteProduct();
-			if(deleteProduct.deleteProduct(supplierUserName))
-			{
+			if(deleteProduct.deleteProduct(supplierUserName)) {
+				
 				System.out.println("Product Deleted Successfully");
 			}
-			else
-			{
+			else {
+				
 				System.out.println("Product Cannot be Deleted. Sorry :(");
 			}
 			break;
 		case 4:
+			
 			UpdateProductDriver updateProductDriver = new UpdateProductDriver();
 			updateProductDriver.updateProductDriver(supplierUserName);
 			break;
 		case 5:
+			
 			ViewCustomerOrders viewCustomerOrders = new ViewCustomerOrders();
 			viewCustomerOrders.viewCustomerOrders(supplierUserName);
 			break;
 		case 6:
+			//feedback to be added
 		case 7:
+			
 			System.out.println("Thank you! Logged out successfully!!\n");
-			Main.main(null);
+			
+			//exception on feedback analyzer API
+			try {
+				
+				Main.main(null);
+			} 
+			catch (Exception e) {
+				
+				e.printStackTrace();
+			}
 			break;
 		default:
+			
 			System.out.println(ShoppingAppConstants.invalidChoice);
 		}
 		supplierMethodsDriver(supplierUserName);
 	}
-
 }

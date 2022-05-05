@@ -11,29 +11,35 @@ import passwordencryption.VerifyEncryptedPassword;
 import sql.DatabaseConnection;
 
 public class CustomerLoginVerification implements CustomerLoginVerifiable{
+	
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
+	
+	/**
+	 * @param customerPhoneNumber customerPassword
+	 */
 	public boolean verifyCustomerLogin(long customerPhoneNumber, String customerPassword) {
-		// TODO Auto-generated method stub
+		
 		sql = "select * from "+ShoppingAppConstants.customersTable+" where "+ShoppingAppConstants.customerPhoneNumberColumn+"="
 				+ customerPhoneNumber;
 			try {
 				PreparedStatement statement = connect.prepareStatement(sql);
 				ResultSet resultset = statement.executeQuery();
-				if(resultset.next())
-				{
+				if(resultset.next()) {
+					
 					int customerId = resultset.getInt(ShoppingAppConstants.customerIdColumn);
 					String customerOriginalPassword = resultset.getString(ShoppingAppConstants.customerPasswordColumn); 
 					Boolean verifyPassword = VerifyEncryptedPassword.isPasswordSame(customerPassword,customerOriginalPassword);  
-					if(verifyPassword==true)
-					{
+					
+					if(verifyPassword==true) {
+						
 						sql ="insert into "+ShoppingAppConstants.customerLoginTable+" values ("+customerId +")";
 						statement.executeUpdate(sql);
 						return true;
 					}
 				}
-				else
-				{
+				else {
+					
 					return false;
 				}
 			} catch (SQLException e) {

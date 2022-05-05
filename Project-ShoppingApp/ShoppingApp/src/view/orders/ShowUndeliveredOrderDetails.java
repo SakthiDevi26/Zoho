@@ -16,25 +16,34 @@ import driver.customers.CustomerMainDriver;
 
 public class ShowUndeliveredOrderDetails {
 
+	/**
+	 * 
+	 * @param orderId
+	 */
 	public void showUndeliveredOrderDetails(int orderId) {
-		// TODO Auto-generated method stub
+		
+		// objects
 		OrderDetailsGettable getOrderDetails = new GetOrderDetails();
 		ProductDetailsGettable getProductDetails = new GetProductDetails();
 		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
 		SupplierDetailsGettable getSupplierDetails = new GetSupplierDetails();
 		
+		//order details
 		String deliveryStatus = getOrderDetails.getDeliveryStatus(orderId);
 		String deliveryDate = getOrderDetails.getDeliveryDate(orderId);
 		
+		//product details
 		int productId = getProductDetails.getProductIdUsingOrderId(orderId);
 		String productName = getProductDetails.getProductName(productId);
 		String productCategory = getProductDetails.getProductCategory(productId);
 		int productPrice = getProductDetails.getProductPrice(productId);
 		
+		//supplier details
 		int supplierId = getSupplierDetails.getSupplierId(productId);
 		String supplierName = getSupplierDetails.getSupplierName(supplierId);
 		long supplierPhoneNumber = getSupplierDetails.getSupplierPhoneNumber(supplierId);
 		
+		//customer details
 		int customerId = getCustomerDetails.getCustomerId(orderId);
 		String customerName = getCustomerDetails.getCustomerName(customerId);
 		String customerAddress = getCustomerDetails.getCustomerAddress(customerId);
@@ -53,7 +62,7 @@ public class ShowUndeliveredOrderDetails {
 		System.out.printf("%s", "product Name\n\n");
 		System.out.printf("%s", productName);
 		System.out.printf("\n%s",productCategory);
-		//System.out.printf("%50s %s","Contact supplier at: ",supplierPhoneNumber);
+		System.out.printf("%50s %s","Contact supplier at: ",supplierPhoneNumber);
 		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
 		System.out.println("Shipping Address\n");
 		System.out.printf("%s", customerName);
@@ -66,13 +75,11 @@ public class ShowUndeliveredOrderDetails {
 		Scanner scanner = new Scanner(System.in);
 		int userInput = scanner.nextInt();
 
-		if(userInput==0)
-		{
+		if(userInput==0) {
 			CustomerMainDriver customerMainDrive = new CustomerMainDriver();
 			customerMainDrive.customerMainDriver();
 		}
-		else
-		{
+		else {
 			System.out.println(ShoppingAppConstants.invalidChoice);
 			showUndeliveredOrderDetails(orderId);
 		}

@@ -2,6 +2,7 @@ package utilities;
 
 import appconstants.ShoppingAppConstants;
 public class PrintMenu {
+	
 	public void printMainMenu()
 	{
 		System.out.println(ShoppingAppConstants.stars);
@@ -14,6 +15,7 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.three+"Admin");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	
 	public void printRegisterationDriverMenu()
 	{
 		System.out.println(ShoppingAppConstants.hello);
@@ -21,6 +23,7 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.two+ShoppingAppConstants.login);
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	
 	public void printSupplierMethodsMenu()
 	{
 		System.out.println(ShoppingAppConstants.hello+"Supplier!!");
@@ -35,6 +38,7 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.seven+ShoppingAppConstants.logout);
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	
 	public void printUpdateProductDriverMenu()
 	{
 		System.out.println("What Do You Want To Update??");
@@ -44,12 +48,14 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.four+"Product Price");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	
 	public void printBeforeLoginCustomerMainMenu()
 	{
 		System.out.println(ShoppingAppConstants.one+"Search Product By Category");
 		System.out.println(ShoppingAppConstants.two+"SignUp/Login");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	
 	public void printAfterLoginCustomerMainMenu()
 	{
 		System.out.println(ShoppingAppConstants.one+"Search Product By Category");
@@ -61,6 +67,7 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.seven+"Logout");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	
 	public void printProductCategories()
 	{
 		System.out.println(ShoppingAppConstants.smallHyphen+"Our Categories"+ShoppingAppConstants.smallHyphen);
@@ -71,6 +78,7 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.five+"Grocery");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	
 	public void printPaymentMode()
 	{
 		System.out.println(ShoppingAppConstants.smallHyphen+"Mode Of Payment"+ShoppingAppConstants.smallHyphen);
@@ -78,6 +86,7 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.two+"Cash On Delivery");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	
 	public void printAddressOption()
 	{
 		System.out.println("Do you want to?");
@@ -85,6 +94,7 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.two+"Change address");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	
 	public void printCartDriverMenu()
 	{
 		System.out.println("What do you want to do?");
@@ -92,6 +102,7 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.two+"Buy Now");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	
 	public void printWishListDriverMenu()
 	{
 		System.out.println("What do you want to do?");
@@ -99,6 +110,7 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.two+"View Product");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	
 	public void printAdminMethodsMenu()
 	{
 		System.out.println("What do you want to do?");
@@ -107,6 +119,7 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.three+"Manage Orders");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	
 	public void printAdminOrdersManagementMenu()
 	{
 		System.out.println(ShoppingAppConstants.one+"Update Delivery Date");
@@ -114,6 +127,7 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.three+"Go Home");
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	
 	public void printUpdateDeliveryStatusMenu()
 	{
 		System.out.println("Update delivery status as :");
@@ -123,6 +137,7 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.four+ShoppingAppConstants.cancelled);
 		System.out.println(ShoppingAppConstants.enterChoice);
 	}
+	
 	public void printDeliveredOrderDetailsMenu()
 	{
 		System.out.println(ShoppingAppConstants.bigUnderscoreLine);
@@ -136,6 +151,5 @@ public class PrintMenu {
 		System.out.println(ShoppingAppConstants.three+"View Order Info");
 		System.out.println("\n"+ShoppingAppConstants.stars);
 		System.out.println(ShoppingAppConstants.enterChoice);
-	}
-	
+	}	
 }

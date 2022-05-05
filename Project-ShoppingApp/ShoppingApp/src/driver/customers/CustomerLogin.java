@@ -6,24 +6,21 @@ import databaseoperations.interfaces.customers.CustomerLoginVerifiable;
 import utilities.GetDetails;
 
 public class CustomerLogin {
-	public boolean customerLogin()
-	{
+	
+	public boolean customerLogin() {
+	
 		GetDetails getDetails = new GetDetails();
-		if(getDetails.getCustomerLoginDetails())
-		{
+		if(getDetails.getCustomerLoginDetails()) {
 			if (getDetails.customerPhoneNumber == 0 || getDetails.customerPassword == "") {
 				System.out.println(ShoppingAppConstants.incompleteFields);
 				return false;
 			}
-			else
-			{
+			else {
 				CustomerLoginVerifiable verifyLogin = new CustomerLoginVerification();
-				if(verifyLogin.verifyCustomerLogin(getDetails.customerPhoneNumber,getDetails.customerPassword))
-				{
+				if(verifyLogin.verifyCustomerLogin(getDetails.customerPhoneNumber,getDetails.customerPassword)) {
 					return true;
 				}
-				else
-				{
+				else {
 					System.out.println(ShoppingAppConstants.invalidLoginCredentials);
 					return false;
 				}

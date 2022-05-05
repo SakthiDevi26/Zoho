@@ -9,10 +9,12 @@ import databaseoperations.interfaces.customers.CustomerLogoutInterface;
 import sql.DatabaseConnection;
 
 public class CustomerLogout implements CustomerLogoutInterface{
+	
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
-	public void customerLogout()
-	{
+	
+	public void customerLogout() {
+		
 		try {
 			Statement statement = connect.createStatement();
 			sql ="Delete from "+ShoppingAppConstants.customerLoginTable;

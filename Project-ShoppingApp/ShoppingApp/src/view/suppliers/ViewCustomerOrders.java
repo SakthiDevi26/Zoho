@@ -16,13 +16,19 @@ import databaseoperations.interfaces.gettable.ProductIdListGettable;
 import databaseoperations.interfaces.gettable.SupplierDetailsGettable;
 import driver.suppliers.SupplierMethodsDriver;
 import utilities.GetDetails;
-import view.admin.DisplayOrderDetails;
 
 
 public class ViewCustomerOrders {
+	
 	ArrayList<Integer> ordersProductIdList = new ArrayList<Integer>();
+	
+	/**
+	 * 
+	 * @param supplierUserName
+	 */
 	public void viewCustomerOrders(String supplierUserName) {
 		
+		//objects
 		SupplierMethodsDriver supplierMethodsDrive = new SupplierMethodsDriver();
 		GetDetails getDetails = new GetDetails();
 		ProductIdListGettable getProductIdList = new GetProductIdList();
@@ -34,14 +40,12 @@ public class ViewCustomerOrders {
 		int supplierId = getSupplierDetails.getSupplierId(supplierUserName); 
 		ArrayList<Integer> supplierProductIdList = new ArrayList<Integer>();
 		supplierProductIdList = getProductIdList.getSupplierProductIdList(supplierId); 
-		if(!supplierProductIdList.isEmpty())
-		{
+		
+		if(!supplierProductIdList.isEmpty()) {
 			ListIterator<Integer> supplierProductIdIterator = supplierProductIdList.listIterator();
-			while(supplierProductIdIterator.hasNext())
-			{
 			
+			while(supplierProductIdIterator.hasNext()) {
 				ordersProductIdList = getProductIdList.getOrdersProductIdList(supplierProductIdIterator.next());
-
 			}
 
 			if(!ordersProductIdList.isEmpty())
@@ -53,40 +57,36 @@ public class ViewCustomerOrders {
 						"Product Name");
 				System.out.println("\t\t"+ShoppingAppConstants.underscoreLine);
 		
-				ListIterator<Integer> ordersProductIdIterator = ordersProductIdList.listIterator();
-				while(ordersProductIdIterator.hasNext())
-				{
+				
+				ListIterator<Integer> ordersProductIdIterator = ordersProductIdList.listIterator();			
+				while(ordersProductIdIterator.hasNext()) {
 					int orderId = getOrderDetails.getOrderId(ordersProductIdIterator.next());
 					ordersProductIdIterator.previous();
 					String productName = getProductDetails.getProductName(ordersProductIdIterator.next());
 					System.out.printf("%30s %20s\n", orderId,productName);
 				}
 				System.out.println("\n"+ShoppingAppConstants.equalLine);
+				
 				getDetails.getOrderId();
-				if(getDetails.orderId!=0 && checkOrderId.isOrderIdInOrdersTable(getDetails.orderId))
-				{
+				if(getDetails.orderId!=0 && checkOrderId.isOrderIdInOrdersTable(getDetails.orderId)) {
 					ViewCustomerDetails viewCustomer = new ViewCustomerDetails();
 					viewCustomer.viewCustomerDetails(getDetails.orderId);
 				}
-				else if(getDetails.orderId==0)
-				{
+				else if(getDetails.orderId==0) {
 					supplierMethodsDrive.supplierMethodsDriver(supplierUserName);
 				}
-				else
-				{
+				else {
 					System.out.println(ShoppingAppConstants.invalidChoice);
 					viewCustomerOrders(supplierUserName);
 				}
 					
 			}
-			else
-			{
+			else {
 				System.out.println("You haven't received any orders :(\n");
 				supplierMethodsDrive.supplierMethodsDriver(supplierUserName);
 			}
 		}
-		else
-		{
+		else {
 			System.out.println("You have no Products\n");
 			supplierMethodsDrive.supplierMethodsDriver(supplierUserName);
 		}

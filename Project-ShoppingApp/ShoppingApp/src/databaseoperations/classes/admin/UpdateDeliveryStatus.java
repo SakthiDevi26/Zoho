@@ -12,23 +12,24 @@ public class UpdateDeliveryStatus implements DeliveryStatusUpdatable{
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 	
-	public boolean updateDeliveryStatus(int orderId,String orderStatus)
-	{
+	/**
+	 * @param orderId
+	 * @param orderStatus
+	 */
+	public boolean updateDeliveryStatus(int orderId,String orderStatus) {
+	
 		try {
-
-		Statement statement = connect.createStatement();
-		sql = "update "+ShoppingAppConstants.shipmentTable+" set "+ShoppingAppConstants.deliveryStatusColumn+"='"+orderStatus+ 
-				"' where " +ShoppingAppConstants.orderIdColumn+"=" + orderId;
-		if (statement.executeUpdate(sql) == 1) {
-			return true;
+	
+			Statement statement = connect.createStatement();
+			sql = "update "+ShoppingAppConstants.shipmentTable+" set "+ShoppingAppConstants.deliveryStatusColumn+"='"+orderStatus+ 
+					"' where " +ShoppingAppConstants.orderIdColumn+"=" + orderId;
+			if (statement.executeUpdate(sql) == 1) {
+				return true;
+			}
 		}
-	}
-	catch (Exception e) {
-		e.printStackTrace();
-	}
-		
-		
-		return false;
-		
+		catch (Exception e) {
+			e.printStackTrace();
+		}	
+			return false;			
 	}
 }

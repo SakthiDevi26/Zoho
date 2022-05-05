@@ -25,11 +25,12 @@ public class GetDetailsInHashMapFromDatabase implements DetailsInHashMapGettable
 		
 		sql ="SELECT "+ShoppingAppConstants.productIdColumn+","+ShoppingAppConstants.productNameColumn+" FROM "+
 				ShoppingAppConstants.productsTable+ " ORDER BY RAND ( ) LIMIT 4";
+		
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-			while (resultset.next())
-			{
+			while (resultset.next()) {
+				
 				productId = resultset.getInt(ShoppingAppConstants.productIdColumn);
 				productName = resultset.getString(ShoppingAppConstants.productNameColumn);
 				productRecommendationMap.put(productId, productName);
@@ -38,8 +39,7 @@ public class GetDetailsInHashMapFromDatabase implements DetailsInHashMapGettable
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return productRecommendationMap;
-		
+		return productRecommendationMap;		
 	}
 	
 	public Map<Integer, String> getProductByCategoryDetails (String productCategory)
@@ -47,11 +47,12 @@ public class GetDetailsInHashMapFromDatabase implements DetailsInHashMapGettable
 		Map<Integer, String> productByCategoryMap = new HashMap<>();
 		sql = "Select * from "+ShoppingAppConstants.productsTable+" where "
 				+ShoppingAppConstants.productCategoryColumn+" = '"+productCategory+"'";
+		
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-			while (resultset.next())
-			{
+			
+			while (resultset.next()) {
 				productId = resultset.getInt(ShoppingAppConstants.productIdColumn);
 				productName = resultset.getString(ShoppingAppConstants.productNameColumn);
 				productByCategoryMap.put(productId, productName);
@@ -61,18 +62,20 @@ public class GetDetailsInHashMapFromDatabase implements DetailsInHashMapGettable
 			e.printStackTrace();
 		}
 		
-		return productByCategoryMap;
-		
+		return productByCategoryMap;		
 	}
+	
+	
 	public Map<Integer, String> getAllProducts()
 	{
 		Map<Integer, String> products = new HashMap<>();
 		sql = "Select * from "+ShoppingAppConstants.productsTable;
+		
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-			while (resultset.next())
-			{
+			while (resultset.next()) {
+				
 				productId = resultset.getInt(ShoppingAppConstants.productIdColumn);
 				productName = resultset.getString(ShoppingAppConstants.productNameColumn);
 				products.put(productId, productName);
@@ -82,7 +85,6 @@ public class GetDetailsInHashMapFromDatabase implements DetailsInHashMapGettable
 			e.printStackTrace();
 		}
 		
-		return products;
-		
+		return products;		
 	}
 }

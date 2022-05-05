@@ -12,16 +12,15 @@ import databaseoperations.interfaces.gettable.CustomerIdListGettable;
 
 public class ViewAllCustomers {
 
-	public void viewAllCustomers()
-	{
+	public void viewAllCustomers() {
+		
 		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
 		CustomerIdListGettable getCustomerIdList = new GetCustomerIdList();
-		
-		
+				
 		ArrayList<Integer> customerIdList = new ArrayList<Integer>();
 		customerIdList = getCustomerIdList.getAllCustomerId();
-		if(!customerIdList.isEmpty())
-		{
+		if(!customerIdList.isEmpty()) {
+			
 			System.out.println(ShoppingAppConstants.bigEqualLine+"\n");
 			System.out.println("\t\t\t\t\tOUR CUSTOMERS");
 			System.out.println("\t\t\tDon't Find Customers for products,find products for Customers\n");
@@ -31,8 +30,7 @@ public class ViewAllCustomers {
 			System.out.println(ShoppingAppConstants.bigUnderscoreLine);
 	
 			ListIterator<Integer> customerIdListIterator = customerIdList.listIterator();
-			while(customerIdListIterator.hasNext())
-			{
+			while(customerIdListIterator.hasNext()) {
 				String customerName = getCustomerDetails.getCustomerName(customerIdListIterator.next());
 				customerIdListIterator.previous();
 				String customerAddress = getCustomerDetails.getCustomerAddress(customerIdListIterator.next());
@@ -41,9 +39,7 @@ public class ViewAllCustomers {
 				customerIdListIterator.previous();
 				System.out.printf("%s %20s %40s %40d\n", customerIdListIterator.next(),customerName,customerAddress,customerPhoneNumber);
 			}
-			System.out.println("\n"+ShoppingAppConstants.bigEqualLine);
-			
-	
+			System.out.println("\n"+ShoppingAppConstants.bigEqualLine);			
 		}
 	}
 }

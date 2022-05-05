@@ -13,38 +13,37 @@ import databaseoperations.interfaces.checkable.OrderIdCheckable;
 public class ManageOrders {
 
 	public void manageOrders() {
-		// TODO Auto-generated method stub
+		
 		OrderIdCheckable checkOrderId = new CheckOrderId();
 		GetDetails getDetails = new GetDetails();
 		DisplayOrderDetails displayOrderDetails = new DisplayOrderDetails();
 		ViewAllOrders viewOrders = new ViewAllOrders();
+		
 		viewOrders.viewAllOrders();
 		getDetails.getOrderId();
-		if(getDetails.orderId!=0 && checkOrderId.isOrderIdInOrdersTable(getDetails.orderId))
-		{
-			if(checkOrderId.isOrderIdInShipmentTable(getDetails.orderId))
-			{
+		
+		if(getDetails.orderId!=0 && checkOrderId.isOrderIdInOrdersTable(getDetails.orderId)) {
+			
+			if(checkOrderId.isOrderIdInShipmentTable(getDetails.orderId)) {
 				displayOrderDetails.displayOrderDetails(getDetails.orderId);
 			}
-			else
-			{
+			else {
+				
 				OrderDetailsEnterable enterOrderDetails = new EnterOrderDetails();
-				if(enterOrderDetails.enterOrderDetails(getDetails.orderId))
-				{
+				if(enterOrderDetails.enterOrderDetails(getDetails.orderId)) {
 					displayOrderDetails.displayOrderDetails(getDetails.orderId);
 				}
 			}
 		}
-		else if(getDetails.orderId==0)
-		{
+		else if(getDetails.orderId==0) {
+			
 			AdminMethodsDriver adminMethodsDrive = new AdminMethodsDriver();
 			adminMethodsDrive.adminMethodsDriver();
 		}
-		else
-		{
+		else {
+			
 			System.out.println(ShoppingAppConstants.invalidChoice);
 			manageOrders();
 		}
 	}
-
 }

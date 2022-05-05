@@ -1,0 +1,22 @@
+package driver.orders;
+
+import com.mashape.unirest.http.*;
+import com.mashape.unirest.request.body.MultipartBody;
+
+import java.io.*;
+import java.util.HashMap;
+
+import org.json.JSONML;
+import org.json.simple.parser.JSONParser;
+public class  FeedbackAnalyzerAPI{
+
+  public static String feedbackAnalyzer(String feedback) throws Exception{
+    Unirest.setTimeouts(0, 0);
+    HttpResponse<String> response = Unirest.post("http://127.0.0.1:5000/analyze")
+      .field("text", feedback)
+      .asString();
+    String output = response.getBody();
+    Hashmap<String> map = new HashMap<String>();
+    //System.out.println(response.getBody());
+  }
+}

@@ -16,11 +16,13 @@ import driver.customers.MyWishListDriver;
 
 
 public class ViewMyWishList {
+	
 	CustomerMainDriver customerMainDrive = new CustomerMainDriver();
 	ProductIdCheckable checkProductId = new CheckProductId();
 	Scanner scanner = new Scanner(System.in);
-	public void viewMyWishList()
-	{
+	
+	public void viewMyWishList() {
+		
 		GetProductIdList getProductIdList = new GetProductIdList();
 		GetCustomerDetails getCustomerDetails = new GetCustomerDetails();
 		GetProductDetails getProductDetails = new GetProductDetails();
@@ -28,12 +30,13 @@ public class ViewMyWishList {
 		int customerId = getCustomerDetails.getCurrentlyLoggedInCustomerId();
 		ArrayList<Integer> productIdList = new ArrayList<Integer>();
 		productIdList = getProductIdList.getProductIdListInWishList(customerId);
-		if(!productIdList.isEmpty())
-		{
+		
+		if(!productIdList.isEmpty()) {
+			
 			System.out.println(ShoppingAppConstants.smallHyphen+"<< My WishList >>"+ShoppingAppConstants.smallHyphen+"\n");
+			
 			ListIterator<Integer> iterator = productIdList.listIterator();
-			while(iterator.hasNext())
-			{
+			while(iterator.hasNext()) {
 				String productName = getProductDetails.getProductName(iterator.next());
 				iterator.previous();
 				int productPrice = getProductDetails.getProductPrice(iterator.next());
@@ -44,27 +47,26 @@ public class ViewMyWishList {
 				System.out.printf("%12s %20s %20d\n", iterator.next(),productName,productPrice);
 				System.out.println("\n"+ShoppingAppConstants.equalLine+ShoppingAppConstants.equalLine);
 			}
+			
 			System.out.println("Enter productId you want to work with:");
 			System.out.println(ShoppingAppConstants.goHome);
+			
 			int productId = scanner.nextInt();
-			if(productId!=0 && checkProductId.isProductIdInWishList(productId))
-			{
+			if(productId!=0 && checkProductId.isProductIdInWishList(productId)) {
 				MyWishListDriver myWishListDrive = new MyWishListDriver();
 				myWishListDrive.myWishListDriver(productId);
 			}
-			else if(productId==0)
-			{
+			else if(productId==0) {
 				customerMainDrive.customerMainDriver();
 			}
-			else
-			{
+			else {
 				System.out.println(ShoppingAppConstants.invalidChoice);
 				viewMyWishList();
 			}
-		}
-		else
-		{
+		
+		}		
+		else {
 			System.out.println("Sorry your wishlist is empty :(");
 		}
-}
+	}
 }

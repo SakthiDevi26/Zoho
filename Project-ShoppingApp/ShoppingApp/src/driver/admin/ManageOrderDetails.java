@@ -12,39 +12,45 @@ import utilities.PrintMenu;
 
 public class ManageOrderDetails {
 
+	/**
+	 * 
+	 * @param orderId
+	 */
 	public void manageOrderDetails(int orderId) {
-		// TODO Auto-generated method stub
+		
 		Scanner scanner = new Scanner(System.in);
 		PrintMenu printMenu = new PrintMenu();
 		OrderIdCheckable checkOrderId = new CheckOrderId();
-		if(!checkOrderId.isOrderInParticularStatus(orderId,ShoppingAppConstants.delivered))
-		{
+		
+		if(!checkOrderId.isOrderInParticularStatus(orderId,ShoppingAppConstants.delivered)) {
+			
 			printMenu.printAdminOrdersManagementMenu();
+			
 			int choice = scanner.nextInt();
-			switch(choice)
-			{
+			switch(choice) {
 			case 1:
 				DeliveryDateUpdatable updateDeliveryDate = new UpdateDeliveryDate();
-				if(updateDeliveryDate.updateDeliveryDate(orderId))
-				{
+				
+				if(updateDeliveryDate.updateDeliveryDate(orderId)) {
 					System.out.println(ShoppingAppConstants.successfulDateUpdate);
 				}
-				else
-				{
+				else {
 					System.out.println(ShoppingAppConstants.failedDeliveryUpdate);
 				}
 				break;
+			
 			case 2:
+				
 				UpdateDeliveryStatusDriver deliveryStatusDrive = new UpdateDeliveryStatusDriver();
 				deliveryStatusDrive.updateDeliveryStatusDriver(orderId);
 				break;
+			
 			case 3:
+				
 				AdminMethodsDriver adminMethodsDrive = new AdminMethodsDriver();
 				adminMethodsDrive.adminMethodsDriver();
 				break;
-			}
-			
+			}			
 		}
 	}
-
 }

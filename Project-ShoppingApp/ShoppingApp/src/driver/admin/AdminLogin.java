@@ -5,6 +5,7 @@ import databaseoperations.classes.admin.AdminLoginVerification;
 import utilities.GetDetails;
 
 public class AdminLogin {
+	
 	public void adminLogin()
 	{
 		GetDetails getDetails = new GetDetails();
@@ -14,20 +15,17 @@ public class AdminLogin {
 			System.out.println(ShoppingAppConstants.incompleteFields);
 			adminLogin();
 		}
-		else
-		{
+		else {
+			
 			AdminLoginVerification verifyLogin = new AdminLoginVerification();
-			if(verifyLogin.verifyLogin(getDetails.getAdminUserName(),getDetails.getAdminPassword()))
-			{
+			if(verifyLogin.verifyLogin(getDetails.getAdminUserName(),getDetails.getAdminPassword())) {
 				System.out.println(ShoppingAppConstants.successfulLogin);
 				adminMethodsDrive.adminMethodsDriver();				
 			}
-			else
-			{
+			else {
 				System.out.println(ShoppingAppConstants.invalidLoginCredentials);
 				adminLogin();
 			}
-		}
-			
+		}		
 	}
 }

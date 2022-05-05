@@ -1,0 +1,27 @@
+package driver.orders;
+
+import java.util.Scanner;
+
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
+import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+import databaseoperations.interfaces.gettable.ProductDetailsGettable;
+
+public class GiveFeedback {
+
+	public void giveFeedback(int orderId)
+	{
+		//ProductDetailsGettable getProductDetails = new GetProductDetails();
+		//CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		System.out.println("Enter:");
+		Scanner scanner = new Scanner(System.in);
+		String feedback = scanner.nextLine();
+		try {
+			System.out.println(FeedbackAnalyzer.feedbackAnalyzer(feedback));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Cannot");
+		}
+		
+	}
+}

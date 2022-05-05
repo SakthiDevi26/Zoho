@@ -6,9 +6,14 @@ import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
 
 public class ViewCustomerDetails {
 
+	/**
+	 * 
+	 * @param orderId
+	 */
 	public void viewCustomerDetails(int orderId)
 	{
 		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		
 		int customerId = getCustomerDetails.getCustomerId(orderId);
 		String customerName = getCustomerDetails.getCustomerName(customerId);
 				

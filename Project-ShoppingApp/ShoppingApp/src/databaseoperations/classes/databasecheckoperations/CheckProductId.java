@@ -17,15 +17,18 @@ public class CheckProductId implements ProductIdCheckable {
 	Connection connect = DatabaseConnection.getConnection();
 	CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
 	
-	public boolean isProductIdInProductTable(int productId)
-	{
+	/**
+	 * @param productId
+	 */
+	public boolean isProductIdInProductTable(int productId) {
+		
 		sql = "select * from "+ShoppingAppConstants.productsTable+" where "+ShoppingAppConstants.productIdColumn+"="
 				+ productId;
+		
 		try {
 			PreparedStatement statement = connect.prepareStatement(sql);
 			ResultSet resultset = statement.executeQuery();
-			if(resultset.next())
-			{	
+			if(resultset.next()) {	
 				return true;
 			}
 		} 
@@ -33,15 +36,19 @@ public class CheckProductId implements ProductIdCheckable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
-		
+		return false;		
 	}
-	public boolean isProductIdInCart(int productId)
-	{
+	
+	/**
+	 * @param productId
+	 */
+	public boolean isProductIdInCart(int productId) {
 		
 		int customerId = getCustomerDetails.getCurrentlyLoggedInCustomerId();
+		
 		sql = "select * from "+ShoppingAppConstants.cartTable+" where "+ShoppingAppConstants.productIdColumn+"="
 				+ productId +" and "+ShoppingAppConstants.customerIdColumn+"="+ customerId;
+		
 		try {
 			PreparedStatement statement = connect.prepareStatement(sql);
 			ResultSet resultset = statement.executeQuery();
@@ -56,16 +63,20 @@ public class CheckProductId implements ProductIdCheckable {
 		}
 		return false;
 	}
-	public boolean isProductIdInWishList(int productId)
-	{
+	
+	/**
+	 * @param productId
+	 */
+	public boolean isProductIdInWishList(int productId) {
+		
 		int customerId = getCustomerDetails.getCurrentlyLoggedInCustomerId();
+		
 		sql = "select * from "+ShoppingAppConstants.wishlistTable+" where "+ShoppingAppConstants.productIdColumn+"="
 				+ productId + " and "+ShoppingAppConstants.customerIdColumn+ " = "+customerId;
 		try {
 			PreparedStatement statement = connect.prepareStatement(sql);
 			ResultSet resultset = statement.executeQuery();
-			if(resultset.next())
-			{	
+			if(resultset.next()) {	
 				return true;
 			}
 		} 

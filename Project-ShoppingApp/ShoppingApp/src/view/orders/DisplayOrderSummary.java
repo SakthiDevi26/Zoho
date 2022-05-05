@@ -8,15 +8,23 @@ import databaseoperations.interfaces.gettable.ProductDetailsGettable;
 
 public class DisplayOrderSummary {
 
+	/**
+	 * 
+	 * @param productId
+	 */
 	public void displayOrderSummary(int productId)
 	{
+		//objects
 		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
 		ProductDetailsGettable getProductDetails = new GetProductDetails();
 		int customerId = getCustomerDetails.getCurrentlyLoggedInCustomerId();
 		
+		//get customer details
 		String customerName = getCustomerDetails.getCustomerName(customerId);
 		String customerAddress = getCustomerDetails.getCustomerAddress(customerId);
 		long customerPhoneNumber = getCustomerDetails.getCustomerPhoneNumber(customerId);
+		
+		//get product details
 		String productName = getProductDetails.getProductName(productId);
 		String productCategory = getProductDetails.getProductCategory(productId);
 		int productPrice = getProductDetails.getProductPrice(productId);

@@ -16,48 +16,50 @@ public class GetOrderIdList implements OrderIdListGettable{
 	Connection connect = DatabaseConnection.getConnection();
 	public int orderId,productId,customerId;
 	
-	public ArrayList<Integer> getOrderIdList(int customerId)
-	{
+	/**
+	 * @param customerId
+	 */
+	public ArrayList<Integer> getOrderIdList(int customerId) {
+		
 		ArrayList<Integer> orderIdList = new ArrayList<Integer>();
 		sql ="Select * from "+ShoppingAppConstants.ordersTable+" where "+ShoppingAppConstants.customerIdColumn+" = "
 				+customerId;
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-			if(!resultset.next())
-			{
+			if(!resultset.next()) {
+				
 				System.out.println("Sorry your cart is empty :(");
 			}
-			else
-				{
+			else {
 				resultset.previous();
-				while(resultset.next())
-				{
+				while(resultset.next()) {
+					
 					orderId = resultset.getInt(ShoppingAppConstants.orderIdColumn);
 					orderIdList.add(orderId);
 				}
 			}
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	return orderIdList;
-	}
-	
-	
+		return orderIdList;
+	}	
 
 	public ArrayList<Integer> getAllOrderIdList() {
-		// TODO Auto-generated method stub
+		
 		ArrayList<Integer> allOrderIdList = new ArrayList<Integer>();
 		sql ="Select * from "+ShoppingAppConstants.ordersTable;
+		
 		try {
 			Statement statement = connect.createStatement();
 			ResultSet resultset = statement.executeQuery(sql);
-				while(resultset.next())
-				{
-					orderId = resultset.getInt(ShoppingAppConstants.orderIdColumn);
-					allOrderIdList.add(orderId);
-				}
+			while(resultset.next()) {
+				
+				orderId = resultset.getInt(ShoppingAppConstants.orderIdColumn);
+				allOrderIdList.add(orderId);
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

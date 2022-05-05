@@ -1,0 +1,15 @@
+package driver.orders;
+
+import com.mashape.unirest.http.*;
+import java.io.*;
+public class  FeedbackAnalyzerAPI{
+  public static void feedbackAnalyzer() throws Exception{
+    Unirest.setTimeouts(0, 0);
+    HttpResponse<String> response = Unirest.post("http://127.0.0.1:5000/analyze")
+      .multiPartContent()
+      .field("text", "Sakthi dog is worst")
+      .asString();
+    
+    System.out.println(response.getBody());
+  }
+}
