@@ -18,7 +18,7 @@ public class GetCustomerDetails implements CustomerDetailsGettable {
 	public long customerPhoneNumber,supplierPhoneNumber;
 	public String productName,productCategory,customerAddress,customerName,deliveryStatus,deliveryDateString,supplierName,productDescription;
 	Date deliveryDate;
-	
+	public String value;
 	
 	public int getCurrentlyLoggedInCustomerId() {
 		
@@ -40,7 +40,7 @@ public class GetCustomerDetails implements CustomerDetailsGettable {
 	/**
 	 * @param customerId
 	 */
-	public String getCustomerAddress(int customerId) {
+	public String getCustomer(int customerId, String columnName) {
 		
 		sql ="Select * from "+ShoppingAppConstants.customersTable+" where "+ShoppingAppConstants.customerIdColumn+" = '"
 				+customerId+"'";
@@ -49,36 +49,16 @@ public class GetCustomerDetails implements CustomerDetailsGettable {
 			ResultSet resultset = statement.executeQuery(sql);
 			if(resultset.next()) 			{
 				
-				customerAddress = resultset.getString(ShoppingAppConstants.customerAddressColumn);
+				value = resultset.getString(columnName);
 			}
 		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return customerAddress;
+		return value;
 	}
 	
-	/**
-	 * @param customerId
-	 */
-	public String getCustomerName(int customerId)
-	{
-		sql ="Select * from "+ShoppingAppConstants.customersTable+" where "+ShoppingAppConstants.customerIdColumn+" = '"
-				+customerId+"'";
-		try {
-			Statement statement = connect.createStatement();
-			ResultSet resultset = statement.executeQuery(sql);
-			if(resultset.next()) {
-				
-				customerName = resultset.getString(ShoppingAppConstants.customerUserNameColumn);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return customerName;
-	}
 	
 	/**
 	 * @param customerId
@@ -104,21 +84,4 @@ public class GetCustomerDetails implements CustomerDetailsGettable {
 	/**
 	 * @param orderId
 	 */
-	public int getCustomerId(int orderId)
-	{
-		sql ="Select * from "+ShoppingAppConstants.ordersTable+" where "+ShoppingAppConstants.orderIdColumn+" = "
-				+orderId;
-		try {
-			Statement statement = connect.createStatement();
-			ResultSet resultset = statement.executeQuery(sql);
-			if(resultset.next()) {
-				
-				customerId = resultset.getInt(ShoppingAppConstants.customerIdColumn);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return customerId;
-	}
 }

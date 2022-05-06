@@ -1,0 +1,37 @@
+package view.suppliers;
+
+import java.util.ArrayList;
+
+import appconstants.ShoppingAppConstants;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
+import databaseoperations.classes.databasegetoperations.getEntities.GetCustomerEntityDetails;
+import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+import entities.Customers;
+
+public class ViewCustomerDetails {
+
+	/**
+	 * 
+	 * @param orderId
+	 */
+	public void viewCustomerDetails(int orderId)
+	{
+		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		
+		GetCustomerEntityDetails getCustomer = new GetCustomerEntityDetails();
+		ArrayList<Customers> customerList = new ArrayList<Customers>();
+		for(Customers customer : customerList)
+		{
+			System.out.println(ShoppingAppConstants.bigEqualLine);
+			System.out.println("\n"+ShoppingAppConstants.customerBox);
+			System.out.printf("\n%43s","Customer Id : ");
+			System.out.printf("%d",customer.getCustomerId());
+			System.out.printf("\n%43s","Name : ");
+			System.out.printf("%s",customer.getCustomerName());
+		}
+				
+		
+		System.out.printf("\n\nOther Details Of Customers are Confidential. Kindly approach Our team if there is a neccesity\n\n");		
+		System.out.println(ShoppingAppConstants.bigEqualLine);		
+	}
+}

@@ -49,7 +49,12 @@ public class CustomerAfterLoginDriver {
 			System.out.println(ShoppingAppConstants.manThankyouMessage);
 			CustomerLogoutInterface customerLogout = new CustomerLogout();
 			customerLogout.customerLogout();
-			//Main.main(null);
+			try {
+				Main.main(null);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 		}
 	}

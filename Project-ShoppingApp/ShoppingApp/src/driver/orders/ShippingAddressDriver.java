@@ -23,7 +23,7 @@ public class ShippingAddressDriver {
 		PrintMenu printMenu = new PrintMenu();
 		
 		int customerId = getCustomerDetails.getCurrentlyLoggedInCustomerId();
-		String customerAddress = getCustomerDetails.getCustomerAddress(customerId);
+		String customerAddress = getCustomerDetails.getCustomer(customerId,ShoppingAppConstants.customerAddressColumn);;
 		System.out.printf("%12s\n","Your Address is");
 		System.out.printf("%12s\n\n", customerAddress);
 		printMenu.printAddressOption();

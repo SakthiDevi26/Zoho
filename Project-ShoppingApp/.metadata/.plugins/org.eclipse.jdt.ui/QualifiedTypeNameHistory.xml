@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.customers.CustomerAccountCreatable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.customers.removemethods.ProductFromCartRemovable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.customers.removemethods.ProductFromWishListRemovable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.printable.DatabaseMenuPrintable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.customers.CustomerLoggedInCheckable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.customers.addmethods.CartAddable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.customers.addmethods.WishListAddable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.orders.OrderPlaceable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.orders.CustomerAddressUpdatable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.suppliers.ProductAddable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.suppliers.ProductDeletable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.suppliers.updateproduct.ProductNameUpdatable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.suppliers.updateproduct.ProductCategoryUpdatable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.suppliers.updateproduct.ProductDescriptionUpdatable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.suppliers.updateproduct.ProductPriceUpdatable"/>
-    <fullyQualifiedTypeName name="databaseoperations.interfaces.suppliers.SupplierAccountCreatable"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="entities.products"/>
-    <fullyQualifiedTypeName name="entities.Products"/>
     <fullyQualifiedTypeName name="businesslayer.GetProductsList"/>
     <fullyQualifiedTypeName name="businesslayer.print"/>
     <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.DetailsInHashMapGettable"/>
@@ -38,7 +20,6 @@
     <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetProductIdList"/>
     <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.ProductIdListGettable"/>
     <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.SupplierDetailsGettable"/>
-    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.net.http.HttpClient"/>
     <fullyQualifiedTypeName name="java.net.http.HttpRequest"/>
@@ -50,7 +31,6 @@
     <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.ProductDetailsGettable"/>
     <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.CustomerDetailsGettable"/>
     <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails"/>
-    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
@@ -60,4 +40,24 @@
     <fullyQualifiedTypeName name="appconstants.ShoppingAppConstants"/>
     <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetCustomerIdList"/>
     <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.CustomerIdListGettable"/>
+    <fullyQualifiedTypeName name="entities.GetCustomers"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails"/>
+    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getEntities.GetProductDetails"/>
+    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getEntities.GetCustomerDetails"/>
+    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="entities.Shipment"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="entities.Suppliers"/>
+    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getEntities.GetProductEntityDetails"/>
+    <fullyQualifiedTypeName name="driver.admin.AdminMethodsDriver"/>
+    <fullyQualifiedTypeName name="entities.Products"/>
+    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getEntities.GetSupplierEntityDetails"/>
+    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getEntities.GetCustomerEntityDetails"/>
+    <fullyQualifiedTypeName name="entities.Customers"/>
+    <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.IdListGettable"/>
+    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetAllIdList"/>
+    <fullyQualifiedTypeName name="databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetIdUsingId"/>
+    <fullyQualifiedTypeName name="databaseoperations.interfaces.gettable.IdGettable"/>
 </qualifiedTypeNameHistroy>

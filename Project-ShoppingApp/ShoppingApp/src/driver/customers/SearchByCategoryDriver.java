@@ -16,7 +16,6 @@ public class SearchByCategoryDriver {
 	int productId;
 	
 	public void searchByCategoryDriver() {
-		
 		Scanner scanner = new Scanner(System.in);
 		PrintMenu printMenu = new PrintMenu();
 		printMenu.printProductCategories();

@@ -5,6 +5,7 @@ import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasecheckoperations.CheckProductId;
 import databaseoperations.classes.suppliers.CreateSupplierAccount;
 import databaseoperations.interfaces.suppliers.SupplierAccountCreatable;
+import entities.Products;
 import passwordencryption.EncryptPassword;
 
 import java.security.NoSuchAlgorithmException;
@@ -97,6 +98,8 @@ public class GetDetails {
 		try {
 			System.out.println("Enter Product Price:");
 			productPrice = scanner.nextInt();
+			Products product = new Products();
+			product.setProductPrice(productPrice);
 		}
 		catch(InputMismatchException e) {
 			

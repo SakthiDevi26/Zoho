@@ -47,7 +47,7 @@ public class ViewMyOrders {
 			{
 				int productId = getProductDetails.getProductId(customerId,iterator.next());
 				iterator.previous();
-				String productName = getProductDetails.getProductName(productId);
+				String productName = getProductDetails.getProductDetail(productId,ShoppingAppConstants.productIdColumn);
 				System.out.printf("%30s %20s\n", iterator.next(),productName);
 			}
 			System.out.println("\n"+ShoppingAppConstants.equalLine);

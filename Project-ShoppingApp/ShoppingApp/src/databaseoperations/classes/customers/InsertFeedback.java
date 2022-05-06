@@ -6,8 +6,10 @@ import java.sql.Statement;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetIdUsingId;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
 import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+import databaseoperations.interfaces.gettable.IdGettable;
 import databaseoperations.interfaces.gettable.ProductDetailsGettable;
 import sql.DatabaseConnection;
 
@@ -25,11 +27,11 @@ public class InsertFeedback {
 	 */
 	public boolean insertFeedback(int orderId, String feedback, String analyzedFeedback) {
 		
-		ProductDetailsGettable getProductDetails = new GetProductDetails();
-		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		IdGettable getId = new GetIdUsingId();
 		
-		int customerId = getCustomerDetails.getCustomerId(orderId);
-		int productId = getProductDetails.getProductIdUsingOrderId(orderId);
+		
+		int customerId = getId.getId(orderId,ShoppingAppConstants.customerIdColumn,ShoppingAppConstants.ordersTable,ShoppingAppConstants.orderIdColumn);
+		int productId = getId.getId(orderId,ShoppingAppConstants.productIdColumn,ShoppingAppConstants.ordersTable,ShoppingAppConstants.orderIdColumn);
 		
 		sql = "insert into "+ShoppingAppConstants.feedbackTable+" values ("+customerId+","+productId+",'"+feedback+"','"+analyzedFeedback+"')";
 		Statement statement;

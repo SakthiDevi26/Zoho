@@ -28,9 +28,9 @@ public class ViewCustomerAccount {
 		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
 		
 		customerId = getCustomerDetails.getCurrentlyLoggedInCustomerId();
-		customerName = getCustomerDetails.getCustomerName(customerId);
+		customerName = getCustomerDetails.getCustomer(customerId,ShoppingAppConstants.customersTable);
 		customerPhoneNumber = getCustomerDetails.getCustomerPhoneNumber(customerId);
-		customerAddress = getCustomerDetails.getCustomerAddress(customerId);
+		customerAddress = getCustomerDetails.getCustomer(customerId, ShoppingAppConstants.customerAddressColumn);
 			
 		
 		System.out.println(ShoppingAppConstants.equalLine+"\n\n");

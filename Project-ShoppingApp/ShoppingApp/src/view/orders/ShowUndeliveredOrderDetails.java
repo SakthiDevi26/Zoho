@@ -1,17 +1,20 @@
 package view.orders;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
-import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
-import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetOrderDetails;
-import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
-import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails;
-import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
-import databaseoperations.interfaces.gettable.OrderDetailsGettable;
-import databaseoperations.interfaces.gettable.ProductDetailsGettable;
-import databaseoperations.interfaces.gettable.SupplierDetailsGettable;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetIdUsingId;
+import databaseoperations.classes.databasegetoperations.getEntities.GetOrderDetails;
+import databaseoperations.classes.databasegetoperations.getEntities.GetCustomerEntityDetails;
+import databaseoperations.classes.databasegetoperations.getEntities.GetProductEntityDetails;
+import databaseoperations.classes.databasegetoperations.getEntities.GetSupplierEntityDetails;
+import databaseoperations.interfaces.gettable.IdGettable;
 import driver.customers.CustomerMainDriver;
+import entities.Customers;
+import entities.Products;
+import entities.Shipment;
+import entities.Suppliers;
 
 
 public class ShowUndeliveredOrderDetails {
@@ -22,55 +25,64 @@ public class ShowUndeliveredOrderDetails {
 	 */
 	public void showUndeliveredOrderDetails(int orderId) {
 		
-		// objects
-		OrderDetailsGettable getOrderDetails = new GetOrderDetails();
-		ProductDetailsGettable getProductDetails = new GetProductDetails();
-		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
-		SupplierDetailsGettable getSupplierDetails = new GetSupplierDetails();
-		
-		//order details
-		String deliveryStatus = getOrderDetails.getDeliveryStatus(orderId);
-		String deliveryDate = getOrderDetails.getDeliveryDate(orderId);
-		
-		//product details
-		int productId = getProductDetails.getProductIdUsingOrderId(orderId);
-		String productName = getProductDetails.getProductName(productId);
-		String productCategory = getProductDetails.getProductCategory(productId);
-		int productPrice = getProductDetails.getProductPrice(productId);
-		
-		//supplier details
-		int supplierId = getSupplierDetails.getSupplierId(productId);
-		String supplierName = getSupplierDetails.getSupplierName(supplierId);
-		long supplierPhoneNumber = getSupplierDetails.getSupplierPhoneNumber(supplierId);
-		
-		//customer details
-		int customerId = getCustomerDetails.getCustomerId(orderId);
-		String customerName = getCustomerDetails.getCustomerName(customerId);
-		String customerAddress = getCustomerDetails.getCustomerAddress(customerId);
-		long customerPhoneNumber = getCustomerDetails.getCustomerPhoneNumber(customerId);
-		
+		IdGettable getId = new GetIdUsingId();
 		
 		//print
 		System.out.println(ShoppingAppConstants.greaterThanLine+"\n");
 		System.out.println("\t\t\t\tORDER INFO\n");
 		System.out.println(ShoppingAppConstants.lessThanLine+"\n");
-		System.out.printf("%s", "orderId");
-		System.out.printf("\n%d", orderId);
-		System.out.print("\nOrder is "+deliveryStatus);
-		System.out.printf("%32s %s","Delivery Date: " ,deliveryDate);
-		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
-		System.out.printf("%s", "product Name\n\n");
-		System.out.printf("%s", productName);
-		System.out.printf("\n%s",productCategory);
-		System.out.printf("%50s %s","Contact supplier at: ",supplierPhoneNumber);
-		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
-		System.out.println("Shipping Address\n");
-		System.out.printf("%s", customerName);
-		System.out.printf("\n%s", customerAddress);
-		System.out.printf("\n%d", customerPhoneNumber);
-		System.out.printf("%40s %s","Total Price: ",productPrice);
+		
+		//orderDetails
+		
+		GetOrderDetails getOrderDetails = new GetOrderDetails();
+		for(Shipment order : getOrderDetails.getOrderDetails(orderId))
+		{
+			System.out.printf("%s", "orderId");
+			System.out.printf("\n%d", orderId);
+			System.out.print("\nOrder is "+order.deliveryStatus);
+			System.out.printf("%32s %s","Delivery Date: " ,order.deliveryDate);
+		}
 		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
 		
+		
+		//product details
+		int productId = getId.getId(orderId,ShoppingAppConstants.productIdColumn,ShoppingAppConstants.ordersTable,ShoppingAppConstants.orderIdColumn);
+		GetProductEntityDetails getProduct = new GetProductEntityDetails();
+		for(Products product : getProduct.getProductList(productId))
+		{
+			System.out.printf("%s", "product Name\n\n");
+			System.out.printf("%s", product.productName);
+			System.out.printf("\n%s",product.productCategory);
+			System.out.printf("%40s %s","Total Price: ",product.getProductPrice());
+		}
+		
+		
+		//supplier details
+		int supplierId = getId.getId(productId, ShoppingAppConstants.supplierIdColumn,ShoppingAppConstants.productsTable,ShoppingAppConstants.productIdColumn);
+		GetSupplierEntityDetails getSupplier = new GetSupplierEntityDetails();
+		ArrayList<Suppliers>supplierList = getSupplier.getSupplierList(supplierId);
+		for(Suppliers supplier : supplierList)
+		{
+			System.out.println(supplier.supplierName);
+			System.out.printf("%50s %s","Contact supplier at: ",supplier.supplierPhoneNumber);
+		}
+		
+		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
+		System.out.println("Shipping Address\n");
+		
+		
+		//customer details
+		GetCustomerEntityDetails getCustomer = new GetCustomerEntityDetails();
+		ArrayList<Customers> customerList = new ArrayList<Customers>();
+		for(Customers customer : customerList)
+		{
+				
+			System.out.printf("%s", customer.customerName);
+			System.out.printf("\n%s", customer.customerAddress);
+			System.out.printf("\n%d", customer.customerPhoneNumber);
+			System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
+		}
+			
 		System.out.println(ShoppingAppConstants.goHome);
 		Scanner scanner = new Scanner(System.in);
 		int userInput = scanner.nextInt();

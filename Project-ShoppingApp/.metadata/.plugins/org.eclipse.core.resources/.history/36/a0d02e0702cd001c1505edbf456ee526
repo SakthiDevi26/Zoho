@@ -1,0 +1,9 @@
+package databaseoperations.classes.databasegetoperations.getDetailsFromDatabase;
+
+public class getIdUsingId {
+
+	public void getId(int id, String tableName, String columnName)
+	{
+		
+	}
+}

@@ -1,0 +1,39 @@
+package entities;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import appconstants.ShoppingAppConstants;
+import sql.DatabaseConnection;
+
+public class GetCustomers {
+
+	String sql="";
+	Connection connect = DatabaseConnection.getConnection();
+	public ArrayList<Customers> getCustomerList()
+	{
+		 ArrayList<Customers>productList = new ArrayList<Customers>();
+		 sql ="Select * from "+ShoppingAppConstants.customersTable;
+			try {
+				Statement statement = connect.createStatement();
+				ResultSet resultset = statement.executeQuery(sql);
+				
+				while(resultset.next()) {
+					
+					int productId = resultset.getInt(ShoppingAppConstants.productIdColumn);
+					String productName = resultset.getString(ShoppingAppConstants.productNameColumn);
+					
+					
+				}
+			}
+			catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+	}	
+
+}

@@ -1,0 +1,8 @@
+package databaseoperations.interfaces.gettable;
+
+import java.util.ArrayList;
+
+public interface IdListGettable {
+
+	public ArrayList<Integer> getAllIdList(int valueId, String tableName, String valueIdColumnName);
+}

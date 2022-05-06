@@ -1,10 +1,16 @@
 package view.orders;
 
+import java.util.ArrayList;
+
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
+import databaseoperations.classes.databasegetoperations.getEntities.GetCustomerEntityDetails;
+import databaseoperations.classes.databasegetoperations.getEntities.GetProductEntityDetails;
 import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
 import databaseoperations.interfaces.gettable.ProductDetailsGettable;
+import entities.Customers;
+import entities.Products;
 
 public class DisplayOrderSummary {
 
@@ -16,33 +22,36 @@ public class DisplayOrderSummary {
 	{
 		//objects
 		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
-		ProductDetailsGettable getProductDetails = new GetProductDetails();
 		int customerId = getCustomerDetails.getCurrentlyLoggedInCustomerId();
 		
 		//get customer details
-		String customerName = getCustomerDetails.getCustomerName(customerId);
-		String customerAddress = getCustomerDetails.getCustomerAddress(customerId);
-		long customerPhoneNumber = getCustomerDetails.getCustomerPhoneNumber(customerId);
 		
-		//get product details
-		String productName = getProductDetails.getProductName(productId);
-		String productCategory = getProductDetails.getProductCategory(productId);
-		int productPrice = getProductDetails.getProductPrice(productId);
+		GetCustomerEntityDetails getCustomer = new GetCustomerEntityDetails();
+		ArrayList<Customers> customerList = getCustomer.getCustomerList(customerId);
 		
-		//Display
+		for(Customers customer : customerList)
+		{
 		System.out.println(ShoppingAppConstants.stars+"\n");
 		System.out.println(ShoppingAppConstants.smallHyphen+"ORDER SUMMARY"+ShoppingAppConstants.smallHyphen);
-		System.out.println(customerName);
-		System.out.println(customerAddress);
-		System.out.println(customerPhoneNumber);
+		System.out.println(customer.customerName);
+		System.out.println(customer.customerAddress);
+		System.out.println(customer.customerPhoneNumber);
 		System.out.println(ShoppingAppConstants.underscoreLine);
-		System.out.print(productName);
-		System.out.println("\t\t\t"+productCategory);
-		System.out.println(ShoppingAppConstants.underscoreLine);
-		System.out.println("Price Details:\n");
-		System.out.println("Delivery Charges:\t\tFree");
-		System.out.println("Total Amount:\t\t\t"+productPrice);
-		System.out.println("\n"+ShoppingAppConstants.stars);
+		}
+		GetProductEntityDetails getProduct = new GetProductEntityDetails();
+		ArrayList<Products> productList = getProduct.getProductList(productId);
+		
+		for(Products product : productList)
+		{
+			System.out.print(product.productName);
+			System.out.println("\t\t\t"+product.productCategory);
+			System.out.println(ShoppingAppConstants.underscoreLine);
+			System.out.println("Price Details:\n");
+			System.out.println("Delivery Charges:\t\tFree");
+			System.out.println("Total Amount:\t\t\t"+product.getProductPrice());
+
+		}
+			System.out.println("\n"+ShoppingAppConstants.stars);
 	}
 
 }

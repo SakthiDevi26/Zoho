@@ -1,0 +1,16 @@
+package entities;
+
+public class admin {
+
+	int adminId;
+	String adminName;
+	String adminPassword;
+	
+	public admin(int adminId, String adminName, String adminPassword) {
+		this.adminId = adminId;
+		this.adminName = adminName;
+		this.adminPassword = adminPassword;
+	}
+	
+	
+}

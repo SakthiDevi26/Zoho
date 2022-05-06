@@ -1,8 +1,0 @@
-package suppliers.suppliersmethods.classes;
-
-import utilities.classes.PrintMenu;
-
-public class updateProductDriver {
-	PrintMenu printMenu = new PrintMenu();
-	
-}

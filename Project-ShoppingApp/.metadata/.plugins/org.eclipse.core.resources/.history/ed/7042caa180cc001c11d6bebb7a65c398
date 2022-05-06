@@ -1,0 +1,9 @@
+package entities;
+
+public class Suppliers {
+
+	int supplierId;
+	String supplierName;
+	long supplierPhoneNumber;
+	String supplierPassword;
+}

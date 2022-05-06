@@ -1,0 +1,12 @@
+package entities;
+
+import java.util.ArrayList;
+
+public class GetProduct {
+
+	public ArrayList<Products> getProductList()
+	{
+	 ArrayList<Products>productList = new ArrayList<Products>();
+	return productList;
+	}
+}

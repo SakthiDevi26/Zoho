@@ -62,3 +62,15 @@
 1651660631968	Delete element
 1651676453736	Rename type 'SupplierViewOrderDetails'
 1651734952465	Delete element
+1651751488399	Rename package 'entitites'
+1651753457150	Delete element
+1651760432717	Encapsulate field 'customerName'
+1651760467255	Encapsulate field 'customerAddress'
+1651760530004	Encapsulate field 'customerPhoneNumber'
+1651760585380	Encapsulate field 'customerId'
+1651763962785	Delete element
+1651765022636	Delete element
+1651770072252	Delete element
+1651771400542	Delete element
+1651805380135	Delete element
+1651813109812	Encapsulate field 'productPrice'

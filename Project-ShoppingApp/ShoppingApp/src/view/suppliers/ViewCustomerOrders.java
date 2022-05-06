@@ -8,6 +8,7 @@ import databaseoperations.classes.databasecheckoperations.CheckOrderId;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetOrderDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails;
+import databaseoperations.classes.databasegetoperations.getEntities.GetCustomerEntityDetails;
 import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetProductIdList;
 import databaseoperations.interfaces.checkable.OrderIdCheckable;
 import databaseoperations.interfaces.gettable.OrderDetailsGettable;
@@ -15,6 +16,7 @@ import databaseoperations.interfaces.gettable.ProductDetailsGettable;
 import databaseoperations.interfaces.gettable.ProductIdListGettable;
 import databaseoperations.interfaces.gettable.SupplierDetailsGettable;
 import driver.suppliers.SupplierMethodsDriver;
+import entities.Customers;
 import utilities.GetDetails;
 
 
@@ -27,8 +29,9 @@ public class ViewCustomerOrders {
 	 * @param supplierUserName
 	 */
 	public void viewCustomerOrders(String supplierUserName) {
-		
+			
 		//objects
+		GetCustomerEntityDetails getCustomer = new GetCustomerEntityDetails();
 		SupplierMethodsDriver supplierMethodsDrive = new SupplierMethodsDriver();
 		GetDetails getDetails = new GetDetails();
 		ProductIdListGettable getProductIdList = new GetProductIdList();
@@ -62,7 +65,8 @@ public class ViewCustomerOrders {
 				while(ordersProductIdIterator.hasNext()) {
 					int orderId = getOrderDetails.getOrderId(ordersProductIdIterator.next());
 					ordersProductIdIterator.previous();
-					String productName = getProductDetails.getProductName(ordersProductIdIterator.next());
+					
+					String productName = getProductDetails.getProductDetail(ordersProductIdIterator.next(),ShoppingAppConstants.productIdColumn);
 					System.out.printf("%30s %20s\n", orderId,productName);
 				}
 				System.out.println("\n"+ShoppingAppConstants.equalLine);

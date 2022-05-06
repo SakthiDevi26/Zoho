@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.ListIterator;
 
 import appconstants.ShoppingAppConstants;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetIdUsingId;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
-import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetOrderIdList;
-import databaseoperations.interfaces.gettable.OrderIdListGettable;
+import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetAllIdList;
+import databaseoperations.interfaces.gettable.IdGettable;
+import databaseoperations.interfaces.gettable.IdListGettable;
 import databaseoperations.interfaces.gettable.ProductDetailsGettable;
 
 public class ViewAllOrders {
@@ -14,11 +16,11 @@ public class ViewAllOrders {
 	public void viewAllOrders() {		
 		
 		ProductDetailsGettable getProductDetails = new GetProductDetails();
-		OrderIdListGettable getOrderIdList = new GetOrderIdList();
-		
+		IdListGettable getIdList = new GetAllIdList();
+		IdGettable getId = new GetIdUsingId();
 		
 		ArrayList<Integer> orderIdList = new ArrayList<Integer>();
-		orderIdList = getOrderIdList.getAllOrderIdList();
+		orderIdList = getIdList.getAllIdList(ShoppingAppConstants.ordersTable, ShoppingAppConstants.orderIdColumn);
 		if(!orderIdList.isEmpty())
 		{
 			System.out.println(ShoppingAppConstants.equalLine+"\n");
@@ -31,9 +33,9 @@ public class ViewAllOrders {
 			ListIterator<Integer> orderIdListIterator = orderIdList.listIterator();
 			while(orderIdListIterator.hasNext())
 			{
-				int productId = getProductDetails.getProductIdUsingOrderId(orderIdListIterator.next());
+				int productId = getId.getId(orderIdListIterator.next(),ShoppingAppConstants.productIdColumn, ShoppingAppConstants.ordersTable,ShoppingAppConstants.orderIdColumn);
 				orderIdListIterator.previous();
-				String productName = getProductDetails.getProductName(productId);
+				String productName = getProductDetails.getProductDetail(productId,ShoppingAppConstants.productNameColumn);
 				System.out.printf("%30s %20s\n", orderIdListIterator.next(),productName);
 			}
 			System.out.println("\n"+ShoppingAppConstants.equalLine);	

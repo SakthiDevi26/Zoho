@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import databaseoperations.classes.customers.CheckCustomerLoggedIn;
 import databaseoperations.interfaces.customers.CustomerLoggedInCheckable;
+import entities.Products;
 import view.customers.ProductRecommendations;
 import view.customers.ViewProductInDetail;
 
@@ -12,6 +13,7 @@ public class CustomerMainDriver {
 	public int productId;
 	
 	public void customerMainDriver() {
+		
 		
 		Scanner scanner = new Scanner(System.in);
 		ProductRecommendations productRecommend = new ProductRecommendations();

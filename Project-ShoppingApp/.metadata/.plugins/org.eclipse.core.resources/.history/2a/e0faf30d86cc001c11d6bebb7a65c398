@@ -1,0 +1,52 @@
+package entities;
+
+public class Customers {
+
+	private int customerId;
+	private String customerName;
+	String customerPassword;
+	private String customerAddress;
+	private long customerPhoneNumber;
+	
+	public Customers(int customerId, String customerName, String customerPassword, String customerAddress,
+			long customerPhoneNumber) {
+		this.setCustomerId(customerId);
+		this.setCustomerName(customerName);
+		this.customerPassword = customerPassword;
+		this.setCustomerAddress(customerAddress);
+		this.setCustomerPhoneNumber(customerPhoneNumber);
+	}
+
+	public String getCustomerName() {
+		return customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public String getCustomerAddress() {
+		return customerAddress;
+	}
+
+	public void setCustomerAddress(String customerAddress) {
+		this.customerAddress = customerAddress;
+	}
+
+	public long getCustomerPhoneNumber() {
+		return customerPhoneNumber;
+	}
+
+	public void setCustomerPhoneNumber(long customerPhoneNumber) {
+		this.customerPhoneNumber = customerPhoneNumber;
+	}
+
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+	
+}

@@ -9,10 +9,12 @@ import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasecheckoperations.CheckProductId;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
+import databaseoperations.classes.databasegetoperations.getEntities.GetProductEntityDetails;
 import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetProductIdList;
 import databaseoperations.interfaces.checkable.ProductIdCheckable;
 import driver.customers.CustomerMainDriver;
 import driver.customers.MyWishListDriver;
+import entities.Products;
 
 
 public class ViewMyWishList {
@@ -37,14 +39,17 @@ public class ViewMyWishList {
 			
 			ListIterator<Integer> iterator = productIdList.listIterator();
 			while(iterator.hasNext()) {
-				String productName = getProductDetails.getProductName(iterator.next());
+				GetProductEntityDetails getProduct = new GetProductEntityDetails();
+				ArrayList<Products> productList = new ArrayList<Products>();
+				productList = getProduct.getProductList(iterator.next());
 				iterator.previous();
-				int productPrice = getProductDetails.getProductPrice(iterator.next());
-				iterator.previous();
+				for(Products product : productList)
+				{
 				System.out.printf("%12s %20s %20s\n","Product Id",
 						"Name",
 						"Price");
-				System.out.printf("%12s %20s %20d\n", iterator.next(),productName,productPrice);
+				System.out.printf("%12s %20s %20d\n", iterator.next(),product.productName,product.getProductPrice());
+				}
 				System.out.println("\n"+ShoppingAppConstants.equalLine+ShoppingAppConstants.equalLine);
 			}
 			

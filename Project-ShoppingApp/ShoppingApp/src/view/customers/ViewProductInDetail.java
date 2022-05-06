@@ -10,11 +10,16 @@ import java.util.ListIterator;
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails;
+import databaseoperations.classes.databasegetoperations.getEntities.GetProductEntityDetails;
+import databaseoperations.classes.databasegetoperations.getEntities.GetSupplierEntityDetails;
 import databaseoperations.classes.databasegetoperations.getlistfromdatabase.GetCustomerIdList;
 import databaseoperations.interfaces.gettable.CustomerIdListGettable;
 import databaseoperations.interfaces.gettable.ProductDetailsGettable;
 import databaseoperations.interfaces.gettable.SupplierDetailsGettable;
 import driver.customers.ProductOptionsDriver;
+import entities.Customers;
+import entities.Products;
+import entities.Suppliers;
 import sql.DatabaseConnection;
 
 public class ViewProductInDetail {
@@ -22,9 +27,7 @@ public class ViewProductInDetail {
 	String sql="";
 	Connection connect = DatabaseConnection.getConnection();
 	
-	public String productName, productCategory,productDescription,supplierName,feedback,analyzedFeedback,customerName;
-	public int productPrice,supplierId,customerId;
-	public long supplierPhoneNumber;
+	public int supplierId,customerId;
 	
 	/**
 	 * 
@@ -38,35 +41,42 @@ public class ViewProductInDetail {
 		SupplierDetailsGettable getSupplierDetails = new GetSupplierDetails();
 		CustomerIdListGettable getCustomerIdList = new GetCustomerIdList();
 		
-		//get product details
-		productName = getProductDetails.getProductName(productId);
-		productCategory = getProductDetails.getProductCategory(productId);
-		productDescription = getProductDetails.getProductDescription(productId);
-		productPrice = getProductDetails.getProductPrice(productId);
-		
-		//display product details
 		System.out.println("\n"+ShoppingAppConstants.equalLine);
 		System.out.printf("\n%12s %30s\n",
 				"Product Name",
 				"Category");
-		System.out.printf("%12s %30s\n\n",productName,productCategory);
-		System.out.printf("%12s\n","Description:");
-		String[] productDescriptionSplit = productDescription.split("[.]",0);
 		
-		for(String productDescriptionFormatted:productDescriptionSplit) {
-			System.out.printf("%12s\n",productDescriptionFormatted);
+		GetProductEntityDetails getProduct = new GetProductEntityDetails();
+		ArrayList<Products> productList = getProduct.getProductList(productId);
+		for (Products product : productList)
+		{
+			System.out.printf("%12s %30s\n\n",product.productName,product.productCategory);
+			System.out.printf("%12s\n","Description:");
+			String[] productDescriptionSplit = product.productDescription.split("[.]",0);
+			
+			for(String productDescriptionFormatted:productDescriptionSplit) {
+				System.out.printf("%12s\n",productDescriptionFormatted);
+				System.out.printf("Buy at only:%d\n\n",product.getProductPrice());
+				
+			}
 		}
+		
+		
 		System.out.println(ShoppingAppConstants.bigUnderscoreLine);	
 		
-		//get supplier details
 		supplierId = getSupplierDetails.getSupplierId(productId);
-		supplierName = getSupplierDetails.getSupplierName(supplierId);
-		supplierPhoneNumber = getSupplierDetails.getSupplierPhoneNumber(supplierId);
 		
-		//display supplier details
-		System.out.printf("\n\nSold by :%s\n",supplierName);
-		System.out.printf("Contact Supplier at %d\n\n", supplierPhoneNumber);
-		System.out.printf("Buy at only:%d\n\n",productPrice);
+		//supplier details
+		
+		GetSupplierEntityDetails getSupplier = new GetSupplierEntityDetails();
+		ArrayList<Suppliers> supplierList = getSupplier.getSupplierList(supplierId);
+		for(Suppliers supplier : supplierList)
+		{
+			System.out.printf("\n\nSold by :%s\n",supplier.supplierName);
+			System.out.printf("Contact Supplier at %d\n\n", supplier.supplierPhoneNumber);
+		}
+		
+		
 		System.out.println(ShoppingAppConstants.bigUnderscoreLine);	
 		System.out.println("\n"+ShoppingAppConstants.equalLine);
 		

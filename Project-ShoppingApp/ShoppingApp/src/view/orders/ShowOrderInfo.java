@@ -4,12 +4,19 @@ import java.util.Scanner;
 
 import appconstants.ShoppingAppConstants;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
-import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetOrderDetails;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetIdUsingId;
+import databaseoperations.classes.databasegetoperations.getEntities.GetCustomerEntityDetails;
+import databaseoperations.classes.databasegetoperations.getEntities.GetOrderDetails;
+import databaseoperations.classes.databasegetoperations.getEntities.GetProductEntityDetails;
 import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
 import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+import databaseoperations.interfaces.gettable.IdGettable;
 import databaseoperations.interfaces.gettable.OrderDetailsGettable;
 import databaseoperations.interfaces.gettable.ProductDetailsGettable;
 import driver.customers.CustomerMainDriver;
+import entities.Customers;
+import entities.Products;
+import entities.Shipment;
 
 public class ShowOrderInfo {
 
@@ -21,45 +28,50 @@ public class ShowOrderInfo {
 	{
 		
 		//objects
-		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		IdGettable getId = new GetIdUsingId();
 		ProductDetailsGettable getProductDetails = new GetProductDetails();
-		OrderDetailsGettable getOrderDetails = new GetOrderDetails();
 		 
 		//order details
-		String deliveryStatus = getOrderDetails.getDeliveryStatus(orderId);
-		String deliveryDate = getOrderDetails.getDeliveryDate(orderId);
-		
-		//product details
-		int productId = getProductDetails.getProductIdUsingOrderId(orderId);
-		String productName = getProductDetails.getProductName(productId);
-		String productCategory = getProductDetails.getProductCategory(productId);
-		int productPrice = getProductDetails.getProductPrice(productId);
-		
-		//customer details
-		int customerId = getCustomerDetails.getCustomerId(orderId);
-		String customerName = getCustomerDetails.getCustomerName(customerId);
-		String customerAddress = getCustomerDetails.getCustomerAddress(customerId);
-		long customerPhoneNumber = getCustomerDetails.getCustomerPhoneNumber(customerId);
-		
-		//print
 		System.out.println(ShoppingAppConstants.greaterThanLine+"\n");
 		System.out.println("\t\t\t\tORDER INFO\n");
 		System.out.println(ShoppingAppConstants.lessThanLine+"\n");
 		System.out.printf("%s", "orderId");
 		System.out.printf("\n%d", orderId);
-		System.out.print("\nOrder is "+deliveryStatus);
-		System.out.printf("%32s %s","Delivery Date: " ,deliveryDate);
+		
+		GetOrderDetails getOrderDetails = new GetOrderDetails();
+		for(Shipment order : getOrderDetails.getOrderDetails(orderId))
+		{
+			System.out.print("\nOrder is "+order.deliveryStatus);
+			System.out.printf("%32s %s","Delivery Date: " ,order.deliveryDate);
+		}
+		
 		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
-		System.out.printf("%s", "product Name\n\n");
-		System.out.printf("%s", productName);
-		System.out.printf("\n%s",productCategory);
-		//System.out.printf("%50s %s","Contact supplier at: ",supplierPhoneNumber);
+		
+		//product details
+		int productId = getId.getId(orderId,ShoppingAppConstants.productIdColumn,ShoppingAppConstants.ordersTable,ShoppingAppConstants.orderIdColumn);
+		GetProductEntityDetails getProduct = new GetProductEntityDetails();
+		for(Products product : getProduct.getProductList(productId))
+		{
+			System.out.printf("%s", "product Name\n\n");
+			System.out.printf("%s", product.productName);
+			System.out.printf("\n%s",product.productCategory);
+			System.out.printf("%40s %s","Total Price: ",product.getProductPrice());
+		}
 		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
-		System.out.println("Shipping Address\n");
-		System.out.printf("%s", customerName);
-		System.out.printf("\n%s", customerAddress);
-		System.out.printf("\n%d", customerPhoneNumber);
-		System.out.printf("%40s %s","Total Price: ",productPrice);
+		
+		
+		//customer details
+		int customerId = getId.getId(orderId,ShoppingAppConstants.customerIdColumn,ShoppingAppConstants.ordersTable,ShoppingAppConstants.orderIdColumn);
+		GetCustomerEntityDetails getCustomer = new GetCustomerEntityDetails();
+		for(Customers customer : getCustomer.getCustomerList(customerId))
+		{
+			System.out.println("Shipping Address\n");
+			System.out.printf("%s", customer.customerName);
+			System.out.printf("\n%s", customer.customerAddress);
+			System.out.printf("\n%d", customer.customerPhoneNumber);
+		}
+		
+		
 		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
 		System.out.println(ShoppingAppConstants.goHome);
 		

@@ -1,0 +1,21 @@
+package entities;
+
+public class Customers {
+
+	int customerId;
+	String customerName;
+	String customerPassword;
+	String customerAddress;
+	long customerPhoneNumber;
+	
+	public Customers(int customerId, String customerName, String customerPassword, String customerAddress,
+			long customerPhoneNumber) {
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.customerPassword = customerPassword;
+		this.customerAddress = customerAddress;
+		this.customerPhoneNumber = customerPhoneNumber;
+	}
+
+	
+}

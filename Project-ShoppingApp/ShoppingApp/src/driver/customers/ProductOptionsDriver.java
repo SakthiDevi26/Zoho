@@ -27,11 +27,10 @@ public class ProductOptionsDriver {
 	 */
 	public void productOptionsDriver(int productId) {
 		
-		
 		DatabaseMenuPrintable printMenuUsingDatabase = new PrintMenuUsingDataBase();
 		CustomerLoggedInCheckable checkCustomerLoggedIn = new CheckCustomerLoggedIn();
 		ProductIdCheckable checkProductId = new CheckProductId();
-		ViewProductInDetail viewProductInDetail = new ViewProductInDetail();
+		ViewProductInDetail viewProduct = new ViewProductInDetail();
 		CustomerRegisterationDriver customerRegisterDriver = new CustomerRegisterationDriver();
 		CustomerMainDriver customerMainDriver = new CustomerMainDriver();
 		Scanner scanner = new Scanner(System.in);
@@ -51,7 +50,7 @@ public class ProductOptionsDriver {
 					if(addCart.addToCart(productId)) {
 						
 						System.out.println(ShoppingAppConstants.productAdded);
-						viewProductInDetail.viewProductInDetail(productId);
+						viewProduct.viewProductInDetail(productId);
 					}
 				}
 				else {
@@ -63,7 +62,7 @@ public class ProductOptionsDriver {
 			else {
 				
 				if(customerRegisterDriver.customerRegisterationDriver()) {
-					viewProductInDetail.viewProductInDetail(productId);
+					viewProduct.viewProductInDetail(productId);
 				}
 			}
 			break;
@@ -76,7 +75,7 @@ public class ProductOptionsDriver {
 					
 					if(addWishlist.addToWishList(productId)) {
 						System.out.println(ShoppingAppConstants.productAdded);
-						viewProductInDetail.viewProductInDetail(productId);
+						viewProduct.viewProductInDetail(productId);
 					}
 				}
 				else {
@@ -87,7 +86,7 @@ public class ProductOptionsDriver {
 			else {
 				if(customerRegisterDriver.customerRegisterationDriver())
 				{
-					viewProductInDetail.viewProductInDetail(productId);
+					viewProduct.viewProductInDetail(productId);
 				}
 			}
 			break;
@@ -99,7 +98,7 @@ public class ProductOptionsDriver {
 			}
 			else {
 				if(customerRegisterDriver.customerRegisterationDriver()) {
-					viewProductInDetail.viewProductInDetail(productId);
+					viewProduct.viewProductInDetail(productId);
 				}
 			}
 			break;

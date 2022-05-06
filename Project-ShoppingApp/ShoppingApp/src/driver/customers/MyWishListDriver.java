@@ -29,8 +29,8 @@ public class MyWishListDriver {
 			System.out.println(ShoppingAppConstants.productRemoved);
 			break;
 		case 2:
-			ViewProductInDetail viewProductInDetail = new ViewProductInDetail();
-			viewProductInDetail.viewProductInDetail(productId);
+			ViewProductInDetail viewProduct = new ViewProductInDetail();
+			viewProduct.viewProductInDetail(productId);
 			break;
 		default:
 			System.out.println(ShoppingAppConstants.invalidChoice);

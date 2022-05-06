@@ -58,7 +58,6 @@ public class SupplierMethodsDriver {
 			updateProductDriver.updateProductDriver(supplierUserName);
 			break;
 		case 5:
-			
 			ViewCustomerOrders viewCustomerOrders = new ViewCustomerOrders();
 			viewCustomerOrders.viewCustomerOrders(supplierUserName);
 			break;

@@ -1,0 +1,85 @@
+package view.admin;
+
+import appconstants.ShoppingAppConstants;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetCustomerDetails;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetOrderDetails;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetProductDetails;
+import databaseoperations.classes.databasegetoperations.getDetailsFromDatabase.GetSupplierDetails;
+import databaseoperations.classes.databasegetoperations.getEntities.GetProductEntityDetails;
+import databaseoperations.interfaces.gettable.CustomerDetailsGettable;
+import databaseoperations.interfaces.gettable.OrderDetailsGettable;
+import databaseoperations.interfaces.gettable.ProductDetailsGettable;
+import databaseoperations.interfaces.gettable.SupplierDetailsGettable;
+import driver.admin.ManageOrderDetails;
+import entities.Products;
+
+public class DisplayOrderDetails {
+
+	/**
+	 * 
+	 * @param orderId
+	 */
+	public void displayOrderDetails(int orderId) {
+		
+		OrderDetailsGettable getOrderDetails = new GetOrderDetails();
+		ProductDetailsGettable getProductDetails = new GetProductDetails();
+		CustomerDetailsGettable getCustomerDetails = new GetCustomerDetails();
+		SupplierDetailsGettable getSupplierDetails = new GetSupplierDetails();
+		 
+		//order details
+		String deliveryStatus = getOrderDetails.getDeliveryStatus(orderId);
+		String deliveryDate = getOrderDetails.getDeliveryDate(orderId);
+		System.out.println(ShoppingAppConstants.greaterThanLine+"\n");
+		System.out.println("\t\t\tORDER DETAILS\n");
+		System.out.println(ShoppingAppConstants.lessThanLine+"\n");
+		System.out.printf("%s", "orderId");
+		System.out.printf("\n%d", orderId);
+		System.out.print("\nOrder is "+deliveryStatus);
+		if(!(deliveryStatus.equals(ShoppingAppConstants.cancelled))) {
+			System.out.printf("%32s %s","Delivery Date: " ,deliveryDate);
+		}
+		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
+		//product details
+		int productId = getProductDetails.getProductId(orderId,ShoppingAppConstants.ordersTable,ShoppingAppConstants.orderIdColumn);
+		GetProductEntityDetails getProduct = new GetProductEntityDetails();
+		for(Products product : getProduct.getProductList(productId))
+		{
+			System.out.println(product.productName);
+			System.out.println(product.productCategory);
+			System.out.println("Cost :"+product.getProductPrice());
+		}
+		
+		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
+		//supplier details
+		int supplierId = getSupplierDetails.getSupplierId(productId);
+		
+		
+		String supplierName = getSupplierDetails.getSupplierName(supplierId);
+		long supplierPhoneNumber = getSupplierDetails.getSupplierPhoneNumber(supplierId);
+		
+		//customer details
+		int customerId = getCustomerDetails.getCustomerId(orderId);
+		String customerName = getCustomerDetails.getCustomer(customerId,ShoppingAppConstants.customerUserNameColumn);
+		String customerAddress = getCustomerDetails.getCustomer(customerId, ShoppingAppConstants.customerIdColumn);;
+		long customerPhoneNumber = getCustomerDetails.getCustomerPhoneNumber(customerId);
+		
+		
+		//display
+
+		
+		System.out.printf("%s", "Supplier Id\n");
+		System.out.printf("%d", supplierId);
+		System.out.printf("\n%s",supplierName);
+		System.out.printf("%50s %s","Contact supplier at: ",supplierPhoneNumber);
+		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
+		
+		System.out.println("Shipping Details\n");
+		System.out.printf("%s", customerName);
+		System.out.printf("\n%s", customerAddress);
+		System.out.printf("\n%d", customerPhoneNumber);
+		System.out.println("\n"+ShoppingAppConstants.bigUnderscoreLine+"\n");
+		
+		ManageOrderDetails manageOrderDetails = new ManageOrderDetails();
+		manageOrderDetails.manageOrderDetails(orderId);		
+	}
+}

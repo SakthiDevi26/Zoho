@@ -1,0 +1,14 @@
+package entities;
+
+public class Suppliers {
+
+	public Suppliers(int supplierId, String supplierName, long supplierPhoneNumber) {
+		this.supplierId = supplierId;
+		this.supplierName = supplierName;
+		this.supplierPhoneNumber = supplierPhoneNumber;
+	}
+	public int supplierId;
+	public String supplierName;
+	long supplierPhoneNumber;
+	String supplierPassword;
+}
